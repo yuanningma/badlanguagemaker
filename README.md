@@ -40,16 +40,18 @@
 
 ## Project Ideas
 ### Idea: Research Literacy 
-Problem: Research papers are dense and challenging to read. This project aims on giving reader access to necessary background information and simplifying the current paper text and data.  
-Requirements/ Critical Features: 
+#### Problem: 
+Research papers are dense and challenging to read. This project aims on giving reader access to necessary background information and simplifying the current paper text and data.  
+#### Requirements/ Critical Features: 
 * Paragraph Summary 
 * Linking necessary information
 * Abstracts for each link
 * Commentary Section
 
 ### Idea: Optimizing Patient Records / Files in a digital format (Healthcare)
-Problem: There is a lag time between patient data being collected and records being updated, as well as an issue with relevant data being easily accessed by healthcare professionals. This project aims to have a centralized and easily readable platform for healthcare professionals to update and access patient information. 
-Requirements/ Critical Features: 
+#### Problem: 
+There is a lag time between patient data being collected and records being updated, as well as an issue with relevant data being easily accessed by healthcare professionals. This project aims to have a centralized and easily readable platform for healthcare professionals to update and access patient information. 
+#### Requirements/ Critical Features: 
 * Inputting and updating data
 * Data visualization (especially making charts clear)
 * Timeline of information / relevant dates
