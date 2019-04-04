@@ -61,7 +61,7 @@ the page is written in -->
     </div>
 </nav>
 <!-- Body contains the page content -->
-<body>${content}
+
 
 
 <p>${message}</p>
