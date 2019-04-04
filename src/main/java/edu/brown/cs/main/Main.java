@@ -1,18 +1,17 @@
 package edu.brown.cs.main;
 
+import com.google.common.collect.ImmutableMap;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
-import spark.ExceptionHandler;
-import spark.Request;
-import spark.Response;
-import spark.Spark;
+import spark.*;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Map;
 
 
 public class Main {
@@ -60,6 +59,21 @@ public class Main {
         Spark.exception(Exception.class, new ExceptionPrinter());
 
         FreeMarkerEngine freeMarker = createEngine();
+        Spark.get("/home", new FrontHandler(), freeMarker);
+    }
+
+    /**
+     * Handle requests to the front page.
+     *
+     * @author jj
+     */
+    private static class FrontHandler implements TemplateViewRoute {
+        @Override
+        public ModelAndView handle(Request req, Response res) {
+            Map<String, Object> variables = ImmutableMap.of("title",
+                    "pc+ home", "message", "");
+            return new ModelAndView(variables, "main.ftl");
+        }
     }
 
     /**
