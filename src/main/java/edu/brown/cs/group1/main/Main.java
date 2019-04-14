@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
 
+import edu.brown.cs.wchoi11.repl.Main.ActorHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -66,6 +67,8 @@ public class Main {
 
     FreeMarkerEngine freeMarker = createEngine();
     Spark.get("/home", new FrontHandler(), freeMarker);
+    Spark.get("/forms", new PastFormsHandler(), freeMarker);
+    Spark.get("/forms/:formId", new FormHandler(), freeMarker);
   }
 
   /**

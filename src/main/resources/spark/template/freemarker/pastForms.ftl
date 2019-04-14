@@ -1,0 +1,11 @@
+<#assign content>
+
+<h1 class="text-center"> Past Forms </h1>
+
+<div id="forms" class="list-group">
+  <a href="#" class="list-group-item list-group-item-action text-center">Form 1</a>
+  <a href="#" class="list-group-item list-group-item-action text-center">Form 2</a>
+</div>
+
+</#assign>
+<#include "main.ftl">
