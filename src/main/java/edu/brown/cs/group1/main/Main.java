@@ -7,6 +7,7 @@ import java.io.StringWriter;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.gson.Gson;
 
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
@@ -67,6 +68,10 @@ public class Main {
     FreeMarkerEngine freeMarker = createEngine();
     Spark.get("/home", new FrontHandler(), freeMarker);
     Spark.get("/DD",  new DDHandler(), freeMarker);
+    Spark.get("/patient/forms", new PastFormsHandler(), freeMarker);
+    Spark.get("/patient/forms/:formId", new FormHandler(), freeMarker);
+    Spark.get("/forms/new", new NewFormHandler(), freeMarker);
+    Spark.post("/forms/create", new CreateFormHandler());
   }
 
   /**
