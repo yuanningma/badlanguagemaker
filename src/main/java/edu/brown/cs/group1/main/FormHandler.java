@@ -1,5 +1,9 @@
 package edu.brown.cs.group1.main;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
@@ -13,9 +17,15 @@ public class FormHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
   String id = req.params(":formId");
-  Map<String, Object> variables =
-      new ImmutableMap.Builder<String, Object>().put("title", "pc+ home")
-          .build();
+  
+  // TODO: Get form fields from id. Make map of labels to fields.
+  Map<String, String> fields = new LinkedHashMap<>();
+  fields.put("Name", "Eric");
+  fields.put("Age", "1234");
+  fields.put("Weight", "1234 pounds");
+  
+  Map<String, Object> variables = ImmutableMap.of("title",
+      "pc+ home", "message", id, "fields", fields);
   return new ModelAndView(variables, "form.ftl");
   }
 }
