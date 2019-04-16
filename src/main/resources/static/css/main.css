@@ -27,9 +27,23 @@ body {
 
 }
 
+
 .center-block {
     top:50%;
     left: 50%;
     transform: translate3d(-50%,-50%, 0);
     position: absolute;
 }
+
+canvas { display:block;
+    margin:0em auto;
+    background:black;
+    border:1px solid grey;
+}
+
+.chart {
+    position: absolute;
+    top: 1000px;
+    left: 10px;
+}
+

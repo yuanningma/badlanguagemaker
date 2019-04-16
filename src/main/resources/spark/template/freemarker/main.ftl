@@ -45,7 +45,9 @@ ${content}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/newForm.js"></script>
-</body>
+<script src="js/jquery-3.1.1.js"></script>
+<#--<script src="js/graph.js"></script>-->
+<script src="js/xray.js"></script>
 
 <!-- Make sure to close all your tags! -->
 </html>

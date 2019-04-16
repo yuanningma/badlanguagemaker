@@ -73,8 +73,9 @@ public class Main {
     Spark.get("/patient/forms/:formId", new FormHandler(), freeMarker);
     Spark.get("/forms/new", new NewFormHandler(), freeMarker);
     Spark.post("/forms/create", new CreateFormHandler());
+    Spark.get("/imaging", new XRayHandler(), freeMarker);
+    Spark.get("/data", new GraphHandler(), freeMarker);
   }
-
   /**
    * Handle requests to the front page.
    *
