@@ -67,8 +67,8 @@ public class Main {
     FreeMarkerEngine freeMarker = createEngine();
     Spark.get("/home", new FrontHandler(), freeMarker);
     Spark.get("/imaging", new XRayHandler(), freeMarker);
+    Spark.get("/data", new GraphHandler(), freeMarker);
   }
-
   /**
    * Handle requests to the front page.
    *

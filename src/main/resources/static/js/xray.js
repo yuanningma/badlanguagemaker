@@ -21,7 +21,7 @@ $(document).ready(() => {
 
     draw();
 
-   let lastX = canvas.width/ 2;
+   let lastX = canvas.width / 2;
    let lastY = canvas.height / 2;
 
     let scrolled = false;
@@ -49,7 +49,7 @@ $(document).ready(() => {
     canvas.addEventListener('mouseup',function(evt){
         if(panning) {
             panning = false;
-            mousedown = null
+            mousedown = null;
         }
         if (!scrolled) zoom(evt.shiftKey ? -1 : 1 );
     });

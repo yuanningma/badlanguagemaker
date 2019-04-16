@@ -59,3 +59,9 @@ canvas { display:block;
     background:black;
     border:1px solid grey;
 }
+
+.chart {
+    position: absolute;
+    top: 1000px;
+    left: 10px;
+}

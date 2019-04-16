@@ -68,7 +68,9 @@ ${content}
 <p>${message}</p>
 
 <script src="js/jquery-3.1.1.js"></script>
+<#--<script src="js/graph.js"></script>-->
 <script src="js/xray.js"></script>
+
 </body>
 
 <!-- Make sure to close all your tags! -->
