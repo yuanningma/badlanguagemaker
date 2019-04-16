@@ -54,3 +54,8 @@ body {
     color: red;
 
 }
+canvas { display:block;
+    margin:0em auto;
+    background:black;
+    border:1px solid grey;
+}
