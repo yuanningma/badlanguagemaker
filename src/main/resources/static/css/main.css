@@ -1,32 +1,4 @@
 
-
-.board {
-    font-family: fantasy;
-    font-style: italic;
-    padding: 0;
-    margin: auto;
-    width: 400px;
-    height: 400px;
-    background-color: darkgoldenrod;
-border: 5px solid darkgoldenrod;
-box-shadow: 10px 10px 20px green;
-    -webkit-user-select: none;
-}
-.board td {
-  color: red;
-border: solid blue 3px;
-background-color: yellow;
-border-radius:20px;
-box-shadow: inset 5px 5px 20px grey, inset -5px -5px 20px grey;
-    width: 25%;
-    height: 25%;
-    border: 30%;
-    margin: 0;
-    padding: 0;
-    font-size: 48px;
-    text-align: center;
-    text-transform: capitalize;
-}
 td.selected {
     background-color: cyan;
 }
@@ -35,9 +7,9 @@ td.selected {
   text-decoration: underline;
 }
 body {
-    background-color: pink;
-    font-family: fantasy;
-    color: purple;
+    background-color: LightGrey;
+    font-family: Sans-serif;
+    color: Black;
 }
 
 .board td.right {

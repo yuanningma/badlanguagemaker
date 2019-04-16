@@ -522,40 +522,6 @@ textarea {
  */
 
 table {
-  display: block;
-height: 800px;
-width: 80%;
-overflow-y: scroll;
-  background-color: white;
-
     border-collapse: collapse;
     border-spacing: 0;
-}
-#myInput{
-position: relative;
-top:10px;
-    width: 80%;
-    height: 30px;
-}
-#myTable {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-}
-
-#myTable td, #myTable th{
-  border: 1px solid #ddd;
-  padding: 8px;
-    width: 22%;
-}
-
-#myTable tr:nth-child(even){background-color: #f2f2f2;}
-
-#myTable tr:hover {background-color: #ddd;}
-
-#myTable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: MediumBlue;
-  color: white;
 }

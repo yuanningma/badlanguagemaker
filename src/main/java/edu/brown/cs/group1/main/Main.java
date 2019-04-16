@@ -66,6 +66,7 @@ public class Main {
 
     FreeMarkerEngine freeMarker = createEngine();
     Spark.get("/home", new FrontHandler(), freeMarker);
+    Spark.get("/DD",  new DDHandler(), freeMarker);
   }
 
   /**
@@ -77,7 +78,7 @@ public class Main {
     @Override
     public ModelAndView handle(Request req, Response res) {
       Map<String, Object> variables = ImmutableMap.of("title",
-          "pc+ home", "message", "");
+          "pc+ home", "message", "", "content", "");
       return new ModelAndView(variables, "main.ftl");
     }
   }
