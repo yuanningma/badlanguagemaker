@@ -4,7 +4,7 @@
 
 <div id="forms" class="list-group w-50 mx-auto">
   <a href="/forms/1" class="list-group-item list-group-item-action text-center">Form 1</a>
-  <a href="/forms/2" class="list-group-item list-group-item-action text-center">Form 2</a>
+  <a href="/patient/forms/2" class="list-group-item list-group-item-action text-center">Form 2</a>
 </div>
 
 </#assign>
