@@ -65,7 +65,9 @@ public class Main {
     Spark.exception(Exception.class, new ExceptionPrinter());
 
     FreeMarkerEngine freeMarker = createEngine();
+    Spark.get("/login", new LoginHandler(), freeMarker);
     Spark.get("/home", new FrontHandler(), freeMarker);
+
   }
 
   /**
