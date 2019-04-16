@@ -23,6 +23,17 @@ the page is written in -->
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-light p-4">
       <a class="text-black" href="/home">Home</a>
+              <center>
+                  <a class="text-black" href="/forms">forms</a>
+              </center>
+      <br>
+            <a class="text-black" href="/DD">DoctorDashboard</a>
+                  <center>
+                             <a class="text-black" href="/imaging">xray</a>
+                             </center>
+            <br>
+                  <a class="text-black" href="/login">login</a>
+            
     </div>
   </div>
   <nav class="navbar navbar-light bg-light">
