@@ -76,6 +76,7 @@ public class Main {
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
   }
+  
   /**
    * Handle requests to the front page.
    *
