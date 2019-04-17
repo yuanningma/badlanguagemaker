@@ -70,7 +70,7 @@ public class Main {
     Spark.get("/home", new FrontHandler(), freeMarker);
     Spark.get("/DD",  new DDHandler(), freeMarker);
     Spark.get("/forms", new PastFormsHandler(), freeMarker);
-    Spark.get("/forms/:formId", new FormHandler(), freeMarker);
+    Spark.get("/patients/:patiendId/forms/:formId", new FormHandler(), freeMarker);
     Spark.get("/forms/new", new NewFormHandler(), freeMarker);
     Spark.post("/forms/create", new CreateFormHandler());
     Spark.get("/imaging", new XRayHandler(), freeMarker);
