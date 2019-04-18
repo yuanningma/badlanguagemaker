@@ -9,6 +9,14 @@ import java.util.Map;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 
+import edu.brown.cs.group1.handler.CreateFormHandler;
+import edu.brown.cs.group1.handler.DDHandler;
+import edu.brown.cs.group1.handler.FormHandler;
+import edu.brown.cs.group1.handler.GraphHandler;
+import edu.brown.cs.group1.handler.LoginHandler;
+import edu.brown.cs.group1.handler.NewFormHandler;
+import edu.brown.cs.group1.handler.PastFormsHandler;
+import edu.brown.cs.group1.handler.XRayHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
