@@ -10,7 +10,6 @@ public abstract class Staff {
     boolean isDoctor;
     boolean isWorking;
 
-
     abstract int getStaffId();
 
 
