@@ -75,6 +75,19 @@ public class Main {
     Spark.post("/forms/create", new CreateFormHandler());
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
+    Spark.get("/timeline", new PatientHandler(), freeMarker);
+  }
+  
+  private static class PatientHandler implements TemplateViewRoute {
+
+	@Override
+	public ModelAndView handle(Request arg0, Response arg1) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> variables = ImmutableMap.of("title",
+		          "pc+ home", "message", "", "content", "");
+		      return new ModelAndView(variables, "timeline.ftl");
+	}
+	  
   }
   /**
    * Handle requests to the front page.
