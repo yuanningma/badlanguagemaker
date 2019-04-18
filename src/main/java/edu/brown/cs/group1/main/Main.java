@@ -7,7 +7,6 @@ import java.io.StringWriter;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.gson.Gson;
 
 import edu.brown.cs.group1.handler.CreateFormHandler;
 import edu.brown.cs.group1.handler.DDHandler;
@@ -75,7 +74,7 @@ public class Main {
 
     FreeMarkerEngine freeMarker = createEngine();
     Spark.get("/login", new LoginHandler(), freeMarker);
-    Spark.get("/home", new FrontHandler(), freeMarker);
+    Spark.get("/home", new LoginHandler(), freeMarker);
     Spark.get("/DD",  new DDHandler(), freeMarker);
     Spark.get("/forms", new PastFormsHandler(), freeMarker);
     Spark.get("/patients/:patiendId/forms/:formId", new FormHandler(), freeMarker);
@@ -85,19 +84,19 @@ public class Main {
     Spark.get("/data", new GraphHandler(), freeMarker);
     Spark.get("/timeline", new PatientHandler(), freeMarker);
   }
-  
+
   private static class PatientHandler implements TemplateViewRoute {
 
-	@Override
-	public ModelAndView handle(Request arg0, Response arg1) throws Exception {
-		// TODO Auto-generated method stub
-		Map<String, Object> variables = ImmutableMap.of("title",
-		          "pc+ home", "message", "", "content", "");
-		      return new ModelAndView(variables, "timeline.ftl");
-	}
-	  
+    @Override
+    public ModelAndView handle(Request arg0, Response arg1) throws Exception {
+      // TODO Auto-generated method stub
+      Map<String, Object> variables = ImmutableMap.of("title",
+          "pc+ home", "message", "", "content", "");
+      return new ModelAndView(variables, "timeline.ftl");
+    }
+
   }
-  
+
   /**
    * Handle requests to the front page.
    *
