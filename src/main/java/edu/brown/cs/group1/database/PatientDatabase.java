@@ -15,7 +15,12 @@ public class PatientDatabase extends Database {
   private Connection dbConn;
   private static final int SEVEN = 7;
 
-  PatientDatabase(String path) {
+    /**
+     * Constructor to database.
+     * @param path
+     *          the filepath to the database
+     */
+  public PatientDatabase(String path) {
     this.path = path;
     setDbConn(path, dbConn);
   }
