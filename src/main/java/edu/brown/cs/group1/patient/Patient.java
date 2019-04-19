@@ -32,43 +32,43 @@ public class Patient {
     return patientId;
   }
 
-  /**
-   * Sets patient's id.
-   * @param patientId
-   *          Patient's id.
-   */
-  public void setPatientId(int patientId) {
-    this.patientId = patientId;
-  }
+//  /**
+//   * Sets patient's id.
+//   * @param patientId
+//   *          Patient's id.
+//   */
+//  public void setPatientId(int patientId) {
+//    this.patientId = patientId;
+//  }
 
-  /**
-   * Returns all completed forms for this patient.
-   * @return List of completed forms for this patient. Empty list if no forms
-   *         have been completed for this patient.
-   */
-  public List<Template> getAllFilledTemplates() {
+//  /**
+//   * Returns all completed forms for this patient.
+//   * @return List of completed forms for this patient. Empty list if no forms
+//   *         have been completed for this patient.
+//   */
+//  public List<Template> getAllFilledTemplates() {
+//
+//  }
 
-  }
+//  /**
+//   * Returns blank form to fill out for this patient.
+//   * @param formName
+//   *          Name/type of form.
+//   * @return Blank form of specified type. Throws error if no such type exists.
+//   */
+//  public Template getTemplate(String formName) {
+//
+//  }
 
-  /**
-   * Returns blank form to fill out for this patient.
-   * @param formName
-   *          Name/type of form.
-   * @return Blank form of specified type. Throws error if no such type exists.
-   */
-  public Template getTemplate(String formName) {
-
-  }
-
-  /**
-   * Returns completed form of specified type for this patient.
-   * @param formName
-   *          Name/type of form.
-   * @return Completed form of given type. Throws error if no form of this type
-   *         is found for this patient.
-   */
-  public Template getFilledTemplate(String formName) {
-
-  }
+//  /**
+//   * Returns completed form of specified type for this patient.
+//   * @param formName
+//   *          Name/type of form.
+//   * @return Completed form of given type. Throws error if no form of this type
+//   *         is found for this patient.
+//   */
+//  public Template getFilledTemplate(String formName) {
+//
+//  }
 
 }

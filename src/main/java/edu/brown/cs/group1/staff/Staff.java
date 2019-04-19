@@ -10,7 +10,7 @@ public abstract class Staff {
     boolean isDoctor;
     boolean isWorking;
 
-    abstract int getStaffId();
+    public abstract int getStaffId();
 
 
     abstract void setStaffId(int staffId);
@@ -22,19 +22,19 @@ public abstract class Staff {
     abstract void setPermissions(Map<Integer, Boolean> permissions);
 
 
-    abstract boolean isAdmin();
+    public abstract boolean isAdmin();
 
 
     abstract void setAdmin(boolean isAdmin);
 
 
-    abstract boolean isDoctor();
+    public abstract boolean isDoctor();
 
 
     abstract void setDoctor(boolean isDoctor);
 
 
-    abstract boolean isWorking();
+    public abstract boolean isWorking();
 
 
     abstract void setWorking(boolean isWorking);
