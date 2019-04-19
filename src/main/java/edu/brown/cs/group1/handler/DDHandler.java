@@ -14,7 +14,7 @@ public class DDHandler implements TemplateViewRoute{
   @Override
   public ModelAndView handle(Request arg0, Response arg1) {
     Map<String, Object> variables = ImmutableMap.of("title",
-        "Maps: Brown University","content","","message","");
+        "pc+: My Dashboard","content","","message","");
     return new ModelAndView(variables, "DD.ftl");
   }
 

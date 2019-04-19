@@ -14,7 +14,7 @@ public class PastFormsHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
     // TODO: Get form names and ids (for href) for patient
     Map<String, Object> variables = ImmutableMap.of("title",
-        "pc+ home", "message", "");
+        "pc+: Past Forms", "message", "");
     return new ModelAndView(variables, "pastForms.ftl");
   }
 }
