@@ -58,5 +58,5 @@ public abstract class Database {
   * @throws SQLException
   *             thrown when an SQLException is thrown
   */
-  public abstract void create() throws SQLException;
+  //public abstract void create() throws SQLException;
 }

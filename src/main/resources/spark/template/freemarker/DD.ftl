@@ -2,13 +2,14 @@
 
     <link rel="stylesheet" href="/css/DD.css">
    <center>
-   <center>
+  
 <img src="logo.png" 
 style="z-index: -50;"  width="200" height="200">
-</center>
+
+   <h4>My Patients</text></h4>
 <input type="text" id="myInput" placeholder="Search";>
 <div style="overflow-x:auto;">
-<table  id="myTable">
+<table  id="myTable" style={position:relative; top:-90px;}>
   <tr class="header" >
     <th style="width:20%;">First Name</th>
         <th style="width:20%;">Last Name</th>

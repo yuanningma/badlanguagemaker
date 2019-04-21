@@ -8,6 +8,7 @@ import org.junit.Before;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import static org.junit.Assert.assertFalse;
 
 public class StaffDatabaseTest {
     StaffDatabase staffDatabase;
@@ -17,7 +18,7 @@ public class StaffDatabaseTest {
 
     @Before
     public void setUp() {
-        staffDatabase= new StaffDatabase("data/database/staff.sqlite3");
+        staffDatabase = new StaffDatabase("data/database/members.sqlite3");
         Map<Integer, Boolean> permission = new HashMap<>();
         permission.put(1, true);
         permission.put(2, false);
@@ -29,24 +30,22 @@ public class StaffDatabaseTest {
     }
 
     @Test
-    public void testCreate() {
+    public void testsaveNewStaff() {
         try {
-            staffDatabase.create();
+            staffDatabase.saveNewStaff(member1);
         } catch (SQLException sql) {
             sql.printStackTrace();
             System.out.println("Test Failure");
         }
     }
-
     @Test
-    public void testInsert() {
-        try {
-            staffDatabase.insert(member1);
-            Staff result = staffDatabase.getStaffMember("2");
+    public void testUpdate() {
+        try{
+            staffDatabase.update("is_Working", "false", member1);
+            Staff staff = staffDatabase.getStaffMember(member1.getStaffId());
+            assertFalse(staff.isWorking());
         } catch (SQLException sql) {
-            sql.printStackTrace();
-            System.out.println("Test Failure");
+           sql.printStackTrace();
         }
     }
-
 }

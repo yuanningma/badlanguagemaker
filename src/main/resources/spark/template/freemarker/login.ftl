@@ -1,4 +1,5 @@
 <#assign content>
+    <link rel="stylesheet" href="/css/login.css">
 <html class="login">
 <form>
     <center>
