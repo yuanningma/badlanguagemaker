@@ -25,7 +25,7 @@ color: white;
   background-color: SteelBlue;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: 65%;
   margin-left: -3px;
 }
 
@@ -53,12 +53,12 @@ color: white;
 
 /* Place the container to the left */
 .left {
-  left: -20%;
+  left: 0%;
 }
 
 /* Place the container to the right */
 .right {
-  left: 20%;
+  left: 30%;
 }
 
 /* Add arrows to the left container (pointing right) */
@@ -133,4 +133,66 @@ color: white;
   .right {
     left: 0%;
   }
+}
+
+img{
+  top:-60px;
+  display: block;
+  position: relative;
+}
+
+h4{
+  position: relative;
+  left:55%;
+  font-family:sans-serif;
+  font-size: 30px;
+  color: DodgerBlue;
+  top:-40px;
+    margin-top: 0px;
+  margin-bottom: 0px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 17%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+label,
+form input {
+  position: relative;
+  top: 80px;
+  left: 20px;
+    z-index: -9;
+    margin-bottom: 0px;
+}
+
+form p{
+  position: relative;
+  top: 80px;
+  left: 20px;
+  font-size: 20px;
+    margin-top: 0px;
+  margin-bottom: 0px;
+  color: RoyalBlue;
+}
+#checklist{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: LightBlue;
+  position: fixed;
+  top: 0px;
+  left:0px;
+  height: 100%;
+  overflow: auto;
+
+  z-index: -9;
+    color: black;
+
 }
