@@ -71,7 +71,7 @@ color: white;
   z-index: 1;
   right: 30px;
   border: medium solid white;
-  border-width: 10px 0 10px 10px;
+  border-width: 10px 10px 10px 0;
   border-color: transparent transparent transparent SteelBlue;
 }
 
@@ -100,6 +100,9 @@ color: white;
   background-color: SteelBlue;
   position: relative;
   border-radius: 6px;
+}
+.content:hover{
+  background-color: #FF9F55;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -193,6 +196,6 @@ form p{
   overflow: auto;
 
   z-index: -9;
-    color: black;
+    color: Navy;
 
 }

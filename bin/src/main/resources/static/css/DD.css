@@ -1,6 +1,6 @@
 #myInput{
 border-style: solid;
-  border-color:RoyalBlue;
+  border-color:SteelBlue;
 position: relative;
 top:0px;
     width: 60%;
@@ -35,7 +35,7 @@ overflow-y: scroll;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   border-style: solid;
-    border-color:RoyalBlue;
+    border-color:SteelBlue;
 }
 
 #myTable td, #myTable th{
@@ -46,7 +46,7 @@ overflow-y: scroll;
 
 #myTable tr:nth-child(even){background-color: #f2f2f2;}
 
-#myTable tr:hover {background-color: LemonChiffon;}
+#myTable tr:hover {background-color: LightSteelBlue;}
 
 #myTable th {
   padding-top: 20px;
