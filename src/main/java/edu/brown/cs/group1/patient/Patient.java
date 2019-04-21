@@ -135,7 +135,7 @@ public class Patient {
     // TODO: Call method for inserting new entry in table, generating template
     // object with fields from table
     // TODO: Add to completedForms hashmap
-    // completedForms.put(?, template);
+    // completedForms.put(template.getTemplateId(), template);
     // TODO: Return template object
     // return template;
     return null;

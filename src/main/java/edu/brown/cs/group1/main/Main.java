@@ -75,8 +75,8 @@ public class Main {
     Spark.get("/login", new LoginHandler(), freeMarker);
     Spark.get("/home", new LoginHandler(), freeMarker);
     Spark.get("/DD", new DDHandler(), freeMarker);
-    Spark.get("/forms", new PastFormsHandler(), freeMarker);
-    Spark.get("/patients/:patiendId/forms/:formId",
+    Spark.get("/patients/:patientId/forms", new PastFormsHandler(), freeMarker);
+    Spark.get("/patients/:patientId/forms/:formId",
         new FormHandler(),
         freeMarker);
     Spark.get("/forms/new", new NewFormHandler(), freeMarker);

@@ -12,12 +12,13 @@ import spark.Route;
 
 public class CreateFormHandler implements Route {
   private static final Gson GSON = new Gson();
+
   @Override
   public String handle(Request req, Response res) {
     QueryParamsMap qm = req.queryMap();
+    Map<String, String[]> fields = qm.toMap();
     // TODO: Create form in database with labels from frontend.
-    Map<String, Object> variables =
-        ImmutableMap.of("message", "success!");
+    Map<String, Object> variables = ImmutableMap.of("message", "success!");
     return GSON.toJson(variables);
   }
 }

@@ -12,9 +12,11 @@ import spark.TemplateViewRoute;
 public class PastFormsHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
-    // TODO: Create patient object with id from URL. Or call patient object from
-    // a cache?
+    // TODO: Create patient object with id from URL.
+    // String patientId = req.params(":patientId");
+    // Patient patient = new Patient(patientId,...);
     // TODO: Call getAllFilledTemplates on patient to pass to front-end.
+    // List<Template> forms = patient.getAllFilledTemplates();
     Map<String, Object> variables =
         ImmutableMap.of("title", "pc+ home", "message", "");
 

@@ -26,7 +26,7 @@ the page is written in -->
 <ul>
   <li><input type="text" id="searchPage" placeholder="Search Page"></li>
   <li><a class="text-black" href="/home">Home</a></li>
-  <li><a class="text-black" href="/forms">forms</a></li>
+  <li><a class="text-black" href="/patients/1/forms">forms</a></li>
   <li><a class="text-black" href="/DD">DoctorDashboard</a></li>
   <li><a class="text-black" href="/imaging">xray</a></li>
   <li> <a class="text-black" href="/timeline">timeline</a></li>
