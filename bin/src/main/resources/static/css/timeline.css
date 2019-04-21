@@ -29,10 +29,10 @@ body {
 
 /* Container around content */
 .container {
-  padding: 10px 40px;
+  padding: 10px 10px;
   position: relative;
   background-color: inherit;
-  width: 50%;
+  width: 30%;
 }
 
 /* The circles on the timeline */

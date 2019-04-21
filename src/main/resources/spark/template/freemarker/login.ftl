@@ -1,7 +1,11 @@
 <#assign content>
+<html class="login">
 <form>
     <center>
 <div class = "center-block">
+
+<img src="logo.png" 
+style="position:relative; z-index: -50;"  width="300" height="300">
 <h1> User Login </h1>
 
     <div class="form-group" style="width: 30rem;">

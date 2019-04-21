@@ -138,6 +138,7 @@ public class Patient {
     // completedForms.put(?, template);
     // TODO: Return template object
     // return template;
+    return null;
   }
 
   /**
@@ -151,6 +152,7 @@ public class Patient {
     // TODO: Call method for selecting form based on patient id
     // TODO: Return form returned from above method
     // return form;
+    return null;
   }
 
 }

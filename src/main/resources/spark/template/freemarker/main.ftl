@@ -10,6 +10,7 @@ the page is written in -->
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/html5bp.css">
+    <link rel="stylesheet" href="/css/navbar.css">
     <!--<link rel="stylesheet" href="/css/list.css">-->
     <!-- define character set in use -->
     <meta charset="utf-8">
@@ -18,33 +19,30 @@ the page is written in -->
     <title>${title}</title>
 
 </head>
+<body>
 
-<div class="pos-f-t">
+<div>
   <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-light p-4">
-      <a class="text-black" href="/home">Home</a>
-              <center>
-                  <a class="text-black" href="/forms">forms</a>
-              </center>
-      <br>
-            <a class="text-black" href="/DD">DoctorDashboard</a>
-                  <center>
-                             <a class="text-black" href="/imaging">xray</a>
-                             </center>
-            <br>
-                  <a class="text-black" href="/login">login</a>
+<ul>
+  <li><input type="text" id="searchPage" placeholder="Search Page"></li>
+  <li><a class="text-black" href="/home">Home</a></li>
+  <li><a class="text-black" href="/forms">forms</a></li>
+  <li><a class="text-black" href="/DD">DoctorDashboard</a></li>
+  <li><a class="text-black" href="/imaging">xray</a></li>
+  <li> <a class="text-black" href="/timeline">timeline</a></li>
+
+</ul>
             
     </div>
-  </div>
-  <nav class="navbar navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-light"  role="navigation">
+    <button id="nav" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+     aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation ">
       <span class="navbar-toggler-icon"></span>
     </button>
   </nav>
 </div>
 
-<!-- Body contains the page content -->
-<body>
+<div style="padding:1px 16px;height:1000px;">
 ${content}
 
 <p>${message}</p>
@@ -59,6 +57,13 @@ ${content}
 		<#--<script src="js/graph.js"></script>-->
 		<script src="/js/xray.js"></script>
 		<script src="/js/newForm.js"></script>
+</div>
+
+</body>
+
+
+
+<!-- Body contains the page content -->
 		
 
 <!-- Make sure to close all your tags! -->

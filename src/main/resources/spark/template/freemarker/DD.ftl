@@ -1,12 +1,15 @@
 <#assign content>
 
-
+    <link rel="stylesheet" href="/css/DD.css">
    <center>
-
-<input type="text" id="myInput" placeholder="Search">
+   <center>
+<img src="logo.png" 
+style="z-index: -50;"  width="200" height="200">
+</center>
+<input type="text" id="myInput" placeholder="Search";>
 <div style="overflow-x:auto;">
 <table  id="myTable">
-  <tr class="header">
+  <tr class="header" >
     <th style="width:20%;">First Name</th>
         <th style="width:20%;">Last Name</th>
     <th style="width:10%;">Age</th>

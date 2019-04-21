@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<#include "main.ftl">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #474e5d;
+  background-color: SteelBlue;
   font-family: Helvetica, sans-serif;
 }
 
@@ -55,12 +57,14 @@ body {
 
 /* Place the container to the left */
 .left {
-  left: 0;
+
+  right: 28%
 }
 
 /* Place the container to the right */
 .right {
-  left: 50%;
+  left: 28%;
+  right: 0;
 }
 
 /* Add arrows to the left container (pointing right) */
@@ -126,7 +130,7 @@ body {
   border-color: transparent white transparent transparent;
   }
 
-  /* Make sure all circles are at the same spot */
+ /* Make sure all circles are at the same spot */
   .left::after, .right::after {
   left: 15px;
   }
@@ -137,6 +141,7 @@ body {
   }
 }
 </style>
+
 </head>
 <body>
 
@@ -181,3 +186,4 @@ body {
 
 </body>
 </html>
+

@@ -6,16 +6,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Map;
 
-import joptsimple.OptionParser;
-import joptsimple.OptionSet;
-import spark.ExceptionHandler;
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.Spark;
-import spark.TemplateViewRoute;
-import spark.template.freemarker.FreeMarkerEngine;
-
 import com.google.common.collect.ImmutableMap;
 
 import edu.brown.cs.group1.handler.CreateFormHandler;
@@ -27,6 +17,15 @@ import edu.brown.cs.group1.handler.NewFormHandler;
 import edu.brown.cs.group1.handler.PastFormsHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
 import freemarker.template.Configuration;
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
+import spark.ExceptionHandler;
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+import spark.Spark;
+import spark.TemplateViewRoute;
+import spark.template.freemarker.FreeMarkerEngine;
 
 public class Main {
   private static final int DEFAULT_PORT = 4567;
@@ -45,10 +44,8 @@ public class Main {
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
-    parser.accepts("port")
-        .withRequiredArg()
-        .ofType(Integer.class)
-        .defaultsTo(DEFAULT_PORT);
+    parser.accepts("port").withRequiredArg().ofType(Integer.class).defaultsTo(
+        DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
     if (options.has("gui")) {
@@ -87,6 +84,7 @@ public class Main {
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
     Spark.get("/timeline", new PatientHandler(), freeMarker);
+
   }
 
   private static class PatientHandler implements TemplateViewRoute {
@@ -94,12 +92,8 @@ public class Main {
     @Override
     public ModelAndView handle(Request arg0, Response arg1) throws Exception {
       // TODO Auto-generated method stub
-      Map<String, Object> variables = ImmutableMap.of("title",
-          "pc+ home",
-          "message",
-          "",
-          "content",
-          "");
+      Map<String, Object> variables =
+          ImmutableMap.of("title", "pc+ home", "message", "", "content", "");
       return new ModelAndView(variables, "timeline.ftl");
     }
 
@@ -113,12 +107,8 @@ public class Main {
   private static class FrontHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of("title",
-          "pc+ home",
-          "message",
-          "",
-          "content",
-          "");
+      Map<String, Object> variables =
+          ImmutableMap.of("title", "pc+ home", "message", "", "content", "");
       return new ModelAndView(variables, "main.ftl");
     }
   }

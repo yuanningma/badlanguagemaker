@@ -1,0 +1,46 @@
+#myInput{
+border-style: solid;
+  border-color:SteelBlue;
+position: relative;
+top:-80px;
+    width: 60%;
+    height: 35px;
+}
+table {
+  display: block;
+height: 800px;
+width: 60%;
+overflow-y: scroll;
+  background-color: white;
+
+    border-spacing: 0;
+}
+#myTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-style: solid;
+    border-color:SteelBlue;
+}
+
+#myTable td, #myTable th{
+  border: 1px solid #ddd;
+  padding: 8px;
+    width: 22%;
+}
+
+#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#myTable tr:hover {background-color: LightSteelBlue;}
+
+#myTable th {
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: MediumBlue;
+  color: white;
+}
+
+img{
+  top:-80px;
+  display: block;
+  position: relative;
+}
