@@ -4,13 +4,11 @@ import edu.brown.cs.group1.staff.Admin;
 import edu.brown.cs.group1.staff.Doctor;
 import edu.brown.cs.group1.staff.Staff;
 
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Public class that concerns the StaffDatabase.
@@ -22,14 +20,33 @@ public class StaffDatabase extends Database {
   private Connection dbConn;
 
   public StaffDatabase(String path) {
-    this.path = path;
-    setDbConn(path, this.dbConn);
+    try {
+      Class.forName("org.sqlite.JDBC");
+      String url = "jdbc:sqlite:" + path;
+      dbConn = DriverManager.getConnection(url);
+      Statement stat = dbConn.createStatement();
+      stat.executeUpdate("PRAGMA foreign_keys = ON;");
+      stat.close();
+
+    } catch (ClassNotFoundException exp) {
+      exp.printStackTrace();
+
+    } catch (SQLException sql) {
+      sql.printStackTrace();
+    }
   }
 
-  @Override
-  public void create() throws SQLException {
+  /**
+   * Method that saves new staff members to the database.
+   * @param staffMember
+   *                  the new staff member to be inserted
+   * @throws SQLException
+   *                  thrown when a SQLException is thrown
+ */
+  public void saveNewStaff(Staff staffMember) throws SQLException {
     if (dbConn != null) {
-     String query = "CREATE TABLE IF NOT EXISTS staff("
+      PreparedStatement prep;
+      String query = "CREATE TABLE IF NOT EXISTS staff("
                     + "staffId INTEGER,"
                     + "name TEXT,"
                     + "permissions TEXT,"
@@ -38,31 +55,16 @@ public class StaffDatabase extends Database {
                     + "is_Working TEXT,"
                     + "PRIMARY KEY (staffId));";
 
-      PreparedStatement prep;
+
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
-      prep.close();
-    }
-  }
 
-    /**
-     * Inserts staff member into the staff database.
-     * @param staffMember
-     *                  the new staff member to be inserted
-     * @throws SQLException
-     *                  thrown when a SQLException is thrown
-     */
-  public void insert(Staff staffMember) throws SQLException {
-    if (dbConn != null) {
-
-      String query = "INSERT INTO staff VALUES (?,?,?,?,?,?);";
-      PreparedStatement prep;
+      query = "INSERT INTO staff VALUES (?,?,?,?,?,?);";
       prep = dbConn.prepareStatement(query);
-
       prep.setInt(1, staffMember.getStaffId());
       prep.setString(2, "name");
       prep.setString(3, staffMember.
-                          parsePermissions(staffMember.getPermissions()));
+              parsePermissions(staffMember.getPermissions()));
       prep.setString(4, String.valueOf(staffMember.isDoctor()));
       prep.setString(5, String.valueOf(staffMember.isAdmin()));
       prep.setString(6, String.valueOf(staffMember.isWorking()));
@@ -72,6 +74,7 @@ public class StaffDatabase extends Database {
       prep.close();
     }
   }
+
 
 
     /**
@@ -89,13 +92,30 @@ public class StaffDatabase extends Database {
                        Staff staff) throws SQLException {
     if (dbConn != null) {
 
-      String query = "UPDATE patients SET ? = ? WHERE staffId = ?";
+      String query = new String();
+      switch (field) {
+        case "name" :
+          query = "UPDATE staff SET name = ? WHERE staffId = ?";
+          break;
+        case "permissions" :
+          query = "UPDATE staff SET name = ? WHERE staffId = ?";
+          break;
+        case "is_Doctor" :
+          query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
+          break;
+        case "is_Admin" :
+          query = "UPDATE staff SET is_Admin = ? WHERE staffId = ?";
+          break;
+        case "is_Working":
+          query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
+          break;
+        default: query = null;
+      }
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
 
-      prep.setString(1, field);
-      prep.setString(2, value);
-      prep.setInt(3, staff.getStaffId());
+      prep.setString(1, value);
+      prep.setInt(2, staff.getStaffId());
 
       prep.executeUpdate();
       prep.close();
@@ -115,14 +135,14 @@ public class StaffDatabase extends Database {
      * @throws SQLException
      *              thrown when a SQLExpection is throw within method
      */
-  public Staff getStaffMember(String id) throws SQLException {
+  public Staff getStaffMember(Integer id) throws SQLException {
     if (dbConn != null) {
 
       String query = "SELECT * FROM staff WHERE (staffId = ?);";
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
 
-      prep.setString(1, id);
+      prep.setInt(1, id);
 
       ResultSet rs = prep.executeQuery();
       Staff staffmember = null;
@@ -133,12 +153,12 @@ public class StaffDatabase extends Database {
         String isAdmin = rs.getString(4);
         String isWorking = rs.getString(6);
         if (Boolean.parseBoolean(isAdmin)) {
-          staffmember = new Admin(Integer.parseInt(id),
-                    staffmember.extractPermissions(permissions) ,true, false,
+          staffmember = new Admin(id,
+                     extractPermissions(permissions) ,true, false,
                     Boolean.parseBoolean(isWorking));
         } else {
-          staffmember = new Doctor(Integer.parseInt(id),
-                    staffmember.extractPermissions(permissions), false, true,
+          staffmember = new Doctor(id,
+                    extractPermissions(permissions), false, true,
                     Boolean.parseBoolean(isWorking));
         }
       }
@@ -148,5 +168,22 @@ public class StaffDatabase extends Database {
     }
     return null;
   }
+  /**
+   * Method that extracts the permissions from a string.
+   *
+   * @param access
+   *             a string contains all the staff member's granted access.
+   * @return
+   *          a Map containing the granted access of the staff member.
+   */
+  public Map<Integer, Boolean> extractPermissions(String access) {
+    String[] arr = access.split(" ");
+    Map<Integer, Boolean> toReturn = new HashMap<>();
 
+    for (String s: arr) {
+      toReturn.put(Integer.parseInt(s), true);
+    }
+
+    return toReturn;
+  }
 }
