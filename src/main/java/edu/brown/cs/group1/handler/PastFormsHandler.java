@@ -14,7 +14,7 @@ public class PastFormsHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
     // TODO: Create patient object with id from URL.
     // String patientId = req.params(":patientId");
-    // Patient patient = new Patient(patientId,...);
+    // Patient patient = PatientDatabase.getPatient(patientId);
     // TODO: Call getAllFilledTemplates on patient to pass to front-end.
     // List<Template> forms = patient.getAllFilledTemplates();
     Map<String, Object> variables =
