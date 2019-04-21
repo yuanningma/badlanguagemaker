@@ -7,7 +7,6 @@
 /**
  * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
  */
-
 article,
 aside,
 details,
@@ -17,10 +16,16 @@ footer,
 header,
 hgroup,
 main,
-nav,
 section,
 summary {
     display: block;
+}
+
+nav{
+      display: block;
+      height:50px;
+      width: 100px;
+      margin: 0;
 }
 
 /**
@@ -461,6 +466,9 @@ html input[disabled] {
  * 3. Remove excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
+ img{
+   src: url(logo.png);
+ }
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -524,38 +532,10 @@ textarea {
 table {
   display: block;
 height: 800px;
-width: 80%;
+width: 60%;
 overflow-y: scroll;
   background-color: white;
 
     border-collapse: collapse;
     border-spacing: 0;
-}
-#myInput{
-position: relative;
-top:10px;
-    width: 80%;
-    height: 30px;
-}
-#myTable {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-}
-
-#myTable td, #myTable th{
-  border: 1px solid #ddd;
-  padding: 8px;
-    width: 22%;
-}
-
-#myTable tr:nth-child(even){background-color: #f2f2f2;}
-
-#myTable tr:hover {background-color: #ddd;}
-
-#myTable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: MediumBlue;
-  color: white;
 }

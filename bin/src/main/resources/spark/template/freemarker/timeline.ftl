@@ -1,149 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<#include "main.ftl">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: SteelBlue;
-  font-family: Helvetica, sans-serif;
-}
-
-/* The actual timeline (the vertical ruler) */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
-
-/* Container around content */
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-
-/* The circles on the timeline */
-.container::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-/* Place the container to the left */
-.left {
-
-  right: 28%
-}
-
-/* Place the container to the right */
-.right {
-  left: 28%;
-  right: 0;
-}
-
-/* Add arrows to the left container (pointing right) */
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
-
-/* Add arrows to the right container (pointing left) */
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
-
-/* Fix the circle for containers on the right side */
-.right::after {
-  left: -16px;
-}
-
-/* The actual content */
-.content {
-  padding: 20px 30px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-}
-
-/* Media queries - Responsive timeline on screens less than 600px wide */
-@media screen and (max-width: 600px) {
-  /* Place the timelime to the left */
-  .timeline::after {
-  left: 31px;
-  }
-  
-  /* Full-width containers */
-  .container {
-  width: 100%;
-  padding-left: 70px;
-  padding-right: 25px;
-  }
-  
-  /* Make sure that all arrows are pointing leftwards */
-  .container::before {
-  left: 60px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-  }
-
- /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
-  left: 15px;
-  }
-  
-  /* Make all right containers behave like the left ones */
-  .right {
-  left: 0%;
-  }
-}
-</style>
+<#assign content>
+      <link rel="stylesheet" href="/css/timeline.css">
 
 </head>
+
 <body>
+
+<center>
+<img src="logo.png" 
+style="z-index: -50;"  width="200" height="200">
+</center>
+   <h4>Patient Timeline</text></h4>
+
 
 <div class="timeline">
   <div class="container left">
@@ -184,6 +56,64 @@ body {
   </div>
 </div>
 
+
+<form id="checklist" >
+<p> Filter by</p>
+   <input id="searchTimeline" type="text" placeholder="Search">
+   <br><br>
+   <p>Condition Type:</p>
+   <input type="checkbox" name="Cardiovascular" value="Cardiovascular">
+           <label for="Cardiovascular">Cardiovascular</label>
+   <br>
+  <input type="checkbox" name="Respiratory" value="Respiratory">
+           <label for="Respiratory">Respiratory</label>
+   <br>
+     <input type="checkbox" name="Neurology" value="Neurology">
+           <label for="Neurology">Neurology</label>
+   <br>
+     <input type="checkbox" name="Endocrine" value="Endocrine">
+           <label for="Endocrine">Endocrine</label>
+   <br>
+   <input type="checkbox" name="Renal" value="Renal">
+           <label for="Renal">Renal</label>
+   <br>
+   <input type="checkbox" name="Hepato / GI" value="Hepato / GI">
+           <label for="Hepato / GI">Hepato / GI</label>
+           <br>
+   <input type="checkbox" name="Pyschiatric" value="Pyschiatric">
+           <label for="Pyschiatric">Pyschiatric</label>
+   <br>
+    <input type="checkbox" name="Orthopedic" value="Orthopedic">
+           <label for="Orthopedic">Orthopedic</label>
+   <br>
+     <input type="checkbox" name="Reproductive" value="Reproductive">
+           <label for="Reproductive">Reproductive</label>
+   <br>
+   <br><br>
+    <p>Time Span:</p>
+    <input type="text" id="date1" placeholder="mm/dd/yy">
+    <label for="date1">to</label>
+ <input type="text" id="date2" placeholder="mm/dd/yy"><br><br>
+     <p>Medical History:</p>
+     <input type="checkbox" name="Hospitilizations" value="Hospitilizations">
+           <label for="Hospitilizations">Hospitilizations</label>
+   <br>
+     <input type="checkbox" name="Exams" value="Exams">
+           <label for="Exams">Exams</label>
+   <br>
+   <input type="checkbox" name="Additional Treatments" value="Additional Treatments">
+           <label for="Additional Treatments">Additional Treatments</label>
+   <br>
+         <input type="checkbox" name="Physical Therapy" value="Physical Therapy">
+           <label for="Physical Therapy">Physical Therapy</label>
+   <br>
+      <input type="checkbox" name="Medications" value="Medications">
+           <label for="Medications">Medications</label>
+   <br><br>
+   <input type="submit" value="Search"><br>
+</ul>
 </body>
+</#assign>
+<#include "main.ftl">
 </html>
 

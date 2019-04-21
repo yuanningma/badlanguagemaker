@@ -1,4 +1,6 @@
-
+.xray{
+  background-color: black;
+}
 td.selected {
     background-color: cyan;
 }
@@ -6,6 +8,8 @@ td.selected {
 .m, .w, .z {
   text-decoration: underline;
 }
+
+
 body {
     background-color: LightGrey;
     font-family: Sans-serif;
@@ -46,4 +50,3 @@ canvas { display:block;
     top: 1000px;
     left: 10px;
 }
-
