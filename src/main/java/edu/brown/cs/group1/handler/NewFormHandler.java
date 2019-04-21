@@ -12,8 +12,8 @@ import spark.TemplateViewRoute;
 public class NewFormHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
-    Map<String, Object> variables = ImmutableMap.of("title",
-        "pc+: Home", "message", "");
+    Map<String, Object> variables =
+        ImmutableMap.of("title", "pc+: Home", "message", "");
     return new ModelAndView(variables, "newForm.ftl");
   }
 }
