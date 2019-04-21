@@ -2,6 +2,7 @@ package edu.brown.cs.group1.database;
 import edu.brown.cs.group1.patient.Patient;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 
@@ -43,6 +44,8 @@ public class PatientDatabase extends Database {
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
       prep.close();
+    } else {
+      System.out.println("Connection null");
     }
   }
 
@@ -94,5 +97,48 @@ public class PatientDatabase extends Database {
       prep.executeUpdate();
       prep.close();
     }
+  }
+
+    /**
+     * Method to retrieve patient with the patient id.
+     *
+     * @param id
+     *          the patient id.
+     * @return
+     *        a patient object corresponding to the input id.
+     *        If no patient exist in the database the method would
+     *        return null.
+     *
+     * @throws SQLException
+     *              thrown when a SQLExpection is throw within method
+     */
+  public Patient getPatient(String id) throws SQLException {
+    if (dbConn != null) {
+
+      String query = "SELECT * FROM patient WHERE (patientId = ?);";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+
+      prep.setString(1, id);
+
+      ResultSet rs = prep.executeQuery();
+      Patient patient = null;
+
+      while (rs.next()) {
+        //TODO: HAVE TO UPDATE DEPENDING ON PATIENT OBJ.
+//        String name = rs.getString(2);
+//        String insurance = rs.getString(3);
+//        String insuranceNum = rs.getString(4);
+//        String doctor = rs.getString(5);
+//        Date date = rs.getDate(6);
+//        String phone = rs.getString(7);
+        patient = new Patient(Integer.parseInt(id));
+      }
+
+      rs.close();
+      prep.close();
+      return patient;
+    }
+    return null;
   }
 }

@@ -17,7 +17,6 @@ public class PatientDatabaseTest {
 
   @Test
    public void testCreate() {
-      PatientDatabase patientDatabase =
       try {
           patientDatabase.create();
       } catch (SQLException sql) {

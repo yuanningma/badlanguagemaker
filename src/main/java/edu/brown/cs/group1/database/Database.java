@@ -56,10 +56,7 @@ public abstract class Database {
   * This method creates a database.
   *
   * @throws SQLException
-  *             thrown when SQLException is thrown
+  *             thrown when an SQLException is thrown
   */
-  public void create() throws SQLException { }
-
-
-
+  public abstract void create() throws SQLException;
 }
