@@ -1,81 +1,45 @@
 package edu.brown.cs.group1.template;
 
-import java.sql.Connection;
+import java.util.List;
 
 /**
  * Template class provides ability to create new forms and customize fields.
- * Adds ability to save template as a blank form to the database. Adds ability
- * to update field values of forms.
  * @author wchoi11
  *
  */
 public class Template {
   private int templateId;
-  private Connection conn;
+  private List<String> fields;
 
   /**
    * Constructor.
-   * @param conn
-   *          Connection to respective form database.
    * @param templateId
    *          Form id.
+   * @param fields
+   *          Field names and optionally associated values if object is a form.
    */
-  public Template(Connection conn, int templateId) {
+  public Template(int templateId, List<String> fields) {
     this.templateId = templateId;
-    this.conn = conn;
+    this.fields = fields;
+  }
+
+  public int getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(int templateId) {
+    this.templateId = templateId;
+  }
+
+  public List<String> getFields() {
+    return fields;
+  }
+
+  public void setFields(List<String> fields) {
+    this.fields = fields;
   }
 
   // TODO: Method for extracting fields and associated values from existing
   // form.
 
-  /**
-   * Updates specified field's value in database.
-   * @param fieldName
-   *          Field name.
-   * @param val
-   *          Value to update with.
-   */
-  public void updateField(String fieldName, String val) {
-    // try {
-    // PreparedStatement prep;
-    // prep = conn.prepareStatement("UPDATE Form SET ? = ? WHERE formId = ?;");
-    // prep.setString(1, fieldName);
-    // prep.setString(2, val);
-    // prep.setInt(3, templateId);
-    // ResultSet rs = prep.executeQuery();
-    // while (rs.next()) {
-    //
-    // }
-    // rs.close();
-    // prep.close();
-    // } catch (SQLException e) {
-    //
-    // }
-
-  }
-
-  /**
-   * Updates specified field's value in database.
-   * @param fieldName
-   *          Field name.
-   * @param val
-   *          Value to update with.
-   */
-  public void updateField(String fieldName, int val) {
-    // try {
-    // PreparedStatement prep;
-    // prep = conn.prepareStatement("UPDATE Form SET ? = ? WHERE formId = ?;");
-    // prep.setString(1, fieldName);
-    // prep.setInt(2, val);
-    // prep.setInt(3, templateId);
-    // ResultSet rs = prep.executeQuery();
-    // while (rs.next()) {
-    //
-    // }
-    // rs.close();
-    // prep.close();
-    // } catch (SQLException e) {
-    //
-    // }
-  }
 }

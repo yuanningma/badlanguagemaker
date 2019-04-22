@@ -1,7 +1,5 @@
 package edu.brown.cs.group1.patient;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import edu.brown.cs.group1.template.Template;
@@ -21,7 +19,6 @@ public class Patient {
   private Map<Integer, Template> completedForms;
   // private boolean isWorking;
   // TODO: Change to isHospitalized?
-  // TODO: Add patient database connection? Also to other databases?
 
   /**
    * Constructor.
@@ -103,57 +100,6 @@ public class Patient {
 
   public void setCompletedForms(Map<Integer, Template> completedForms) {
     this.completedForms = completedForms;
-  }
-
-  // TODO: Take below methods and put in TemplateDatabase object
-
-  /**
-   * Returns all completed forms for this patient.
-   * @return List of completed forms for this patient. Empty list if no forms
-   *         have been completed for this patient.
-   */
-  public List<Template> getAllFilledTemplates() {
-    // TODO: Select all form ids from patient-form database
-    List<Integer> formIds = new ArrayList<>();
-    // TODO: Get forms using formId
-    List<Template> forms = new ArrayList<>();
-    for (int formId : formIds) {
-      // TODO: Call method for returning form from formId (formId prefaced by id
-      // for
-      // which table to query from?)
-      // Template template = ?;
-      // forms.add(template);
-    }
-    return forms;
-  }
-
-  /**
-   * Returns blank form to fill out for this patient.
-   * @param formName
-   *          Name/type of form.
-   * @return Blank form of specified type. Throws error if no such type exists.
-   */
-  public Template getTemplate(String formName) {
-    // TODO: Call method for inserting new entry in table, generating template
-    // object with fields from table
-    // TODO: Add to completedForms hashmap
-    // completedForms.put(template.getTemplateId(), template);
-    // TODO: Return template object
-    return null;
-  }
-
-  /**
-   * Returns completed form of specified type for this patient.
-   * @param formName
-   *          Name/type of form.
-   * @return Completed form of given type. Throws error if no form of this type
-   *         is found for this patient.
-   */
-  public Template getFilledTemplate(String formName) {
-    // TODO: Call method for selecting form based on patient id
-    // TODO: Return form returned from above method
-    // return form;
-    return null;
   }
 
 }

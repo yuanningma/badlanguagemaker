@@ -1,23 +1,34 @@
 package edu.brown.cs.group1.database;
 
-import edu.brown.cs.group1.template.Template;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import edu.brown.cs.group1.template.Template;
+
 /**
  * Public class that concerns the PatientDatabase. This class extends the
  * abstract class Database which implements the setDbConn method.
- *  */
+ * <p>
+ * [TENTATIVE ADDITION] Note the difference between a template and form. A
+ * template refers to the list of field names, but does not have any fields
+ * filled out. A form is a template but with all fields filled out.
+ */
 public class FormsDatabase extends Database {
   private Connection dbConn;
 
-    /**
-     * Constructor for Template Database.
-     * @param path
-     *          a string that represents the path of the database.
-     */
+  /**
+   * Constructor for Form Database.
+   * @param path
+   *          a string that represents the path of the database.
+   */
   public FormsDatabase(String path) {
     try {
       Class.forName("org.sqlite.JDBC");
@@ -35,20 +46,19 @@ public class FormsDatabase extends Database {
     }
   }
 
-    /**
-     * Saves form inputs into the FormsDatabase.
-     * @param template
-     *          the template to be saved.
-     */
+  /**
+   * Saves form inputs into the FormsDatabase.
+   * @param template
+   *          the template to be saved.
+   */
   public void saveTemplate(Template template) {
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query = "CREATE TABLE IF NOT EXISTS form("
-                + "formId INTEGER,"
-                + "patientId TEXT,"
-                + "form_input TEXT,"
-                + "PRIMARY KEY (formId));";
+        String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER,"
+            + "patientId TEXT,"
+            + "form_input TEXT,"
+            + "PRIMARY KEY (formId));";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         HashSet<String> columns = getColumnsInfo();
@@ -62,9 +72,7 @@ public class FormsDatabase extends Database {
 
   /**
    * Get the columns existing in the forms database.
-   * @return
-   *        a HashSet containing all the columns names
-   *        present in the database.
+   * @return a HashSet containing all the columns names present in the database.
    */
   public HashSet<String> getColumnsInfo() {
     if (dbConn != null) {
@@ -74,7 +82,7 @@ public class FormsDatabase extends Database {
         String query = "SELECT * FROM forms";
         prep = dbConn.prepareStatement(query);
 
-        ResultSet rs =  prep.executeQuery(query);
+        ResultSet rs = prep.executeQuery(query);
         ResultSetMetaData rsmd = prep.getMetaData();
         int columnCount = rsmd.getColumnCount();
 
@@ -90,6 +98,148 @@ public class FormsDatabase extends Database {
         sql.printStackTrace();
       }
     }
+    return null;
+  }
+
+  // [NOTE] The below methods assume (for now) that only one forms table exists
+  // in the database. They also assume we'll have a separate templates and forms
+  // database, which I think is the better way to go. I'm thinking that when we
+  // implement multiple form tables one part of the form id must be parsed to
+  // determine which table to query from. This should be easy to implement by
+  // extending the below methods.
+
+  /**
+   * Returns all completed forms for specified patient.
+   * @param patientId
+   *          Patient's id.
+   * @return List of completed forms for patient. Empty list if no forms have
+   *         been completed for this patient.
+   */
+  public List<Template> getAllForms(int patientId) {
+    List<Integer> formIds = new ArrayList<>();
+    try (PreparedStatement prep = dbConn.prepareStatement(
+        "SELECT form FROM patient_form WHERE patient = ?;");) {
+      prep.setInt(1, patientId);
+      ResultSet rs = prep.executeQuery();
+      while (rs.next()) {
+        formIds.add(rs.getInt(1));
+      }
+      rs.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    List<Template> forms = new ArrayList<>();
+    for (int formId : formIds) {
+      // Could optimize by adding SELECT queries to batch and executing batch
+      // all at once.
+      Template template = getForm(formId);
+      forms.add(template);
+    }
+    return forms;
+  }
+
+  /**
+   * Returns blank template.
+   * @param templateId
+   *          Id of template.
+   * @return Blank template of specified id. Throws error if no such template
+   *         exists.
+   */
+  public Template getTemplate(int templateId) {
+    // TODO: Add to completedForms hashmap (need new method in patient class to
+    // wrap)
+    // completedForms.put(template.getTemplateId(), template);
+
+    // try (PreparedStatement prep = dbConn.prepareStatement("SELECT fields FROM
+    // templates WHERE id = ?;");) {
+    // prep.setInt(1, templateId);
+    // ResultSet rs = prep.executeQuery();
+    // String fields = "";
+    // while (rs.next()) {
+    // fields = rs.getString(1);
+    // }
+    // List<String> parsedFields = parseFields(fields, false);
+    // Template template = new Template(formId, parsedFields);
+    // rs.close();
+    // return template;
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // }
+    return null;
+  }
+
+  /**
+   * Returns form of specified id.
+   * @param formId
+   *          Id of form.
+   * @return Completed form of given id. Throws error if no form of exists.
+   */
+  public Template getForm(int formId) {
+    // try (PreparedStatement prep = dbConn.prepareStatement("SELECT fields FROM
+    // forms WHERE id = ?;");) {
+    // prep.setInt(1, formId);
+    // ResultSet rs = prep.executeQuery();
+    // String fields = "";
+    // while (rs.next()) {
+    // fields = rs.getString(1);
+    // }
+    // List<String> parsedFields = parseFields(fields, true);
+    // Template form = new Template(formId, parsedFields);
+    // rs.close();
+    // return form;
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // }
+    return null;
+  }
+
+  /**
+   * Updates specified field's value in database.
+   * @param fieldName
+   *          Field name.
+   * @param val
+   *          Value to update with.
+   */
+  public void updateField(int formId, String fieldName, String val) {
+    // Template form = getForm(formId);
+    // List<String> fields = form.getFields();
+    // for (int i = 0; i < fields.size(); i += 2) {
+    // if (fields.get(i).equals(fieldName)) {
+    // fields.set(i + 1, val);
+    // }
+    // }
+    // // TODO: Implement saveForm.
+    // saveForm(form);
+
+    // try {
+    // PreparedStatement prep;
+    // prep = conn.prepareStatement("UPDATE Form SET ? = ? WHERE formId = ?;");
+    // prep.setString(1, fieldName);
+    // prep.setString(2, val);
+    // prep.setInt(3, templateId);
+    // ResultSet rs = prep.executeQuery();
+    // while (rs.next()) {
+    //
+    // }
+    // rs.close();
+    // prep.close();
+    // } catch (SQLException e) {
+    //
+    // }
+
+  }
+
+  /**
+   * Parses string of fields to return list of fields and optionally their
+   * associated values if a form.
+   * @param fields
+   *          String to be parsed for fields.
+   * @param isForm
+   *          Form if true and a template if false.
+   * @return List of fields and optionally their associated values if a form.
+   */
+  private List<String> parseFields(String fields, boolean isForm) {
+    // TODO: Implementation depends on how list will be stored in database.
     return null;
   }
 }
