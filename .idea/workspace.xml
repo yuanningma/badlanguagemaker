@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a01bfe0f-9cca-456a-ae70-2b0ab575f728" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalProcedureDatabaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/database/members.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalProcedureDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalProcedureDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/TerminologyDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/TerminologyDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/synonyms/TerminologyAssociation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/synonyms/TerminologyAssociation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/textloader/TextFileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/textloader/TextFileLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PatientDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/StaffDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,10 +36,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/PatientDatabaseTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-43">
-              <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="116">
+              <caret line="16" selection-start-line="16" selection-end-line="21" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,10 +48,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/StaffDatabaseTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-126">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+            <state relative-caret-position="143">
+              <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalProcedureDatabaseTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,43 +72,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/medicalTerminology/en_med_glut.txt">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="16174" column="6" selection-start-line="16174" selection-end-line="16174" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/login.ftl">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-265">
-              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-              <folding>
-                <element signature="e#578#579#0" expanded="true" />
-                <element signature="e#605#606#0" expanded="true" />
-                <element signature="e#652#653#0" expanded="true" />
-                <element signature="e#690#691#0" expanded="true" />
-                <element signature="e#727#728#0" expanded="true" />
-                <element signature="e#750#751#0" expanded="true" />
-                <element signature="e#798#799#0" expanded="true" />
-                <element signature="e#828#829#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2560">
-              <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+            <state relative-caret-position="-145">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,14 +84,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/synonyms/TerminologyAssociation.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/patient/PatientTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
-              <folding>
-                <element signature="e#1281#1282#0" expanded="true" />
-                <element signature="e#1318#1319#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -117,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/TerminologyDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" selection-start-line="5" selection-end-line="34" selection-end-column="67" />
+            <state relative-caret-position="30">
+              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,26 +107,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalProcedureDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="7" selection-start-line="7" selection-end-line="15" selection-end-column="3" />
+            <state relative-caret-position="160">
+              <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#303#304#0" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/medicalTerminology/CMS29_DESC_LONG_SG.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+            <state relative-caret-position="14696">
+              <caret line="980" column="17" selection-start-line="980" selection-start-column="12" selection-end-line="980" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/textloader/TextFileLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#192#193#0" expanded="true" />
-                <element signature="e#218#219#0" expanded="true" />
+                <element signature="e#445#446#0" expanded="true" />
+                <element signature="e#479#480#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="80" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -199,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplateDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/patient/Patient.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/textloader/TextFileLoader.java" />
         <option value="$PROJECT_DIR$/data/medicalTerminology/medicalRoots.txt" />
         <option value="$PROJECT_DIR$/data/medicalTerminology/CMS29_DESC_LONG_SG.txt" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/synonyms/MedicalProcedureDatabase.java" />
@@ -208,8 +204,11 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/synonyms/MedicalAssociation.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/synonyms/TerminologyAssociation.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/TerminologyDatabase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalProcedureDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/textloader/TextFileLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalProcedureDatabase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalProcedureDatabaseTest.java" />
       </list>
     </option>
   </component>
@@ -236,18 +235,7 @@
             <path>
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
@@ -288,89 +276,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="relevance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="staff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="synonyms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
               <item name="TerminologyDatabase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="freemarker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -379,6 +290,41 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cs" type="462c0819:PsiDirectoryNode" />
+              <item name="patient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cs" type="462c0819:PsiDirectoryNode" />
+              <item name="TestDatabase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cs" type="462c0819:PsiDirectoryNode" />
+              <item name="TestTermiologyDatabase" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -389,7 +335,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555967183228" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555972132030" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
@@ -411,12 +357,34 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.StaffDatabaseTest.testUpdate">
-    <configuration name="PatientDatabaseTest.testSavePatient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MedicalProcedureDatabaseTest.testRetrieveEntries">
+    <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="term-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PatientDatabaseTest" />
-      <option name="METHOD_NAME" value="testSavePatient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.brown.cs.TestTermiologyDatabase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.brown.cs.TestTermiologyDatabase" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest" />
+      <option name="METHOD_NAME" value="testRetrieveEntries" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MedicalProcedureDatabaseTest.testRetrieveEntries" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="term-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.brown.cs.TestTermiologyDatabase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.brown.cs.TestTermiologyDatabase" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" />
+      <option name="METHOD_NAME" value="testRetrieveEntries" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -424,19 +392,9 @@
     </configuration>
     <configuration name="PatientDatabaseTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="term-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PatientDatabaseTest" />
+      <option name="PACKAGE_NAME" value="edu.brown.cs.TestDatabase" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.TestDatabase.PatientDatabaseTest" />
       <option name="METHOD_NAME" value="testUpdate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StaffDatabaseTest.testCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="term-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StaffDatabaseTest" />
-      <option name="METHOD_NAME" value="testCreate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -444,8 +402,8 @@
     </configuration>
     <configuration name="StaffDatabaseTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="term-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StaffDatabaseTest" />
+      <option name="PACKAGE_NAME" value="edu.brown.cs.TestDatabase" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.TestDatabase.StaffDatabaseTest" />
       <option name="METHOD_NAME" value="testUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -454,8 +412,8 @@
     </configuration>
     <configuration name="StaffDatabaseTest.testsaveNewStaff" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="term-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StaffDatabaseTest" />
+      <option name="PACKAGE_NAME" value="edu.brown.cs.TestDatabase" />
+      <option name="MAIN_CLASS_NAME" value="edu.brown.cs.TestDatabase.StaffDatabaseTest" />
       <option name="METHOD_NAME" value="testsaveNewStaff" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -464,11 +422,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MedicalProcedureDatabaseTest.testRetrieveEntries" />
+        <item itemvalue="JUnit.MedicalDictornaryDatabaseTest.testRetrieveEntries" />
         <item itemvalue="JUnit.StaffDatabaseTest.testUpdate" />
         <item itemvalue="JUnit.StaffDatabaseTest.testsaveNewStaff" />
         <item itemvalue="JUnit.PatientDatabaseTest.testUpdate" />
-        <item itemvalue="JUnit.PatientDatabaseTest.testSavePatient" />
-        <item itemvalue="JUnit.StaffDatabaseTest.testCreate" />
       </list>
     </recent_temporary>
   </component>
@@ -489,39 +447,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PatientDatabaseTest_testUpdate - 2019.04.21 at 14h 35m 49s.xml">
-      <configuration name="PatientDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 16m 50s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatientDatabaseTest_testSavePatient - 2019.04.21 at 14h 36m 03s.xml">
-      <configuration name="PatientDatabaseTest.testSavePatient" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 18m 01s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatientDatabaseTest_testUpdate - 2019.04.21 at 14h 36m 10s.xml">
-      <configuration name="PatientDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 19m 55s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatientDatabaseTest_testUpdate - 2019.04.21 at 14h 37m 08s.xml">
-      <configuration name="PatientDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 20m 09s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatientDatabaseTest_testUpdate - 2019.04.21 at 14h 37m 19s.xml">
-      <configuration name="PatientDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 20m 17s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StaffDatabaseTest_testUpdate - 2019.04.21 at 14h 40m 48s.xml">
-      <configuration name="StaffDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 20m 39s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StaffDatabaseTest_testsaveNewStaff - 2019.04.21 at 14h 41m 02s.xml">
-      <configuration name="StaffDatabaseTest.testsaveNewStaff" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 21m 03s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StaffDatabaseTest_testUpdate - 2019.04.21 at 14h 41m 10s.xml">
-      <configuration name="StaffDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 21m 41s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StaffDatabaseTest_testUpdate - 2019.04.21 at 14h 41m 47s.xml">
-      <configuration name="StaffDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 22m 05s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StaffDatabaseTest_testUpdate - 2019.04.21 at 14h 59m 21s.xml">
-      <configuration name="StaffDatabaseTest.testUpdate" configurationId="JUnit" />
+    <history-entry file="MedicalDictornaryDatabaseTest_testRetrieveEntries - 2019.04.22 at 18h 22m 23s.xml">
+      <configuration name="MedicalDictornaryDatabaseTest.testRetrieveEntries" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58564000" />
+    <option name="totallyTimeSpent" value="61645000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -533,16 +491,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="963" height="800" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="634" height="800" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23669924" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36824325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Thumbnails" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49753696" visible="true" weight="0.32876712" />
@@ -718,18 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/textloader/TextFileLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/search/Search.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -777,13 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/medicalTerminology/CMS29_DESC_LONG_SG.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="980" column="17" selection-start-line="980" selection-start-column="12" selection-end-line="980" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/medicalTerminology/medicalRoots.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -800,26 +739,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/login.ftl">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/PatientDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/StaffDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -864,8 +783,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/TerminologyDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" selection-start-line="5" selection-end-line="34" selection-end-column="67" />
+        <state relative-caret-position="30">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/textloader/TextFileLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TestTerminologyDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/patient/PatientTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="16" selection-start-line="16" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/medicalTerminology/CMS29_DESC_LONG_SG.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14696">
+          <caret line="980" column="17" selection-start-line="980" selection-start-column="12" selection-end-line="980" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -874,24 +856,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalProcedureDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="7" selection-start-line="7" selection-end-line="15" selection-end-column="3" />
+        <state relative-caret-position="160">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#333#334#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/TerminologyDatabase/MedicalDictionaryDatabase.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+        <state relative-caret-position="143">
+          <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#218#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalProcedureDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

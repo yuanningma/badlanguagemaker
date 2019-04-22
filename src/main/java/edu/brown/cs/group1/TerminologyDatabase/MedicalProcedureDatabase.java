@@ -1,6 +1,7 @@
 package edu.brown.cs.group1.TerminologyDatabase;
 
 import edu.brown.cs.group1.synonyms.TerminologyAssociation;
+import edu.brown.cs.group1.textloader.TextFileLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,17 +16,17 @@ import java.util.List;
  * needed data.
  */
 public class MedicalProcedureDatabase extends TerminologyDatabase {
-  private String path;
-
-  MedicalProcedureDatabase(String path) {
-    this.path = path;
-  }
+    /**
+     * Constructor for MedicalProcedureDatabase.
+     */
+  public MedicalProcedureDatabase() { }
 
 
   @Override
   public List<String> retrieveEntry(String filepath) {
-    //TODO: Implementation needed
-    return new ArrayList<String>();
+    TextFileLoader loader = new TextFileLoader(filepath);
+    List<String> toReturn = loader.fileLoader();
+    return toReturn;
   }
 
     @Override
