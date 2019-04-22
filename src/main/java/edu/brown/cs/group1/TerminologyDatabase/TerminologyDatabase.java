@@ -1,5 +1,7 @@
 package edu.brown.cs.group1.TerminologyDatabase;
 
+import edu.brown.cs.group1.synonyms.TerminologyAssociation;
+
 import java.util.List;
 /**
  * An abstract class for database solely on medical terminology.
@@ -20,4 +22,15 @@ public abstract class TerminologyDatabase {
   * Method that would create a database with the file entries.
  */
   public abstract void createDatabase();
+
+ /**
+  * Method that queries the database.
+  * Returns the strings associated with input.
+  * @param input
+  *           a Terminology Association that contains roots
+  *             and a respective prefixes.
+  * @return
+  *        a list of strings that represent the words queried from that database.
+  */
+  public abstract List<String> query(TerminologyAssociation input);
 }

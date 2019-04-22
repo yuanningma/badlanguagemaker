@@ -4,38 +4,35 @@ import edu.brown.cs.group1.synonyms.TerminologyAssociation;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
- * This class interacts solely with the medical procedure database.
+ * This class interacts solely with the medical dictornary databasr.
  * This database would be creating using files provide by:
- * https://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html.
+ * https://github.com/glutanimate/hunspell-en-med-glut/blob/master/en_med_gut.txt.
  * The file used is located at data/database/medicalTerminology/
- * CMS29_DESC_LONG_SG.txt. This class seeks to create a database with the
+ * en_med_glut.txt. This class seeks to create a database with the
  * files provide information and use SQLITE3 pattern matching to retrieve
  * needed data.
  */
-public class MedicalProcedureDatabase extends TerminologyDatabase {
+public class MedicalDictionaryDatabase extends TerminologyDatabase {
   private String path;
 
-  MedicalProcedureDatabase(String path) {
+  MedicalDictionaryDatabase(String path) {
     this.path = path;
   }
 
-
   @Override
-  public List<String> retrieveEntry(String filepath) {
+   public List<String> retrieveEntry(String filepath) {
     //TODO: Implementation needed
     return new ArrayList<String>();
   }
 
-    @Override
-  public void createDatabase() {
-   //TODO: Implementation needed
+  @Override
+   public void createDatabase() {
+     //TODO: Implementation needed
   }
-
   @Override
   public List<String> query(TerminologyAssociation input) {
-        //TODO: Implementation needed
+    //TODO: Implementation needed
     return new ArrayList<String>();
   }
 }
