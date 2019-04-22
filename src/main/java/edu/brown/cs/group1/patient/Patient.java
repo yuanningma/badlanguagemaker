@@ -139,7 +139,6 @@ public class Patient {
     // TODO: Add to completedForms hashmap
     // completedForms.put(template.getTemplateId(), template);
     // TODO: Return template object
-    // return new Template();
     return null;
   }
 
@@ -154,8 +153,6 @@ public class Patient {
     // TODO: Call method for selecting form based on patient id
     // TODO: Return form returned from above method
     // return form;
-
-    // return new Template();
     return null;
   }
 
