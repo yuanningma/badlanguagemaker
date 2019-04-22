@@ -1,6 +1,4 @@
-.xray{
-  background-color: black;
-}
+
 td.selected {
     background-color: cyan;
 }
@@ -39,10 +37,17 @@ body {
     position: absolute;
 }
 
-canvas { display:block;
+canvas {
+  display:block;
     margin:0em auto;
+    margin-left: 0px;
     background:black;
     border:1px solid grey;
+    position: relative;
+    top: -40px;
+    left:16.3%;
+
+
 }
 
 .chart {
