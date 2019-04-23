@@ -14,7 +14,7 @@ form input {
   position: relative;
   top: 80px;
   left: 20px;
-    z-index: -9;
+    z-index: 1;
     margin-bottom: 0px;
 }
 
@@ -32,20 +32,19 @@ form p{
   margin: 0;
   padding: 0;
   width: 17%;
-  background-color: LightBlue;
+  background-color: White;
   position: fixed;
-  top: 0px;
+  top: 50px;
   left:0px;
   height: 100%;
   overflow: auto;
-
-  z-index: -5;
     color: Navy;
 
 }
-/*canvas{
+canvas{
   position: relative;
   top: -60px;
-  left:12%;
-  z-index: -10;
-}*/
+  right: auto;
+  left:18%;
+
+}

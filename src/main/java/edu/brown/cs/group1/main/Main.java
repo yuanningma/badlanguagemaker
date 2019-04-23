@@ -16,6 +16,7 @@ import edu.brown.cs.group1.handler.LoginHandler;
 import edu.brown.cs.group1.handler.NewFormHandler;
 import edu.brown.cs.group1.handler.PastFormsHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
+import edu.brown.cs.group1.handler.relevanceHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -84,6 +85,7 @@ public class Main {
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
     Spark.get("/timeline", new PatientHandler(), freeMarker);
+    Spark.post("/relevance", new relevanceHandler(), freeMarker);
 
   }
 

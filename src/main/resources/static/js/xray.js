@@ -13,8 +13,8 @@ $(document).ready(() => {
 
     //Setting up the canvas.
     canvas = $('#image')[0];
-    canvas.width = 2000;
-    canvas.height = 2000;
+    canvas.width = 1200;
+    canvas.height = 1500;
 
     ctx = canvas.getContext('2d');
     trackTransforms(ctx);

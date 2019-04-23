@@ -14,15 +14,15 @@ the page is written in -->
     <!--<link rel="stylesheet" href="/css/list.css">-->
     <!-- define character set in use -->
     <meta charset="utf-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Title appears in tab -->
     <title>${title}</title>
 
 </head>
 <body>
 
-<div>
-  <div class="collapse" id="navbarToggleExternalContent">
+<!--<div>
+  <div class="sidenav" id="navbarToggleExternalContent">
 <ul>
   <li><input type="text" id="searchPage" placeholder="Search Page"></li>
   <li><a class="text-black" href="/home">Home</a></li>
@@ -43,6 +43,30 @@ the page is written in -->
 </div>
 
 <div style="padding:1px 16px;height:1000px;">
+<script>-->
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<input type="text" id="searchPage" placeholder="Search Page">
+  <a class="text-black" href="/home">Home</a>
+ <a class="text-black" href="/patients/1/forms">forms</a>
+  <a class="text-black" href="/DD">DoctorDashboard</a>
+ <a class="text-black" href="/imaging">xray</a>
+  <a class="text-black" href="/timeline">timeline</a>
+</div>
+
+<span style="font-size:30px;cursor:pointer; color:Grey; z-index:2;" onclick="openNav()">&#9776;</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 ${content}
 
 <p>${message}</p>
