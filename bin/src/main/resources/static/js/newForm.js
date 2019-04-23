@@ -10,12 +10,12 @@ $(document).ready(() => {
 
         let postParameters = {fields: labels};
         for (let i=1; i<count+1; i++) {
-            postParameters["field" + i] = $("#field" + i).html());
+            postParameters["field" + i] = $("#field" + i).html();
         }
 
 
 		$.post("/forms/create", postParameters, responseJSON => {
             // Show message that form was successfully created
-        }
+        });
     });
 });
