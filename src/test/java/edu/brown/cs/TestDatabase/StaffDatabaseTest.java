@@ -1,3 +1,5 @@
+package edu.brown.cs.TestDatabase;
+
 import edu.brown.cs.group1.database.StaffDatabase;
 import edu.brown.cs.group1.staff.Staff;
 import edu.brown.cs.group1.staff.Admin;

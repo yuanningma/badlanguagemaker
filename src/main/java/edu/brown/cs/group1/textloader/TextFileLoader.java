@@ -14,7 +14,13 @@ import java.util.List;
 public class TextFileLoader {
   private String filepath;
 
-  TextFileLoader(String filepath) {
+  /**
+   * Constructor for fileLoader.
+   *
+   * @param filepath
+   *        a string that contains the filepath to load.
+   */
+  public TextFileLoader(String filepath) {
     this.filepath = filepath;
   }
 

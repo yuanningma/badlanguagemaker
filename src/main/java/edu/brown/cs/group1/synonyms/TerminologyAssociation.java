@@ -1,13 +1,15 @@
 package edu.brown.cs.group1.synonyms;
 
+import java.util.HashSet;
+
 /**
  * A class that associates body parts to common roots.
  */
 public class TerminologyAssociation {
   private String term;
-  private String[] roots;
+  private HashSet<String> roots;
 
-  TerminologyAssociation(String term, String[] roots) {
+  TerminologyAssociation(String term, HashSet<String> roots) {
     this.term = term;
     this.roots = roots;
   }
@@ -34,7 +36,7 @@ public class TerminologyAssociation {
   * @return
   *        a bodyPart string
   */
-  public String[] getRoots() {
+  public HashSet<String> getRoots() {
     return roots;
   }
     /**
@@ -42,7 +44,30 @@ public class TerminologyAssociation {
      * @param roots
      *          a string array to set bodyPart
      */
-  public void setRoots(String[] roots) {
+  public void setRoots(HashSet<String> roots) {
     this.roots = roots;
+  }
+
+    /**
+     * Method that checks if a root is contain in roots.
+     * @param root
+     *          a string representing a root
+     * @return
+     *        a boolean true is root is contain in the
+     *        objects root, false otherwise.
+     */
+  public boolean containsRoot(String root) {
+    return roots.contains(root);
+  }
+
+    /**
+     * Inserts a root if not present in the hashSet.
+     * @param root
+     *           a root to be added to roots.
+     */
+  public void addRoot(String root) {
+    if (!containsRoot(root)) {
+      roots.add(root);
+    }
   }
 }

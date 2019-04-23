@@ -1,3 +1,5 @@
+package edu.brown.cs.TestDatabase;
+
 import java.sql.SQLException;
 
 import org.junit.Before;
