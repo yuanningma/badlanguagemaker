@@ -36,6 +36,8 @@ public abstract class TerminologyDatabase {
   *             and a respective prefixes.
   * @return
   *        a list of strings that represent the words queried from that database.
+  * @throws SQLException
+  *        thrown if an SQLException is thrown.
   */
-  public abstract List<String> query(TerminologyAssociation input);
+  public abstract List<String> query(TerminologyAssociation input) throws SQLException;
 }

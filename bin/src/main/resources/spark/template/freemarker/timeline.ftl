@@ -111,7 +111,7 @@ style="z-index: -50;"  width="200" height="200">
            <label for="Medications">Medications</label>
    <br><br>
    <input type="submit" value="Search"><br>
-</ul>
+
 </body>
 </#assign>
 <#include "main.ftl">

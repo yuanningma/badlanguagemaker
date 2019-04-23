@@ -17,7 +17,10 @@ public class CreateFormHandler implements Route {
   public String handle(Request req, Response res) {
     QueryParamsMap qm = req.queryMap();
     Map<String, String[]> fields = qm.toMap();
-    // TODO: Create form in database with labels from frontend.
+    // TODO: Create template object.
+    // TODO: Similarity check before saving to database.
+    // TODO: Create template in database with labels from frontend.
+    // templatesDb.saveTemplate(template);
     Map<String, Object> variables = ImmutableMap.of("message", "success!");
     return GSON.toJson(variables);
   }
