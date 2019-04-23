@@ -1,21 +1,30 @@
 package edu.brown.cs.TestTermiologyDatabase;
 
 import edu.brown.cs.group1.TerminologyDatabase.MedicalProcedureDatabase;
+import edu.brown.cs.group1.synonyms.TerminologyAssociation;
 import org.junit.Before;
 import org.junit.Test;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.PriorityQueue;
 
 import static org.junit.Assert.assertTrue;
 
 public class MedicalProcedureDatabaseTest {
     MedicalProcedureDatabase db;
     List<String> list;
+    TerminologyAssociation synonom;
     @Before
     public void setUp() {
         db = new MedicalProcedureDatabase("data/database/medicalProcedures.sqlite3");
         list = db.retrieveEntry(
                 "data/medicalTerminology/CMS29_DESC_LONG_SG.txt");
+        PriorityQueue<String> roots = new PriorityQueue<>();
+        roots.add("cardi");
+        roots.add("cardio");
+        roots.add("cordi");
+        synonom = new TerminologyAssociation("heart", roots);
     }
 
     @Test
@@ -35,4 +44,14 @@ public class MedicalProcedureDatabaseTest {
 //            sql.printStackTrace();
 //        }
 //    }
+
+    @Test
+    public void testQuery() {
+        try {
+            List<String> result = db.query(synonom);
+//            System.out.println(result);
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        }
+    }
 }
