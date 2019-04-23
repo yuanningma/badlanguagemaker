@@ -1,15 +1,22 @@
 package edu.brown.cs.group1.synonyms;
 
-import java.util.HashSet;
+import java.util.PriorityQueue;
 
 /**
  * A class that associates body parts to common roots.
  */
 public class TerminologyAssociation {
   private String term;
-  private HashSet<String> roots;
+  private PriorityQueue<String> roots;
 
-  TerminologyAssociation(String term, HashSet<String> roots) {
+    /**
+     * Terminology Association constructor.
+     * @param term
+     *           the principal term
+     * @param roots
+     *           a hashSet that contains roots corresponding to the database.
+     */
+  public TerminologyAssociation(String term, PriorityQueue<String> roots) {
     this.term = term;
     this.roots = roots;
   }
@@ -36,7 +43,7 @@ public class TerminologyAssociation {
   * @return
   *        a bodyPart string
   */
-  public HashSet<String> getRoots() {
+  public PriorityQueue<String> getRoots() {
     return roots;
   }
     /**
@@ -44,7 +51,7 @@ public class TerminologyAssociation {
      * @param roots
      *          a string array to set bodyPart
      */
-  public void setRoots(HashSet<String> roots) {
+  public void setRoots(PriorityQueue<String> roots) {
     this.roots = roots;
   }
 

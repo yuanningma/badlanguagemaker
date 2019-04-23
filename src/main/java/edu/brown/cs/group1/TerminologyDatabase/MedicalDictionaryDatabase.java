@@ -70,8 +70,29 @@ public class MedicalDictionaryDatabase extends TerminologyDatabase {
     }
   }
   @Override
-  public List<String> query(TerminologyAssociation input) {
-    //TODO: Implementation needed
-    return new ArrayList<String>();
+  public List<String> query(TerminologyAssociation input) throws SQLException {
+    if (dbConn != null) {
+      String query = "SELECT term FROM medical_dict WHERE (term = ?)";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+      prep.setString(1, input.getTerm());
+      ResultSet rs = prep.executeQuery();
+      List<String> toReturn = new ArrayList<>();
+      while (rs.next()) {
+        toReturn.add(rs.getString(1));
+      }
+      rs.close();
+      query = "SELECT term FROM medical_dict WHERE (term LIKE ?)";
+      prep = dbConn.prepareStatement(query);
+      for (String s : input.getRoots()) {
+        prep.setString(1, "%" + s + "%");
+        rs = prep.executeQuery();
+        while (rs.next()) {
+          toReturn.add(rs.getString(1));
+        }
+        return toReturn;
+      }
+    }
+    return new ArrayList<>();
   }
 }
