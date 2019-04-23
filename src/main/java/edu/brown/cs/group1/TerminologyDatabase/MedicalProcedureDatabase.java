@@ -3,6 +3,7 @@ package edu.brown.cs.group1.TerminologyDatabase;
 import edu.brown.cs.group1.synonyms.TerminologyAssociation;
 import edu.brown.cs.group1.textloader.TextFileLoader;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +17,28 @@ import java.util.List;
  * needed data.
  */
 public class MedicalProcedureDatabase extends TerminologyDatabase {
+  private Connection dbConn;
     /**
-     * Constructor for MedicalProcedureDatabase.
+     * Constructor for MedicalDictionaryDatabase.
+     * @param dbFilepath
+     *        a string representing path to the database
      */
-  public MedicalProcedureDatabase() { }
+  public MedicalProcedureDatabase(String dbFilepath) {
+    try {
+      Class.forName("org.sqlite.JDBC");
+      String url = "jdbc:sqlite:" + dbFilepath;
+      dbConn = DriverManager.getConnection(url);
+      Statement stat = dbConn.createStatement();
+      stat.executeUpdate("PRAGMA foreign_keys = ON;");
+      stat.close();
+
+    } catch (ClassNotFoundException exp) {
+      exp.printStackTrace();
+
+    } catch (SQLException sql) {
+      sql.printStackTrace();
+    }
+  }
 
 
   @Override
@@ -29,9 +48,26 @@ public class MedicalProcedureDatabase extends TerminologyDatabase {
     return toReturn;
   }
 
-    @Override
-  public void createDatabase() {
-   //TODO: Implementation needed
+  @Override
+  public void createDatabase(List<String> entry) throws SQLException {
+    if (dbConn != null) {
+      String query = "CREATE TABLE IF NOT EXISTS medical_proc("
+                + "termID INTEGER,"
+                + "term TEXT,"
+                + "PRIMARY KEY (termID));";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+      prep.executeUpdate();
+      for (String s : entry) {
+        String[] input =  s.split(" ", 2);
+        query = "INSERT INTO medical_proc VALUES (null,?);";
+        prep = dbConn.prepareStatement(query);
+        prep.setString(1, input[1]);
+        prep.addBatch();
+        prep.executeBatch();
+      }
+      prep.close();
+    }
   }
 
   @Override

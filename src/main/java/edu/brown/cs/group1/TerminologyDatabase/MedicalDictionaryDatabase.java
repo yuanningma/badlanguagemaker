@@ -3,6 +3,7 @@ package edu.brown.cs.group1.TerminologyDatabase;
 import edu.brown.cs.group1.synonyms.TerminologyAssociation;
 import edu.brown.cs.group1.textloader.TextFileLoader;
 
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -15,11 +16,28 @@ import java.util.List;
  * needed data.
  */
 public class MedicalDictionaryDatabase extends TerminologyDatabase {
-
+  private Connection dbConn;
     /**
      * Constructor for MedicalDictionaryDatabase.
+     * @param dbfilepath
+     *              the path of the database file
      */
-  public MedicalDictionaryDatabase() { }
+  public MedicalDictionaryDatabase(String dbfilepath) {
+    try {
+      Class.forName("org.sqlite.JDBC");
+      String url = "jdbc:sqlite:" + dbfilepath;
+      dbConn = DriverManager.getConnection(url);
+      Statement stat = dbConn.createStatement();
+      stat.executeUpdate("PRAGMA foreign_keys = ON;");
+      stat.close();
+
+    } catch (ClassNotFoundException exp) {
+      exp.printStackTrace();
+
+    } catch (SQLException sql) {
+      sql.printStackTrace();
+    }
+  }
 
   private static final int DICTIONARYBEGINS = 17;
 
@@ -32,8 +50,24 @@ public class MedicalDictionaryDatabase extends TerminologyDatabase {
   }
 
   @Override
-   public void createDatabase() {
-     //TODO: Implementation needed
+   public void createDatabase(List<String> entry) throws SQLException {
+    if (dbConn != null) {
+      String query = "CREATE TABLE IF NOT EXISTS medical_dict("
+                  + "termID INTEGER,"
+                  + "term TEXT,"
+                  + "PRIMARY KEY (termID));";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+      prep.executeUpdate();
+      for (String s : entry) {
+        query = "INSERT INTO medical_dict VALUES (null,?);";
+        prep = dbConn.prepareStatement(query);
+        prep.setString(1, s);
+        prep.addBatch();
+        prep.executeBatch();
+      }
+      prep.close();
+    }
   }
   @Override
   public List<String> query(TerminologyAssociation input) {
