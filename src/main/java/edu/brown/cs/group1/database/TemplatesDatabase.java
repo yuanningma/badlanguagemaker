@@ -176,18 +176,4 @@ public class TemplatesDatabase extends Database {
     // saveTemplate(form);
 
   }
-
-  /**
-   * Parses string of fields to return list of fields and optionally their
-   * associated values if a form.
-   * @param fields
-   *          String to be parsed for fields.
-   * @param isForm
-   *          Form if true and a template if false.
-   * @return List of fields and optionally their associated values if a form.
-   */
-  private List<String> parseFields(String fields, boolean isForm) {
-    // TODO: Implementation depends on how list will be stored in database.
-    return null;
-  }
 }
