@@ -19,7 +19,6 @@ the page is written in -->
     <title>${title}</title>
 
 </head>
-<body>
 
 <!--<div>
   <div class="sidenav" id="navbarToggleExternalContent">
@@ -54,6 +53,7 @@ the page is written in -->
   <a class="text-black" href="/DD">DoctorDashboard</a>
  <a class="text-black" href="/imaging">xray</a>
   <a class="text-black" href="/timeline">timeline</a>
+    <a class="text-black" href="/patients/1/profile">Profile</a>
 </div>
 
 <span style="font-size:30px;cursor:pointer; color:Grey; z-index:2;" onclick="openNav()">&#9776;</span>
@@ -67,6 +67,7 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
+
 ${content}
 
 <p>${message}</p>
@@ -82,6 +83,7 @@ ${content}
 		<script src="/js/xray.js"></script>
 		<script src="/js/newForm.js"></script>
 </div>
+
 
 </body>
 

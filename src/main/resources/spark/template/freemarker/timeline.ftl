@@ -10,12 +10,6 @@
 
 <body>
 
-
-
-<center>
-<img src="logo.png" 
-style="z-index: -50;"  width="200" height="200">
-</center>
    <h4>Patient Timeline</text></h4>
 
 

@@ -55,3 +55,9 @@ canvas {
     top: 1000px;
     left: 10px;
 }
+
+img{
+  top:-60px;
+  display: block;
+  position: relative;
+}

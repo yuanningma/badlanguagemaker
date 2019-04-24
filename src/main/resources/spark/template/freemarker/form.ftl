@@ -1,5 +1,5 @@
 <#assign content>
-
+    <link rel="stylesheet" href="/css/forms.css">
 <h1 class="text-center"> Form </h1>
 
 <#list fields?keys as label>
