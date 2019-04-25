@@ -10,8 +10,8 @@
 
 <div>
 <br>
-<center>
-    <button type="submit" class="btn btn-primary">New Form</button>
+		<center>
+    	<a type="submit" class="btn btn-primary btn-lg" href="/forms/new" role="button">New Form</button>
     </center>
 </div>
 
