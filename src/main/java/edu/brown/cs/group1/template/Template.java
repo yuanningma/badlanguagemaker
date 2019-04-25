@@ -1,6 +1,6 @@
 package edu.brown.cs.group1.template;
 
-import java.util.List;
+import edu.brown.cs.group1.field.Fields;
 
 /**
  * Template class provides ability to create new forms and customize fields.
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Template {
   private int templateId;
-  private List<String> fields;
+  private Fields fields;
 
   /**
    * Constructor.
@@ -18,7 +18,7 @@ public class Template {
    * @param fields
    *          Field names and optionally associated values if object is a form.
    */
-  public Template(int templateId, List<String> fields) {
+  public Template(int templateId, Fields fields) {
     this.templateId = templateId;
     this.fields = fields;
   }
@@ -31,11 +31,11 @@ public class Template {
     this.templateId = templateId;
   }
 
-  public List<String> getFields() {
+  public Fields getFields() {
     return fields;
   }
 
-  public void setFields(List<String> fields) {
+  public void setFields(Fields fields) {
     this.fields = fields;
   }
 

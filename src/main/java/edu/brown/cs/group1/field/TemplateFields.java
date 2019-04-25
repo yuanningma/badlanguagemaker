@@ -20,7 +20,7 @@ public class TemplateFields implements Fields {
     return result.toString();
   }
 
-  public List<String> getFields() {
+  public List<String> getContent() {
     return fields;
   }
 

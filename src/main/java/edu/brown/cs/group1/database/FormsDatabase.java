@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.brown.cs.group1.field.FormFields;
 import edu.brown.cs.group1.template.Template;
 
 /**
@@ -105,6 +106,28 @@ public class FormsDatabase extends Database {
   // implement multiple form tables one part of the form id must be parsed to
   // determine which table to query from. This should be easy to implement by
   // extending the below methods.
+
+  /**
+   * Returns all completed forms from database.
+   * @return List of completed forms. Empty list if no forms.
+   */
+  public List<Template> getAllForms() {
+    List<Template> forms = new ArrayList<>();
+    try (PreparedStatement prep =
+        dbConn.prepareStatement("SELECT * FROM forms;");) {
+      ResultSet rs = prep.executeQuery();
+      while (rs.next()) {
+        int formId = rs.getInt(1);
+        String fieldsString = rs.getString(2);
+        FormFields fields = FormFields.valueOf(fieldsString);
+        forms.add(new Template(formId, fields));
+      }
+      rs.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return forms;
+  }
 
   /**
    * Returns all completed forms for specified patient.

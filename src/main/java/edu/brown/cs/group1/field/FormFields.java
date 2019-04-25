@@ -13,7 +13,7 @@ public class FormFields implements Fields {
     this.fields = fields;
   }
 
-  public Map<String, String> getFields() {
+  public Map<String, String> getContent() {
     return fields;
   }
 
