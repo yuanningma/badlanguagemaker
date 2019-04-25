@@ -1,10 +1,7 @@
 package edu.brown.cs.group1.similarity;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import edu.brown.cs.group1.database.FormsDatabase;
 import edu.brown.cs.group1.template.Template;
@@ -40,11 +37,12 @@ public class ExactSimilarity {
    */
   public static double twoFormsSimil(Template form1, Template form2) {
     // Get total number of unique fields.
-    double unique = uniqueFieldCount(form1, form2);
+    // double unique = uniqueFieldCount(form1, form2);
     // Get total number of matching fields.
-    double matches = matchFieldCount(form1, form2);
+    // double matches = matchFieldCount(form1, form2);
     // Return quotient.
-    return matches / unique;
+    // return matches / unique;
+    return 0.0;
   }
 
   /**
@@ -76,15 +74,15 @@ public class ExactSimilarity {
    *          Second form.
    * @return Number of unique fields.
    */
-  private static int uniqueFieldCount(Template form1, Template form2) {
-    // Add fields to a set.
-    Map<String, String> fields1 = form1.getFields().getContent();
-    Map<String, String> fields2 = form2.getFields().getContent();
-    Set<String> allFields = new HashSet<>();
-    allFields.addAll(fields1.keySet());
-    allFields.addAll(fields2.keySet());
-    return allFields.size();
-  }
+  // private static int uniqueFieldCount(Template form1, Template form2) {
+  // // Add fields to a set.
+  // Map<String, String> fields1 = form1.getFields().getContent();
+  // Map<String, String> fields2 = form2.getFields().getContent();
+  // Set<String> allFields = new HashSet<>();
+  // allFields.addAll(fields1.keySet());
+  // allFields.addAll(fields2.keySet());
+  // return allFields.size();
+  // }
 
   /**
    * Returns number of fields that match between both forms.
@@ -94,16 +92,16 @@ public class ExactSimilarity {
    *          Second form.
    * @return Number of matches.
    */
-  private static int matchFieldCount(Template form1, Template form2) {
-    Set<String> fields1 = form1.getFields().getContent().keySet();
-    Set<String> fields2 = form2.getFields().getContent().keySet();
-    int count = 0;
-    for (String field : fields1) {
-      if (fields2.contains(field)) {
-        count++;
-      }
-    }
-    return count;
-  }
+  // private static int matchFieldCount(Template form1, Template form2) {
+  // Set<String> fields1 = form1.getFields().getContent().keySet();
+  // Set<String> fields2 = form2.getFields().getContent().keySet();
+  // int count = 0;
+  // for (String field : fields1) {
+  // if (fields2.contains(field)) {
+  // count++;
+  // }
+  // }
+  // return count;
+  // }
 
 }
