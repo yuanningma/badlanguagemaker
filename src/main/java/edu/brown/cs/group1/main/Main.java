@@ -15,6 +15,7 @@ import edu.brown.cs.group1.handler.GraphHandler;
 import edu.brown.cs.group1.handler.LoginHandler;
 import edu.brown.cs.group1.handler.NewFormHandler;
 import edu.brown.cs.group1.handler.PastFormsHandler;
+import edu.brown.cs.group1.handler.PatientProfileHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
 import edu.brown.cs.group1.handler.relevanceHandler;
 import freemarker.template.Configuration;
@@ -80,6 +81,9 @@ public class Main {
     Spark.get("/patients/:patientId/forms", new PastFormsHandler(), freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
         new FormHandler(),
+        freeMarker);
+    Spark.get("/patients/:patientId/profile",
+        new PatientProfileHandler(),
         freeMarker);
     Spark.get("/forms/new", new NewFormHandler(), freeMarker);
     Spark.post("/forms/create", new CreateFormHandler());

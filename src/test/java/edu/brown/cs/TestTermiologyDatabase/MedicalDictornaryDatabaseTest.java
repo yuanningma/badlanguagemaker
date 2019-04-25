@@ -22,7 +22,12 @@ TerminologyAssociation synonom;
         db = new MedicalDictionaryDatabase("data/database/medicalDictionary.sqlite3");
         list = db.retrieveEntry(
                 "data/medicalTerminology/en_med_glut.txt");
-        PriorityQueue<String> roots = new PriorityQueue<>();
+        PriorityQueue<String> roots = new PriorityQueue<>(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.length() - o1.length();
+            }
+        });
         roots.add("cardi");
         roots.add("cardio");
         roots.add("cordi");
@@ -49,7 +54,7 @@ TerminologyAssociation synonom;
     public void testQuery() {
         try {
            List<String> result = db.query(synonom);
-//           System.out.println(result);
+           System.out.println(result);
         } catch (SQLException sql) {
             sql.printStackTrace();
         }

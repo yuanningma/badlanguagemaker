@@ -9,13 +9,6 @@
 </head>
 
 <body>
-
-
-
-<center>
-<img src="logo.png" 
-style="z-index: -50;"  width="200" height="200">
-</center>
    <h4>Patient Timeline</text></h4>
 
 
@@ -57,7 +50,6 @@ style="z-index: -50;"  width="200" height="200">
     </div>
   </div>
 </div>
-
 
 <form id="checklist" method="POST" action="/relevance">
 <p> Filter by</p>
@@ -113,8 +105,16 @@ style="z-index: -50;"  width="200" height="200">
            <label for="Medications">Medications</label>
    <br><br>
    <input type="submit" value="Search"><br>
-
+<br>
+<br>
+<br>
+<br>
+<ul id="xraylinklist" style="list-style-type:none">
+<li><a href="/patients/:patientId/profile" class="previous">&#10216; View Profile</a><br></li>
+<li><a href="/patients/:patientId/forms" class="previous">&#10216; Patient Records</a></li>
+</ul>
 </body>
+
 </#assign>
 <#include "main.ftl">
 </html>

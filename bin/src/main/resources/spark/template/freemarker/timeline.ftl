@@ -10,6 +10,8 @@
 
 <body>
 
+
+
 <center>
 <img src="logo.png" 
 style="z-index: -50;"  width="200" height="200">
@@ -57,7 +59,7 @@ style="z-index: -50;"  width="200" height="200">
 </div>
 
 
-<form id="checklist" >
+<form id="checklist" method="POST" action="/relevance">
 <p> Filter by</p>
    <input id="searchTimeline" type="text" placeholder="Search">
    <br><br>
@@ -91,8 +93,8 @@ style="z-index: -50;"  width="200" height="200">
    <br>
    <br><br>
     <p>Time Span:</p>
-    <input type="text" id="date1" placeholder="mm/dd/yy">
-    <label for="date1">to</label>
+    <input type="text" id="date1" placeholder="mm/dd/yy"><br>
+    <label for="date1">to</label><br>
  <input type="text" id="date2" placeholder="mm/dd/yy"><br><br>
      <p>Medical History:</p>
      <input type="checkbox" name="Hospitilizations" value="Hospitilizations">

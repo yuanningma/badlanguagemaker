@@ -17,7 +17,7 @@ public class Patient {
   private String lastName;
   private int doctorId;
   private Map<Integer, Template> completedForms;
-  // private boolean isWorking;
+  private boolean isHosptialized;
   // TODO: Change to isHospitalized?
 
   /**

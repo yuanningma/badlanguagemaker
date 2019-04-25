@@ -25,7 +25,7 @@ color: white;
   background-color: SteelBlue;
   top: 0;
   bottom: 0;
-  left: 65%;
+  left: 50%;
   margin-left: -3px;
 }
 
@@ -53,12 +53,12 @@ color: white;
 
 /* Place the container to the left */
 .left {
-  left: 0%;
+  left: -15%;
 }
 
 /* Place the container to the right */
 .right {
-  left: 30%;
+  left: 15%;
 }
 
 /* Add arrows to the left container (pointing right) */
@@ -146,7 +146,7 @@ img{
 
 h4{
   position: relative;
-  left:55%;
+  left:44%;
   font-family:sans-serif;
   font-size: 30px;
   color: DodgerBlue;
@@ -160,7 +160,6 @@ form input {
   position: relative;
   top: 80px;
   left: 20px;
-    z-index: -9;
     margin-bottom: 0px;
 }
 
@@ -178,14 +177,11 @@ form p{
   margin: 0;
   padding: 0;
   width: 25%;
-  background-color: LightBlue;
+  background-color: White;
   position: fixed;
-  top: 0px;
+  top: 50px;
   left:0px;
   height: 100%;
   overflow: auto;
-
-  z-index: -9;
     color: Navy;
-
 }
