@@ -18,6 +18,7 @@ Patient ID: 1234<br></p>
 <li><a href="/patients/:patientId/forms" class="previous">&#10217; Patient Records</a></li>
 </ul>
 
+
 </#assign>
 <#include "main.ftl">
 
