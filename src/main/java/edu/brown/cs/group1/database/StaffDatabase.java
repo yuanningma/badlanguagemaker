@@ -53,6 +53,8 @@ public class StaffDatabase extends Database {
                     + "is_Doctor TEXT,"
                     + "is_Admin TEXT,"
                     + "is_Working TEXT,"
+//                    + "username TEXT"
+//                    + "password TEXT"
                     + "PRIMARY KEY (staffId));";
 
 
@@ -108,6 +110,9 @@ public class StaffDatabase extends Database {
           break;
         case "is_Working":
           query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
+          break;
+        case "username":
+          query = "UPDATE staff SET username = ? WHERE staffId = ?";
           break;
         default: query = null;
       }

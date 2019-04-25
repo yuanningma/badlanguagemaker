@@ -52,11 +52,11 @@ public class PatientDatabase extends Database {
               + "first_name TEXT,"
               + "middle_name TEXT,"
               + "last_name TEXT,"
-//                      + "insurance_name TEXT,"
-//                      + "insurance_number INTEGER,"
+              + "insurance_name TEXT,"
+              + "insurance_number INTEGER,"
               + "doctorID INTEGER,"
-//                      + "dob DATE,"
-//                      + "emergency_contact TEXT,"
+              + "dob DATE,"
+              + "emergency_contact TEXT,"
               + "PRIMARY KEY (patientId));";
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
