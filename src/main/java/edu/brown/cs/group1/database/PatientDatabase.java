@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 import edu.brown.cs.group1.patient.Patient;
 
 /**
@@ -55,7 +56,7 @@ public class PatientDatabase extends Database {
 //              + "insurance_name TEXT,"
 //              + "insurance_number INTEGER,"
               + "doctorID INTEGER,"
-              + "dob TEXT,"
+//              + "dob TEXT,"
 //              + "emergency_contact TEXT,"
               + "PRIMARY KEY (patientId));";
       PreparedStatement prep;
@@ -70,7 +71,7 @@ public class PatientDatabase extends Database {
 //      prep.setString(3, "insurance");
 //      prep.setString(4, "insurance_number");
       prep.setInt(5, patient.getDoctorId());
-      prep.setDate(6, java.sql.Date.valueOf("2000-05-07"));
+//      prep.setDate(6, java.sql.Date.valueOf("2000-05-07"));
 //      prep.setString(SEVEN, "(917)-443-6682");
       prep.addBatch();
       prep.executeBatch();
@@ -157,6 +158,42 @@ public class PatientDatabase extends Database {
       rs.close();
       prep.close();
       return patient;
+    }
+    return null;
+  }
+
+  /**
+   * Method to retrieve all patients with particular doctor.
+   * @param id
+   *          the doctor id
+   * @return
+   *        a list of patients of the doctor with the corresponding id.
+   * @throws SQLException
+   *            thrown when a SQLException is thrown
+   */
+  public List<Patient> getAllPatients(Integer id) throws SQLException {
+    if (dbConn != null) {
+      String query = "SELECT * FROM patient WHERE (doctorID = ?)";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+      prep.setInt(1, id);
+
+      ResultSet rs = prep.executeQuery();
+      List<Patient> patients  = new ArrayList<>();
+
+      while (rs.next()) {
+        Integer patientID = rs.getInt(1);
+        String firstName = rs.getString(2);
+        String middleName = rs.getString(3);
+        String lastName = rs.getString(4);
+        Patient patient =
+                new Patient(patientID, firstName, middleName, lastName, id);
+        patients.add(patient);
+      }
+
+      rs.close();
+      prep.close();
+      return patients;
     }
     return null;
   }
