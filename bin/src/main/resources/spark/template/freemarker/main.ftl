@@ -19,7 +19,6 @@ the page is written in -->
     <title>${title}</title>
 
 </head>
-<body>
 
 <!--<div>
   <div class="sidenav" id="navbarToggleExternalContent">
@@ -27,7 +26,7 @@ the page is written in -->
   <li><input type="text" id="searchPage" placeholder="Search Page"></li>
   <li><a class="text-black" href="/home">Home</a></li>
   <li><a class="text-black" href="/patients/1/forms">forms</a></li>
-  <li><a class="text-black" href="/DD">DoctorDashboard</a></li>
+  <li><a class="text-black" href="/Dashboard/:doctorId">DoctorDashboard</a></li>
   <li><a class="text-black" href="/imaging">xray</a></li>
   <li> <a class="text-black" href="/timeline">timeline</a></li>
 
@@ -49,11 +48,12 @@ the page is written in -->
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 <input type="text" id="searchPage" placeholder="Search Page">
-  <a class="text-black" href="/home">Home</a>
- <a class="text-black" href="/patients/1/forms">forms</a>
-  <a class="text-black" href="/DD">DoctorDashboard</a>
- <a class="text-black" href="/imaging">xray</a>
-  <a class="text-black" href="/timeline">timeline</a>
+  <a class="text-black" href="/home">Login / Logout</a>
+<!-- <a class="text-black" href="/patients/1/forms">forms</a>-->
+  <a class="text-black" href="/DD">My Dashboard</a>
+ <!--<a class="text-black" href="/imaging">xray</a>-->
+  <!--<a class="text-black" href="/timeline">timeline</a>-->
+    <!--<a class="text-black" href="/patients/1/profile">Profile</a>-->
 </div>
 
 <span style="font-size:30px;cursor:pointer; color:Grey; z-index:2;" onclick="openNav()">&#9776;</span>
@@ -67,6 +67,7 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 </script>
+
 ${content}
 
 <p>${message}</p>
@@ -82,6 +83,7 @@ ${content}
 		<script src="/js/xray.js"></script>
 		<script src="/js/newForm.js"></script>
 </div>
+
 
 </body>
 

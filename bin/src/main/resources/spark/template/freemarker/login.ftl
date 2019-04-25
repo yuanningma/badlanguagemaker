@@ -5,7 +5,7 @@
     <center>
 <div class = "center-block">
 
-<img src="logo.png" 
+<img id="logo" src="logo.png" 
 style="position:relative; z-index: -50;"  width="300" height="300">
 <h1> User Login </h1>
 
