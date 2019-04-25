@@ -56,7 +56,7 @@ public class FormsDatabase extends Database {
         String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER,"
             + "patientId TEXT,"
             + "form_input TEXT,"
-            + "PRIMARY KEY (formId));";
+            + "PRIMARY KEY (formId)) Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP;";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
@@ -176,7 +176,6 @@ public class FormsDatabase extends Database {
     // fields.set(i + 1, val);
     // }
     // }
-    // // TODO: Implement saveForm.
     // saveForm(form);
 
     // try {

@@ -10,7 +10,6 @@ public class FormFieldsTest {
   public void testToString() {
     FormFields fields =
         FormFields.valueOf("Name;Eric;Age;12;Weight;234;DOB;071296;");
-    System.out.println(fields.toString());
     assertTrue(
         fields.toString().equals("Name;Eric;Age;12;Weight;234;DOB;071296;"));
   }
