@@ -72,7 +72,16 @@
       <artifactId>sqlite-jdbc</artifactId>
       <version>3.16.1</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <version>0.12</version>
+    </dependency>
+
   </dependencies>
+
+
 
   <build>
     <plugins>

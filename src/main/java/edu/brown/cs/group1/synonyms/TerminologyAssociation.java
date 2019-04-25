@@ -14,7 +14,7 @@ public class TerminologyAssociation {
      * @param term
      *           the principal term
      * @param roots
-     *           a hashSet that contains roots corresponding to the database.
+     *           a PriorityQueue that contains roots corresponding to the database.
      */
   public TerminologyAssociation(String term, PriorityQueue<String> roots) {
     this.term = term;
