@@ -18,14 +18,14 @@ public class FormFieldsTest {
   public void testValueOf() {
     TemplateFields fields =
         TemplateFields.valueOf("Name;Eric;Age;12;Weight;234;DOB;071296;");
-    assertTrue(fields.getFields().get(0).equals("Name"));
-    assertTrue(fields.getFields().get(1).equals("Eric"));
-    assertTrue(fields.getFields().get(2).equals("Age"));
-    assertTrue(fields.getFields().get(3).equals("12"));
-    assertTrue(fields.getFields().get(4).equals("Weight"));
-    assertTrue(fields.getFields().get(5).equals("234"));
-    assertTrue(fields.getFields().get(6).equals("DOB"));
-    assertTrue(fields.getFields().get(7).equals("071296"));
+    assertTrue(fields.getContent().get(0).equals("Name"));
+    assertTrue(fields.getContent().get(1).equals("Eric"));
+    assertTrue(fields.getContent().get(2).equals("Age"));
+    assertTrue(fields.getContent().get(3).equals("12"));
+    assertTrue(fields.getContent().get(4).equals("Weight"));
+    assertTrue(fields.getContent().get(5).equals("234"));
+    assertTrue(fields.getContent().get(6).equals("DOB"));
+    assertTrue(fields.getContent().get(7).equals("071296"));
   }
 
 }

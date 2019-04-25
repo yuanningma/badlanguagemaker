@@ -15,9 +15,9 @@ public class TemplateFieldsTest {
   @Test
   public void testValueOf() {
     TemplateFields fields = TemplateFields.valueOf("Name;Age;Weight;DOB;");
-    assertTrue(fields.getFields().get(0).equals("Name"));
-    assertTrue(fields.getFields().get(1).equals("Age"));
-    assertTrue(fields.getFields().get(2).equals("Weight"));
-    assertTrue(fields.getFields().get(3).equals("DOB"));
+    assertTrue(fields.getContent().get(0).equals("Name"));
+    assertTrue(fields.getContent().get(1).equals("Age"));
+    assertTrue(fields.getContent().get(2).equals("Weight"));
+    assertTrue(fields.getContent().get(3).equals("DOB"));
   }
 }
