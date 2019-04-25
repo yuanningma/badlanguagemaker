@@ -25,27 +25,27 @@ public class PatientDatabaseTest {
   }
   @Test
    public void testSavePatient() {
-//      try {
-//
-//          //Patient queryResult = patientDatabase.getPatient(1);
-//          TextFileLoader tf = new TextFileLoader("data/medicalTerminology/MOCK_DATA (2).csv");
-//          List<String> query = tf.fileLoader();
-//          for(int i = 2; i < query.size(); i++){
-//              String s = query.get(i);
-//              String[] arr = s.split(",");
-//              patient1.setPatientId(i);
-//              patient1.setFirstName(arr[1]);
-//              patient1.setMiddleName(arr[2]);
-//              patient1.setLastName(arr[3]);
-//              patient1.setPatientId(i);
-//              patientDatabase.savePatients(patient1);
-//          }
-//
-//
-//      } catch (SQLException sql) {
-//          sql.printStackTrace();
-//          System.out.println("Test Failure");
-//      }
+      try {
+
+          //Patient queryResult = patientDatabase.getPatient(1);
+          TextFileLoader tf = new TextFileLoader("data/medicalTerminology/MOCK_DATA (2).csv");
+          List<String> query = tf.fileLoader();
+          for(int i = 2; i < query.size(); i++){
+              String s = query.get(i);
+              String[] arr = s.split(",");
+              patient1.setPatientId(Integer.parseInt(arr[0]));
+              patient1.setFirstName(arr[1]);
+              patient1.setMiddleName(arr[2]);
+              patient1.setLastName(arr[3]);
+              patient1.setPatientId(Integer.parseInt(arr[4]));
+              patientDatabase.savePatients(patient1);
+          }
+
+
+      } catch (SQLException sql) {
+          sql.printStackTrace();
+          System.out.println("Test Failure");
+      }
    }
 
    @Test
