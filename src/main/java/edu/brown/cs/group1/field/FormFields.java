@@ -17,6 +17,8 @@ public class FormFields implements Fields {
     return fields;
   }
 
+  // TODO: For TFIDF, method for converting fields to List<String>
+
   @Override
   public String toString() {
     Set<String> keys = fields.keySet();

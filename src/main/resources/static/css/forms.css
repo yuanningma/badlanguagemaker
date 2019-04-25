@@ -1,1 +1,51 @@
+#formTable {
+position: relative;
+border: 1px solid #ddd;
+padding: 8px;
 
+display: block;
+top:0px;
+width: 60%;
+overflow-y: scroll;
+background-color: white;
+
+  border-spacing: 0;
+
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-style: solid;
+    border-color:Grey;
+}
+#formTable label {
+  position: relative;
+white-space:nowrap;
+
+}
+
+
+#formTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#formTable tr:hover {background-color: LemonChiffon;}
+
+#formTable th {
+  /*padding-top: 20px;*/
+  /*padding-bottom: 12px;*/
+  width: 100%;
+
+  text-align: left;
+  background-color: SteelBlue;
+  color: white;
+}
+
+#formTable td{
+  /*padding-top: 20px;*/
+  /*padding-bottom: 12px;*/
+  width: 100%;
+
+  text-align: left;
+  position: relative;
+}
+
+p{
+  color: White;
+}
