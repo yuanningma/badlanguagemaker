@@ -76,7 +76,7 @@ public class Main {
     FreeMarkerEngine freeMarker = createEngine();
     Spark.get("/login", new LoginHandler(), freeMarker);
     Spark.get("/home", new LoginHandler(), freeMarker);
-    Spark.get("/DD", new DDHandler(), freeMarker);
+    Spark.get("/Dashboard/:doctorId", new DDHandler(), freeMarker);
     // TODO: Pass in dbPath to handlers.
     Spark.get("/patients/:patientId/forms", new PastFormsHandler(), freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
