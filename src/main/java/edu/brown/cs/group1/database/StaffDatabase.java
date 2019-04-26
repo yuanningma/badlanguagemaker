@@ -49,7 +49,6 @@ public class StaffDatabase extends Database {
       String query = "CREATE TABLE IF NOT EXISTS staff("
                     + "staffId INTEGER,"
                     + "name TEXT,"
-                    + "permissions TEXT,"
                     + "is_Doctor TEXT,"
                     + "is_Admin TEXT,"
                     + "is_Working TEXT,"
@@ -65,11 +64,11 @@ public class StaffDatabase extends Database {
       prep = dbConn.prepareStatement(query);
       prep.setInt(1, staffMember.getStaffId());
       prep.setString(2, "name");
-      prep.setString(3, staffMember.
-              parsePermissions(staffMember.getPermissions()));
-      prep.setString(4, String.valueOf(staffMember.isDoctor()));
-      prep.setString(5, String.valueOf(staffMember.isAdmin()));
-      prep.setString(6, String.valueOf(staffMember.isWorking()));
+//      prep.setString(3, staffMember.
+//              parsePermissions(staffMember.getPermissions()));
+      prep.setString(3, String.valueOf(staffMember.isDoctor()));
+      prep.setString(4, String.valueOf(staffMember.isAdmin()));
+      prep.setString(5, String.valueOf(staffMember.isWorking()));
       prep.addBatch();
       prep.executeBatch();
 
