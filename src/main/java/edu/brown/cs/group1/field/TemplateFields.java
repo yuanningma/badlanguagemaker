@@ -3,10 +3,21 @@ package edu.brown.cs.group1.field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TemplateFields implements Fields {
+/**
+ * TemplateFields class provides ability to get labels depending on whether
+ * template is a form and parsing a string for fields.
+ * @author wchoi11
+ *
+ */
+public class TemplateFields {
 
   private List<String> fields;
 
+  /**
+   * Constructor.
+   * @param fields
+   *          Fields for this template.
+   */
   public TemplateFields(List<String> fields) {
     this.fields = fields;
   }
@@ -20,8 +31,31 @@ public class TemplateFields implements Fields {
     return result.toString();
   }
 
-  public List<String> getFields() {
+  /**
+   * Return fields of template.
+   * @return Fields of template.
+   */
+  public List<String> getContent() {
     return fields;
+  }
+
+  /**
+   * Gets labels of all the fields from template.
+   * @param isForm
+   *          true if template is a form, meaning field values are included.
+   *          false if template.
+   * @return All labels.
+   */
+  public List<String> getLabels(boolean isForm) {
+    if (isForm) {
+      List<String> labels = new ArrayList<>();
+      for (int i = 0; i < fields.size(); i += 2) {
+        labels.add(fields.get(i));
+      }
+      return labels;
+    } else {
+      return fields;
+    }
   }
 
   /**
