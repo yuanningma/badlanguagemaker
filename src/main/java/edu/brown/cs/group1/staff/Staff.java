@@ -45,24 +45,25 @@ public abstract class Staff {
 
   public abstract List<Staff> getStaff();
 
-  /**
-   * Method that returns a string used in the Staff Database.
-   *
-   * @param access
-   *          a Map containing a staff member access information
-   * @return a string containing the list of all permission the staff member is
-   *         granted.
-   */
-  // TODO: INSTEAD OF A MAP MAYBE WE CAN USE A HASHSET OF ALL THE PLACES
-  // THE STAFF MEMBER HAS ACCESS TO?
-  public String parsePermissions(Map<Integer, Boolean> access) {
-    String toReturn = new String();
-    for (Map.Entry<Integer, Boolean> entry : access.entrySet()) {
-      if (entry.getValue()) {
-        toReturn = toReturn + entry.getKey() + " ";
-      }
-    }
-    return toReturn;
-  }
+    /**
+     * Method that returns a string used in the Staff Database.
+     *
+     * @param access
+     *              a Map containing a staff member access information
+     * @return
+     *      a string containing the list of all permission the staff member
+     *      is granted.
+     */
+//    //TODO: INSTEAD OF A MAP MAYBE WE CAN USE A HASHSET OF ALL THE PLACES
+//    // THE STAFF MEMBER HAS ACCESS TO?
+//  public String parsePermissions(Map<Integer, Boolean> access) {
+//    String toReturn = new String();
+//    for (Map.Entry<Integer, Boolean> entry : access.entrySet()) {
+//      if (entry.getValue()) {
+//        toReturn = toReturn + entry.getKey() + " ";
+//      }
+//    }
+//    return toReturn;
+//  }
 
 }
