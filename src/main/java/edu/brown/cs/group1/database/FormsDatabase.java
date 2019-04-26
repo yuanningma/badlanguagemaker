@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.brown.cs.group1.field.FormFields;
+import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
 
 /**
@@ -119,7 +119,7 @@ public class FormsDatabase extends Database {
       while (rs.next()) {
         int formId = rs.getInt(1);
         String fieldsString = rs.getString(2);
-        FormFields fields = FormFields.valueOf(fieldsString);
+        TemplateFields fields = TemplateFields.valueOf(fieldsString);
         forms.add(new Template(formId, fields));
       }
       rs.close();
