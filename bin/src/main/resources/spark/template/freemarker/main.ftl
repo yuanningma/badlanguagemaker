@@ -20,29 +20,6 @@ the page is written in -->
 
 </head>
 
-<!--<div>
-  <div class="sidenav" id="navbarToggleExternalContent">
-<ul>
-  <li><input type="text" id="searchPage" placeholder="Search Page"></li>
-  <li><a class="text-black" href="/home">Home</a></li>
-  <li><a class="text-black" href="/patients/1/forms">forms</a></li>
-  <li><a class="text-black" href="/Dashboard/:doctorId">DoctorDashboard</a></li>
-  <li><a class="text-black" href="/imaging">xray</a></li>
-  <li> <a class="text-black" href="/timeline">timeline</a></li>
-
-</ul>
-            
-    </div>
-  <nav class="navbar navbar-light"  role="navigation">
-    <button id="nav" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-     aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation ">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
-</div>
-
-<div style="padding:1px 16px;height:1000px;">
-<script>-->
 
 
 <div id="mySidenav" class="sidenav">
@@ -50,7 +27,7 @@ the page is written in -->
 <input type="text" id="searchPage" placeholder="Search Page">
   <a class="text-black" href="/home">Login / Logout</a>
 <!-- <a class="text-black" href="/patients/1/forms">forms</a>-->
-  <a class="text-black" href="/DD">My Dashboard</a>
+  <a class="text-black" href="/Dashboard/1">My Dashboard</a>
  <!--<a class="text-black" href="/imaging">xray</a>-->
   <!--<a class="text-black" href="/timeline">timeline</a>-->
     <!--<a class="text-black" href="/patients/1/profile">Profile</a>-->
