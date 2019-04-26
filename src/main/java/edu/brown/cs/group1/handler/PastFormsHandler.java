@@ -46,8 +46,7 @@ public class PastFormsHandler implements TemplateViewRoute {
     // String patientId = req.params(":patientId");
     // List<Template> forms = formsDb.getAllForms(patientId);
     // TODO: Pass forms to front-end.
-    Map<String, Object> variables =
-        ImmutableMap.of("title", "pc+ home", "message", "");
+    Map<String, Object> variables = ImmutableMap.of("title", "pc+ home");
 
     return new ModelAndView(variables, "pastForms.ftl");
   }

@@ -1,13 +1,14 @@
 package edu.brown.cs.group1.database;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import edu.brown.cs.group1.patient.Patient;
 
 /**
@@ -42,22 +43,22 @@ public class PatientDatabase extends Database {
   /**
    * Method that saves new patients into the to the database.
    * @param patient
-   *                  the new patient member to be inserted
+   *          the new patient member to be inserted
    * @throws SQLException
-   *                  thrown when a SQLException is thrown
+   *           thrown when a SQLException is thrown
    */
   public void savePatients(Patient patient) throws SQLException {
     if (dbConn != null) {
-      String query = "CREATE TABLE IF NOT EXISTS patient("
-              + "patientId INTEGER,"
+      String query =
+          "CREATE TABLE IF NOT EXISTS patient(" + "patientId INTEGER,"
               + "first_name TEXT,"
               + "middle_name TEXT,"
               + "last_name TEXT,"
-//              + "insurance_name TEXT,"
-//              + "insurance_number INTEGER,"
+              // + "insurance_name TEXT,"
+              // + "insurance_number INTEGER,"
               + "doctorID INTEGER,"
-//              + "dob TEXT,"
-//              + "emergency_contact TEXT,"
+              // + "dob TEXT,"
+              // + "emergency_contact TEXT,"
               + "PRIMARY KEY (patientId));";
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
@@ -68,11 +69,11 @@ public class PatientDatabase extends Database {
       prep.setString(2, patient.getFirstName());
       prep.setString(3, patient.getMiddleName());
       prep.setString(4, patient.getLastName());
-//      prep.setString(3, "insurance");
-//      prep.setString(4, "insurance_number");
+      // prep.setString(3, "insurance");
+      // prep.setString(4, "insurance_number");
       prep.setInt(5, patient.getDoctorId());
-//      prep.setDate(6, java.sql.Date.valueOf("2000-05-07"));
-//      prep.setString(SEVEN, "(917)-443-6682");
+      // prep.setDate(6, java.sql.Date.valueOf("2000-05-07"));
+      // prep.setString(SEVEN, "(917)-443-6682");
       prep.addBatch();
       prep.executeBatch();
       prep.close();
@@ -90,23 +91,25 @@ public class PatientDatabase extends Database {
    * @throws SQLException
    *           thrown when an SQLException is throw.
    */
-  public void update(String field, String value, Patient patient) throws SQLException {
+  public void update(String field, String value, Patient patient)
+      throws SQLException {
     if (dbConn != null) {
       String query = new String();
       switch (field) {
-        case "first_name":
-          query = "UPDATE patient SET first_name = ? WHERE patientId = ?";
-          break;
-        case "middle_name" :
-          query = "UPDATE patient SET middle_name = ? WHERE patientId = ?";
-          break;
-        case "last_name" :
-          query = "UPDATE patient SET last_name = ? WHERE patientId = ?";
-          break;
-        case "doctorID" :
-          query = "UPDATE patient SET doctorID = ? WHERE patientId = ? ";
-          break;
-        default: query = null;
+      case "first_name":
+        query = "UPDATE patient SET first_name = ? WHERE patientId = ?";
+        break;
+      case "middle_name":
+        query = "UPDATE patient SET middle_name = ? WHERE patientId = ?";
+        break;
+      case "last_name":
+        query = "UPDATE patient SET last_name = ? WHERE patientId = ?";
+        break;
+      case "doctorID":
+        query = "UPDATE patient SET doctorID = ? WHERE patientId = ? ";
+        break;
+      default:
+        query = null;
       }
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
@@ -121,19 +124,17 @@ public class PatientDatabase extends Database {
     }
   }
 
-    /**
-     * Method to retrieve patient with the patient id.
-     *
-     * @param id
-     *          the patient id.
-     * @return
-     *        a patient object corresponding to the input id.
-     *        If no patient exist in the database the method would
-     *        return null.
-     *
-     * @throws SQLException
-     *              thrown when a SQLExpection is throw within method
-     */
+  /**
+   * Method to retrieve patient with the patient id.
+   *
+   * @param id
+   *          the patient id.
+   * @return a patient object corresponding to the input id. If no patient exist
+   *         in the database the method would return null.
+   *
+   * @throws SQLException
+   *           thrown when a SQLExpection is throw within method
+   */
   public Patient getPatient(Integer id) throws SQLException {
     if (dbConn != null) {
 
@@ -147,7 +148,7 @@ public class PatientDatabase extends Database {
       Patient patient = null;
 
       while (rs.next()) {
-        //TODO: HAVE TO UPDATE DEPENDING ON PATIENT OBJ.
+        // TODO: HAVE TO UPDATE DEPENDING ON PATIENT OBJ.
         String firstName = rs.getString(2);
         String middleName = rs.getString(3);
         String lastName = rs.getString(4);
@@ -166,12 +167,11 @@ public class PatientDatabase extends Database {
    * Method to retrieve all patients with particular doctor.
    * @param id
    *          the doctor id
-   * @return
-   *        a list of patients of the doctor with the corresponding id.
+   * @return a list of patients of the doctor with the corresponding id.
    * @throws SQLException
-   *            thrown when a SQLException is thrown
+   *           thrown when a SQLException is thrown
    */
-  public List<Patient> getAllPatients(Integer id) throws SQLException {
+  public List<String[]> getAllPatients(Integer id) throws SQLException {
     if (dbConn != null) {
       String query = "SELECT * FROM patient WHERE (doctorID = ?)";
       PreparedStatement prep;
@@ -179,16 +179,24 @@ public class PatientDatabase extends Database {
       prep.setInt(1, id);
 
       ResultSet rs = prep.executeQuery();
-      List<Patient> patients  = new ArrayList<>();
+      List<String[]> patients = new ArrayList<String[]>();
 
       while (rs.next()) {
         Integer patientID = rs.getInt(1);
-        String firstName = rs.getString(2);
-        String middleName = rs.getString(3);
-        String lastName = rs.getString(4);
-        Patient patient =
-                new Patient(patientID, firstName, middleName, lastName, id);
-        patients.add(patient);
+        // String firstName = rs.getString(2);
+        // String middleName = rs.getString(3);
+        // String lastName = rs.getString(4);
+
+        String name =
+            rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4);
+
+        String[] line = new String[] {
+            name, patientID.toString()
+        };
+
+        // String patient =
+        // firstName + " " + lastName + " " + patientID.toString();
+        patients.add(line);
       }
 
       rs.close();
