@@ -102,4 +102,9 @@ public class Patient {
     this.completedForms = completedForms;
   }
 
+  @Override
+  public String toString() {
+    String s = null;
+    return s;
+  }
 }

@@ -18,8 +18,7 @@ public class relevanceHandler implements TemplateViewRoute {
     // Patient patient = PatientDatabase.getPatient(patientId);
     // TODO: Call getAllFilledTemplates on patient to pass to front-end.
     // List<Template> forms = patient.getAllFilledTemplates();
-    Map<String, Object> variables =
-        ImmutableMap.of("title", "pc+ home", "message", "");
+    Map<String, Object> variables = ImmutableMap.of("title", "pc+ home");
 
     return new ModelAndView(variables, "timeline.ftl");
   }

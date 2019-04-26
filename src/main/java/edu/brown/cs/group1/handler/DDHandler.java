@@ -8,22 +8,29 @@ import java.util.Map;
 import com.google.common.collect.ImmutableMap;
 
 import edu.brown.cs.group1.database.PatientDatabase;
-import edu.brown.cs.group1.patient.Patient;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
 public class DDHandler implements TemplateViewRoute {
-  private PatientDatabase patientDb;
+  private PatientDatabase patientDb =
+      new PatientDatabase("data/database/members.sqlite3");
 
   @Override
   public ModelAndView handle(Request arg0, Response arg1) {
     Integer id = Integer.parseInt(arg0.params(":doctorId"));
 
-    List<Patient> patients = new ArrayList<Patient>();
+    List<String[]> patients1 = new ArrayList<String[]>();
+    List<String> firstNames = new ArrayList<String>();
+    List<String> lastNames = new ArrayList<String>();
+    List<String> ages = new ArrayList<String>();
+    List<String> addresses = new ArrayList<String>();
+    List<Integer> ids = new ArrayList<Integer>();
+
     try {
-      patients = patientDb.getAllPatients(id);
+      patients1.addAll(patientDb.getAllPatients(id));
+
     } catch (SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -34,10 +41,9 @@ public class DDHandler implements TemplateViewRoute {
             "pc+: My Dashboard",
             "content",
             "",
-            "message",
-            "",
-            "patients",
-            patients);
+            "patientsFN",
+            patients1);
+
     return new ModelAndView(variables, "DD.ftl");
   }
 

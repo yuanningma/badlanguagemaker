@@ -21,8 +21,8 @@ public class FormHandler implements TemplateViewRoute {
     fields.put("Age", "1234");
     fields.put("Weight", "1234 pounds");
 
-    Map<String, Object> variables = ImmutableMap.of("title",
-        "pc+ ", "message", id, "fields", fields);
+    Map<String, Object> variables =
+        ImmutableMap.of("title", "pc+ ", "fields", fields);
     return new ModelAndView(variables, "form.ftl");
   }
 }
