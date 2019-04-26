@@ -43,7 +43,7 @@ public class PastFormsHandler implements TemplateViewRoute {
 
   @Override
   public ModelAndView handle(Request req, Response res) {
-    // String patientId = req.params(":patientId");
+    String patientId = req.params(":patientId");
     // List<Template> forms = formsDb.getAllForms(patientId);
     // TODO: Pass forms to front-end.
     Map<String, Object> variables = ImmutableMap.of("title", "pc+ home");

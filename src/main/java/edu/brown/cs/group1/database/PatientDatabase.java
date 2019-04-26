@@ -183,15 +183,15 @@ public class PatientDatabase extends Database {
 
       while (rs.next()) {
         Integer patientID = rs.getInt(1);
-        // String firstName = rs.getString(2);
-        // String middleName = rs.getString(3);
-        // String lastName = rs.getString(4);
+        String firstName = rs.getString(2);
+        String middleName = rs.getString(3);
+        String lastName = rs.getString(4);
 
         String name =
             rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4);
 
         String[] line = new String[] {
-            name, patientID.toString()
+            firstName, middleName, lastName, patientID.toString()
         };
 
         // String patient =

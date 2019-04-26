@@ -11,7 +11,7 @@
 <div>
 <br>
 		<center>
-    	<a type="submit" class="btn btn-primary btn-lg" href="/forms/new" role="button">New Form</button>
+    	<button onclick="window.location.href='/forms/new'" role="button">New Form</button>
     </center>
 </div>
 

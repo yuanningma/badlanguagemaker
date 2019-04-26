@@ -21,10 +21,10 @@ public class PatientProfileHandler implements TemplateViewRoute {
 
   @Override
   public ModelAndView handle(Request arg0, Response arg1) {
-    String id = arg0.params(":formId");
+    String id = arg0.params(":patientId");
 
     Map<String, Object> variables =
-        ImmutableMap.of("title", "pc+: My Dashboard", "content", "");
+        ImmutableMap.of("title", "pc+: My Dashboard", "content", "", "id", id);
     return new ModelAndView(variables, "PatientProfile.ftl");
   }
 
