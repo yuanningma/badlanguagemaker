@@ -52,17 +52,17 @@ public abstract class Staff {
      *      a string containing the list of all permission the staff member
      *      is granted.
      */
-    //TODO: INSTEAD OF A MAP MAYBE WE CAN USE A HASHSET OF ALL THE PLACES
-    // THE STAFF MEMBER HAS ACCESS TO?
-  public String parsePermissions(Map<Integer, Boolean> access) {
-    String toReturn = new String();
-    for (Map.Entry<Integer, Boolean> entry : access.entrySet()) {
-      if (entry.getValue()) {
-        toReturn = toReturn + entry.getKey() + " ";
-      }
-    }
-    return toReturn;
-  }
+//    //TODO: INSTEAD OF A MAP MAYBE WE CAN USE A HASHSET OF ALL THE PLACES
+//    // THE STAFF MEMBER HAS ACCESS TO?
+//  public String parsePermissions(Map<Integer, Boolean> access) {
+//    String toReturn = new String();
+//    for (Map.Entry<Integer, Boolean> entry : access.entrySet()) {
+//      if (entry.getValue()) {
+//        toReturn = toReturn + entry.getKey() + " ";
+//      }
+//    }
+//    return toReturn;
+//  }
 
 
 }
