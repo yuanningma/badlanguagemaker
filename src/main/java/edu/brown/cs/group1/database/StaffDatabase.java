@@ -1,19 +1,21 @@
 package edu.brown.cs.group1.database;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
+
 import edu.brown.cs.group1.staff.Admin;
 import edu.brown.cs.group1.staff.Doctor;
 import edu.brown.cs.group1.staff.Staff;
 
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * Public class that concerns the StaffDatabase.
- * This class extends the abstract class Database which
- * implements the setDbConn method.
+ * Public class that concerns the StaffDatabase. This class extends the abstract
+ * class Database which implements the setDbConn method.
  */
 public class StaffDatabase extends Database {
   private String path;
@@ -39,24 +41,22 @@ public class StaffDatabase extends Database {
   /**
    * Method that saves new staff members to the database.
    * @param staffMember
-   *                  the new staff member to be inserted
+   *          the new staff member to be inserted
    * @throws SQLException
-   *                  thrown when a SQLException is thrown
- */
+   *           thrown when a SQLException is thrown
+   */
   public void saveNewStaff(Staff staffMember) throws SQLException {
     if (dbConn != null) {
       PreparedStatement prep;
-      String query = "CREATE TABLE IF NOT EXISTS staff("
-                    + "staffId INTEGER,"
-                    + "name TEXT,"
-                    + "permissions TEXT,"
-                    + "is_Doctor TEXT,"
-                    + "is_Admin TEXT,"
-                    + "is_Working TEXT,"
-//                    + "username TEXT"
-//                    + "password TEXT"
-                    + "PRIMARY KEY (staffId));";
-
+      String query = "CREATE TABLE IF NOT EXISTS staff(" + "staffId INTEGER,"
+          + "name TEXT,"
+          + "permissions TEXT,"
+          + "is_Doctor TEXT,"
+          + "is_Admin TEXT,"
+          + "is_Working TEXT,"
+          // + "username TEXT"
+          // + "password TEXT"
+          + "PRIMARY KEY (staffId));";
 
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
@@ -65,8 +65,8 @@ public class StaffDatabase extends Database {
       prep = dbConn.prepareStatement(query);
       prep.setInt(1, staffMember.getStaffId());
       prep.setString(2, "name");
-      prep.setString(3, staffMember.
-              parsePermissions(staffMember.getPermissions()));
+      prep.setString(3,
+          staffMember.parsePermissions(staffMember.getPermissions()));
       prep.setString(4, String.valueOf(staffMember.isDoctor()));
       prep.setString(5, String.valueOf(staffMember.isAdmin()));
       prep.setString(6, String.valueOf(staffMember.isWorking()));
@@ -77,44 +77,43 @@ public class StaffDatabase extends Database {
     }
   }
 
-
-
-    /**
-     * Updates a specific field with a specific value in the staff database.
-     * @param field
-     *              the field to be updated
-     * @param value
-     *              the value the field should be updated
-     * @param staff
-     *               the patient object with new information to be updated
-     * @throws SQLException
-     *          thrown when an SQLException is throw.
-     */
-    public void update(String field, String value,
-                       Staff staff) throws SQLException {
+  /**
+   * Updates a specific field with a specific value in the staff database.
+   * @param field
+   *          the field to be updated
+   * @param value
+   *          the value the field should be updated
+   * @param staff
+   *          the patient object with new information to be updated
+   * @throws SQLException
+   *           thrown when an SQLException is throw.
+   */
+  public void
+      update(String field, String value, Staff staff) throws SQLException {
     if (dbConn != null) {
 
       String query = new String();
       switch (field) {
-        case "name" :
-          query = "UPDATE staff SET name = ? WHERE staffId = ?";
-          break;
-        case "permissions" :
-          query = "UPDATE staff SET name = ? WHERE staffId = ?";
-          break;
-        case "is_Doctor" :
-          query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
-          break;
-        case "is_Admin" :
-          query = "UPDATE staff SET is_Admin = ? WHERE staffId = ?";
-          break;
-        case "is_Working":
-          query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
-          break;
-        case "username":
-          query = "UPDATE staff SET username = ? WHERE staffId = ?";
-          break;
-        default: query = null;
+      case "name":
+        query = "UPDATE staff SET name = ? WHERE staffId = ?";
+        break;
+      case "permissions":
+        query = "UPDATE staff SET name = ? WHERE staffId = ?";
+        break;
+      case "is_Doctor":
+        query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
+        break;
+      case "is_Admin":
+        query = "UPDATE staff SET is_Admin = ? WHERE staffId = ?";
+        break;
+      case "is_Working":
+        query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
+        break;
+      case "username":
+        query = "UPDATE staff SET username = ? WHERE staffId = ?";
+        break;
+      default:
+        query = null;
       }
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
@@ -127,19 +126,17 @@ public class StaffDatabase extends Database {
     }
   }
 
-    /**
-     * Method to retrieve Staff member with the Staff id.
-     *
-     * @param id
-     *          the staff member id.
-     * @return
-     *        a Staff member object corresponding to the input id.
-     *        If no staff member exist in the database the method would
-     *        return null.
-     *
-     * @throws SQLException
-     *              thrown when a SQLExpection is throw within method
-     */
+  /**
+   * Method to retrieve Staff member with the Staff id.
+   *
+   * @param id
+   *          the staff member id.
+   * @return a Staff member object corresponding to the input id. If no staff
+   *         member exist in the database the method would return null.
+   *
+   * @throws SQLException
+   *           thrown when a SQLExpection is throw within method
+   */
   public Staff getStaffMember(Integer id) throws SQLException {
     if (dbConn != null) {
 
@@ -159,12 +156,16 @@ public class StaffDatabase extends Database {
         String isWorking = rs.getString(6);
         if (Boolean.parseBoolean(isAdmin)) {
           staffmember = new Admin(id,
-                     extractPermissions(permissions) ,true, false,
-                    Boolean.parseBoolean(isWorking));
+              extractPermissions(permissions),
+              true,
+              false,
+              Boolean.parseBoolean(isWorking));
         } else {
           staffmember = new Doctor(id,
-                    extractPermissions(permissions), false, true,
-                    Boolean.parseBoolean(isWorking));
+              extractPermissions(permissions),
+              false,
+              true,
+              Boolean.parseBoolean(isWorking));
         }
       }
       rs.close();
@@ -173,19 +174,19 @@ public class StaffDatabase extends Database {
     }
     return null;
   }
+
   /**
    * Method that extracts the permissions from a string.
    *
    * @param access
-   *             a string contains all the staff member's granted access.
-   * @return
-   *          a Map containing the granted access of the staff member.
+   *          a string contains all the staff member's granted access.
+   * @return a Map containing the granted access of the staff member.
    */
   public Map<Integer, Boolean> extractPermissions(String access) {
     String[] arr = access.split(" ");
     Map<Integer, Boolean> toReturn = new HashMap<>();
 
-    for (String s: arr) {
+    for (String s : arr) {
       toReturn.put(Integer.parseInt(s), true);
     }
 
