@@ -176,6 +176,29 @@ public class StaffDatabase extends Database {
   }
 
   /**
+   * Deletes a staff member from the staff database.
+   * @param staffID
+   *            the staffID of the patient being deleted.
+   * @throws SQLException
+   *                throws a SQLExpection when an errors occurs when interacting
+   *                with the database.
+   */
+  public void deleteStaff(Integer staffID) throws SQLException {
+    if (dbConn != null) {
+
+      String query = "DELETE FROM patient WHERE (patientId = ?);";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+
+      prep.setInt(1, staffID);
+
+      prep.executeQuery();
+
+      prep.close();
+    }
+  }
+
+  /**
    * Method that extracts the permissions from a string.
    *
    * @param access

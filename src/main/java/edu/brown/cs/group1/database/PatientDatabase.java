@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.brown.cs.group1.patient.Patient;
+import sun.swing.plaf.synth.Paint9Painter;
 
 /**
  * Public class that concerns the PatientDatabase. This class extends the
@@ -204,5 +205,28 @@ public class PatientDatabase extends Database {
       return patients;
     }
     return null;
+  }
+
+  /**
+   * Deletes a patient from the patients database.
+   * @param patientID
+   *            the patientID of the patient being deleted.
+   * @throws SQLException
+   *                throws a SQLExpection when an errors occurs when interacting
+   *                with the database.
+   */
+  public void deletePatient(Integer patientID) throws SQLException {
+    if (dbConn != null) {
+
+      String query = "DELETE FROM patient WHERE (patientId = ?);";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+
+      prep.setInt(1, patientID);
+
+      prep.executeQuery();
+
+      prep.close();
+    }
   }
 }
