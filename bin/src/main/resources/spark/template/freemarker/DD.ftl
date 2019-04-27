@@ -11,230 +11,40 @@ style="z-index: -50;"  width="200" height="200">-->
 <body>
    <center>
 
+
+
    
 <input type="text" id="myInput" placeholder="Search";>
 <div style="overflow-x:auto;">
 <table  id="myTable" style={position:relative; top:-90px;}>
+
   <tr class="header" >
-    <th style="width:20%;">First Name</th>
-        <th style="width:20%;">Last Name</th>
+
+    <th style="width:15%;">First Name</th>
+        <th style="width:15%;">Middle Name</th>
+                <th style="width:15%;">Last Name</th>
     <th style="width:10%;">Age</th>
         <th style="width:30%;">Address</th>
     <th style="width:10%;">ID</th>
-    
+      <#list patientsFN as fn>  
   </tr>
-  <tr onclick="document.location='/patients/1/profile'">
-    <td>John</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-  
-  <tr onclick="document.location='/patients/2/profile'">
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-  
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-  
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-  
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-  
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-    </tr>
-    <tr>
-    <td>Alex</td>
-    <td>Johnson</td>
-        <td>31</td>
-            <td>2408 Shellydale Dr...</td>
-                <td>12345</td> 
-  </tr>
-  
+  <tr onclick="document.location='/patients/${fn[3]}/profile'">
+
+    <td>${fn[0]}</td>
+        <td>${fn[1]}</td>
+            <td>${fn[2]}</td>
+            <td>add me</td>
+                <td>add me</td>
+                <td>${fn[3]}</td>
+     </tr>
+                      </#list>
+
+
 
 </table>
+
 </div>
+
 </center>
 </body
 </#assign>
