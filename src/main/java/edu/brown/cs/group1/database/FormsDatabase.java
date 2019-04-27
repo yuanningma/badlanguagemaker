@@ -11,6 +11,7 @@ import java.util.List;
 
 import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
+import edu.brown.cs.group1.patient.Patient;
 
 /**
  * Public class that concerns the PatientDatabase. This class extends the
@@ -50,12 +51,13 @@ public class FormsDatabase extends Database {
    * @param template
    *          the template to be saved.
    */
-  public void saveForm(Template template) {
+  public void saveForm(Template template, Patient patient) {
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER,"
-            + "patientId TEXT,"
+        String query = "CREATE TABLE IF NOT EXISTS form("
+            + "formId INTEGER,"
+            + "patientId INTEGER,"
             + "form_input TEXT,"
             + "PRIMARY KEY (formId)) Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP;";
         prep = dbConn.prepareStatement(query);
@@ -63,6 +65,10 @@ public class FormsDatabase extends Database {
         // HashSet<String> columns = getColumnsInfo();
         List<String> formInfo = new ArrayList<>();
         // TODO: need a way to extract info
+        query = "INSERT INTO form VALUES (?,?,?);";
+        prep.setInt(1, template.getTemplateId());
+        prep.setInt(2, patient.getPatientId());
+        formInfo.addAll(template.getFields().getContent());
       } catch (SQLException sql) {
         sql.printStackTrace();
       }

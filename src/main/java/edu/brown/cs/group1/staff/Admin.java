@@ -1,9 +1,14 @@
 package edu.brown.cs.group1.staff;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import edu.brown.cs.group1.database.PatientDatabase;
+import edu.brown.cs.group1.database.StaffDatabase;
+import edu.brown.cs.group1.patient.Patient;
 
 public class Admin extends Staff {
 
@@ -35,12 +40,42 @@ public class Admin extends Staff {
     isWorking = w;
   }
 
+  public void updatePatient(String field, String value, Patient p) {
+    try {
+      patientdb.update(field, value, p);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update patient information in database");
+    }
+  }
+
+  public void updateStaff(String field, String value, Staff staff) {
+    try {
+      staffdb.update(field, value, staff);
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      System.out.println("ERROR: Failed to update staff information in database");
+    }
+  }
+
+  public void setStaffDb(StaffDatabase b) {
+    staffdb = b;
+  }
+
+  public void setPatientDb(PatientDatabase b) {
+    patientdb = b;
+  }
+
   public void initializeDoctorList() {
     doctorList = new ArrayList<Doctor>();
   }
 
   public void addDoctor(Doctor d) {
     doctorList.add(d);
+    try {
+      staffdb.saveNewStaff(d);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to add doctor to database");
+    }
   }
 
   public void removeDoctor(Doctor d) {
@@ -53,86 +88,99 @@ public class Admin extends Staff {
 
   @Override
   public int getStaffId() {
-    // TODO Auto-generated method stub
     return staffId;
   }
 
   @Override
   public void setStaffId(int s) {
-    // TODO Auto-generated method stub
     staffId = s;
   }
 
   @Override
   public Map<Integer, Boolean> getPermissions() {
-    // TODO Auto-generated method stub
     return permissions;
   }
 
   @Override
   public void setPermissions(Map<Integer, Boolean> p) {
-    // TODO Auto-generated method stub
     permissions = p;
+    try {
+      staffdb.update("permissions", p.toString(), this);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update permissions in database");
+    }
   }
 
   @Override
   public boolean isAdmin() {
-    // TODO Auto-generated method stub
     return isAdmin;
   }
 
   @Override
   public void setAdmin(boolean a) {
-    // TODO Auto-generated method stub
     isAdmin = a;
+    try {
+      staffdb.update("is_Admin", Boolean.toString(a), this);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update admin privileges in database");
+    }
   }
 
   @Override
   public boolean isDoctor() {
-    // TODO Auto-generated method stub
     return isDoctor;
   }
 
   @Override
   public void setDoctor(boolean d) {
-    // TODO Auto-generated method stub
     isDoctor = d;
+    try {
+      staffdb.update("is_Doctor", Boolean.toString(d), this);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update doctor privileges in database");
+    }
   }
 
   @Override
   public boolean isWorking() {
-    // TODO Auto-generated method stub
     return isWorking;
   }
 
   @Override
   public void setWorking(boolean w) {
-    // TODO Auto-generated method stub
     isWorking = w;
+    try {
+      staffdb.update("is_Working", Boolean.toString(w), this);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update working in database");
+    }
   }
 
   @Override
   public void addStaff(Staff s) {
-    // TODO Auto-generated method stub
     staffList.add(s);
+    try {
+      staffdb.saveNewStaff(s);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to save new staff to database");
+    }
   }
 
   @Override
   public List<Staff> getStaff() {
-    // TODO Auto-generated method stub
     return staffList;
+
   }
 
   @Override
   public void initializeStaffList() {
-    // TODO Auto-generated method stub
     staffList = new ArrayList<Staff>();
 
   }
 
   @Override
   void removeStaff(Staff s) {
-    // TODO Auto-generated method stub
+    // TODO Remove method
     staffList.remove(s);
 
   }

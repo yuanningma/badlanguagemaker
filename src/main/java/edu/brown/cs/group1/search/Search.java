@@ -1,8 +1,10 @@
 package edu.brown.cs.group1.search;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Search {
 
@@ -60,5 +62,24 @@ public class Search {
     }
 
     return tf * idf;
+  }
+
+  public double keywordsTfIdf(List<String> terms, List<String> doc) {
+    double sum = 0;
+    for (String s : terms) {
+      sum += tfIdf(s, doc);
+    }
+    return sum;
+  }
+
+  public List<List<String>>
+      rankDocs(List<String> terms, List<List<String>> docs) {
+    Map<List<String>, Double> docMap = new TreeMap<List<String>, Double>();
+    for (List<String> doc : docs) {
+      double ti = keywordsTfIdf(terms, doc);
+      docMap.put(doc, ti);
+    }
+    List<List<String>> toret = new ArrayList<>(docMap.keySet());
+    return toret;
   }
 }
