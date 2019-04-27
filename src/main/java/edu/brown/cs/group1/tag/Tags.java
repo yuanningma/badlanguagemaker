@@ -3,12 +3,12 @@ package edu.brown.cs.group1.tag;
 import java.util.Map;
 
 /**
- * Tag class provides ability to mark forms based on various keywords in order
+ * Tags class provides ability to mark forms based on various keywords in order
  * to optimize searching for relevance.
  * @author wchoi11
  *
  */
-public class Tag {
+public class Tags {
 
   private Map<String, String> tags;
 
@@ -17,8 +17,28 @@ public class Tag {
    * @param tags
    *          Current map of tags to keywords.
    */
-  public Tag(Map<String, String> tags) {
+  public Tags(Map<String, String> tags) {
     this.tags = tags;
+  }
+
+  /**
+   * Returns whether tag is in tags map.
+   * @param tag
+   *          Tag to check.
+   * @return true if tag exists in tags map. false otherwise.
+   */
+  public boolean containsTag(String tag) {
+    return tags.containsKey(tag);
+  }
+
+  /**
+   * Returns whether keyword is in tags map.
+   * @param keyword
+   *          Keyword to check.
+   * @return true if keyword exists in tags map. false otherwise.
+   */
+  public boolean containsKeyword(String keyword) {
+    return tags.containsValue(keyword);
   }
 
   // [NOTE] registerNewTag does not check if tag already exists, meaning it will
