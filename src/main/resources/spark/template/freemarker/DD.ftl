@@ -1,7 +1,7 @@
 <#assign content>
 
     <link rel="stylesheet" href="/css/DD.css">
-
+   <script src="js/bacon.js"></script>
   <center>
 <h2> My Dashboard<h2>
 </center>
@@ -47,6 +47,8 @@ style="z-index: -50;"  width="200" height="200">-->
 
 </center>
 </body
+
+
 </#assign>
 <#include "main.ftl">
 

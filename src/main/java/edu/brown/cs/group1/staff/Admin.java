@@ -67,7 +67,7 @@ public class Admin extends Staff {
   @Override
   public String getName() {
     return name;
-  }
+    }
   public void setStaffDb(StaffDatabase b) {
     staffdb = b;
   }
