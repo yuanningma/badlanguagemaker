@@ -1,7 +1,7 @@
 <#assign content>
 
     <link rel="stylesheet" href="/css/DD.css">
-
+   <script src="js/bacon.js"></script>
   <center>
 <h2> My Dashboard<h2>
 </center>

@@ -147,13 +147,13 @@ public class StaffDatabase extends Database {
         String isWorking = rs.getString(6);
         if (Boolean.parseBoolean(isAdmin)) {
           staffmember = new Admin(id,
-              extractPermissions(permissions),
+              "john",
               true,
               false,
               Boolean.parseBoolean(isWorking));
         } else {
           staffmember = new Doctor(id,
-              extractPermissions(permissions),
+              "joan",
               false,
               true,
               Boolean.parseBoolean(isWorking));
