@@ -51,16 +51,20 @@ public class ExactSimilarity {
    * given form.
    * @param form1
    *          Form to compare with.
+   * @param min
+   *          Minimum similarity to add to list.
    * @return List of forms ordered by similarity to form1.
    */
-  public List<Template> mostSimil(Template form1) {
+  public List<Template> mostSimil(Template form1, double min) {
     // Get all forms from database.
     List<Template> forms = formsDb.getAllForms();
     // Run twoFormsSimil on all forms and put into hashmap results of each
     // similarity check.
     List<Template> results = new ArrayList<>();
     for (Template form : forms) {
-      results.add(form);
+      if (twoFormsSimil(form1, form) > min) {
+        results.add(form);
+      }
     }
     ExactSimilaritySorter sorter = new ExactSimilaritySorter(form1);
     results.sort(sorter);

@@ -7,20 +7,21 @@ $(document).ready(() => {
     });
 
     $("#newForm").on('click', (event) => {
-        console.log("herebef");
 
-        // let labels = [];
-        // for (let i=1; i<count+1; i++) {
-        //     labels.push($("#field" + i).html());
-        // }
-        // const postParameters = {fields: JSON.stringify(labels)};
-        const postParameters = {fields: "field"};
+        let labels = "";
+        for (let i=1; i<count+1; i++) {
+            labels += $("#field" + i).val();
+            labels += ";";
+        }
+
+        const postParameters = {fields: labels};
+        // const postParameters = {fields: "field"};
 
 
 
 		$.post("/forms/create", postParameters, responseJSON => {
             // Show message that form was successfully created
-            console.log("here");
+            console.log("posted");
         });
     });
 });
