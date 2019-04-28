@@ -60,7 +60,7 @@ public class StaffDatabase extends Database {
       query = "INSERT INTO staff VALUES (?,?,?,?,?);";
       prep = dbConn.prepareStatement(query);
       prep.setInt(1, staffMember.getStaffId());
-      prep.setString(2, "name");
+      prep.setString(2, staffMember.getName());
       prep.setString(3, String.valueOf(staffMember.isDoctor()));
       prep.setString(4, String.valueOf(staffMember.isAdmin()));
       prep.setString(5, String.valueOf(staffMember.isWorking()));
@@ -147,13 +147,13 @@ public class StaffDatabase extends Database {
         String isWorking = rs.getString(6);
         if (Boolean.parseBoolean(isAdmin)) {
           staffmember = new Admin(id,
-              extractPermissions(permissions),
+               name,
               true,
               false,
               Boolean.parseBoolean(isWorking));
         } else {
           staffmember = new Doctor(id,
-              extractPermissions(permissions),
+                name,
               false,
               true,
               Boolean.parseBoolean(isWorking));

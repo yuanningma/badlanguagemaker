@@ -99,6 +99,10 @@ public class Doctor extends Staff {
   }
 
   @Override
+  public String getName() {
+      return name;
+  }
+  @Override
   public int getStaffId() {
     return staffId;
   }
