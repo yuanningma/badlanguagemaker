@@ -7,12 +7,16 @@ $(document).ready(() => {
               // const postParameters = {
               //   input:document.getElementById("myInput").value
               // }
+              //
+              // $.post("/correct", postParameters, responseJSON => {
+              //     // TODO: Parse the JSON response into a JavaScript object.
+              //     const responseObject = JSON.parse(responseJSON);
+              //     word=responseObject.input;
+              //
+              //   }
 
-  //             $.post("/correct", postParameters, responseJSON => {
-  //                 // TODO: Parse the JSON response into a JavaScript object.
-  //                 const responseObject = JSON.parse(responseJSON);
-  //                 word=responseObject.input;
-  //
+              //_____________________________
+
   //               $suggestions.empty();
   //
   //                       var i;

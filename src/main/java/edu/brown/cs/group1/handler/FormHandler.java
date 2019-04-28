@@ -14,6 +14,7 @@ public class FormHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
     String id = req.params(":formId");
+    String patId = req.params(":patientId");
 
     // TODO: Get form fields from id. Make map of labels to fields.
     Map<String, String> fields = new LinkedHashMap<>();
@@ -22,7 +23,7 @@ public class FormHandler implements TemplateViewRoute {
     fields.put("Weight", "1234 pounds");
 
     Map<String, Object> variables =
-        ImmutableMap.of("title", "pc+ ", "fields", fields);
+        ImmutableMap.of("title", "pc+ ", "fields", fields, "pid", patId);
     return new ModelAndView(variables, "form.ftl");
   }
 }

@@ -29,14 +29,9 @@ public class DDHandler implements TemplateViewRoute {
     String search = arg0.params("search");
 
     try {
-      // if (!search.isEmpty()) {
       patients1.addAll(patientDb.getAllPatients(id));
 
       patients1.forEach(P -> names.add(P[0] + " " + P[1] + " " + P[2]));
-      // }
-      // else {
-      //
-      // }
 
     } catch (
 
