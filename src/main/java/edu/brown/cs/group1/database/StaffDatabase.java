@@ -97,9 +97,6 @@ public class StaffDatabase extends Database {
       case "name":
         query = "UPDATE staff SET name = ? WHERE staffId = ?";
         break;
-      case "permissions":
-        query = "UPDATE staff SET name = ? WHERE staffId = ?";
-        break;
       case "is_Doctor":
         query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
         break;
