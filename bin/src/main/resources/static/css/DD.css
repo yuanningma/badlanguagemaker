@@ -1,0 +1,60 @@
+a{
+  z-index: 66;
+  color: black;
+}
+#myInput{
+border-style: solid;
+  border-color:RoyalBlue;
+position: relative;
+top:0px;
+    width: 60%;
+    height: 35px;
+
+}
+
+h2{
+  color: DodgerBlue;
+}
+
+table {
+  display: block;
+  position: relative;
+  top:0px;
+
+height: 800px;
+width: 60%;
+overflow-y: scroll;
+  background-color: white;
+
+    border-spacing: 0;
+}
+#myTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-style: solid;
+    border-color:RoyalBlue;
+}
+
+#myTable td, #myTable th{
+  border: 1px solid #ddd;
+  padding: 8px;
+    width: 22%;
+}
+
+#myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#myTable tr:hover {background-color: LemonChiffon;}
+
+#myTable th {
+  padding-top: 20px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: MediumBlue;
+  color: white;
+}
+
+img{
+  top:-60px;
+  display: block;
+  position: relative;
+}

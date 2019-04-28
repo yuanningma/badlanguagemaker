@@ -6,10 +6,10 @@
     <h2>Patient Profile</h2>
     </center>
 <p>
-Patient: Patient Name<br>
-Age: 5432 <br>
-Address: 1234 1234 Lane<br>
-Patient ID: 1234<br></p>
+Patient: ${name}<br>
+<!--Age: 5432 <br>
+Address: 1234 1234 Lane<br>-->
+Patient ID: ${id}<br></p>
 
 
 

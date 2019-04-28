@@ -32,7 +32,11 @@ public class Admin extends Staff {
     staffList = null;
   }
 
-  public Admin(int i, Map<Integer, Boolean> p, boolean a, boolean d, boolean w) {
+  public Admin(int i,
+      Map<Integer, Boolean> p,
+      boolean a,
+      boolean d,
+      boolean w) {
     staffId = i;
     permissions = p;
     isAdmin = a;
@@ -44,7 +48,8 @@ public class Admin extends Staff {
     try {
       patientdb.update(field, value, p);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update patient information in database");
+      System.out
+          .println("ERROR: Failed to update patient information in database");
     }
   }
 
@@ -53,7 +58,8 @@ public class Admin extends Staff {
       staffdb.update(field, value, staff);
     } catch (SQLException e) {
       // TODO Auto-generated catch block
-      System.out.println("ERROR: Failed to update staff information in database");
+      System.out
+          .println("ERROR: Failed to update staff information in database");
     }
   }
 
@@ -122,7 +128,8 @@ public class Admin extends Staff {
     try {
       staffdb.update("is_Admin", Boolean.toString(a), this);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update admin privileges in database");
+      System.out
+          .println("ERROR: Failed to update admin privileges in database");
     }
   }
 
@@ -137,7 +144,8 @@ public class Admin extends Staff {
     try {
       staffdb.update("is_Doctor", Boolean.toString(d), this);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update doctor privileges in database");
+      System.out
+          .println("ERROR: Failed to update doctor privileges in database");
     }
   }
 
@@ -182,6 +190,12 @@ public class Admin extends Staff {
   void removeStaff(Staff s) {
     // TODO Remove method
     staffList.remove(s);
+
+  }
+
+  @Override
+  public void setName(String name1) {
+    name = name1;
 
   }
 

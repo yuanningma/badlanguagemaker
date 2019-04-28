@@ -48,15 +48,14 @@ public class StaffDatabase extends Database {
   public void saveNewStaff(Staff staffMember) throws SQLException {
     if (dbConn != null) {
       PreparedStatement prep;
-      String query = "CREATE TABLE IF NOT EXISTS staff("
-                    + "staffId INTEGER,"
-                    + "name TEXT,"
-                    + "is_Doctor TEXT,"
-                    + "is_Admin TEXT,"
-                    + "is_Working TEXT,"
-//                    + "username TEXT"
-//                    + "password TEXT"
-                    + "PRIMARY KEY (staffId));";
+      String query = "CREATE TABLE IF NOT EXISTS staff(" + "staffId INTEGER,"
+          + "name TEXT,"
+          + "is_Doctor TEXT,"
+          + "is_Admin TEXT,"
+          + "is_Working TEXT,"
+          // + "username TEXT"
+          // + "password TEXT"
+          + "PRIMARY KEY (staffId));";
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
 
@@ -65,8 +64,8 @@ public class StaffDatabase extends Database {
       prep.setInt(1, staffMember.getStaffId());
       prep.setString(2, "name");
 
-//      prep.setString(3, staffMember.
-//              parsePermissions(staffMember.getPermissions()));
+      // prep.setString(3, staffMember.
+      // parsePermissions(staffMember.getPermissions()));
       prep.setString(3, String.valueOf(staffMember.isDoctor()));
       prep.setString(4, String.valueOf(staffMember.isAdmin()));
       prep.setString(5, String.valueOf(staffMember.isWorking()));
@@ -88,8 +87,8 @@ public class StaffDatabase extends Database {
    * @throws SQLException
    *           thrown when an SQLException is throw.
    */
-  public void
-      update(String field, String value, Staff staff) throws SQLException {
+  public void update(String field, String value, Staff staff)
+      throws SQLException {
     if (dbConn != null) {
 
       String query = new String();
@@ -178,10 +177,10 @@ public class StaffDatabase extends Database {
   /**
    * Deletes a staff member from the staff database.
    * @param staffID
-   *            the staffID of the patient being deleted.
+   *          the staffID of the patient being deleted.
    * @throws SQLException
-   *                throws a SQLExpection when an errors occurs when interacting
-   *                with the database.
+   *           throws a SQLExpection when an errors occurs when interacting with
+   *           the database.
    */
   public void deleteStaff(Integer staffID) throws SQLException {
     if (dbConn != null) {

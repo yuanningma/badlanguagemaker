@@ -20,12 +20,12 @@ style="z-index: -50;"  width="200" height="200">-->
 
   <tr class="header" >
 
-    <th style="width:15%;">First Name</th>
-        <th style="width:15%;">Middle Name</th>
-                <th style="width:15%;">Last Name</th>
-    <th style="width:10%;">Age</th>
-        <th style="width:30%;">Address</th>
-    <th style="width:10%;">ID</th>
+    <th>First Name</th>
+        <th>Middle Name</th>
+                <th>Last Name</th>
+     <!--<th style="width:10%;">Age</th>
+    <th style="width:30%;">Address</th>-->
+    <th>ID</th>
       <#list patientsFN as fn>  
   </tr>
   <tr onclick="document.location='/patients/${fn[3]}/profile'">
@@ -33,8 +33,8 @@ style="z-index: -50;"  width="200" height="200">-->
     <td>${fn[0]}</td>
         <td>${fn[1]}</td>
             <td>${fn[2]}</td>
-            <td>add me</td>
-                <td>add me</td>
+            <!--<td>add me</td>
+                <td>add me</td>-->
                 <td>${fn[3]}</td>
      </tr>
                       </#list>

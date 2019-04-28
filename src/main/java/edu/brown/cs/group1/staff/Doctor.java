@@ -23,7 +23,11 @@ public class Doctor extends Staff {
     patientList = new ArrayList<Patient>();
   }
 
-  public Doctor(int i, Map<Integer, Boolean> p, boolean a, boolean d, boolean w) {
+  public Doctor(int i,
+      Map<Integer, Boolean> p,
+      boolean a,
+      boolean d,
+      boolean w) {
     staffId = i;
     permissions = p;
     isAdmin = a;
@@ -55,7 +59,8 @@ public class Doctor extends Staff {
     try {
       patientdb.update(field, value, p);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update patient information in database");
+      System.out
+          .println("ERROR: Failed to update patient information in database");
     }
   }
 
@@ -82,11 +87,8 @@ public class Doctor extends Staff {
       System.out.println("ERROR: Failed to retrieve patients from database");
     }
     for (String[] patient : patients) {
-      Patient p = new Patient(Integer.parseInt(patient[3]),
-          patient[0],
-          patient[1],
-          patient[2],
-          staffId);
+      Patient p = new Patient(Integer
+          .parseInt(patient[3]), patient[0], patient[1], patient[2], staffId);
       toret.add(p);
     }
     return toret;
@@ -129,7 +131,8 @@ public class Doctor extends Staff {
     try {
       staffdb.update("is_Admin", Boolean.toString(a), this);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update admin privileges in database");
+      System.out
+          .println("ERROR: Failed to update admin privileges in database");
     }
   }
 
@@ -144,7 +147,8 @@ public class Doctor extends Staff {
     try {
       staffdb.update("is_Doctor", Boolean.toString(d), this);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update doctor privileges in database");
+      System.out
+          .println("ERROR: Failed to update doctor privileges in database");
     }
   }
 
@@ -189,6 +193,13 @@ public class Doctor extends Staff {
   void removeStaff(Staff s) {
     // TODO: Remove staff method
     staffList.remove(s);
+
+  }
+
+  @Override
+  public void setName(String name1) {
+    // TODO Auto-generated method stub
+    name = name1;
 
   }
 

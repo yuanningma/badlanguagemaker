@@ -22,15 +22,16 @@ public class DDHandler implements TemplateViewRoute {
     Integer id = Integer.parseInt(arg0.params(":doctorId"));
 
     List<String[]> patients1 = new ArrayList<String[]>();
-    List<String> firstNames = new ArrayList<String>();
-    List<String> lastNames = new ArrayList<String>();
-    List<String> ages = new ArrayList<String>();
-    List<String> addresses = new ArrayList<String>();
-    List<Integer> ids = new ArrayList<Integer>();
-
+    // List<String> firstNames = new ArrayList<String>();
+    // List<String> lastNames = new ArrayList<String>();
+    // List<String> ages = new ArrayList<String>();
+    // List<String> addresses = new ArrayList<String>();
+    // List<Integer> ids = new ArrayList<Integer>();
+    List<String> names = new ArrayList<String>();
     try {
       patients1.addAll(patientDb.getAllPatients(id));
 
+      patients1.forEach(P -> names.add(P[0] + " " + P[1] + " " + P[2]));
     } catch (SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
