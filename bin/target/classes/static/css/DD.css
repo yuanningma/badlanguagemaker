@@ -38,7 +38,7 @@ overflow-y: scroll;
 #myTable td, #myTable th{
   border: 1px solid #ddd;
   padding: 8px;
-    width: 22%;
+  width:33%;
 }
 
 #myTable tr:nth-child(even){background-color: #f2f2f2;}

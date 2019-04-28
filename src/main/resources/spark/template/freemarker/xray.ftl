@@ -11,6 +11,6 @@
 </ul>
 <canvas id = "image"></canvas>
 
-
+<script src="/js/xray.js"></script>
 </#assign>
 <#include "main.ftl">
