@@ -14,7 +14,7 @@ style="z-index: -50;"  width="200" height="200">-->
 
 
    
-<input type="text" id="myInput" placeholder="Search";>
+<input type="text" id="myInput" name="search" placeholder="Search";>
 <div style="overflow-x:auto;">
 <table  id="myTable" style={position:relative; top:-90px;}>
 
@@ -47,6 +47,8 @@ style="z-index: -50;"  width="200" height="200">-->
 
 </center>
 </body
+
+
 </#assign>
 <#include "main.ftl">
 

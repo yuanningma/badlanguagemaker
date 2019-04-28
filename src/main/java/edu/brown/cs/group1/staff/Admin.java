@@ -25,7 +25,7 @@ public class Admin extends Staff {
 
   public Admin(int i) {
     staffId = i;
-    permissions = new HashMap<Integer, Boolean>();
+//    permissions = new HashMap<Integer, Boolean>();
     isAdmin = false;
     isDoctor = false;
     isWorking = false;
@@ -33,12 +33,14 @@ public class Admin extends Staff {
   }
 
   public Admin(int i,
-      Map<Integer, Boolean> p,
+//      Map<Integer, Boolean> p,
+      String s,
       boolean a,
       boolean d,
       boolean w) {
     staffId = i;
-    permissions = p;
+//    permissions = p;
+    name = s;
     isAdmin = a;
     isDoctor = d;
     isWorking = w;
@@ -102,20 +104,20 @@ public class Admin extends Staff {
     staffId = s;
   }
 
-  @Override
-  public Map<Integer, Boolean> getPermissions() {
-    return permissions;
-  }
-
-  @Override
-  public void setPermissions(Map<Integer, Boolean> p) {
-    permissions = p;
-    try {
-      staffdb.update("permissions", p.toString(), this);
-    } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update permissions in database");
-    }
-  }
+//  @Override
+//  public Map<Integer, Boolean> getPermissions() {
+//    return permissions;
+//  }
+//
+//  @Override
+//  public void setPermissions(Map<Integer, Boolean> p) {
+//    permissions = p;
+//    try {
+//      staffdb.update("permissions", p.toString(), this);
+//    } catch (SQLException e) {
+//      System.out.println("ERROR: Failed to update permissions in database");
+//    }
+//  }
 
   @Override
   public boolean isAdmin() {
@@ -188,9 +190,12 @@ public class Admin extends Staff {
 
   @Override
   void removeStaff(Staff s) {
-    // TODO Remove method
     staffList.remove(s);
-
+    try {
+      staffdb.deleteStaff(s.getStaffId());
+    } catch (SQLException sql) {
+      sql.printStackTrace();
+    }
   }
 
   @Override

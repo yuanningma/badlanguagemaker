@@ -59,6 +59,7 @@ ${content}
 		<#--<script src="js/graph.js"></script>-->
 		<script src="/js/xray.js"></script>
 		<script src="/js/newForm.js"></script>
+		   <script src="/js/search.js"></script>
 </div>
 
 
