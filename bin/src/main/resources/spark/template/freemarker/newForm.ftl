@@ -21,5 +21,6 @@
   <button id="newForm" type="submit" class="btn btn-primary">Create Form</button>
 </form>
 
+<script src="/js/newForm.js"></script>
 </#assign>
 <#include "main.ftl">
