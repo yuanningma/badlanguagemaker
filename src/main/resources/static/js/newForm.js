@@ -7,14 +7,19 @@ $(document).ready(() => {
     });
 
     $("#newForm").on('click', (event) => {
-console.log("hi");
+
+        console.log("herebef");
+
+
         // let labels = [];
         // for (let i=1; i<count+1; i++) {
         //     labels.push($("#field" + i).html());
         // }
         // const postParameters = {fields: JSON.stringify(labels)};
         const postParameters = {fields: "field"};
-console.log("hi");
+
+
+
 		$.post("/forms/create", postParameters, responseJSON => {
             // Show message that form was successfully created
             console.log("here");

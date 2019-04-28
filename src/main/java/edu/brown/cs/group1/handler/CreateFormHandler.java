@@ -16,9 +16,10 @@ public class CreateFormHandler implements Route {
   @Override
   public String handle(Request req, Response res) {
     QueryParamsMap qm = req.queryMap();
-    Map<String, String[]> params = qm.toMap();
-    String[] fields = params.get("fields");
-    System.out.println(fields[1]);
+    System.out.println("Handler");
+    // Map<String, String[]> params = qm.toMap();
+    // String[] fields = params.get("fields");
+    // System.out.println(fields[1]);
     // TODO: Create template object.
     // Template template = new Template(0, new TemplateFields(fields));
     // TODO: Similarity check before saving to database.
