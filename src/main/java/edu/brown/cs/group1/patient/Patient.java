@@ -94,6 +94,10 @@ public class Patient {
     this.doctorId = doctorId;
   }
 
+  public String getName() {
+    return firstName + " " + middleName + " " + lastName;
+  }
+
   public Map<Integer, Template> getCompletedForms() {
     return completedForms;
   }

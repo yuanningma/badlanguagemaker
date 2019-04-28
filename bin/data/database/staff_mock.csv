@@ -1,0 +1,21 @@
+staffId,name,is_Doctor,is_Admin,is_Working
+1,Lonnard Forson,true,false,true
+2,Scott Di Napoli,false,false,false
+3,Thom Barnet,false,false,false
+4,Beitris Mullins,false,false,true
+5,Guthrie McCloughlin,true,false,true
+6,Glenda Raecroft,true,true,false
+7,Gates Hepher,false,false,false
+8,Felice Kenward,true,false,true
+9,Klara Payle,true,true,false
+10,Gale Bilton,false,true,true
+11,Diane-marie Jantzen,false,false,true
+12,Rodolphe Manning,false,false,true
+13,Esther Mottley,false,false,false
+14,Alair Bonafant,false,false,true
+15,Athena Hinners,true,true,false
+16,Jobye McGaughay,true,false,false
+17,Misha Harrinson,false,true,true
+18,Philomena Goodey,false,false,false
+19,Lenci Tibb,false,false,false
+20,Prent Farmery,true,false,true

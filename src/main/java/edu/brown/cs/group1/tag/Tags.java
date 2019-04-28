@@ -28,7 +28,7 @@ public class Tags {
    * @return true if tag exists in tags map. false otherwise.
    */
   public boolean containsTag(String tag) {
-    return tags.containsKey(tag);
+    return tags.containsValue(tag);
   }
 
   /**
@@ -38,7 +38,7 @@ public class Tags {
    * @return true if keyword exists in tags map. false otherwise.
    */
   public boolean containsKeyword(String keyword) {
-    return tags.containsValue(keyword);
+    return tags.containsKey(keyword);
   }
 
   // [NOTE] registerNewTag does not check if tag already exists, meaning it will
@@ -54,9 +54,33 @@ public class Tags {
    *          New keyword.
    */
   public void registerNewTag(String tag, String keyword) {
-    if (!tags.containsValue(keyword)) {
-      tags.put(tag, keyword);
+    if (!tags.containsKey(keyword)) {
+      tags.put(keyword, tag);
     }
   }
 
+  /**
+   * Method the retrieves the associated tag with a given key word.
+   * @param keyword
+   *          a keyword in which to retrieve the needed tag.
+   * @return a string representing the associated tag.
+   */
+  public String getTag(String keyword) {
+    return tags.get(keyword);
+  }
+
+  // /**
+  // * Parses string for tags map and returns
+  // * @param tagsString
+  // * @return
+  // */
+  // public static Tags valueOf(String tagsString) {
+  // Map<String, String> tags = new HashMap<>();
+  // String[] tagsArr = tagsString.split(";");
+  // for (int i = 0; i < tagsArr.length; i += 2) {
+  // tags.put(tagsArr[i], tagsArr[i + 1]);
+  // }
+  // Tags allTags = new Tags(tags);
+  // return allTags;
+  // }
 }

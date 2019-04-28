@@ -2,9 +2,7 @@ package edu.brown.cs.group1.staff;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.StaffDatabase;
@@ -16,16 +14,23 @@ public class Doctor extends Staff {
 
   public Doctor(int i) {
     staffId = i;
-    permissions = new HashMap<Integer, Boolean>();
+    // permissions = new HashMap<Integer, Boolean>();
+    name = new String();
     isAdmin = false;
     isDoctor = false;
     isWorking = false;
     patientList = new ArrayList<Patient>();
   }
 
-  public Doctor(int i, Map<Integer, Boolean> p, boolean a, boolean d, boolean w) {
+  public Doctor(int i,
+  // Map<Integer, Boolean> p,
+      String n,
+      boolean a,
+      boolean d,
+      boolean w) {
     staffId = i;
-    permissions = p;
+    // permissions = p;
+    name = n;
     isAdmin = a;
     isDoctor = d;
     isWorking = w;
@@ -53,12 +58,10 @@ public class Doctor extends Staff {
   }
 
   public void updatePatient(String field, String value, Patient p) {
-    if (isDoctor) {
-      try {
-        patientdb.update(field, value, p);
-      } catch (SQLException e) {
-        System.out.println("ERROR: Failed to update patient information in database");
-      }
+    try {
+      patientdb.update(field, value, p);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update patient information in database");
     }
   }
 
@@ -108,20 +111,20 @@ public class Doctor extends Staff {
     staffId = s;
   }
 
-  @Override
-  public Map<Integer, Boolean> getPermissions() {
-    return permissions;
-  }
-
-  @Override
-  public void setPermissions(Map<Integer, Boolean> p) {
-    permissions = p;
-    try {
-      staffdb.update("permissions", p.toString(), this);
-    } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update permissions in database");
-    }
-  }
+  // @Override
+  // public Map<Integer, Boolean> getPermissions() {
+  // return permissions;
+  // }
+  //
+  // @Override
+  // public void setPermissions(Map<Integer, Boolean> p) {
+  // permissions = p;
+  // try {
+  // staffdb.update("permissions", p.toString(), this);
+  // } catch (SQLException e) {
+  // System.out.println("ERROR: Failed to update permissions in database");
+  // }
+  // }
 
   @Override
   public boolean isAdmin() {
@@ -189,16 +192,22 @@ public class Doctor extends Staff {
   @Override
   public void initializeStaffList() {
     staffList = new ArrayList<Staff>();
-
   }
 
   @Override
   void removeStaff(Staff s) {
-    // TODO: Remove staff method
-    if (isAdmin) {
-      staffList.remove(s);
+    staffList.remove(s);
+    try {
+      staffdb.deleteStaff(s.getStaffId());
+    } catch (SQLException sql) {
+      sql.printStackTrace();
     }
-
   }
 
+  @Override
+  public void setName(String name1) {
+    // TODO Auto-generated method stub
+    name = name1;
+
+  }
 }

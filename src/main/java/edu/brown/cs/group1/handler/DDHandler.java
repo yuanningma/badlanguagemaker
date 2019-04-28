@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableMap;
 
 import edu.brown.cs.group1.database.PatientDatabase;
 import spark.ModelAndView;
+import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
@@ -21,17 +22,25 @@ public class DDHandler implements TemplateViewRoute {
   public ModelAndView handle(Request arg0, Response arg1) {
     Integer id = Integer.parseInt(arg0.params(":doctorId"));
 
+    QueryParamsMap qm = arg0.queryMap();
     List<String[]> patients1 = new ArrayList<String[]>();
-    List<String> firstNames = new ArrayList<String>();
-    List<String> lastNames = new ArrayList<String>();
-    List<String> ages = new ArrayList<String>();
-    List<String> addresses = new ArrayList<String>();
-    List<Integer> ids = new ArrayList<Integer>();
+    List<String> names = new ArrayList<String>();
+
+    String search = arg0.params("search");
 
     try {
+      // if (!search.isEmpty()) {
       patients1.addAll(patientDb.getAllPatients(id));
 
-    } catch (SQLException e) {
+      patients1.forEach(P -> names.add(P[0] + " " + P[1] + " " + P[2]));
+      // }
+      // else {
+      //
+      // }
+
+    } catch (
+
+    SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }

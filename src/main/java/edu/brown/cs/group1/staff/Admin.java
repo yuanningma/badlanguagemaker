@@ -2,9 +2,7 @@ package edu.brown.cs.group1.staff;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.StaffDatabase;
@@ -25,39 +23,41 @@ public class Admin extends Staff {
 
   public Admin(int i) {
     staffId = i;
-    permissions = new HashMap<Integer, Boolean>();
+    // permissions = new HashMap<Integer, Boolean>();
     isAdmin = false;
     isDoctor = false;
     isWorking = false;
     staffList = null;
   }
 
-  public Admin(int i, Map<Integer, Boolean> p, boolean a, boolean d, boolean w) {
+  public Admin(int i,
+  // Map<Integer, Boolean> p,
+      String s,
+      boolean a,
+      boolean d,
+      boolean w) {
     staffId = i;
-    permissions = p;
+    // permissions = p;
+    name = s;
     isAdmin = a;
     isDoctor = d;
     isWorking = w;
   }
 
   public void updatePatient(String field, String value, Patient p) {
-    if (isDoctor) {
-      try {
-        patientdb.update(field, value, p);
-      } catch (SQLException e) {
-        System.out.println("ERROR: Failed to update patient information in database");
-      }
+    try {
+      patientdb.update(field, value, p);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update patient information in database");
     }
   }
 
   public void updateStaff(String field, String value, Staff staff) {
-    if (isAdmin) {
-      try {
-        staffdb.update(field, value, staff);
-      } catch (SQLException e) {
-        // TODO Auto-generated catch block
-        System.out.println("ERROR: Failed to update staff information in database");
-      }
+    try {
+      staffdb.update(field, value, staff);
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      System.out.println("ERROR: Failed to update staff information in database");
     }
   }
 
@@ -104,20 +104,20 @@ public class Admin extends Staff {
     staffId = s;
   }
 
-  @Override
-  public Map<Integer, Boolean> getPermissions() {
-    return permissions;
-  }
-
-  @Override
-  public void setPermissions(Map<Integer, Boolean> p) {
-    permissions = p;
-    try {
-      staffdb.update("permissions", p.toString(), this);
-    } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update permissions in database");
-    }
-  }
+  // @Override
+  // public Map<Integer, Boolean> getPermissions() {
+  // return permissions;
+  // }
+  //
+  // @Override
+  // public void setPermissions(Map<Integer, Boolean> p) {
+  // permissions = p;
+  // try {
+  // staffdb.update("permissions", p.toString(), this);
+  // } catch (SQLException e) {
+  // System.out.println("ERROR: Failed to update permissions in database");
+  // }
+  // }
 
   @Override
   public boolean isAdmin() {
@@ -191,9 +191,17 @@ public class Admin extends Staff {
   @Override
   void removeStaff(Staff s) {
     // TODO Remove method
-    if (isAdmin) {
+    staffList.remove(s);
+    try {
+      staffdb.deleteStaff(s.getStaffId());
+    } catch (SQLException sql) {
+      sql.printStackTrace();
     }
-
   }
 
+  @Override
+  public void setName(String name1) {
+    name = name1;
+
+  }
 }
