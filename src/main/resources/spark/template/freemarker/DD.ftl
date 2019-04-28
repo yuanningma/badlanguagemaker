@@ -47,6 +47,8 @@ style="z-index: -50;"  width="200" height="200">-->
 
 </center>
 </body
+
+
 </#assign>
 <#include "main.ftl">
 
