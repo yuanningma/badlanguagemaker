@@ -41,19 +41,23 @@ public class Admin extends Staff {
   }
 
   public void updatePatient(String field, String value, Patient p) {
-    try {
-      patientdb.update(field, value, p);
-    } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update patient information in database");
+    if (isDoctor) {
+      try {
+        patientdb.update(field, value, p);
+      } catch (SQLException e) {
+        System.out.println("ERROR: Failed to update patient information in database");
+      }
     }
   }
 
   public void updateStaff(String field, String value, Staff staff) {
-    try {
-      staffdb.update(field, value, staff);
-    } catch (SQLException e) {
-      // TODO Auto-generated catch block
-      System.out.println("ERROR: Failed to update staff information in database");
+    if (isAdmin) {
+      try {
+        staffdb.update(field, value, staff);
+      } catch (SQLException e) {
+        // TODO Auto-generated catch block
+        System.out.println("ERROR: Failed to update staff information in database");
+      }
     }
   }
 
@@ -70,16 +74,20 @@ public class Admin extends Staff {
   }
 
   public void addDoctor(Doctor d) {
-    doctorList.add(d);
-    try {
-      staffdb.saveNewStaff(d);
-    } catch (SQLException e) {
-      System.out.println("ERROR: Failed to add doctor to database");
+    if (isAdmin) {
+      doctorList.add(d);
+      try {
+        staffdb.saveNewStaff(d);
+      } catch (SQLException e) {
+        System.out.println("ERROR: Failed to add doctor to database");
+      }
     }
   }
 
   public void removeDoctor(Doctor d) {
-    doctorList.remove(d);
+    if (isAdmin) {
+      doctorList.remove(d);
+    }
   }
 
   public List<Doctor> getDoctors() {
@@ -158,11 +166,13 @@ public class Admin extends Staff {
 
   @Override
   public void addStaff(Staff s) {
-    staffList.add(s);
-    try {
-      staffdb.saveNewStaff(s);
-    } catch (SQLException e) {
-      System.out.println("ERROR: Failed to save new staff to database");
+    if (isAdmin) {
+      staffList.add(s);
+      try {
+        staffdb.saveNewStaff(s);
+      } catch (SQLException e) {
+        System.out.println("ERROR: Failed to save new staff to database");
+      }
     }
   }
 
@@ -181,7 +191,8 @@ public class Admin extends Staff {
   @Override
   void removeStaff(Staff s) {
     // TODO Remove method
-    staffList.remove(s);
+    if (isAdmin) {
+    }
 
   }
 

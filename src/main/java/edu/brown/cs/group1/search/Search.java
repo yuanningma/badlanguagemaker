@@ -82,4 +82,35 @@ public class Search {
     List<List<String>> toret = new ArrayList<>(docMap.keySet());
     return toret;
   }
+
+  // public Set<List<String>> threadedRankDocs(List<String> terms,
+  // List<List<String>> docs) {
+  //
+  // Set<List<String>> toret = Collections.synchronizedSet(new TreeSet<>());
+  //
+  // class Worker implements Runnable {
+  // private final BlockingQueue<List<String>> queue;
+  // AtomicInteger result;
+  //
+  // Worker(BlockingQueue<List<String>> q, AtomicInteger r) {
+  // queue = q;
+  // result = r;
+  // }
+  //
+  // @Override
+  // public void run() {
+  // // TODO Auto-generated method stub
+  // while (!queue.isEmpty()) {
+  // task(queue.poll());
+  // }
+  // }
+  //
+  // void task(Object x) {
+  //
+  // }
+  //
+  // }
+  //
+  // return toret;
+  // }
 }
