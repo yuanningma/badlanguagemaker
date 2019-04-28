@@ -59,14 +59,28 @@ public class Tags {
     }
   }
 
-    /**
-     * Method the retrieves the associated tag with a given key word.
-     * @param keyword
-     *              a keyword in which to retrieve the needed tag.
-     * @return
-     *        a string representing the associated tag.
-     */
+  /**
+   * Method the retrieves the associated tag with a given key word.
+   * @param keyword
+   *          a keyword in which to retrieve the needed tag.
+   * @return a string representing the associated tag.
+   */
   public String getTag(String keyword) {
     return tags.get(keyword);
   }
+
+  // /**
+  // * Parses string for tags map and returns
+  // * @param tagsString
+  // * @return
+  // */
+  // public static Tags valueOf(String tagsString) {
+  // Map<String, String> tags = new HashMap<>();
+  // String[] tagsArr = tagsString.split(";");
+  // for (int i = 0; i < tagsArr.length; i += 2) {
+  // tags.put(tagsArr[i], tagsArr[i + 1]);
+  // }
+  // Tags allTags = new Tags(tags);
+  // return allTags;
+  // }
 }

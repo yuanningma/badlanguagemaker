@@ -53,19 +53,14 @@ public class StaffDatabase extends Database {
           + "is_Doctor TEXT,"
           + "is_Admin TEXT,"
           + "is_Working TEXT,"
-          // + "username TEXT"
-          // + "password TEXT"
           + "PRIMARY KEY (staffId));";
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
 
-      query = "INSERT INTO staff VALUES (?,?,?,?,?,?);";
+      query = "INSERT INTO staff VALUES (?,?,?,?,?);";
       prep = dbConn.prepareStatement(query);
       prep.setInt(1, staffMember.getStaffId());
       prep.setString(2, "name");
-
-      // prep.setString(3, staffMember.
-      // parsePermissions(staffMember.getPermissions()));
       prep.setString(3, String.valueOf(staffMember.isDoctor()));
       prep.setString(4, String.valueOf(staffMember.isAdmin()));
       prep.setString(5, String.valueOf(staffMember.isWorking()));
