@@ -8,14 +8,16 @@ $(document).ready(() => {
 
     $("#newForm").on('click', event => {
 
-        let postParameters = {fields: labels};
-        for (let i=1; i<count+1; i++) {
-            postParameters["field" + i] = $("#field" + i).html();
-        }
-
+        // let labels = [];
+        // for (let i=1; i<count+1; i++) {
+        //     labels.push($("#field" + i).html());
+        // }
+        // const postParameters = {fields: JSON.stringify(labels)};
+        const postParameters = {fields: "field"};
 
 		$.post("/forms/create", postParameters, responseJSON => {
             // Show message that form was successfully created
+            console.log("here");
         });
     });
 });
