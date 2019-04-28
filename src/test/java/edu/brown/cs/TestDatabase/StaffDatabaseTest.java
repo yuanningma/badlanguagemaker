@@ -21,7 +21,7 @@ public class StaffDatabaseTest {
     Map<Integer, Boolean> permission = new HashMap<>();
     permission.put(1, true);
     permission.put(2, false);
-    member1 = new Doctor(1, permission, false, true, true);
+    member1 = new Doctor(1, "Harry", false, true, true);
     // permission.put(3, true);
     // member2 = new Admin(2, permission, true, false, true);
     // permission.put(4, false);
