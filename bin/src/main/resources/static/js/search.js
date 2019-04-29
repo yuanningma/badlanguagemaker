@@ -4,15 +4,19 @@ $(document).ready(() => {
           if(event.which === 13){
               console.log("hi");
 
-              const postParameters = {
-                input:document.getElementById("myInput").value
-              }
+              // const postParameters = {
+              //   input:document.getElementById("myInput").value
+              // }
+              //
+              // $.post("/correct", postParameters, responseJSON => {
+              //     // TODO: Parse the JSON response into a JavaScript object.
+              //     const responseObject = JSON.parse(responseJSON);
+              //     word=responseObject.input;
+              //
+              //   }
 
-  //             $.post("/correct", postParameters, responseJSON => {
-  //                 // TODO: Parse the JSON response into a JavaScript object.
-  //                 const responseObject = JSON.parse(responseJSON);
-  //                 word=responseObject.input;
-  //
+              //_____________________________
+
   //               $suggestions.empty();
   //
   //                       var i;

@@ -16,10 +16,15 @@
   </tr>
   </table>
   </center>
-  
-  
+  </table>
 <!--</#list>-->
 
+<div>
+<ul id="linklist" style="list-style-type:none">
+<li><a href="/patients/${id}/profile" class="previous">&#10216; View Profile</a></li>
+<li><a href="/patients/${id}/forms" class="previous">&#10216; Patient Records</a></li>
+</ul>
+</div>
 
 </#assign>
 <#include "main.ftl">

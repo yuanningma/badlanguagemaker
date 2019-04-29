@@ -48,7 +48,7 @@ style="z-index: -50;"  width="200" height="200">-->
 </center>
 </body
 
-
+		   <script src="/js/search.js"></script>
 </#assign>
 <#include "main.ftl">
 
