@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.brown.cs.group1.field.TemplateFields;
-import edu.brown.cs.group1.patient.Patient;
-import edu.brown.cs.group1.tag.Tags;
 import edu.brown.cs.group1.template.Template;
 
 /**
@@ -24,7 +22,7 @@ import edu.brown.cs.group1.template.Template;
  */
 public class FormsDatabase extends Database {
   private Connection dbConn;
-
+  private TagsDatabase tb = new TagsDatabase("data/database/tags.sqlite3");
   /**
    * Constructor for Form Database.
    * @param path
@@ -52,31 +50,36 @@ public class FormsDatabase extends Database {
    * @param template
    *          the template to be saved.
    */
-  public void saveForm(Template template, Patient patient, Tags tags) {
+  public void saveForm(Template template, Integer patientid) {
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER,"
+        String query = "CREATE TABLE IF NOT EXISTS form("
+            + "formId INTEGER PRIMARY KEY,"
             + "patientId INTEGER,"
             + "form_input TEXT,"
             + "tags TEXT"
-            + "PRIMARY KEY (formId)) Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP;";
+            + "Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
         List<String> formInfo = new ArrayList<>();
-        // TODO: need a way to extract info
-        query = "INSERT INTO form (patientId, fields, tags) VALUES (?,?,?);";
-        prep.setInt(1, patient.getPatientId());
+        query = "INSERT INTO form VALUES (null,?,?,?);";
+        prep = dbConn.prepareStatement(query);
+        prep.setInt(1, patientid);
         formInfo.addAll(template.getFields().getContent());
         List<String> tagList = new ArrayList<>();
         for (String formInput : formInfo) {
-          if (tags.containsKeyword(formInput)) {
-            tagList.add(tags.getTag(formInput));
+          String tag = tb.getTag(formInput);
+          if (tag != null) {
+            tagList.add(tag);
           }
         }
         prep.setString(2, formInfo.toString());
         prep.setString(3, tagList.toString());
+        prep.addBatch();
+        prep.executeBatch();
+        prep.close();
       } catch (SQLException sql) {
         sql.printStackTrace();
       }

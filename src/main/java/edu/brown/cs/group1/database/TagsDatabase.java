@@ -113,4 +113,30 @@ public class TagsDatabase extends Database {
       prep.close();
     }
   }
+
+    /**
+     * Get the respective tag of a keyword.
+     * @param keyword
+     *              a keyword to be inputted.
+     * @return
+     *        a tsg associated with a key word.
+     * @throws SQLException
+     *          thrown when an SQLExpection is thrown.
+     */
+  public String getTag(String keyword) throws SQLException {
+    if (containsKey(keyword)) {
+      PreparedStatement prep;
+      String query = "SELECT Tags FROM tags WHERE (keyword = ?)";
+      prep = dbConn.prepareStatement(query);
+      prep.setString(1, keyword);
+      ResultSet rs = prep.executeQuery();
+      String tag = new String();
+      while (rs.next()) {
+          tag = rs.getString(1);
+      }
+      return tag;
+    }
+    //TODO: MAY WANT TO PUT IN A CASE FOR SEARCH BAR
+    return null;
+  }
 }
