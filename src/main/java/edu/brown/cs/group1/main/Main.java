@@ -82,7 +82,9 @@ public class Main {
     Spark.get("/Dashboard/:doctorId", new DDHandler(), freeMarker);
 
     // TODO: Pass in dbPath to handlers.
-    Spark.get("/patients/:patientId/forms", new PastFormsHandler(), freeMarker);
+    Spark.get("/patients/:patientId/forms",
+        new PastFormsHandler("formsdbpath", "patientdbpath"),
+        freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
         new FormHandler(),
         freeMarker);
@@ -90,7 +92,7 @@ public class Main {
         new PatientProfileHandler(),
         freeMarker);
     Spark.get("/forms/new", new NewFormHandler(), freeMarker);
-    Spark.post("/forms/create", new CreateFormHandler());
+    Spark.post("/forms/create", new CreateFormHandler("tempdbpath"));
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
     Spark

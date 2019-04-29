@@ -3,11 +3,13 @@ package edu.brown.cs.group1.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
 
 /**
@@ -175,5 +177,27 @@ public class TemplatesDatabase extends Database {
     // }
     // saveTemplate(form);
 
+  }
+
+  /**
+   * Returns all templates from database.
+   * @return List of templates. Empty list if no templates.
+   */
+  public List<Template> getAllTemplates() {
+    List<Template> templates = new ArrayList<>();
+    try (PreparedStatement prep =
+        dbConn.prepareStatement("SELECT * FROM templates;");) {
+      ResultSet rs = prep.executeQuery();
+      while (rs.next()) {
+        int formId = rs.getInt(1);
+        String fieldsString = rs.getString(2);
+        TemplateFields fields = TemplateFields.valueOf(fieldsString);
+        templates.add(new Template(formId, fields));
+      }
+      rs.close();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return templates;
   }
 }
