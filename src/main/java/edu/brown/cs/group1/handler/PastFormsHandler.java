@@ -38,15 +38,26 @@ public class PastFormsHandler implements TemplateViewRoute {
    */
   public PastFormsHandler(String formsPath, String patientPath) {
     this.formsDb = new FormsDatabase(formsPath);
-    this.patientDb = new PatientDatabase(patientPath);
+    this.patientDb = new PatientDatabase("data/database/members.sqlite3");
   }
 
   @Override
   public ModelAndView handle(Request req, Response res) {
     String patientId = req.params(":patientId");
+    String name = "";
+    // try {
+    // name = this.patientDb.getPatient(Integer.parseInt(patientId)).getName();
+    // } catch (NumberFormatException e) {
+    // // TODO Auto-generated catch block
+    // e.printStackTrace();
+    // } catch (SQLException e) {
+    // // TODO Auto-generated catch block
+    // e.printStackTrace();
+    // }
     // List<Template> forms = formsDb.getAllForms(patientId);
     // TODO: Pass forms to front-end.
-    Map<String, Object> variables = ImmutableMap.of("title", "pc+ home");
+    Map<String, Object> variables =
+        ImmutableMap.of("title", "pc+ home", "id", patientId);
 
     return new ModelAndView(variables, "pastForms.ftl");
   }

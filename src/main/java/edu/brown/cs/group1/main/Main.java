@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.sql.SQLException;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
 
+import edu.brown.cs.group1.database.FormsDatabase;
+import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.handler.CreateFormHandler;
 import edu.brown.cs.group1.handler.DDHandler;
 import edu.brown.cs.group1.handler.FormHandler;
@@ -97,15 +100,39 @@ public class Main {
   }
 
   private static class PatientHandler implements TemplateViewRoute {
+    private FormsDatabase formsDb;
+    private PatientDatabase patientDb =
+        new PatientDatabase("data/database/members.sqlite3");
 
     @Override
     public ModelAndView handle(Request arg0, Response arg1) throws Exception {
       // TODO Auto-generated method stub
-      Map<String, Object> variables =
-          ImmutableMap.of("title", "pc+ home", "message", "", "content", "");
+      String id = arg0.params(":patientId");
+      String name = "";
+      try {
+        name = patientDb.getPatient(Integer.parseInt(id)).getName();
+      } catch (NumberFormatException e) {
+        System.out.println(
+            "ERROR: number format exception, patient profile handler.");
+        // e.printStackTrace();
+      } catch (SQLException e) {
+        // TODO Auto-generated catch block
+        System.out.println("ERROR: SQL exception, patient profile handler.");
+        // e.printStackTrace();
+      }
+
+      Map<String,
+          Object> variables = ImmutableMap.of("title",
+              "pc+: My Dashboard",
+              "content",
+              "",
+              "id1",
+              id,
+              "name",
+              name);
+
       return new ModelAndView(variables, "timeline.ftl");
     }
-
   }
 
   /**
