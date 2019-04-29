@@ -60,7 +60,10 @@ public class Admin extends Staff {
       System.out.println("ERROR: Failed to update staff information in database");
     }
   }
-
+  @Override
+  public String getName() {
+    return name;
+    }
   public void setStaffDb(StaffDatabase b) {
     staffdb = b;
   }

@@ -34,41 +34,37 @@ public class StaffDatabaseTest {
     // member3 = new Doctor(3, permission, true, false, true);
   }
 
-  @Test
-  public void testsaveNewStaff() {
-    try {
-      // Staff queryResult = staffDatabase.getStaffMember(1);
-      TextFileLoader tf = new TextFileLoader("data/database/staff_mock.csv");
-      List<String> query = tf.fileLoader();
-      for (int i = 2; i < query.size(); i++) {
-        String s = query.get(i);
-        String[] arr = s.split(",");
-        member1.setStaffId(Integer.parseInt(arr[0]));
-        member1.setName(arr[1]);
-
-        staffDatabase.update("is_Doctor", arr[2], member1);
-        staffDatabase.update("is_Admin", arr[3], member1);
-        staffDatabase.update("is_Working", arr[4], member1);
-        // member1.setAdmin(Boolean.parseBoolean(arr[3]));
-        // member1.setWorking(Boolean.parseBoolean(arr[4]));
-
-        staffDatabase.saveNewStaff(member1);
-      }
-
-    } catch (SQLException sql) {
-      sql.printStackTrace();
-      System.out.println("Test Failure");
-    }
-  }
-
-  @Test
-  public void testUpdate() {
-    try {
-      staffDatabase.update("is_Working", "false", member1);
-      Staff staff = staffDatabase.getStaffMember(member1.getStaffId());
-      assertFalse(staff.isWorking());
-    } catch (SQLException sql) {
-      sql.printStackTrace();
-    }
-  }
+//  @Test
+//  public void testsaveNewStaff() {
+//    try {
+//      // Staff queryResult = staffDatabase.getStaffMember(1);
+//      TextFileLoader tf = new TextFileLoader("data/database/staff_mock.csv");
+//      List<String> query = tf.fileLoader();
+//      for (int i = 2; i < query.size(); i++) {
+//        String s = query.get(i);
+//        String[] arr = s.split(",");
+//        member1.setStaffId(Integer.parseInt(arr[0]));
+//        member1.setName(arr[1]);
+//        member1.setDoctor(Boolean.getBoolean(arr[2]));
+//        member1.setAdmin(Boolean.getBoolean(arr[2]));
+//        member1.setWorking(Boolean.getBoolean(arr[3]));
+//        staffDatabase.saveNewStaff(member1);
+//      }
+//
+//    } catch (SQLException sql) {
+//      sql.printStackTrace();
+//      System.out.println("Test Failure");
+//    }
+//  }
+//
+//  @Test
+//  public void testUpdate() {
+//    try {
+//      staffDatabase.update("is_Doctor", "true", member1);
+//      Staff staff = staffDatabase.getStaffMember(member1.getStaffId());
+//      assertFalse(staff.isWorking());
+//    } catch (SQLException sql) {
+//      sql.printStackTrace();
+//    }
+//  }
 }

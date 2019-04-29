@@ -24,6 +24,8 @@ public abstract class Staff {
 
   public abstract void setName(String name);
 
+  public abstract String getName();
+
 //  public abstract Map<Integer, Boolean> getPermissions();
 //
 //  abstract void setPermissions(Map<Integer, Boolean> permissions);
