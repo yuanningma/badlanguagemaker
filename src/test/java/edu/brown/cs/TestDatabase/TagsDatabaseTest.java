@@ -12,9 +12,9 @@ public class TagsDatabaseTest {
         tagsDatabase = new TagsDatabase("data/database/tags.sqlite3");
     }
 
-    @Test
-    public void TestRegisterTag() {
-        f
-    }
+//    @Test
+//    public void TestRegisterTag() {
+//
+//    }
 
 }
