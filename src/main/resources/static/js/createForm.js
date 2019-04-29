@@ -21,7 +21,7 @@ $(document).ready(() => {
 
 		$.post("/forms/create", postParameters, responseJSON => {
             // Show message that form was successfully created
-            console.log("posted");
+            // console.log("posted");
         });
     });
 });
