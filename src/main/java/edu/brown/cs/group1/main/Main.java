@@ -21,6 +21,7 @@ import edu.brown.cs.group1.handler.PastFormsHandler;
 import edu.brown.cs.group1.handler.PatientProfileHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
 import edu.brown.cs.group1.handler.relevanceHandler;
+import edu.brown.cs.group1.handler.searchDDHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -97,6 +98,7 @@ public class Main {
     Spark.get("/data", new GraphHandler(), freeMarker);
     Spark
         .get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
+    Spark.post("/searchDD", new searchDDHandler());
     Spark.post("/relevance", new relevanceHandler(), freeMarker);
 
   }

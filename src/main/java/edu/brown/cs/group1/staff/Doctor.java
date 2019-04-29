@@ -72,8 +72,13 @@ public class Doctor extends Staff {
    */
   public void removePatient(Patient p) {
     // TODO: Remove method
-    if (isDoctor) {
-      patientList.remove(p);
+    if(isDoctor)   {
+    patientList.remove(p);
+    try {
+        patientdb.deletePatient(p.getPatientId());
+    } catch (SQLException sql) {
+        sql.printStackTrace();
+    }
     }
   }
 
@@ -101,6 +106,10 @@ public class Doctor extends Staff {
 
   }
 
+  @Override
+  public String getName() {
+      return name;
+  }
   @Override
   public int getStaffId() {
     return staffId;
@@ -208,6 +217,11 @@ public class Doctor extends Staff {
   public void setName(String name1) {
     // TODO Auto-generated method stub
     name = name1;
+    try {
+      staffdb.update("name", name1, this);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update working in database");
+    }
 
   }
 }
