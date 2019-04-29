@@ -48,12 +48,12 @@ public class CreateFormHandler implements Route {
     // TODO: Min value for mostSimil is hard-coded for now.
     List<Template> simil = checker.mostSimil(template, 0.5);
     if (simil.isEmpty()) {
-      Map<String, Object> variables = ImmutableMap.of("message", "error!");
-      return GSON.toJson(variables);
-    } else {
       // Create template in database with labels from frontend.
       tempDb.saveTemplate(template);
       Map<String, Object> variables = ImmutableMap.of("message", "success!");
+      return GSON.toJson(variables);
+    } else {
+      Map<String, Object> variables = ImmutableMap.of("message", "error!");
       return GSON.toJson(variables);
     }
   }

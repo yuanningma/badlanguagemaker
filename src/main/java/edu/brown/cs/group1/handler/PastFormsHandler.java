@@ -43,7 +43,8 @@ public class PastFormsHandler implements TemplateViewRoute {
 
   @Override
   public ModelAndView handle(Request req, Response res) {
-    String patientId = req.params(":patientId");
+    String patientIdString = req.params(":patientId");
+    int patientId = Integer.parseInt(patientIdString);
     String name = "";
     // try {
     // name = this.patientDb.getPatient(Integer.parseInt(patientId)).getName();

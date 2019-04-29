@@ -87,7 +87,7 @@ public class Main {
         new PastFormsHandler("formsdbpath", "patientdbpath"),
         freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
-        new FormHandler(),
+        new FormHandler("formsdbpath"),
         freeMarker);
     Spark.get("/patients/:patientId/profile",
         new PatientProfileHandler(),

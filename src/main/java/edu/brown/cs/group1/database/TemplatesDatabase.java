@@ -139,21 +139,23 @@ public class TemplatesDatabase extends Database {
    *         exists.
    */
   public Template getTemplate(int templateId) {
-    // try (PreparedStatement prep = dbConn.prepareStatement("SELECT fields FROM
-    // templates WHERE id = ?;");) {
-    // prep.setInt(1, templateId);
-    // ResultSet rs = prep.executeQuery();
-    // String fields = "";
-    // while (rs.next()) {
-    // fields = rs.getString(1);
-    // }
-    // List<String> parsedFields = parseFields(fields, false);
-    // Template template = new Template(formId, parsedFields);
-    // rs.close();
-    // return template;
-    // } catch (SQLException e) {
-    // e.printStackTrace();
-    // }
+    try (PreparedStatement prep = dbConn
+        .prepareStatement("SELECT form_input FROM templates WHERE id = ?;");) {
+      prep.setInt(1, templateId);
+      ResultSet rs = prep.executeQuery();
+      String fields = "";
+      while (rs.next()) {
+        fields = rs.getString(1);
+      }
+      TemplateFields parsedFields = TemplateFields.valueOf(fields);
+      Template template = new Template(templateId, parsedFields);
+      rs.close();
+      return template;
+    } catch (
+
+    SQLException e) {
+      e.printStackTrace();
+    }
     return null;
   }
 
@@ -167,6 +169,7 @@ public class TemplatesDatabase extends Database {
    *          New field name.
    */
   public void
+
       updateField(int templateId, String oldFieldName, String newFieldName) {
     // Template template = getTemplate(templateId);
     // List<String> fields = template.getFields();

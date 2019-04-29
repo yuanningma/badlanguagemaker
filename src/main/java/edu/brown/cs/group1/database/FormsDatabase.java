@@ -23,6 +23,7 @@ import edu.brown.cs.group1.template.Template;
 public class FormsDatabase extends Database {
   private Connection dbConn;
   private TagsDatabase tb = new TagsDatabase("data/database/tags.sqlite3");
+
   /**
    * Constructor for Form Database.
    * @param path
@@ -54,12 +55,12 @@ public class FormsDatabase extends Database {
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query = "CREATE TABLE IF NOT EXISTS form("
-            + "formId INTEGER PRIMARY KEY,"
-            + "patientId INTEGER,"
-            + "form_input TEXT,"
-            + "tags TEXT"
-            + "Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
+        String query =
+            "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
+                + "patientId INTEGER,"
+                + "form_input TEXT,"
+                + "tags TEXT"
+                + "Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
@@ -99,7 +100,7 @@ public class FormsDatabase extends Database {
   public List<Template> getAllForms() {
     List<Template> forms = new ArrayList<>();
     try (PreparedStatement prep =
-        dbConn.prepareStatement("SELECT * FROM forms;");) {
+        dbConn.prepareStatement("SELECT formId, form_input FROM forms;");) {
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
         int formId = rs.getInt(1);
