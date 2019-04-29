@@ -17,15 +17,13 @@ public class TestExactSimilarity {
   }
 
   @Test
-  public void testTwoFormsSimil() {
+  public void testTwoTempsSimil() {
     // ExactSimilarity checker = new ExactSimilarity("not_a_db");
-    TemplateFields fields1 =
-        TemplateFields.valueOf("Name;Eric;Age;12;Weight;234;DOB;071296;");
-    TemplateFields fields2 =
-        TemplateFields.valueOf("Name;Eric;Age;12;Weight;234;Height;071296;");
+    TemplateFields fields1 = TemplateFields.valueOf("Name;Age;Weight;DOB;");
+    TemplateFields fields2 = TemplateFields.valueOf("Name;Age;Weight;Height;");
     Template form1 = new Template(1, fields1);
     Template form2 = new Template(2, fields2);
-    double ans = ExactSimilarity.twoFormsSimil(form1, form2);
+    double ans = ExactSimilarity.twoTempsSimil(form1, form2);
     assertTrue(ans == 0.6);
   }
 
