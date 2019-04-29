@@ -14,7 +14,7 @@ public class Doctor extends Staff {
 
   public Doctor(int i) {
     staffId = i;
-//    permissions = new HashMap<Integer, Boolean>();
+    // permissions = new HashMap<Integer, Boolean>();
     name = new String();
     isAdmin = false;
     isDoctor = false;
@@ -23,13 +23,13 @@ public class Doctor extends Staff {
   }
 
   public Doctor(int i,
-//      Map<Integer, Boolean> p,
+  // Map<Integer, Boolean> p,
       String n,
       boolean a,
       boolean d,
       boolean w) {
     staffId = i;
-//    permissions = p;
+    // permissions = p;
     name = n;
     isAdmin = a;
     isDoctor = d;
@@ -46,22 +46,22 @@ public class Doctor extends Staff {
   }
 
   public void addPatient(Patient p) {
-    patientList.add(p);
-    try {
-      patientdb.savePatients(p);
-    } catch (SQLException e) {
-      // TODO Auto-generated catch block
-      System.out.println("ERROR: Failed to save patient to database");
+    if (isDoctor) {
+      patientList.add(p);
+      try {
+        patientdb.savePatients(p);
+      } catch (SQLException e) {
+        // TODO Auto-generated catch block
+        System.out.println("ERROR: Failed to save patient to database");
+      }
     }
-
   }
 
   public void updatePatient(String field, String value, Patient p) {
     try {
       patientdb.update(field, value, p);
     } catch (SQLException e) {
-      System.out
-          .println("ERROR: Failed to update patient information in database");
+      System.out.println("ERROR: Failed to update patient information in database");
     }
   }
 
@@ -72,11 +72,13 @@ public class Doctor extends Staff {
    */
   public void removePatient(Patient p) {
     // TODO: Remove method
+    if(isDoctor)   {
     patientList.remove(p);
     try {
         patientdb.deletePatient(p.getPatientId());
     } catch (SQLException sql) {
-      sql.printStackTrace();
+        sql.printStackTrace();
+    }
     }
   }
 
@@ -93,8 +95,11 @@ public class Doctor extends Staff {
       System.out.println("ERROR: Failed to retrieve patients from database");
     }
     for (String[] patient : patients) {
-      Patient p = new Patient(Integer
-          .parseInt(patient[3]), patient[0], patient[1], patient[2], staffId);
+      Patient p = new Patient(Integer.parseInt(patient[3]),
+          patient[0],
+          patient[1],
+          patient[2],
+          staffId);
       toret.add(p);
     }
     return toret;
@@ -115,20 +120,20 @@ public class Doctor extends Staff {
     staffId = s;
   }
 
-//  @Override
-//  public Map<Integer, Boolean> getPermissions() {
-//    return permissions;
-//  }
-//
-//  @Override
-//  public void setPermissions(Map<Integer, Boolean> p) {
-//    permissions = p;
-//    try {
-//      staffdb.update("permissions", p.toString(), this);
-//    } catch (SQLException e) {
-//      System.out.println("ERROR: Failed to update permissions in database");
-//    }
-//  }
+  // @Override
+  // public Map<Integer, Boolean> getPermissions() {
+  // return permissions;
+  // }
+  //
+  // @Override
+  // public void setPermissions(Map<Integer, Boolean> p) {
+  // permissions = p;
+  // try {
+  // staffdb.update("permissions", p.toString(), this);
+  // } catch (SQLException e) {
+  // System.out.println("ERROR: Failed to update permissions in database");
+  // }
+  // }
 
   @Override
   public boolean isAdmin() {
@@ -141,8 +146,7 @@ public class Doctor extends Staff {
     try {
       staffdb.update("is_Admin", Boolean.toString(a), this);
     } catch (SQLException e) {
-      System.out
-          .println("ERROR: Failed to update admin privileges in database");
+      System.out.println("ERROR: Failed to update admin privileges in database");
     }
   }
 
@@ -157,8 +161,7 @@ public class Doctor extends Staff {
     try {
       staffdb.update("is_Doctor", Boolean.toString(d), this);
     } catch (SQLException e) {
-      System.out
-          .println("ERROR: Failed to update doctor privileges in database");
+      System.out.println("ERROR: Failed to update doctor privileges in database");
     }
   }
 
@@ -179,11 +182,13 @@ public class Doctor extends Staff {
 
   @Override
   public void addStaff(Staff s) {
-    staffList.add(s);
-    try {
-      staffdb.saveNewStaff(s);
-    } catch (SQLException e) {
-      System.out.println("ERROR: Failed to save new staff to database");
+    if (isAdmin) {
+      staffList.add(s);
+      try {
+        staffdb.saveNewStaff(s);
+      } catch (SQLException e) {
+        System.out.println("ERROR: Failed to save new staff to database");
+      }
     }
   }
 
@@ -219,5 +224,4 @@ public class Doctor extends Staff {
     }
 
   }
-
 }

@@ -2,6 +2,7 @@ package edu.brown.cs.group1.synonyms;
 
 import edu.brown.cs.group1.textloader.TextFileLoader;
 
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.List;
 /**
@@ -80,18 +81,20 @@ public class TerminologyAssociation {
     }
   }
 
-  public List<TerminologyAssociation> readTerminologyAssociations(String filepath) {
-      TextFileLoader textFileLoader = new TextFileLoader(filepath);
-      List<String> stringList = textFileLoader.fileLoader();
-      for (String s: stringList) {
-      String[] args = s.replaceAll("\\[", "").replaceAll("\\]","")
-                  .split(",");
-      String term = args[0];
-          PriorityQueue roots = new PriorityQueue(new RootsCompartor());
-          for (int i = 1; i < args.length; i++) {
-
-          }
-      }
-
-  }
+//  public List<TerminologyAssociation> readTerminologyAssociations(String filepath) {
+//      TextFileLoader textFileLoader = new TextFileLoader(filepath);
+//      List<String> stringList = textFileLoader.fileLoader();
+//      List<TerminologyAssociation> toReturn = new ArrayList<>();
+//      for (String s: stringList) {
+//      String[] args = s.replaceAll("\\[", "").replaceAll("\\]","")
+//                  .split(",");
+//      String needTerm = args[0];
+//      String[] rootsString = args[1].split("\\s+");
+//      PriorityQueue needroots = new PriorityQueue(new RootsCompartor());
+//      for (int i = 1; i < rootsString.length; i++) {
+//        needroots.add(rootsString[i]);
+//        toReturn.add(new TerminologyAssociation(needTerm, needroots));
+//      }
+//    }
+//  }
 }

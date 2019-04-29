@@ -18,7 +18,7 @@
   
   <div id="last"></div>
   <button id="newField" type="button" class="btn btn-primary">New Field</button>
-  <button id="newForm" type="submit" class="btn btn-primary">Create Form</button>
+  <button id="newForm" type="button" class="btn btn-primary">Create Form</button>
 </form>
 
 <script src="/js/newForm.js"></script>

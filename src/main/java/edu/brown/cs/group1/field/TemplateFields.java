@@ -32,7 +32,7 @@ public class TemplateFields {
   }
 
   /**
-   * Return fields of template.
+   * Return fields of template (the entire form for relevance search).
    * @return Fields of template.
    */
   public List<String> getContent() {

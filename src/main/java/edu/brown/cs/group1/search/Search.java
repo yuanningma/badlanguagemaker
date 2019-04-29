@@ -1,10 +1,18 @@
 package edu.brown.cs.group1.search;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import com.google.common.util.concurrent.AtomicDouble;
 
 public class Search {
 
@@ -67,6 +75,7 @@ public class Search {
   public double keywordsTfIdf(List<String> terms, List<String> doc) {
     double sum = 0;
     for (String s : terms) {
+      // System.out.println("TERM IS: " + s);
       sum += tfIdf(s, doc);
     }
     return sum;
@@ -74,12 +83,98 @@ public class Search {
 
   public List<List<String>>
       rankDocs(List<String> terms, List<List<String>> docs) {
-    Map<List<String>, Double> docMap = new TreeMap<List<String>, Double>();
+
+    Map<List<String>, Double> docMap = new HashMap<List<String>, Double>();
     for (List<String> doc : docs) {
       double ti = keywordsTfIdf(terms, doc);
+      // System.out.println("DOC IS: " + doc.get(0) + " TI IS: " + ti);
       docMap.put(doc, ti);
     }
-    List<List<String>> toret = new ArrayList<>(docMap.keySet());
+
+    List<Map.Entry<List<String>, Double>> entries = new ArrayList<Map.Entry<List<String>, Double>>(docMap.entrySet());
+    Collections.sort(entries,
+        new Comparator<Map.Entry<List<String>, Double>>() {
+          public int compare(Map.Entry<List<String>, Double> a,
+              Map.Entry<List<String>, Double> b) {
+            return Double.compare(b.getValue(), a.getValue());
+          }
+        });
+    List<List<String>> toret = new ArrayList<>();
+    for (Map.Entry<List<String>, Double> e : entries) {
+      System.out.println("KEY: " + e.getKey().get(0)
+          + " VALUE: "
+          + e.getValue());
+      toret.add(e.getKey());
+    }
     return toret;
+  }
+
+  public List<List<String>> threadedRankDocs(List<String> terms,
+      List<List<String>> docs) throws InterruptedException {
+
+    int numDocs = docs.size();
+    List<AtomicDouble> sizeList = new ArrayList<AtomicDouble>();
+    for (int i = 0; i < numDocs; i++) {
+      sizeList.add(new AtomicDouble());
+    }
+    sizeList = Collections.synchronizedList(sizeList);
+
+    class Worker implements Runnable {
+      private final BlockingQueue<String> queue;
+      List<AtomicDouble> results;
+      List<List<String>> docs;
+
+      Worker(BlockingQueue<String> q,
+          List<AtomicDouble> r,
+          List<List<String>> documents) {
+        queue = q;
+        results = r;
+        docs = documents;
+      }
+
+      @Override
+      public void run() {
+        // TODO Auto-generated method stub
+        while (!queue.isEmpty()) {
+          task(queue.poll());
+        }
+      }
+
+      void task(Object x) {
+        for (int i = 0; i < docs.size(); i++) {
+          System.out.println("STRING IS: " + (String) x);
+          double sum = tfIdf((String) x, docs.get(i));
+          results.get(i).addAndGet(sum);
+        }
+      }
+
+    }
+
+    int nThreads = 2;
+    ExecutorService threadPool = Executors.newFixedThreadPool(nThreads);
+
+    BlockingQueue<String> bqueue = new LinkedBlockingQueue<String>();
+    for (String s : terms) {
+      bqueue.put(s);
+    }
+
+    List<Callable<Object>> todo = new ArrayList<Callable<Object>>(nThreads);
+
+    for (int i = 0; i < nThreads; i++) {
+      Worker w = new Worker(bqueue, sizeList, docs);
+      todo.add(Executors.callable(w));
+    }
+
+    threadPool.invokeAll(todo);
+
+    threadPool.shutdownNow();
+
+    for (int i = 0; i < numDocs; i++) {
+      System.out.println("DOC: " + docs.get(i).get(0)
+          + " IN LIST: "
+          + sizeList.get(i));
+    }
+
+    return docs;
   }
 }

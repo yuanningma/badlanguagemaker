@@ -1,0 +1,29 @@
+<cardiovascular>
+-heart
+-aorta
+
+<respiratory>
+-lungs
+-throat
+-nose
+
+<neurology>
+-brain
+-nerve
+-nervous system
+
+<renal>
+-kidney
+-ureter
+-urethra
+-urine
+-urinary system
+
+<hepato / GI>
+-liver
+-gallbladder
+-intestine
+
+<psychiatric>
+-mind
+-

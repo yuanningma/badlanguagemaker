@@ -5,80 +5,85 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import edu.brown.cs.group1.database.FormsDatabase;
+import edu.brown.cs.group1.database.TemplatesDatabase;
 import edu.brown.cs.group1.template.Template;
 
 /**
  * ExactSimilarity class provides ability to return similarity as a double by
- * checking exact matches for field names. Similarity between two forms is
+ * checking exact matches for field names. Similarity between two templates is
  * calculated by finding the total number of fields that match and dividing that
- * number by the total number of unique field names from both forms.
+ * number by the total number of unique field names from both templates.
  * @author wchoi11
  *
  */
 public class ExactSimilarity {
 
-  private FormsDatabase formsDb;
+  private TemplatesDatabase tempDb;
 
   /**
    * Constructor.
-   * @param formsDb
-   *          Path to forms database.
+   * @param tempDb
+   *          Path to templates database.
    */
-  public ExactSimilarity(String formsDb) {
-    this.formsDb = new FormsDatabase(formsDb);
+  public ExactSimilarity(String tempDb) {
+    this.tempDb = new TemplatesDatabase(tempDb);
   }
 
   /**
-   * Calculates similarity between two forms.
-   * @param form1
-   *          First form.
-   * @param form2
-   *          Second form.
-   * @return Value between 0 and 1 representing similarity between two forms.
+   * Calculates similarity between two templates.
+   * @param template1
+   *          First template.
+   * @param template2
+   *          Second template.
+   * @return Value between 0 and 1 representing similarity between two
+   *         templates.
    */
-  public static double twoFormsSimil(Template form1, Template form2) {
+  public static double twoTempsSimil(Template template1, Template template2) {
     // Get total number of unique fields.
-    double unique = uniqueFieldCount(form1, form2);
+    double unique = uniqueFieldCount(template1, template2);
     // Get total number of matching fields.
-    double matches = matchFieldCount(form1, form2);
+    double matches = matchFieldCount(template1, template2);
     // Return quotient.
     return matches / unique;
   }
 
   /**
-   * Returns list of forms from greatest similarity to least similarity with
-   * given form.
-   * @param form1
+   * Returns list of templates from greatest similarity to least similarity with
+   * given template.
+   * @param template1
    *          Form to compare with.
-   * @return List of forms ordered by similarity to form1.
+   * @param min
+   *          Minimum similarity to add to list.
+   * @return List of templates ordered by similarity to template1.
    */
-  public List<Template> mostSimil(Template form1) {
-    // Get all forms from database.
-    List<Template> forms = formsDb.getAllForms();
-    // Run twoFormsSimil on all forms and put into hashmap results of each
+  public List<Template> mostSimil(Template template1, double min) {
+    // Get all templates from database.
+    List<Template> templates = tempDb.getAllTemplates();
+    // Run twoFormsSimil on all templates and put into hashmap results of each
     // similarity check.
     List<Template> results = new ArrayList<>();
-    for (Template form : forms) {
-      results.add(form);
+    for (Template template : templates) {
+      if (twoTempsSimil(template1, template) > min) {
+        results.add(template);
+      }
     }
-    ExactSimilaritySorter sorter = new ExactSimilaritySorter(form1);
+    ExactSimilaritySorter sorter = new ExactSimilaritySorter(template1);
     results.sort(sorter);
     return results;
   }
 
   /**
-   * Returns number of unique fields among both forms.
-   * @param form1
-   *          First form.
-   * @param form2
-   *          Second form.
+   * Returns number of unique fields among both templates.
+   * @param template1
+   *          First template.
+   * @param template2
+   *          Second template.
    * @return Number of unique fields.
    */
-  private static int uniqueFieldCount(Template form1, Template form2) {
+  private static int uniqueFieldCount(Template template1, Template template2) {
     // Add fields to a set.
-    List<String> fields1 = form1.getFields().getLabels(true);
-    List<String> fields2 = form2.getFields().getLabels(true);
+    List<String> fields1 = template1.getFields().getLabels(false);
+    List<String> fields2 = template2.getFields().getLabels(false);
     Set<String> allFields = new HashSet<>();
     allFields.addAll(fields1);
     allFields.addAll(fields2);
@@ -86,16 +91,16 @@ public class ExactSimilarity {
   }
 
   /**
-   * Returns number of labels that match between both forms.
-   * @param form1
-   *          First form.
-   * @param form2
-   *          Second form.
+   * Returns number of labels that match between both templates.
+   * @param template1
+   *          First template.
+   * @param template2
+   *          Second template.
    * @return Number of matches.
    */
-  private static int matchFieldCount(Template form1, Template form2) {
-    List<String> labels1 = form1.getFields().getLabels(true);
-    List<String> labels2 = form2.getFields().getLabels(true);
+  private static int matchFieldCount(Template template1, Template template2) {
+    List<String> labels1 = template1.getFields().getLabels(false);
+    List<String> labels2 = template2.getFields().getLabels(false);
     Set<String> someLabels = new HashSet<>();
     someLabels.addAll(labels1);
     int count = 0;
