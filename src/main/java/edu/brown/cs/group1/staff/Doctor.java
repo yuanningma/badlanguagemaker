@@ -2,9 +2,7 @@ package edu.brown.cs.group1.staff;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.StaffDatabase;
@@ -75,6 +73,11 @@ public class Doctor extends Staff {
   public void removePatient(Patient p) {
     // TODO: Remove method
     patientList.remove(p);
+    try {
+        patientdb.deletePatient(p.getPatientId());
+    } catch (SQLException sql) {
+      sql.printStackTrace();
+    }
   }
 
   /**
@@ -209,6 +212,11 @@ public class Doctor extends Staff {
   public void setName(String name1) {
     // TODO Auto-generated method stub
     name = name1;
+    try {
+      staffdb.update("name", name1, this);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Failed to update working in database");
+    }
 
   }
 

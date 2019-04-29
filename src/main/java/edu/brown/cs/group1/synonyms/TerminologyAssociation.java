@@ -1,7 +1,9 @@
 package edu.brown.cs.group1.synonyms;
 
-import java.util.PriorityQueue;
+import edu.brown.cs.group1.textloader.TextFileLoader;
 
+import java.util.PriorityQueue;
+import java.util.List;
 /**
  * A class that associates body parts to common roots.
  */
@@ -76,5 +78,20 @@ public class TerminologyAssociation {
     if (!containsRoot(root)) {
       roots.add(root);
     }
+  }
+
+  public List<TerminologyAssociation> readTerminologyAssociations(String filepath) {
+      TextFileLoader textFileLoader = new TextFileLoader(filepath);
+      List<String> stringList = textFileLoader.fileLoader();
+      for (String s: stringList) {
+      String[] args = s.replaceAll("\\[", "").replaceAll("\\]","")
+                  .split(",");
+      String term = args[0];
+          PriorityQueue roots = new PriorityQueue(new RootsCompartor());
+          for (int i = 1; i < args.length; i++) {
+
+          }
+      }
+
   }
 }

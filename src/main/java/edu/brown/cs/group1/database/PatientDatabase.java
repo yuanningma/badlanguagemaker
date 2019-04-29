@@ -148,7 +148,6 @@ public class PatientDatabase extends Database {
       Patient patient = null;
 
       while (rs.next()) {
-        // TODO: HAVE TO UPDATE DEPENDING ON PATIENT OBJ.
         String firstName = rs.getString(2);
         String middleName = rs.getString(3);
         String lastName = rs.getString(4);
@@ -229,4 +228,41 @@ public class PatientDatabase extends Database {
     }
   }
 
+    /**
+     * Retrieves a list of patients info that contain a name.
+     * Uses in search bar in GUI.
+     * @param name
+     *          a name associated with a patients
+     * @return
+     *      a list of strings args filled with patient information.
+     * @throws
+     *     throws an SQLExpection when a error is thrown.
+     */
+  public List<String[]> getPatientNameMatch(String name) throws SQLException {
+    if (dbConn != null) {
+      String query = "SELECT * FROM patient WHERE (name = ?);";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+
+      prep.setString(1, name);
+
+      ResultSet rs = prep.executeQuery();
+      List<String[]> patients = new ArrayList<String[]>();
+
+      while (rs.next()) {
+        Integer id = rs.getInt(1);
+        String firstName = rs.getString(2);
+        String middleName = rs.getString(3);
+        String lastName = rs.getString(4);
+        String[] line = new String[] {
+            firstName, middleName, lastName, id.toString()};
+        patients.add(line);
+      }
+
+      rs.close();
+      prep.close();
+      return patients;
+    }
+    return null;
+  }
 }

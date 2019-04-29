@@ -85,28 +85,24 @@ public class StaffDatabase extends Database {
   public void update(String field, String value, Staff staff)
       throws SQLException {
     if (dbConn != null) {
-        System.out.println(getStaffMember(staff.getStaffId()));
-        if (getStaffMember(staff.getStaffId()) != null) {
-            String query = new String();
-            switch (field) {
-                case "name":
-                    query = "UPDATE staff SET name = ? WHERE staffId = ?";
-                    break;
-                case "is_Doctor":
-                    query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
-                    break;
-                case "is_Admin":
-                    query = "UPDATE staff SET is_Admin = ? WHERE staffId = ?";
-                    break;
-                case "is_Working":
-                    query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
-                    break;
-                case "username":
-                    query = "UPDATE staff SET username = ? WHERE staffId = ?";
-                    break;
-                default:
-                    query = null;
-            }
+      if (getStaffMember(staff.getStaffId()) != null) {
+        String query = new String();
+        switch (field) {
+          case "name":
+            query = "UPDATE staff SET name = ? WHERE staffId = ?";
+            break;
+          case "is_Doctor":
+            query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
+            break;
+          case "is_Admin":
+            query = "UPDATE staff SET is_Admin = ? WHERE staffId = ?";
+            break;
+          case "is_Working":
+            query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
+            break;
+          default:
+             query = null;
+        }
             PreparedStatement prep;
             prep = dbConn.prepareStatement(query);
 
@@ -189,22 +185,4 @@ public class StaffDatabase extends Database {
       prep.close();
     }
   }
-//
-//  /**
-//   * Method that extracts the permissions from a string.
-//   *
-//   * @param access
-//   *          a string contains all the staff member's granted access.
-//   * @return a Map containing the granted access of the staff member.
-//   */
-//  public Map<Integer, Boolean> extractPermissions(String access) {
-//    String[] arr = access.split(" ");
-//    Map<Integer, Boolean> toReturn = new HashMap<>();
-//
-//    for (String s : arr) {
-//      toReturn.put(Integer.parseInt(s), true);
-//    }
-//
-//    return toReturn;
-//  }
 }
