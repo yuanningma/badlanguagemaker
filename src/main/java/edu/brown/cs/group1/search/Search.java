@@ -142,7 +142,7 @@ public class Search {
 
       void task(Object x) {
         for (int i = 0; i < docs.size(); i++) {
-          System.out.println("STRING IS: " + (String) x);
+          // System.out.println("STRING IS: " + (String) x);
           double sum = tfIdf((String) x, docs.get(i));
           results.get(i).addAndGet(sum);
         }
@@ -174,7 +174,27 @@ public class Search {
           + " IN LIST: "
           + sizeList.get(i));
     }
-
-    return docs;
+    Map<List<String>, AtomicDouble> docMap = new HashMap<List<String>, AtomicDouble>();
+    for (int i = 0; i < numDocs; i++) {
+      docMap.put(docs.get(i), sizeList.get(i));
+    }
+    List<Map.Entry<List<String>, AtomicDouble>> entries = new ArrayList<Map.Entry<List<String>, AtomicDouble>>(docMap.entrySet());
+    Collections.sort(entries,
+        new Comparator<Map.Entry<List<String>, AtomicDouble>>() {
+          public int compare(Map.Entry<List<String>, AtomicDouble> a,
+              Map.Entry<List<String>, AtomicDouble> b) {
+            return Double.compare(b.getValue().doubleValue(), a.getValue()
+                .doubleValue());
+          }
+        });
+    List<List<String>> toret = new ArrayList<>();
+    for (Map.Entry<List<String>, AtomicDouble> e : entries) {
+      System.out.println("KEY: " + e.getKey().get(0)
+          + " VALUE: "
+          + e.getValue());
+      toret.add(e.getKey());
+    }
+    return toret;
+    // return docs;
   }
 }
