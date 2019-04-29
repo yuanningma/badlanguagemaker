@@ -25,8 +25,8 @@ public class ExactSimilaritySorter implements Comparator<Template> {
 
   @Override
   public int compare(Template o1, Template o2) {
-    double s1 = ExactSimilarity.twoFormsSimil(form, o1);
-    double s2 = ExactSimilarity.twoFormsSimil(form, o2);
+    double s1 = ExactSimilarity.twoTempsSimil(form, o1);
+    double s2 = ExactSimilarity.twoTempsSimil(form, o2);
     return Double.compare(s2, s1);
   }
 
