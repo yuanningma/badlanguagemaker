@@ -22,15 +22,15 @@ public class Search {
   public Search() {
   }
 
-  public Search(List<List<String>> docs, int featSize) {
-    this.init(docs, featSize);
+  public Search(List<List<String>> docs) {
+    this.init(docs);
   }
 
-  public void init(List<List<String>> docs, int featSize) {
+  public void init(List<List<String>> docs) {
     // TODO: Create a Synonyms or Vocabulary class that contains
     // all of the words in all of the documents, then calculate
     // idf for each term in the vocabulary, then put them all in
-    // our map
+    // our map (AKA caching)
 
     totalSize = docs.size();
     frequencies = new HashMap<String, Double>();
