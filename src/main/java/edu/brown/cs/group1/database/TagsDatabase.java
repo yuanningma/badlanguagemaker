@@ -95,17 +95,22 @@ public class TagsDatabase extends Database {
    * @param keyword
    *          New keyword.
    */
-  public void registerNewTag(String tag, String keyword) {
+  public void registerNewTag(String tag, String keyword) throws SQLException {
     if (!containsKey(keyword)) {
-      try (PreparedStatement prep = dbConn
-          .prepareStatement("INSERT INTO tags (Tag, Keyword) VALUES (?, ?);")) {
-        prep.setString(1, tag);
-        prep.setString(2, keyword);
-        prep.executeUpdate();
-      } catch (SQLException e) {
-
-      }
+      PreparedStatement prep;
+      String query = "CREATE TABLE IF NOT EXISTS tags("
+                + "Tags TEXT,"
+                + "Keyword TEXT,"
+                + "PRIMARY KEY (keyword));";
+      prep = dbConn.prepareStatement(query);
+      prep.executeUpdate();
+      query = "INSERT INTO tags VALUES (?, ?);";
+      prep = dbConn.prepareStatement(query);
+      prep.setString(1, tag);
+      prep.setString(2, keyword);
+      prep.addBatch();
+      prep.executeBatch();
+      prep.close();
     }
   }
-
 }
