@@ -196,13 +196,28 @@ public class FormsDatabase extends Database {
    * @param newFormInput
    *          form input with new values
    */
-  public void updateForm(int formId, List<String> newFormInput) {
+  public void updateForm(int formId, Template newFormInput) {
     try {
       PreparedStatement prep;
       prep = dbConn.prepareStatement("UPDATE form SET form_input = ? WHERE formId = ?;");
       prep.setString(1, newFormInput.toString());
       prep.setInt(2, formId);
       prep.executeQuery();
+      prep = dbConn.prepareStatement(
+              "UPDATE form SET tags = ? WHERE formId = ?;");
+      List<String> formContent = newFormInput.getFields().getContent();
+      //LIST OF TAGS
+      List<String> tagList = new ArrayList<>();
+      for (String formInput : formContent) {
+        String tag = tb.getTag(formInput);
+        if (tag != null) {
+          tagList.add(tag);
+        }
+      }
+      prep.setString(1, tagList.toString());
+      prep.setInt(2, formId);
+      prep.addBatch();
+      prep.executeBatch();
       prep.close();
       // Template form = new Template(formId,
       // new TemplateFields(new ArrayList<>()));
