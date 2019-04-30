@@ -14,6 +14,14 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import com.google.common.util.concurrent.AtomicDouble;
 
+import edu.brown.cs.group1.template.Template;
+
+/**
+ * The Search class has our tf-idf algorithm for ranking documents by relevance
+ * of search terms.
+ * @author yma37
+ *
+ */
 public class Search {
 
   private int totalSize;
@@ -109,6 +117,100 @@ public class Search {
     return toret;
   }
 
+  public List<Template> threadedRankTemplates(List<String> terms,
+      List<Template> templates) throws InterruptedException {
+
+    int numDocs = templates.size();
+    List<AtomicDouble> sizeList = new ArrayList<AtomicDouble>();
+    for (int i = 0; i < numDocs; i++) {
+      sizeList.add(new AtomicDouble());
+    }
+
+    List<Template> toret = new ArrayList<Template>();
+    sizeList = Collections.synchronizedList(sizeList);
+
+    class Worker implements Runnable {
+      private final BlockingQueue<String> queue;
+      List<AtomicDouble> results;
+      List<Template> temps;
+
+      Worker(BlockingQueue<String> q,
+          List<AtomicDouble> r,
+          List<Template> templates) {
+        queue = q;
+        results = r;
+        temps = templates;
+        // docs = documents;
+      }
+
+      @Override
+      public void run() {
+        // TODO Auto-generated method stub
+        while (!queue.isEmpty()) {
+          task(queue.poll());
+        }
+      }
+
+      void task(Object x) {
+        for (int i = 0; i < temps.size(); i++) {
+          // System.out.println("STRING IS: " + (String) x);
+          double sum = tfIdf((String) x, temps.get(i).getFields().getContent());
+          results.get(i).addAndGet(sum);
+        }
+      }
+
+    }
+
+    int nThreads = 4;
+    ExecutorService threadPool = Executors.newFixedThreadPool(nThreads);
+
+    BlockingQueue<String> bqueue = new LinkedBlockingQueue<String>();
+    for (String s : terms) {
+      bqueue.put(s);
+    }
+
+    List<Callable<Object>> todo = new ArrayList<Callable<Object>>(nThreads);
+
+    for (int i = 0; i < nThreads; i++) {
+      Worker w = new Worker(bqueue, sizeList, templates);
+      todo.add(Executors.callable(w));
+    }
+
+    threadPool.invokeAll(todo);
+
+    threadPool.shutdownNow();
+
+    // for (int i = 0; i < numDocs; i++) {
+    // System.out.println("DOC: " + templates.get(i)
+    // .getFields()
+    // .getContent()
+    // .get(0)
+    // + " IN LIST: "
+    // + sizeList.get(i));
+    // }
+    Map<Template, AtomicDouble> docMap = new HashMap<Template, AtomicDouble>();
+    for (int i = 0; i < numDocs; i++) {
+      docMap.put(templates.get(i), sizeList.get(i));
+    }
+    List<Map.Entry<Template, AtomicDouble>> entries = new ArrayList<Map.Entry<Template, AtomicDouble>>(docMap.entrySet());
+    Collections.sort(entries,
+        new Comparator<Map.Entry<Template, AtomicDouble>>() {
+          public int compare(Map.Entry<Template, AtomicDouble> a,
+              Map.Entry<Template, AtomicDouble> b) {
+            return Double.compare(b.getValue().doubleValue(), a.getValue()
+                .doubleValue());
+          }
+        });
+    // List<List<String>> toret = new ArrayList<>();
+    for (Map.Entry<Template, AtomicDouble> e : entries) {
+      // System.out.println("KEY: " + e.getKey().get(0)
+      // + " VALUE: "
+      // + e.getValue());
+      toret.add(e.getKey());
+    }
+    return toret;
+  }
+
   public List<List<String>> threadedRankDocs(List<String> terms,
       List<List<String>> docs) throws InterruptedException {
 
@@ -150,7 +252,7 @@ public class Search {
 
     }
 
-    int nThreads = 2;
+    int nThreads = 4;
     ExecutorService threadPool = Executors.newFixedThreadPool(nThreads);
 
     BlockingQueue<String> bqueue = new LinkedBlockingQueue<String>();
@@ -197,4 +299,7 @@ public class Search {
     return toret;
     // return docs;
   }
+
+  // TODO: Write a method that ranks search on Templates! Just use their
+  // toString thing
 }

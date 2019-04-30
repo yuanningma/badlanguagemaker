@@ -1,5 +1,8 @@
 package edu.brown.cs.group1.template;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.brown.cs.group1.field.TemplateFields;
 
 /**
@@ -10,6 +13,7 @@ import edu.brown.cs.group1.field.TemplateFields;
 public class Template {
   private int templateId;
   private TemplateFields fields;
+  private List<String> tags;
 
   /**
    * Constructor.
@@ -21,6 +25,7 @@ public class Template {
   public Template(int templateId, TemplateFields fields) {
     this.templateId = templateId;
     this.fields = fields;
+    this.tags = new ArrayList<String>();
   }
 
   /**
@@ -30,6 +35,14 @@ public class Template {
    */
   public Template(TemplateFields fields) {
     this.fields = fields;
+  }
+
+  public List<String> getTags() {
+    return this.tags;
+  }
+
+  public void setTags(List<String> t) {
+    this.tags = t;
   }
 
   public int getTemplateId() {
