@@ -139,4 +139,30 @@ public class TagsDatabase extends Database {
     //TODO: MAY WANT TO PUT IN A CASE FOR SEARCH BAR
     return null;
   }
+
+    /**
+     * Retrieves words with an associated tag.
+     * @param tag
+     *          a tag to get associated words with.
+     * @return
+     *          a list of strings
+     * @throws SQLException
+     *              thrown when a SQLExpection is thrown.
+     */
+  public List<String> getWords(String tag) throws SQLException {
+    if (dbConn != null) {
+      PreparedStatement prep;
+      String query = "SELECT keyword FROM tags WHERE (Tags = ?)";
+      prep = dbConn.prepareStatement(query);
+      prep.setString(1, tag);
+      ResultSet rs = prep.executeQuery();
+      List<String> toReturn = new ArrayList<>();
+      while (rs.next()) {
+        toReturn.add(rs.getString(1));
+      }
+      return toReturn;
+    } else {
+      return null;
+    }
+  }
 }

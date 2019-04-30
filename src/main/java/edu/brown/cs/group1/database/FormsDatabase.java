@@ -68,9 +68,10 @@ public class FormsDatabase extends Database {
         query = "INSERT INTO form VALUES (null,?,?,?);";
         prep = dbConn.prepareStatement(query);
         prep.setInt(1, patientid);
-        formInfo.addAll(template.getFields().getContent());
+        formInfo.add(template.getFields().toString());
+        List<String> formContent = template.getFields().getContent();
         List<String> tagList = new ArrayList<>();
-        for (String formInput : formInfo) {
+        for (String formInput : formContent) {
           String tag = tb.getTag(formInput);
           if (tag != null) {
             tagList.add(tag);
@@ -150,7 +151,11 @@ public class FormsDatabase extends Database {
   public Template getForm(int formId) {
     Template form = new Template(-1, new TemplateFields(new ArrayList<>()));
     try (PreparedStatement prep = dbConn
+<<<<<<< HEAD
         .prepareStatement("SELECT form_input FROM form WHERE formId = ?;");) {
+=======
+        .prepareStatement("SELECT form_input FROM form WHERE id = ?;");) {
+>>>>>>> 0061207c1d34cc4d952bbc5a3763917346005162
       prep.setInt(1, formId);
       ResultSet rs = prep.executeQuery();
       String fields = new String();
