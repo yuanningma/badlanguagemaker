@@ -68,9 +68,10 @@ public class FormsDatabase extends Database {
         query = "INSERT INTO form VALUES (null,?,?,?);";
         prep = dbConn.prepareStatement(query);
         prep.setInt(1, patientid);
-        formInfo.addAll(template.getFields().getContent());
+        formInfo.add(template.getFields().toString());
+        List<String> formContent = template.getFields().getContent();
         List<String> tagList = new ArrayList<>();
-        for (String formInput : formInfo) {
+        for (String formInput : formContent) {
           String tag = tb.getTag(formInput);
           if (tag != null) {
             tagList.add(tag);
@@ -100,7 +101,7 @@ public class FormsDatabase extends Database {
   public List<Template> getAllForms() {
     List<Template> forms = new ArrayList<>();
     try (PreparedStatement prep =
-        dbConn.prepareStatement("SELECT formId, form_input FROM forms;");) {
+        dbConn.prepareStatement("SELECT formId, form_input FROM form;");) {
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
         int formId = rs.getInt(1);
@@ -150,13 +151,14 @@ public class FormsDatabase extends Database {
   public Template getForm(int formId) {
     Template form = new Template(-1, new TemplateFields(new ArrayList<>()));
     try (PreparedStatement prep = dbConn
-        .prepareStatement("SELECT form_input FROM forms WHERE id = ?;");) {
+        .prepareStatement("SELECT form_input FROM form WHERE formId = ?;");) {
       prep.setInt(1, formId);
       ResultSet rs = prep.executeQuery();
       String fields = new String();
       while (rs.next()) {
         fields = rs.getString(1);
       }
+      fields = fields.substring(1, fields.length() - 1);
       TemplateFields parsedFields = TemplateFields.valueOf(fields);
       form = new Template(formId, parsedFields);
       rs.close();

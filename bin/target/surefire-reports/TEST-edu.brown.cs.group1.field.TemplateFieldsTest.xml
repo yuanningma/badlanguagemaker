@@ -35,8 +35,12 @@
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.14"/>
     <property name="library.jansi.path" value="/usr/local/Cellar/maven/3.6.0/libexec/lib/jansi-native"/>
+<<<<<<< HEAD
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/juliannerudner"/>
+=======
+    <property name="user.home" value="/Users/IEricHere"/>
+>>>>>>> 9c52b985581d6cefe3c3a13615953cd0937dd262
     <property name="user.timezone" value="America/New_York"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
@@ -60,8 +64,6 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
-    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="edu.brown.cs.group1.field.TemplateFieldsTest" name="testToString" time="0"/>
