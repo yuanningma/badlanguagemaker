@@ -14,6 +14,11 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
+/**
+ * Doctor Dashboard Handler.
+ * @author juliannerudner
+ *
+ */
 public class DDHandler implements TemplateViewRoute {
   private PatientDatabase patientDb =
       new PatientDatabase("data/database/members.sqlite3");

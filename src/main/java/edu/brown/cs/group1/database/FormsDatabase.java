@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
@@ -23,6 +25,7 @@ import edu.brown.cs.group1.template.Template;
 public class FormsDatabase extends Database {
   private Connection dbConn;
   private TagsDatabase tb = new TagsDatabase("data/database/tags.sqlite3");
+  private Map<Integer, Template> templateMap;
 
   /**
    * Constructor for Form Database.
@@ -30,6 +33,7 @@ public class FormsDatabase extends Database {
    *          a string that represents the path of the database.
    */
   public FormsDatabase(String path) {
+    templateMap = new HashMap<Integer, Template>();
     try {
       Class.forName("org.sqlite.JDBC");
       String url = "jdbc:sqlite:" + path;
@@ -51,41 +55,47 @@ public class FormsDatabase extends Database {
    * @param template
    *          the template to be saved.
    */
-  public void saveForm(Template template, Integer patientid) {
+  public Template saveForm(Template template, Integer patientid) {
+    Template newTempl = template;
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query =
-            "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
-                + "patientId INTEGER,"
-                + "form_input TEXT,"
-                + "tags TEXT"
-                + "Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
+        String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
+            + "patientId INTEGER,"
+            + "form_input TEXT,"
+            + "tags TEXT"
+            + "Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
         List<String> formInfo = new ArrayList<>();
-        query = "INSERT INTO form VALUES (null,?,?,?);";
+        query = "INSERT INTO form VALUES (?,?,?,?);";
         prep = dbConn.prepareStatement(query);
-        prep.setInt(1, patientid);
-        formInfo.add(template.getFields().toString());
-        List<String> formContent = template.getFields().getContent();
+        prep.setInt(1, newTempl.getTemplateId());
+        prep.setInt(2, patientid);
+        formInfo.addAll(template.getFields().getContent());
         List<String> tagList = new ArrayList<>();
-        for (String formInput : formContent) {
+        // TODO: Tag list for a Template!!!
+        for (String formInput : formInfo) {
+
           String tag = tb.getTag(formInput);
           if (tag != null) {
             tagList.add(tag);
           }
         }
-        prep.setString(2, formInfo.toString());
-        prep.setString(3, tagList.toString());
+        prep.setString(3, formInfo.toString());
+        prep.setString(4, tagList.toString());
         prep.addBatch();
         prep.executeBatch();
         prep.close();
+        newTempl.setTags(tagList);
+
       } catch (SQLException sql) {
         sql.printStackTrace();
       }
     }
+    templateMap.put(patientid, newTempl);
+    return newTempl;
   }
 
   // [NOTE] The below methods assume (for now) that only one forms table exists
@@ -100,14 +110,18 @@ public class FormsDatabase extends Database {
    */
   public List<Template> getAllForms() {
     List<Template> forms = new ArrayList<>();
-    try (PreparedStatement prep =
-        dbConn.prepareStatement("SELECT formId, form_input FROM form;");) {
+    try (PreparedStatement prep = dbConn.prepareStatement("SELECT formId, form_input FROM form;");) {
+
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
         int formId = rs.getInt(1);
-        String fieldsString = rs.getString(2);
-        TemplateFields fields = TemplateFields.valueOf(fieldsString);
-        forms.add(new Template(formId, fields));
+        if (templateMap.containsKey(formId)) {
+          forms.add(templateMap.get(formId));
+        } else {
+          String fieldsString = rs.getString(2);
+          TemplateFields fields = TemplateFields.valueOf(fieldsString);
+          forms.add(new Template(formId, fields));
+        }
       }
       rs.close();
     } catch (SQLException e) {
@@ -125,15 +139,19 @@ public class FormsDatabase extends Database {
    */
   public List<Template> getAllForms(int patientId) {
     List<Template> forms = new ArrayList<>();
-    try (PreparedStatement prep = dbConn.prepareStatement(
-        "SELECT formId,form_input FROM form WHERE patientId = ?;");) {
+    try (PreparedStatement prep = dbConn.prepareStatement("SELECT formId,form_input FROM form WHERE patientId = ?;");) {
       prep.setInt(1, patientId);
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
         Integer formID = rs.getInt(1);
-        String formInput = rs.getString(2);
-        TemplateFields fields = TemplateFields.valueOf(formInput);
-        forms.add(new Template(formID, fields));
+        if (templateMap.containsKey(formID)) {
+          forms.add(templateMap.get(formID));
+        } else {
+          String formInput = rs.getString(2).substring(1,
+              rs.getString(2).length());
+          TemplateFields fields = TemplateFields.valueOf(formInput);
+          forms.add(new Template(formID, fields));
+        }
       }
       rs.close();
     } catch (SQLException e) {
@@ -149,9 +167,12 @@ public class FormsDatabase extends Database {
    * @return Completed form of given id. Throws error if no form of exists.
    */
   public Template getForm(int formId) {
+    if (templateMap.containsKey(formId)) {
+      return templateMap.get(formId);
+    }
     Template form = new Template(-1, new TemplateFields(new ArrayList<>()));
-    try (PreparedStatement prep = dbConn
-        .prepareStatement("SELECT form_input FROM form WHERE id = ?;");) {
+    try (PreparedStatement prep = dbConn.prepareStatement("SELECT form_input FROM form WHERE id = ?;");) {
+
       prep.setInt(1, formId);
       ResultSet rs = prep.executeQuery();
       String fields = new String();
@@ -175,15 +196,55 @@ public class FormsDatabase extends Database {
    * @param newFormInput
    *          form input with new values
    */
-  public void updateForm(int formId, List<String> newFormInput) {
+  public void updateForm(int formId, Template newFormInput) {
     try {
       PreparedStatement prep;
-      prep = dbConn
-          .prepareStatement("UPDATE form SET form_input = ? WHERE formId = ?;");
+      prep = dbConn.prepareStatement("UPDATE form SET form_input = ? WHERE formId = ?;");
       prep.setString(1, newFormInput.toString());
       prep.setInt(2, formId);
       prep.executeQuery();
+      prep = dbConn.prepareStatement(
+              "UPDATE form SET tags = ? WHERE formId = ?;");
+      List<String> formContent = newFormInput.getFields().getContent();
+      //LIST OF TAGS
+      List<String> tagList = new ArrayList<>();
+      for (String formInput : formContent) {
+        String tag = tb.getTag(formInput);
+        if (tag != null) {
+          tagList.add(tag);
+        }
+      }
+      prep.setString(1, tagList.toString());
+      prep.setInt(2, formId);
+      prep.addBatch();
+      prep.executeBatch();
       prep.close();
+      // Template form = new Template(formId,
+      // new TemplateFields(new ArrayList<>()));
+      //
+      //
+      //
+      //
+      //
+      // query = "INSERT INTO form VALUES (?,?,?,?);";
+      // prep = dbConn.prepareStatement(query);
+      // prep.setInt(1, newTempl.getTemplateId());
+      // prep.setInt(2, patientid);
+      // formInfo.addAll(template.getFields().getContent());
+      // List<String> tagList = new ArrayList<>();
+      // // TODO: Tag list for a Template!!!
+      // for (String formInput : formInfo) {
+      // String tag = tb.getTag(formInput);
+      // if (tag != null) {
+      // tagList.add(tag);
+      // }
+      // }
+      // prep.setString(3, formInfo.toString());
+      // prep.setString(4, tagList.toString());
+      // prep.addBatch();
+      // prep.executeBatch();
+      // prep.close();
+
     } catch (SQLException e) {
       e.printStackTrace();
     }

@@ -1,7 +1,9 @@
 package edu.brown.cs.group1.template;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.brown.cs.group1.field.TemplateFields;
-import edu.brown.cs.group1.tag.Tags;
 
 /**
  * Template class provides ability to create new forms and customize fields.
@@ -11,7 +13,8 @@ import edu.brown.cs.group1.tag.Tags;
 public class Template {
   private int templateId;
   private TemplateFields fields;
-  private Tags tags;
+  private List<String> tags;
+  private List<String> trueContent;
 
   /**
    * Constructor.
@@ -23,6 +26,8 @@ public class Template {
   public Template(int templateId, TemplateFields fields) {
     this.templateId = templateId;
     this.fields = fields;
+    this.tags = new ArrayList<String>();
+    this.trueContent = new ArrayList<String>();
   }
 
   /**
@@ -34,8 +39,20 @@ public class Template {
     this.fields = fields;
   }
 
-  public Tags getTags() {
+  public List<String> getTrueContent() {
+    return this.trueContent;
+  }
+
+  public void setTrueContent(List<String> c) {
+    this.trueContent = c;
+  }
+
+  public List<String> getTags() {
     return this.tags;
+  }
+
+  public void setTags(List<String> t) {
+    this.tags = t;
   }
 
   public int getTemplateId() {

@@ -54,82 +54,25 @@ public class TemplatesDatabase extends Database {
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER,"
-            + "patientId TEXT,"
-            + "form_input TEXT,"
-            + "PRIMARY KEY (formId));";
+        String query = "CREATE TABLE IF NOT EXISTS template("
+            + "templateId INTEGER,"
+            + "template_field TEXT,"
+            + "PRIMARY KEY (templateId));";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
-        // HashSet<String> columns = getColumnsInfo();
-        List<String> templateInfo = new ArrayList<>();
-        // TODO: need a way to extract info
+        List<String> templateInfo = template.getFields().getLabels(false);
+        query = "INSERT INTO template VALUES (?,?);";
+        prep = dbConn.prepareStatement(query);
+        prep.setInt(1, template.getTemplateId());
+        prep.setString(2, templateInfo.toString());
+        prep.addBatch();
+        prep.executeBatch();
+        prep.close();
       } catch (SQLException sql) {
         sql.printStackTrace();
       }
     }
   }
-
-  // /**
-  // * Get the columns existing in the forms database.
-  // * @return a HashSet containing all the columns names present in the
-  // database.
-  // */
-  // public HashSet<String> getColumnsInfo() {
-  // if (dbConn != null) {
-  // try {
-  // HashSet<String> columnName = new HashSet<>();
-  // PreparedStatement prep;
-  // String query = "SELECT * FROM forms";
-  // prep = dbConn.prepareStatement(query);
-  //
-  // ResultSet rs = prep.executeQuery(query);
-  // ResultSetMetaData rsmd = prep.getMetaData();
-  // int columnCount = rsmd.getColumnCount();
-  //
-  // for (int i = 0; i < columnCount; i++) {
-  // columnName.add(rsmd.getColumnName(i));
-  // }
-  //
-  // rs.close();
-  // prep.close();
-  // return columnName;
-  //
-  // } catch (SQLException sql) {
-  // sql.printStackTrace();
-  // }
-  // }
-  // return null;
-  // }
-
-  // /**
-  // * Returns all completed forms for specified patient.
-  // * @param patientId
-  // * Patient's id.
-  // * @return List of completed forms for patient. Empty list if no forms have
-  // * been completed for this patient.
-  // */
-  // public List<Template> getAllForms(int patientId) {
-  // List<Integer> formIds = new ArrayList<>();
-  // try (PreparedStatement prep = dbConn.prepareStatement(
-  // "SELECT form FROM patient_form WHERE patient = ?;");) {
-  // prep.setInt(1, patientId);
-  // ResultSet rs = prep.executeQuery();
-  // while (rs.next()) {
-  // formIds.add(rs.getInt(1));
-  // }
-  // rs.close();
-  // } catch (SQLException e) {
-  // e.printStackTrace();
-  // }
-  // List<Template> forms = new ArrayList<>();
-  // for (int formId : formIds) {
-  // // Could optimize by adding SELECT queries to batch and executing batch
-  // // all at once.
-  // Template template = getForm(formId);
-  // forms.add(template);
-  // }
-  // return forms;
-  // }
 
   /**
    * Returns blank template.
@@ -140,7 +83,7 @@ public class TemplatesDatabase extends Database {
    */
   public Template getTemplate(int templateId) {
     try (PreparedStatement prep = dbConn
-        .prepareStatement("SELECT form_input FROM templates WHERE id = ?;");) {
+        .prepareStatement("SELECT template_field FROM template WHERE templateId = ?;");) {
       prep.setInt(1, templateId);
       ResultSet rs = prep.executeQuery();
       String fields = "";
@@ -189,7 +132,7 @@ public class TemplatesDatabase extends Database {
   public List<Template> getAllTemplates() {
     List<Template> templates = new ArrayList<>();
     try (PreparedStatement prep =
-        dbConn.prepareStatement("SELECT * FROM templates;");) {
+        dbConn.prepareStatement("SELECT * FROM template;");) {
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
         int formId = rs.getInt(1);

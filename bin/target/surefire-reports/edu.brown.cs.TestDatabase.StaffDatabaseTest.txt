@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.TestDatabase.StaffDatabaseTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
-=======
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec
->>>>>>> 9c52b985581d6cefe3c3a13615953cd0937dd262
