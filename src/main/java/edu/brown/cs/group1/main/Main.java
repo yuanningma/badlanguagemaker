@@ -84,10 +84,10 @@ public class Main {
 
     // TODO: Pass in dbPath to handlers.
     Spark.get("/patients/:patientId/forms",
-        new PastFormsHandler("formsdbpath", "patientdbpath"),
+        new PastFormsHandler("data/database/form.sqlite3", "patientdbpath"),
         freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
-        new FormHandler("formsdbpath"),
+        new FormHandler("data/database/form.sqlite3"),
         freeMarker);
     Spark.get("/patients/:patientId/profile",
         new PatientProfileHandler(),
