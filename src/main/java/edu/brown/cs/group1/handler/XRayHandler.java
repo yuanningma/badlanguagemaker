@@ -9,6 +9,11 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
+/**
+ * XRay Handler.
+ * @author juliannerudner
+ *
+ */
 public class XRayHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {

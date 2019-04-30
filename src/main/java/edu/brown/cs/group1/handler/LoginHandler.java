@@ -9,6 +9,11 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
+/**
+ * Login Handler.
+ * @author juliannerudner
+ *
+ */
 public class LoginHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {

@@ -103,6 +103,12 @@ public class Main {
 
   }
 
+  /**
+   * Patient Handler, essentially the handler for patient information / the
+   * patient timeline.
+   * @author juliannerudner
+   *
+   */
   private static class PatientHandler implements TemplateViewRoute {
     private FormsDatabase formsDb;
     private PatientDatabase patientDb =

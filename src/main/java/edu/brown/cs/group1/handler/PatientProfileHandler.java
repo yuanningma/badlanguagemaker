@@ -12,12 +12,20 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
+/**
+ * Patient Profile Handler.
+ * @author juliannerudner
+ *
+ */
 public class PatientProfileHandler implements TemplateViewRoute {
 
   private FormsDatabase formsDb;
   private PatientDatabase patientDb =
       new PatientDatabase("data/database/members.sqlite3");
 
+  /**
+   * Constructor for Patient Profile Handler.
+   */
   public PatientProfileHandler() {
   }
 

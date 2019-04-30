@@ -9,6 +9,11 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
+/**
+ * Graph Handler.
+ * @author juliannerudner
+ *
+ */
 public class GraphHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
