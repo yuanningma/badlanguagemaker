@@ -13,7 +13,7 @@ import spark.Response;
 import spark.Route;
 
 public class searchDDHandler implements Route {
-  Gson gson = new Gson();
+  private static final Gson GSON = new Gson();
   private PatientDatabase patientDb =
       new PatientDatabase("data/database/members.sqlite3");
 
@@ -32,7 +32,7 @@ public class searchDDHandler implements Route {
 
     Map<String, Object> vars = ImmutableMap.of("patients", patients);
 
-    return gson.toJson(vars);
+    return GSON.toJson(vars);
   }
 
 }

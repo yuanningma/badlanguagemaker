@@ -4,26 +4,28 @@ $(document).ready(() => {
           if(event.which === 13){
               console.log("hi");
 
-              // const postParameters = {
-              //   input:document.getElementById("myInput").value
-              // }
-              //
-              // $.post("/correct", postParameters, responseJSON => {
-              //     // TODO: Parse the JSON response into a JavaScript object.
-              //     const responseObject = JSON.parse(responseJSON);
-              //     word=responseObject.input;
-              //
-              //   }
+              const postParameters = {
+                search:document.getElementById("myInput").value
+              }
 
-              //_____________________________
+              $.post("/searchDD", postParameters, responseJSON => {
+                  // TODO: Parse the JSON response into a JavaScript object.
+    console.log("hi2");
+              console.log(postParameters);
 
-  //               $suggestions.empty();
-  //
-  //                       var i;
-  //               for (let i = 0, len = responseObject.suggestions.length; i < len; i++) {
-  //                 $suggestions.append("<option>"+responseObject.suggestions[i]+"</option>");
-  // }
-  // });
-          }
-  });
+              const responseObject = JSON.parse(responseJSON);
+              patients=responseObject.myInput;
+
+            // $myTable.empty();
+            patients.forEach(function (patient) {
+        $myTable.append(
+          "<tr><td>" + patient[0] +
+           "</td><td>" + patient[1]+
+           "</td><td>" +patient[2]+
+           "</td><td>" +patient[3]+
+           "</td></tr>"
+        )});
+      })
+    }
+  })
 });

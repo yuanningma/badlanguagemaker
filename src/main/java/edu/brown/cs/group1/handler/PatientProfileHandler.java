@@ -25,11 +25,10 @@ public class PatientProfileHandler implements TemplateViewRoute {
   public ModelAndView handle(Request arg0, Response arg1) {
     String id = arg0.params(":patientId");
     String name = "";
-    System.out.println(id);
+
     try {
       name = patientDb.getPatient(Integer.parseInt(id)).getName();
 
-      System.out.println(name);
     } catch (NumberFormatException e) {
       System.out
           .println("ERROR: number format exception, patient profile handler.");
