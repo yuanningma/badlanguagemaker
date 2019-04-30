@@ -92,7 +92,9 @@ public class Main {
     Spark.get("/patients/:patientId/profile",
         new PatientProfileHandler(),
         freeMarker);
-    Spark.get("/forms/new", new NewFormHandler(), freeMarker);
+    Spark.get("/patients/:patientId/forms/:templateId/new",
+        new NewFormHandler(),
+        freeMarker);
     Spark.post("/forms/create", new CreateFormHandler("tempdbpath"));
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);

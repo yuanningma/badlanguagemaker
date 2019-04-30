@@ -12,6 +12,7 @@ import spark.TemplateViewRoute;
 public class NewFormHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
+    // String id = req.params(":movieId");
     Map<String, Object> variables = ImmutableMap.of("title", "pc+: Home");
     return new ModelAndView(variables, "newForm.ftl");
   }
