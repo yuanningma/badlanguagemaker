@@ -14,7 +14,7 @@ public class RelevanceTest {
     Relevance r = new Relevance();
 
     FormsDatabase fdb = new FormsDatabase("data/database/forms.sqlite3");
-    List<Template> forms = fdb.getAllForms().subList(0, 40);
+    List<Template> forms = fdb.getAllForms();
     System.out.println("ALL");
     System.out.println(forms.size());
 
@@ -31,15 +31,24 @@ public class RelevanceTest {
     // }
 
     List<String> terms = r.generateTerms("heart");
+    terms.addAll(r.generateTerms("aorta"));
+    terms.addAll(r.generateTerms("vaccination"));
+    terms.addAll(r.generateTerms("aorto"));
     for (String s : terms) {
       System.out.println("TERM: " + s);
     }
     // List<Template> sorted = r.rankFormsWithTag(terms, null, forms);
-    List<Template> sorted = r.unthreadedRank(terms, null, forms);
-    System.out.println("SEARCH ONLY");
-    System.out.println(sorted.size());
-    for (int i = 0; i < forms.size(); i++) {
-      System.out.println(sorted.get(i).getTrueContent());
+    // System.out.println("SEARCH ONLY");
+    // List<Template> sorted = r.unthreadedRank(terms, null, forms);
+    //
+    // System.out.println(sorted.size());
+    // for (int i = 0; i < forms.size(); i++) {
+    // System.out.println(sorted.get(i).getTrueContent());
+    // }
+    System.out.println("THREADED SORT");
+    List<Template> s2 = r.unthreadedRank(terms, null, forms);
+    for (int i = 0; i < 50; i++) {
+      System.out.println(s2.get(i).getTrueContent());
     }
   }
 }
