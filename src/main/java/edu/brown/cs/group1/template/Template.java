@@ -1,6 +1,7 @@
 package edu.brown.cs.group1.template;
 
 import edu.brown.cs.group1.field.TemplateFields;
+import edu.brown.cs.group1.tag.Tags;
 
 /**
  * Template class provides ability to create new forms and customize fields.
@@ -10,6 +11,7 @@ import edu.brown.cs.group1.field.TemplateFields;
 public class Template {
   private int templateId;
   private TemplateFields fields;
+  private Tags tags;
 
   /**
    * Constructor.
@@ -30,6 +32,10 @@ public class Template {
    */
   public Template(TemplateFields fields) {
     this.fields = fields;
+  }
+
+  public Tags getTags() {
+    return this.tags;
   }
 
   public int getTemplateId() {
