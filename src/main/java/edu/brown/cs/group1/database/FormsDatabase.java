@@ -175,7 +175,7 @@ public class FormsDatabase extends Database {
    * @param newFormInput
    *          form input with new values
    */
-  public void updateForm(int formId, List<String> newFormInput) {
+  public void updateForm(int formId, Template newFormInput) {
     try {
       PreparedStatement prep;
       prep = dbConn
@@ -183,6 +183,15 @@ public class FormsDatabase extends Database {
       prep.setString(1, newFormInput.toString());
       prep.setInt(2, formId);
       prep.executeQuery();
+      prep = dbConn.prepareStatement("UPDATE form SET form_input = ? WHERE formId = ?;");
+      List<String> formContent = newFormInput.getFields().getContent();
+      List<String> tagList = new ArrayList<>();
+      for (String formInput : formContent) {
+        String tag = tb.getTag(formInput);
+         if (tag != null) {
+           tagList.add(tag);
+            }
+        }
       prep.close();
     } catch (SQLException e) {
       e.printStackTrace();
