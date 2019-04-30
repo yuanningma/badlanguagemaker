@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a01bfe0f-9cca-456a-ae70-2b0ab575f728" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/database/form.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+            <state relative-caret-position="234">
+              <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="35" column="37" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="37" />
+            <state relative-caret-position="300">
+              <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -541,7 +538,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556589672619" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556589894089" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
@@ -680,15 +677,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 47m 38s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 48m 47s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 49m 01s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 49m 37s.xml">
       <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
     </history-entry>
@@ -710,9 +698,18 @@
     <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 59m 12s.xml">
       <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.29 at 21h 59m 50s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.29 at 22h 00m 22s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.29 at 22h 01m 27s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113606000" />
+    <option name="totallyTimeSpent" value="113951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -725,7 +722,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17043619" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -736,7 +732,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49753696" visible="true" weight="0.3260274" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49753696" weight="0.3260274" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -745,7 +741,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4995074" weight="0.32876712" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" weight="0.33424658" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" visible="true" weight="0.33424658" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.18336026" side_tool="true" weight="0.39452055" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32739726" />
       <window_info anchor="bottom" id="Thumbnails" order="14" />
@@ -776,13 +772,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/search/SearchTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/relevance/Relevance.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/InsuranceDatabase.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -1157,10 +1146,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/database/forms.sqlite3">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="35" column="37" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="37" />
+        <state relative-caret-position="300">
+          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1169,8 +1161,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="70" column="20" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+        <state relative-caret-position="234">
+          <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

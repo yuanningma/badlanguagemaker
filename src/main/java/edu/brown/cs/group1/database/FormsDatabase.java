@@ -69,8 +69,9 @@ public class FormsDatabase extends Database {
         prep = dbConn.prepareStatement(query);
         prep.setInt(1, patientid);
         formInfo.add(template.getFields().toString());
+        List<String> formContent = template.getFields().getContent();
         List<String> tagList = new ArrayList<>();
-        for (String formInput : formInfo) {
+        for (String formInput : formContent) {
           String tag = tb.getTag(formInput);
           if (tag != null) {
             tagList.add(tag);
