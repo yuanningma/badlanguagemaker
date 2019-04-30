@@ -95,12 +95,18 @@ public class TerminologyAssociation {
     for (String s : stringList) {
       String[] args = s.replaceAll("\\[", "").replaceAll("\\]", "").split(",");
       String needTerm = args[0];
-      String[] rootsString = args[1].split("\\s+");
-      PriorityQueue needroots = new PriorityQueue(new RootsCompartor());
-      for (int i = 1; i < rootsString.length; i++) {
-        needroots.add(rootsString[i]);
+      if (args.length == 2) {
+        String[] rootsString = args[1].split("\\s+");
+        PriorityQueue needroots = new PriorityQueue(new RootsCompartor());
+        for (int i = 1; i < rootsString.length; i++) {
+          needroots.add(rootsString[i]);
+        }
+        toReturn.add(new TerminologyAssociation(needTerm, needroots));
       }
-      toReturn.add(new TerminologyAssociation(needTerm, needroots));
+      /*
+       * else { toReturn.add(new TerminologyAssociation(needTerm, null)); }
+       */
+
     }
     return toReturn;
   }
