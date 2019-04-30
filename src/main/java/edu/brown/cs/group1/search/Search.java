@@ -140,9 +140,12 @@ public class Search {
     });
     List<Template> toret = new ArrayList<>();
     for (Map.Entry<Template, Double> e : entries) {
-      System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
-          + " VALUE: "
-          + e.getValue());
+      if (e.getValue() != 0.0) {
+        System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
+            + " VALUE: "
+            + e.getValue());
+      }
+
       toret.add(e.getKey());
     }
     return toret;
@@ -240,9 +243,11 @@ public class Search {
         });
     // List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<Template, AtomicDouble> e : entries) {
-      System.out.println("KEY: " + e.getKey().getTrueContent().subList(0, 3)
-          + " VALUE: "
-          + e.getValue());
+      if (e.getValue().doubleValue() != 0.0) {
+        System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
+            + " VALUE: "
+            + e.getValue());
+      }
       toret.add(e.getKey());
     }
     return toret;
@@ -328,9 +333,12 @@ public class Search {
         });
     List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<List<String>, AtomicDouble> e : entries) {
-      System.out.println("KEY: " + e.getKey().get(0)
-          + " VALUE: "
-          + e.getValue());
+      if (e.getValue().doubleValue() != 0.0) {
+        System.out.println("KEY: " + e.getKey().get(0)
+            + " VALUE: "
+            + e.getValue());
+      }
+
       toret.add(e.getKey());
     }
     return toret;
