@@ -84,10 +84,10 @@ public class Main {
 
     // TODO: Pass in dbPath to handlers.
     Spark.get("/patients/:patientId/forms",
-        new PastFormsHandler("formsdbpath", "patientdbpath"),
+        new PastFormsHandler("data/database/forms.sqlite3", "patientdbpath"),
         freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
-        new FormHandler("formsdbpath"),
+        new FormHandler("data/database/forms.sqlite3"),
         freeMarker);
     Spark.get("/patients/:patientId/profile",
         new PatientProfileHandler(),
@@ -103,6 +103,12 @@ public class Main {
 
   }
 
+  /**
+   * Patient Handler, essentially the handler for patient information / the
+   * patient timeline.
+   * @author juliannerudner
+   *
+   */
   private static class PatientHandler implements TemplateViewRoute {
     private FormsDatabase formsDb;
     private PatientDatabase patientDb =

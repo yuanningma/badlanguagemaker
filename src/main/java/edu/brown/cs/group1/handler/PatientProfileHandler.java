@@ -12,12 +12,20 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
+/**
+ * Patient Profile Handler.
+ * @author juliannerudner
+ *
+ */
 public class PatientProfileHandler implements TemplateViewRoute {
 
   private FormsDatabase formsDb;
   private PatientDatabase patientDb =
       new PatientDatabase("data/database/members.sqlite3");
 
+  /**
+   * Constructor for Patient Profile Handler.
+   */
   public PatientProfileHandler() {
   }
 
@@ -25,11 +33,10 @@ public class PatientProfileHandler implements TemplateViewRoute {
   public ModelAndView handle(Request arg0, Response arg1) {
     String id = arg0.params(":patientId");
     String name = "";
-    System.out.println(id);
+
     try {
       name = patientDb.getPatient(Integer.parseInt(id)).getName();
 
-      System.out.println(name);
     } catch (NumberFormatException e) {
       System.out
           .println("ERROR: number format exception, patient profile handler.");

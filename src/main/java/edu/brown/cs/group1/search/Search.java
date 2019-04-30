@@ -28,10 +28,15 @@ public class Search {
   private Map<String, Double> frequencies;
 
   public Search() {
+    frequencies = new HashMap<String, Double>();
   }
 
   public Search(List<List<String>> docs) {
     this.init(docs);
+  }
+
+  public void setSize(int i) {
+    totalSize = i;
   }
 
   public void init(List<List<String>> docs) {
@@ -117,8 +122,38 @@ public class Search {
     return toret;
   }
 
+  public List<Template> rankTemplates(List<String> terms,
+      List<Template> templates) {
+    Map<Template, Double> docMap = new HashMap<Template, Double>();
+    for (Template template : templates) {
+      double ti = keywordsTfIdf(terms, template.getTrueContent());
+      // System.out.println("DOC IS: " + doc.get(0) + " TI IS: " + ti);
+      docMap.put(template, ti);
+    }
+
+    List<Map.Entry<Template, Double>> entries = new ArrayList<Map.Entry<Template, Double>>(docMap.entrySet());
+    Collections.sort(entries, new Comparator<Map.Entry<Template, Double>>() {
+      public int compare(Map.Entry<Template, Double> a,
+          Map.Entry<Template, Double> b) {
+        return Double.compare(b.getValue(), a.getValue());
+      }
+    });
+    List<Template> toret = new ArrayList<>();
+    for (Map.Entry<Template, Double> e : entries) {
+      System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
+          + " VALUE: "
+          + e.getValue());
+      toret.add(e.getKey());
+    }
+    return toret;
+  }
+
   public List<Template> threadedRankTemplates(List<String> terms,
       List<Template> templates) throws InterruptedException {
+
+    for (String s : terms) {
+      System.out.println("TERM: " + s);
+    }
 
     int numDocs = templates.size();
     List<AtomicDouble> sizeList = new ArrayList<AtomicDouble>();
@@ -147,6 +182,7 @@ public class Search {
       public void run() {
         // TODO Auto-generated method stub
         while (!queue.isEmpty()) {
+          System.out.println("Not empty");
           task(queue.poll());
         }
       }
@@ -154,7 +190,8 @@ public class Search {
       void task(Object x) {
         for (int i = 0; i < temps.size(); i++) {
           // System.out.println("STRING IS: " + (String) x);
-          double sum = tfIdf((String) x, temps.get(i).getFields().getContent());
+          System.out.println("yes hello it's me " + (String) x);
+          double sum = tfIdf((String) x, temps.get(i).getTrueContent());
           results.get(i).addAndGet(sum);
         }
       }
@@ -203,9 +240,9 @@ public class Search {
         });
     // List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<Template, AtomicDouble> e : entries) {
-      // System.out.println("KEY: " + e.getKey().get(0)
-      // + " VALUE: "
-      // + e.getValue());
+      System.out.println("KEY: " + e.getKey().getTrueContent().subList(0, 3)
+          + " VALUE: "
+          + e.getValue());
       toret.add(e.getKey());
     }
     return toret;

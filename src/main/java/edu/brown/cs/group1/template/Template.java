@@ -14,6 +14,7 @@ public class Template {
   private int templateId;
   private TemplateFields fields;
   private List<String> tags;
+  private List<String> trueContent;
 
   /**
    * Constructor.
@@ -26,6 +27,7 @@ public class Template {
     this.templateId = templateId;
     this.fields = fields;
     this.tags = new ArrayList<String>();
+    this.trueContent = new ArrayList<String>();
   }
 
   /**
@@ -35,6 +37,14 @@ public class Template {
    */
   public Template(TemplateFields fields) {
     this.fields = fields;
+  }
+
+  public List<String> getTrueContent() {
+    return this.trueContent;
+  }
+
+  public void setTrueContent(List<String> c) {
+    this.trueContent = c;
   }
 
   public List<String> getTags() {

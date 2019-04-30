@@ -2,6 +2,7 @@ package edu.brown.cs.group1.search;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import edu.brown.cs.group1.TerminologyDatabase.MedicalDictionaryDatabase;
@@ -36,6 +37,23 @@ public class Relevance {
 
     rootterm = new TerminologyAssociation("root", null);
     assocs = rootterm.readTerminologyAssociations("data/medicalTerminology/medicalChecklistAssociations.txt");
+  }
+
+  public List<String> parseForMe(List<String> toparse) {
+    List<String> toret = new ArrayList<String>();
+    for (String s : toparse) {
+      toret.addAll(Arrays.asList(s.replaceAll("[^A-Za-z0-9]", " ")
+          .trim()
+          .split(" ")));
+    }
+    return toret;
+  }
+
+  public List<Template> unthreadedRank(List<String> terms,
+      List<String> tags,
+      List<Template> forms) {
+    search.setSize(forms.size());
+    return search.rankTemplates(terms, forms);
   }
 
   /*

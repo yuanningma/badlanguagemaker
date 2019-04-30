@@ -12,11 +12,19 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/**
+ * Handler for Doctor Dashboard search bar.
+ * @author juliannerudner
+ *
+ */
 public class searchDDHandler implements Route {
-  Gson gson = new Gson();
+  private static final Gson GSON = new Gson();
   private PatientDatabase patientDb =
       new PatientDatabase("data/database/members.sqlite3");
 
+  /**
+   * Constructor for searchDDHandler.
+   */
   public searchDDHandler() {
 
   }
@@ -32,7 +40,7 @@ public class searchDDHandler implements Route {
 
     Map<String, Object> vars = ImmutableMap.of("patients", patients);
 
-    return gson.toJson(vars);
+    return GSON.toJson(vars);
   }
 
 }
