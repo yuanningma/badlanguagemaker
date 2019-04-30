@@ -41,7 +41,6 @@ public class CreateFormHandler implements Route {
     ExactSimilarity checker = new ExactSimilarity(tempDbPath);
     QueryParamsMap qm = req.queryMap();
     String labelsString = qm.value("fields");
-    System.out.println(labelsString);
     TemplateFields labels = TemplateFields.valueOf(labelsString);
     // Create template object.
     Template template = new Template(labels);
