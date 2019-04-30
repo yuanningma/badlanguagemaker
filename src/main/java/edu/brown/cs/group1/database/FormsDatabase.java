@@ -151,14 +151,13 @@ public class FormsDatabase extends Database {
   public Template getForm(int formId) {
     Template form = new Template(-1, new TemplateFields(new ArrayList<>()));
     try (PreparedStatement prep = dbConn
-        .prepareStatement("SELECT form_input FROM form WHERE formId = ?;");) {
+        .prepareStatement("SELECT form_input FROM form WHERE id = ?;");) {
       prep.setInt(1, formId);
       ResultSet rs = prep.executeQuery();
       String fields = new String();
       while (rs.next()) {
         fields = rs.getString(1);
       }
-      fields = fields.substring(1, fields.length() - 1);
       TemplateFields parsedFields = TemplateFields.valueOf(fields);
       form = new Template(formId, parsedFields);
       rs.close();
