@@ -43,11 +43,14 @@ public class FormsDatabase extends Database {
       stat.close();
 
     } catch (ClassNotFoundException exp) {
-      exp.printStackTrace();
+      System.out.println("ClassNotFoundException FormsDatabase.java");
+      // exp.printStackTrace();
 
     } catch (SQLException sql) {
-      sql.printStackTrace();
+      System.out.println("SQLException FormsDatabase.java");
+      // sql.printStackTrace();
     }
+
   }
 
   /**
@@ -92,7 +95,8 @@ public class FormsDatabase extends Database {
         newTempl.setTags(tagList);
 
       } catch (SQLException sql) {
-        sql.printStackTrace();
+        System.out.println("SQL Exception FormsDatabase saveForm");
+        // sql.printStackTrace();
       }
     }
     templateMap.put(patientid, newTempl);
@@ -127,7 +131,9 @@ public class FormsDatabase extends Database {
       }
       rs.close();
     } catch (SQLException e) {
-      e.printStackTrace();
+
+      System.out.println("SQL Exception FormsDatabase getAllForms");
+      // e.printStackTrace();
     }
     return forms;
   }
@@ -158,7 +164,8 @@ public class FormsDatabase extends Database {
       }
       rs.close();
     } catch (SQLException e) {
-      e.printStackTrace();
+      System.out.println("SQL Exception FormsDatabase getAllForms(id)");
+      // e.printStackTrace();
     }
     return forms;
   }
@@ -188,7 +195,8 @@ public class FormsDatabase extends Database {
       rs.close();
       return form;
     } catch (SQLException e) {
-      e.printStackTrace();
+      System.out.println("SQL Exception FormsDatabase getForm(id)");
+      // e.printStackTrace();
     }
     return form;
   }
@@ -251,7 +259,8 @@ public class FormsDatabase extends Database {
       // prep.close();
 
     } catch (SQLException e) {
-      e.printStackTrace();
+      System.out.println("SQL Exception FormsDatabase updateForm");
+      // e.printStackTrace();
     }
   }
 }

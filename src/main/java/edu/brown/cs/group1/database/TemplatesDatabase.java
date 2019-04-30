@@ -38,10 +38,12 @@ public class TemplatesDatabase extends Database {
       stat.close();
 
     } catch (ClassNotFoundException exp) {
-      exp.printStackTrace();
+      System.out.println("ERROR: ClassNotFoundExeption TemplatesDatabase.java");
+      // exp.printStackTrace();
 
     } catch (SQLException sql) {
-      sql.printStackTrace();
+      System.out.println("ERROR: SQLExeption Database.java");
+      // sql.printStackTrace();
     }
   }
 
@@ -54,10 +56,10 @@ public class TemplatesDatabase extends Database {
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query = "CREATE TABLE IF NOT EXISTS template("
-            + "templateId INTEGER,"
-            + "template_field TEXT,"
-            + "PRIMARY KEY (templateId));";
+        String query =
+            "CREATE TABLE IF NOT EXISTS template(" + "templateId INTEGER,"
+                + "template_field TEXT,"
+                + "PRIMARY KEY (templateId));";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         List<String> templateInfo = template.getFields().getLabels(false);
@@ -69,7 +71,8 @@ public class TemplatesDatabase extends Database {
         prep.executeBatch();
         prep.close();
       } catch (SQLException sql) {
-        sql.printStackTrace();
+        System.out.println("SQLException saveTemplate");
+        // sql.printStackTrace();
       }
     }
   }
@@ -82,8 +85,8 @@ public class TemplatesDatabase extends Database {
    *         exists.
    */
   public Template getTemplate(int templateId) {
-    try (PreparedStatement prep = dbConn
-        .prepareStatement("SELECT template_field FROM template WHERE templateId = ?;");) {
+    try (PreparedStatement prep = dbConn.prepareStatement(
+        "SELECT template_field FROM template WHERE templateId = ?;");) {
       prep.setInt(1, templateId);
       ResultSet rs = prep.executeQuery();
       String fields = "";
@@ -94,10 +97,9 @@ public class TemplatesDatabase extends Database {
       Template template = new Template(templateId, parsedFields);
       rs.close();
       return template;
-    } catch (
-
-    SQLException e) {
-      e.printStackTrace();
+    } catch (SQLException e) {
+      System.out.println("SQLException getTemplate");
+      // e.printStackTrace();
     }
     return null;
   }
@@ -142,7 +144,8 @@ public class TemplatesDatabase extends Database {
       }
       rs.close();
     } catch (SQLException e) {
-      e.printStackTrace();
+      System.out.println("SQLException getAllTemplates");
+      // e.printStackTrace();
     }
     return templates;
   }

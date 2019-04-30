@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Map;
 
 import edu.brown.cs.group1.staff.Admin;
 import edu.brown.cs.group1.staff.Doctor;
@@ -31,10 +29,12 @@ public class StaffDatabase extends Database {
       stat.close();
 
     } catch (ClassNotFoundException exp) {
-      exp.printStackTrace();
+      System.out.println("ERROR: ClassNotFoundExeption StaffDatabase.java");
+      // exp.printStackTrace();
 
     } catch (SQLException sql) {
-      sql.printStackTrace();
+      System.out.println("ERROR: SQLExeption Database.java");
+      // sql.printStackTrace();
     }
   }
 
@@ -88,30 +88,30 @@ public class StaffDatabase extends Database {
       if (getStaffMember(staff.getStaffId()) != null) {
         String query = new String();
         switch (field) {
-          case "name":
-            query = "UPDATE staff SET name = ? WHERE staffId = ?";
-            break;
-          case "is_Doctor":
-            query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
-            break;
-          case "is_Admin":
-            query = "UPDATE staff SET is_Admin = ? WHERE staffId = ?";
-            break;
-          case "is_Working":
-            query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
-            break;
-          default:
-             query = null;
+        case "name":
+          query = "UPDATE staff SET name = ? WHERE staffId = ?";
+          break;
+        case "is_Doctor":
+          query = "UPDATE staff SET is_Doctor = ? WHERE staffId = ?";
+          break;
+        case "is_Admin":
+          query = "UPDATE staff SET is_Admin = ? WHERE staffId = ?";
+          break;
+        case "is_Working":
+          query = "UPDATE staff SET is_Working = ? WHERE staffId = ?";
+          break;
+        default:
+          query = null;
         }
-            PreparedStatement prep;
-            prep = dbConn.prepareStatement(query);
+        PreparedStatement prep;
+        prep = dbConn.prepareStatement(query);
 
-            prep.setString(1, value);
-            prep.setInt(2, staff.getStaffId());
+        prep.setString(1, value);
+        prep.setInt(2, staff.getStaffId());
 
-            prep.executeUpdate();
-            prep.close();
-        }
+        prep.executeUpdate();
+        prep.close();
+      }
     }
   }
 
@@ -143,14 +143,11 @@ public class StaffDatabase extends Database {
         String isAdmin = rs.getString(4);
         String isWorking = rs.getString(6);
         if (Boolean.parseBoolean(isAdmin)) {
-          staffmember = new Admin(id,
-               name,
-              true,
-              false,
-              Boolean.parseBoolean(isWorking));
+          staffmember =
+              new Admin(id, name, true, false, Boolean.parseBoolean(isWorking));
         } else {
           staffmember = new Doctor(id,
-                name,
+              name,
               false,
               true,
               Boolean.parseBoolean(isWorking));
