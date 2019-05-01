@@ -1,4 +1,4 @@
-let count = 1;
+$patientId = $("#patientId");
 
 $(document).ready(() => {
 
@@ -7,21 +7,20 @@ $(document).ready(() => {
         let formElts = "";
 
         $( "#saveForm :input" ).each(function(){
-            formElts += $(this).attr('id');
-            formElts += ";";
-            formElts += $(this).val();
-            formElts += ";";
+            if (!($(this).attr('id') === "saveButton")) {
+                formElts += $(this).attr('id');
+                formElts += ";";
+                formElts += $(this).val();
+                formElts += ";";
+            }
+
         });
-        formElts = formElts.substring(0, formElts.length-1);
-        console.log(formElts);
+        // formElts = formElts.substring(0, formElts.length-1);
+        const postParameters = {fields: formElts, patientId: $patientId.html()};
 
-        const postParameters = {fields: formElts};
         // const postParameters = {fields: "field"};
-
-
-
-		$.post("/forms/save", postParameters, responseJSON => {
-            // Show message that form was successfully created
+        $.post("/forms/save", postParameters, responseJSON => {
+            // Show message that template was successfully created
             console.log("posted");
         });
     });

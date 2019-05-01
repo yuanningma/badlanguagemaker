@@ -19,8 +19,8 @@ $(document).ready(() => {
 
 
 
-		$.post("/forms/create", postParameters, responseJSON => {
-            // Show message that form was successfully created
+		$.post("/templates/create", postParameters, responseJSON => {
+            // Show message that template was successfully created
             // console.log("posted");
         });
     });
