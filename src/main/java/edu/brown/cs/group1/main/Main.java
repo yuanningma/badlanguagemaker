@@ -20,9 +20,9 @@ import edu.brown.cs.group1.handler.NewFormHandler;
 import edu.brown.cs.group1.handler.NewTemplateHandler;
 import edu.brown.cs.group1.handler.PastFormsHandler;
 import edu.brown.cs.group1.handler.PatientProfileHandler;
+import edu.brown.cs.group1.handler.RelevanceTimelineHandler;
 import edu.brown.cs.group1.handler.SaveFormHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
-import edu.brown.cs.group1.handler.relevanceHandler;
 import edu.brown.cs.group1.handler.searchDDHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
@@ -103,7 +103,7 @@ public class Main {
     Spark
         .get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
     Spark.post("/searchDD", new searchDDHandler());
-    Spark.post("/relevance", new relevanceHandler(), freeMarker);
+    Spark.post("/relevance", new RelevanceTimelineHandler());
 
   }
 

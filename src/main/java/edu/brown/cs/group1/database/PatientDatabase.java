@@ -33,10 +33,12 @@ public class PatientDatabase extends Database {
       stat.close();
 
     } catch (ClassNotFoundException exp) {
-      exp.printStackTrace();
+      System.out.println("ERROR: ClassNotFoundException PatientDatabase.java");
+      // exp.printStackTrace();
 
     } catch (SQLException sql) {
-      sql.printStackTrace();
+      System.out.println("ERROR: SQLExeption PatientDatabase.java");
+      // sql.printStackTrace();
     }
   }
 

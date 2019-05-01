@@ -136,8 +136,7 @@ public class Relevance {
         // }
       }
     } catch (SQLException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+      System.out.println("ERROR: SQL Exception");
     }
     // for (String term : terms) {
     // System.out.println("TERM: " + term);

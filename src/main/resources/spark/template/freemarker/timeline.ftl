@@ -10,48 +10,13 @@
 
 <body>
    <h4>Patient Timeline</text></h4>
-
-
-<div class="timeline">
-  <div class="container left">
-    <div class="content">
-      <h2>2017</h2>
-      <p>ded</p>
-    </div>
+<div class="timeline" id="myTimeline" name="timeline">
+  <div id="last"></div>
   </div>
-  <div class="container right">
-    <div class="content">
-      <h2>2016</h2>
-      <p>vomiting blood</p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-      <h2>2015</h2>
-      <p>wife left him</p>
-    </div>
-  </div>
-  <div class="container right">
-    <div class="content">
-      <h2>2012</h2>
-      <p>won the world series</p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-      <h2>2011</h2>
-      <p>graduated</p>
-    </div>
-  </div>
-  <div class="container right">
-    <div class="content">
-      <h2>2007</h2>
-      <p>born</p>
-    </div>
-  </div>
+  
 </div>
 
-<form id="checklist" method="POST" action="/relevance">
+<form id="checklist">
 <p> Filter by</p>
    <input id="searchTimeline" type="text" placeholder="Search">
    <br><br>
@@ -104,7 +69,11 @@
       <input type="checkbox" name="Medications" value="Medications">
            <label for="Medications">Medications</label>
    <br><br>
-   <input type="submit" value="Search"><br>
+      <br><br>
+         <br><br>
+<button id="searchTL" type="button" class="btn btn-primary">Search</button>
+   <script src="/js/timeline.js"></script>
+</form>
 <br>
 <br>
 <br>
@@ -114,7 +83,6 @@
 <li><a href="/patients/${id1}/forms" class="previous">&#10216; Patient Records</a></li>
 </ul>
 </body>
-
 </#assign>
 <#include "main.ftl">
 </html>
