@@ -21,7 +21,7 @@ import spark.Route;
  * @author wchoi11
  *
  */
-public class CreateFormHandler implements Route {
+public class CreateTemplateHandler implements Route {
   private static final Gson GSON = new Gson();
   private String tempDbPath;
   private TemplatesDatabase tempDb;
@@ -31,13 +31,14 @@ public class CreateFormHandler implements Route {
    * @param tempDbPath
    *          Path to forms database.
    */
-  public CreateFormHandler(String tempDbPath) {
+  public CreateTemplateHandler(String tempDbPath) {
     this.tempDbPath = tempDbPath;
     this.tempDb = new TemplatesDatabase(tempDbPath);
   }
 
   @Override
   public String handle(Request req, Response res) {
+    System.out.println("hereTEmp");
     ExactSimilarity checker = new ExactSimilarity(tempDbPath);
     QueryParamsMap qm = req.queryMap();
     String labelsString = qm.value("fields");

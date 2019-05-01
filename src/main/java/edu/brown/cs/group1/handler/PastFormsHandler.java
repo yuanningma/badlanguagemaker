@@ -57,6 +57,7 @@ public class PastFormsHandler implements TemplateViewRoute {
     // }
     // List<Template> forms = formsDb.getAllForms(patientId);
     // TODO: Pass forms to front-end.
+    // TODO: Pass map of template name to id
     Map<String, Object> variables =
         ImmutableMap.of("title", "pc+ home", "id", patientId);
 

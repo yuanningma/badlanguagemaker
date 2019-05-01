@@ -11,14 +11,16 @@ import com.google.common.collect.ImmutableMap;
 
 import edu.brown.cs.group1.database.FormsDatabase;
 import edu.brown.cs.group1.database.PatientDatabase;
-import edu.brown.cs.group1.handler.CreateFormHandler;
+import edu.brown.cs.group1.handler.CreateTemplateHandler;
 import edu.brown.cs.group1.handler.DDHandler;
 import edu.brown.cs.group1.handler.FormHandler;
 import edu.brown.cs.group1.handler.GraphHandler;
 import edu.brown.cs.group1.handler.LoginHandler;
 import edu.brown.cs.group1.handler.NewFormHandler;
+import edu.brown.cs.group1.handler.NewTemplateHandler;
 import edu.brown.cs.group1.handler.PastFormsHandler;
 import edu.brown.cs.group1.handler.PatientProfileHandler;
+import edu.brown.cs.group1.handler.SaveFormHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
 import edu.brown.cs.group1.handler.relevanceHandler;
 import edu.brown.cs.group1.handler.searchDDHandler;
@@ -81,8 +83,6 @@ public class Main {
     Spark.get("/login", new LoginHandler(), freeMarker);
     Spark.get("/home", new LoginHandler(), freeMarker);
     Spark.get("/Dashboard/:doctorId", new DDHandler(), freeMarker);
-
-    // TODO: Pass in dbPath to handlers.
     Spark.get("/patients/:patientId/forms",
         new PastFormsHandler("data/database/forms.sqlite3", "patientdbpath"),
         freeMarker);
@@ -95,7 +95,9 @@ public class Main {
     Spark.get("/patients/:patientId/forms/:templateId/new",
         new NewFormHandler(),
         freeMarker);
-    Spark.post("/forms/create", new CreateFormHandler("tempdbpath"));
+    Spark.post("/forms/save", new SaveFormHandler("formsdbpath"));
+    Spark.get("/templates/new", new NewTemplateHandler(), freeMarker);
+    Spark.post("/templates/create", new CreateTemplateHandler("tempdbpath"));
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
     Spark

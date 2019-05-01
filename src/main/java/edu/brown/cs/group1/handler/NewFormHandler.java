@@ -12,8 +12,15 @@ import spark.TemplateViewRoute;
 public class NewFormHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
-    // String id = req.params(":movieId");
-    Map<String, Object> variables = ImmutableMap.of("title", "pc+: Home");
+    // String tempId = req.params(":templateId");
+    // int templateId = Integer.parseInt(tempId);
+    String patId = req.params(":patientId");
+    int patientId = Integer.parseInt(patId);
+    // Template temp = tempsDb.getTemplate(templateId);
+    // List<String> labels = temp.getFields().getLabels(false);
+    // TODO: Pass in labels to variables.
+    Map<String, Object> variables = ImmutableMap
+        .of("title", "pc+: Home", "message", "", "patientId", patientId);
     return new ModelAndView(variables, "newForm.ftl");
   }
 }
