@@ -2,10 +2,11 @@ package edu.brown.cs.TestDatabase;
 
 import org.junit.Before;
 import org.junit.Test;
-
+import java.sql.SQLException;
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.patient.Patient;
-
+import edu.brown.cs.group1.textloader.TextFileLoader;
+import java.util.List;
 public class PatientDatabaseTest {
   PatientDatabase patientDatabase;
   Patient patient1;
@@ -18,28 +19,26 @@ public class PatientDatabaseTest {
 
   @Test
   public void testSavePatient() {
-    // try {
-    //
-    // //Patient queryResult = patientDatabase.getPatient(1);
-    // TextFileLoader tf = new TextFileLoader("data/medicalTerminology/MOCK_DATA
-    // (2).csv");
-    // List<String> query = tf.fileLoader();
-    // for(int i = 2; i < query.size(); i++){
-    // String s = query.get(i);
-    // String[] arr = s.split(",");
-    // patient1.setPatientId(Integer.parseInt(arr[0]));
-    // patient1.setFirstName(arr[1]);
-    // patient1.setMiddleName(arr[2]);
-    // patient1.setLastName(arr[3]);
-    // patient1.setPatientId(Integer.parseInt(arr[4]));
-    // patientDatabase.savePatients(patient1);
-    // }
-    //
-    //
-    // } catch (SQLException sql) {
-    // sql.printStackTrace();
-    // System.out.println("Test Failure");
-    // }
+//     try {
+
+     //Patient queryResult = patientDatabase.getPatient(1);
+//     TextFileLoader tf = new TextFileLoader("data/medicalTerminology/MOCK_DATA (1).csv");
+//     List<String> query = tf.fileLoader();
+//     for(int i = 2; i < query.size(); i++){
+//     String s = query.get(i);
+//     String[] arr = s.split(",");
+//     patient1.setPatientId(Integer.parseInt(arr[0]));
+//     patient1.setFirstName(arr[1]);
+//     patient1.setMiddleName(arr[2]);
+//     patient1.setLastName(arr[3]);
+//     patient1.setPatientId(Integer.parseInt(arr[4]));
+//     patientDatabase.savePatients(patient1);
+//     }
+//
+//     } catch (SQLException sql) {
+//     sql.printStackTrace();
+//     System.out.println("Test Failure");
+//     }
   }
 
   @Test

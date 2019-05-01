@@ -21,8 +21,8 @@ public class TestExactSimilarity {
     // ExactSimilarity checker = new ExactSimilarity("not_a_db");
     TemplateFields fields1 = TemplateFields.valueOf("Name;Age;Weight;DOB;");
     TemplateFields fields2 = TemplateFields.valueOf("Name;Age;Weight;Height;");
-    Template form1 = new Template(1, fields1);
-    Template form2 = new Template(2, fields2);
+    Template form1 = new Template(1, fields1, "General");
+    Template form2 = new Template(2, fields2, "General");
     double ans = ExactSimilarity.twoTempsSimil(form1, form2);
     assertTrue(ans == 0.6);
   }

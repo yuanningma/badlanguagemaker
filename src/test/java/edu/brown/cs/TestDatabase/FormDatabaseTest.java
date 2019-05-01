@@ -19,9 +19,9 @@ public class FormDatabaseTest {
   public void setUp() {
     formDatabase = new FormsDatabase("data/database/forms.sqlite3");
     template = new Template(1,
-        TemplateFields.valueOf("Name;Procedure;SecondaryProcedure;"));
+        TemplateFields.valueOf("Name;Procedure;SecondaryProcedure;"), "Procedure History");
     textFileLoader =
-        new TextFileLoader("data/medicalTerminology/MOCK_DATA (7).csv");
+        new TextFileLoader("data/medicalTerminology/MOCK_DATA (2).csv");
   }
 
   @Test
@@ -32,38 +32,39 @@ public class FormDatabaseTest {
       String[] arr = strings.get(i).split(",");
       System.out.println(arr[1]);
       switch (arr.length) {
+     case 4:
+              switch (arr[3]) {
+                  case "":
+                      template = new Template(Integer.parseInt(arr[0]),
+                              TemplateFields.valueOf(
+                                      "Emergency Contact;" + arr[4] + ";" + "Procedure;" + arr[2] + ";"), "Procedure Documentation");
+                      break;
+                  default:
+                      template = new Template(Integer.parseInt(arr[0]),
+                              TemplateFields.valueOf("Procedure;" + arr[2]
+                                      + ";"
+                                      + "SecondaryProcedure;"
+                                      + arr[3]),"Two Procedures");
+                      formDatabase.saveForm(template, Integer.parseInt(arr[1]));
+                      break;
+              }
+          case 3:
+              template = new Template(Integer.parseInt(arr[0]),
+                      TemplateFields.valueOf("Procedure;" + arr[2] + ";"), "One Procedure");
+              formDatabase.saveForm(template, Integer.parseInt(arr[1]));
+              break;
       case 5:
         template = new Template(Integer.parseInt(arr[0]),
-            TemplateFields.valueOf("Name;" + arr[4]
+            TemplateFields.valueOf("Emergency Contact;" + arr[4]
                 + ";"
                 + "Procedure;"
                 + arr[2]
                 + ";"
                 + "SecondaryProcedure;"
-                + arr[3]));
+                + arr[3]), "Procedure History");
         formDatabase.saveForm(template, Integer.parseInt(arr[1]));
         break;
-      case 4:
-        switch (arr[3]) {
-        case "":
-          template = new Template(Integer.parseInt(arr[0]),
-              TemplateFields.valueOf(
-                  "Name;" + arr[4] + ";" + "Procedure;" + arr[2] + ";"));
-          break;
-        default:
-          template = new Template(Integer.parseInt(arr[0]),
-              TemplateFields.valueOf("Procedure;" + arr[2]
-                  + ";"
-                  + "SecondaryProcedure;"
-                  + arr[3]));
-          formDatabase.saveForm(template, Integer.parseInt(arr[1]));
-          break;
-        }
-      case 3:
-        template = new Template(Integer.parseInt(arr[0]),
-            TemplateFields.valueOf("Procedure;" + arr[2] + ";"));
-        formDatabase.saveForm(template, Integer.parseInt(arr[1]));
-        break;
+
       case 0:
         break;
       }
