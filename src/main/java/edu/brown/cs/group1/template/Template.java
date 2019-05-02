@@ -32,14 +32,14 @@ public class Template {
     this.trueContent = new ArrayList<String>();
   }
 
-//  /**
-//   * Constructor for saving to database.
-//   * @param fields
-//   *          Field names and optionally associated values if object is a form.
-//   */
-//  public Template(TemplateFields fields) {
-//    this.fields = fields;
-//  }
+  /**
+   * Constructor for saving to database.
+   * @param fields
+   *          Field names and optionally associated values if object is a form.
+   */
+  public Template(TemplateFields fields) {
+    this.fields = fields;
+  }
 
   public List<String> getTrueContent() {
     return this.trueContent;
