@@ -26,7 +26,7 @@ public class FormsDatabase extends Database {
   private Connection dbConn;
   private TagsDatabase tb = new TagsDatabase("data/database/tags.sqlite3");
   private Map<Integer, Template> templateMap;
-  private int nextFormId = 101;
+  private int nextFormId = 0;
 
   /**
    * Constructor for Form Database.

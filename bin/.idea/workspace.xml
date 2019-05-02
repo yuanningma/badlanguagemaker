@@ -2,95 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a01bfe0f-9cca-456a-ae70-2b0ab575f728" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/bin/na" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$RelevanceTimelineHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/database/template.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/database/templates.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/na" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn-classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn-classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.mvn-classpath" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.mvn-classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/data/database/forms.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/bin/data/database/forms.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/RelevanceTimelineHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$ExceptionPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$ExceptionPrinter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$FrontHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$FrontHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$PatientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$PatientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/similarity/ExactSimilarity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/similarity/ExactSimilarity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/template/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/template/Template.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/newTemplate.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/newTemplate.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/pastForms.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/pastForms.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/timeline.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/timeline.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/static/css/timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/static/css/timeline.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/static/js/timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/static/js/timeline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilarity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilarity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/pastForms.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/pastForms.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/timeline.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/timeline.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/classes/static/css/timeline.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/PatientDatabaseTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/StaffDatabaseTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-PatientDatabaseTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-StaffDatabaseTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestDatabase.PatientDatabaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestDatabase.PatientDatabaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestDatabase.StaffDatabaseTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.field.FormFieldsTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.field.TemplateFieldsTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.field.TemplateFieldsTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.patient.PatientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.patient.PatientTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.search.SearchTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.search.SearchTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.similarity.TestExactSimilarity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.similarity.TestExactSimilarity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.similarity.TestExactSimilaritySorter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.similarity.TestExactSimilaritySorter.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestDatabase.PatientDatabaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestDatabase.PatientDatabaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestDatabase.StaffDatabaseTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.field.FormFieldsTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.patient.PatientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.patient.PatientTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.search.SearchTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.search.SearchTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.similarity.TestExactSimilarity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.similarity.TestExactSimilarity.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.similarity.TestExactSimilaritySorter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.similarity.TestExactSimilaritySorter.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/target/term-project-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/bin/target/term-project-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/database/forms.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/data/database/forms.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewTemplateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewTemplateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/similarity/ExactSimilarity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/similarity/ExactSimilarity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilarity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilarity.java" afterDir="false" />
-=======
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/database/forms.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/data/database/forms.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn-classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/database/forms.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newForm.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newForm.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/saveForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/saveForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" afterDir="false" />
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -116,227 +32,70 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="45" selection-start-line="45" selection-end-line="45" selection-end-column="50" />
-=======
-<<<<<<< Updated upstream
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="19" column="65" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="65" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
->>>>>>> big-mistake-locked
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/Database.java">
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/saveForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
->>>>>>> Stashed changes
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< Updated upstream
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java">
->>>>>>> big-mistake-locked
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="180">
-              <caret line="19" column="63" lean-forward="true" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-=======
-            <state relative-caret-position="74">
-              <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/search.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< Updated upstream
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
-              <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
-=======
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
->>>>>>> Stashed changes
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
-=======
-<<<<<<< Updated upstream
-        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="47" column="33" lean-forward="true" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" selection-start-line="13" selection-end-line="15" selection-end-column="9" />
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/DDHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newForm.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="98">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
-=======
-            <state relative-caret-position="97">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-=======
-<<<<<<< Updated upstream
-      <file pinned="false" current-in-tab="true">
->>>>>>> big-mistake-locked
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1432">
-              <caret line="205" column="16" selection-start-line="205" selection-start-column="16" selection-end-line="205" selection-end-column="16" />
-=======
+            <state relative-caret-position="-353">
+              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="43" column="72" selection-start-line="43" selection-start-column="72" selection-end-line="43" selection-end-column="72" />
->>>>>>> Stashed changes
+            <state relative-caret-position="263">
+              <caret line="31" selection-start-line="31" selection-start-column="2" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#759#760#0" expanded="true" />
-                <element signature="e#815#816#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< Updated upstream
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewTemplateHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
+            <state relative-caret-position="165">
+              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/patient/Patient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="208" column="43" selection-start-line="208" selection-start-column="43" selection-end-line="208" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
->>>>>>> Stashed changes
+            <state relative-caret-position="-785">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-293">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="264">
+              <caret line="36" column="44" lean-forward="true" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PatientProfileHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-=======
-<<<<<<< Updated upstream
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-=======
-        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" selection-start-line="28" selection-start-column="2" selection-end-line="71" selection-end-column="5" />
+            <state relative-caret-position="315">
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="915" column="10" selection-start-line="915" selection-start-column="10" selection-end-line="915" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -374,7 +133,6 @@
       <find>kid</find>
       <find>ureter</find>
       <find>Patient</find>
-      <find>f</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -383,6 +141,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/AdminDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/Database.java" />
+        <option value="$PROJECT_DIR$/src/test/java/StaffDatabaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/PatientDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplateDatabase.java" />
         <option value="$PROJECT_DIR$/data/medicalTerminology/medicalRoots.txt" />
         <option value="$PROJECT_DIR$/data/medicalTerminology/CMS29_DESC_LONG_SG.txt" />
@@ -422,42 +184,16 @@
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilaritySorter.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" />
-=======
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java" />
->>>>>>> big-mistake-locked
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java" />
-<<<<<<< Updated upstream
-        <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java" />
-=======
-=======
-        <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newForm.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/saveForm.js" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" />
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
+        <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" />
       </list>
     </option>
   </component>
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="y" value="23" />
-    <option name="width" value="1213" />
+    <option name="width" value="1280" />
     <option name="height" value="716" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -466,17 +202,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
@@ -534,101 +267,6 @@
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="databaseAuthentication" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="handler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="tag" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="TerminologyDatabase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="textloader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="freemarker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -645,74 +283,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="field" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="patient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="similarity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-              <item name="group1" type="462c0819:PsiDirectoryNode" />
-              <item name="tag" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cs" type="462c0819:PsiDirectoryNode" />
-              <item name="TerminologyAssociation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
@@ -736,22 +306,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< Updated upstream
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556825310271" />
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556769900631" />
->>>>>>> Stashed changes
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556834709908" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -770,7 +333,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TemplateDatabaseTest.TestSaveTemplate">
+  <component name="RunManager" selected="JUnit.FormDatabaseTest.TestSaveForms">
     <configuration name="FormDatabaseTest.TestSaveForms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="term-project" />
       <extension name="coverage">
@@ -853,8 +416,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TemplateDatabaseTest.TestSaveTemplate" />
         <item itemvalue="JUnit.FormDatabaseTest.TestSaveForms" />
+        <item itemvalue="JUnit.TemplateDatabaseTest.TestSaveTemplate" />
         <item itemvalue="JUnit.TagsDatabaseTest.TestRegisterTag" />
         <item itemvalue="JUnit.TerminologyAssociationTest.TestFileParser" />
         <item itemvalue="JUnit.StaffDatabaseTest.testsaveNewStaff" />
@@ -890,26 +453,11 @@
       <workItem from="1556732093257" duration="2362000" />
       <workItem from="1556739650884" duration="1219000" />
       <workItem from="1556758882145" duration="299000" />
-      <workItem from="1556827416310" duration="624000" />
+      <workItem from="1556833130764" duration="1483000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 55m 34s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 56m 32s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 56m 53s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.28 at 22h 59m 12s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.29 at 21h 59m 50s.xml">
-      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FormDatabaseTest_TestSaveForms - 2019.04.29 at 22h 00m 22s.xml">
       <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
     </history-entry>
@@ -925,17 +473,24 @@
     <history-entry file="TemplateDatabaseTest_TestSaveTemplate - 2019.04.29 at 23h 35m 53s.xml">
       <configuration name="TemplateDatabaseTest.TestSaveTemplate" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.05.02 at 17h 39m 27s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.05.02 at 17h 42m 21s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.05.02 at 17h 42m 47s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.05.02 at 17h 43m 18s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FormDatabaseTest_TestSaveForms - 2019.05.02 at 18h 02m 38s.xml">
+      <configuration name="FormDatabaseTest.TestSaveForms" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="136806000" />
-=======
-<<<<<<< Updated upstream
-    <option name="totallyTimeSpent" value="136363000" />
-=======
-    <option name="totallyTimeSpent" value="134521000" />
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
+    <option name="totallyTimeSpent" value="131848000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -947,9 +502,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1213" height="716" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29376602" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -967,15 +523,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4995074" weight="0.32876712" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-<<<<<<< HEAD
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" visible="true" weight="0.40865386" />
-=======
-<<<<<<< Updated upstream
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" visible="true" weight="0.40865386" />
-=======
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" visible="true" weight="0.34931508" />
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" visible="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.18336026" side_tool="true" weight="0.39452055" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32739726" />
       <window_info anchor="bottom" id="Thumbnails" order="14" />
@@ -1006,7 +554,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/field/TemplateFields.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
@@ -1014,8 +561,6 @@
         </state>
       </provider>
     </entry>
-=======
->>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/tag/TestTags.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -1062,9 +607,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/database/form.sqlite3" />
-    <entry file="file://$PROJECT_DIR$/data/database/forms.sqlite3">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/tag/Tags.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
@@ -1119,6 +661,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/forms.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1148,6 +697,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1098#1099#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilarity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1162,25 +723,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" selection-start-line="31" selection-start-column="2" selection-end-line="34" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/chart.ftl">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1188,8 +732,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/DD.ftl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-<<<<<<< HEAD
-=======
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newForm.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PatientProfileHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1197,24 +746,91 @@
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
->>>>>>> big-mistake-locked
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/saveForm.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        <state relative-caret-position="165">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
-=======
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl">
       <provider selected="true" editor-type-id="text-editor" />
->>>>>>> Stashed changes
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/saveForm.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1265">
+          <caret line="100" column="15" selection-start-line="100" selection-start-column="15" selection-end-line="100" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/DDHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/login.ftl">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/search.js">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewTemplateHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/database/template.sqlite3">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/LoginDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1226,13 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="125" selection-start-line="125" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1240,84 +849,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="41" column="58" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+        <state relative-caret-position="413">
+          <caret line="915" column="10" selection-start-line="915" selection-start-column="10" selection-end-line="915" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/patient/Patient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-785">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="31" selection-start-line="31" selection-start-column="2" selection-end-line="34" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/login.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newForm.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/LoginHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/form.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl">
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java">
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewTemplateHandler.java">
->>>>>>> Stashed changes
->>>>>>> big-mistake-locked
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="21" column="65" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
-=======
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java">
->>>>>>> big-mistake-locked
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="33" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1326,210 +892,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1432">
-          <caret line="205" column="16" selection-start-line="205" selection-start-column="16" selection-end-line="205" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-353">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="45" selection-start-line="45" selection-end-line="45" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
-        </state>
-      </provider>
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl">
-=======
-    <entry file="file://$PROJECT_DIR$/data/database/template.sqlite3">
->>>>>>> Stashed changes
-      <provider selected="true" editor-type-id="text-editor" />
->>>>>>> big-mistake-locked
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/DDHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PatientProfileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewTemplateHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="63" lean-forward="true" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-293">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/PatientProfile.ftl">
+    <entry file="file://$PROJECT_DIR$/data/database/forms.sqlite3">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-915">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/database/templates.sqlite3">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1068#1069#0" expanded="true" />
-            <element signature="e#1098#1099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="67" column="68" selection-start-line="67" selection-start-column="68" selection-end-line="67" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#445#446#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/pastForms.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/search.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newForm.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/saveForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="43" column="72" selection-start-line="43" selection-start-column="72" selection-end-line="43" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="91" column="21" selection-start-line="91" selection-start-column="21" selection-end-line="91" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="2321">
-          <caret line="205" column="16" selection-start-line="205" selection-start-column="16" selection-end-line="205" selection-end-column="16" />
-=======
-        <state relative-caret-position="341">
-          <caret line="208" column="43" selection-start-line="208" selection-start-column="43" selection-end-line="208" selection-end-column="43" />
->>>>>>> Stashed changes
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-=======
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" selection-start-line="28" selection-start-column="2" selection-end-line="71" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
->>>>>>> big-mistake-locked
+        <state relative-caret-position="264">
+          <caret line="36" column="44" lean-forward="true" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
->>>>>>> Stashed changes
   </component>
   <component name="masterDetails">
     <states>
