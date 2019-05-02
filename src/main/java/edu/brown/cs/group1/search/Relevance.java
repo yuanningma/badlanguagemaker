@@ -4,10 +4,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+
+import com.google.common.util.concurrent.AtomicDouble;
 
 import edu.brown.cs.group1.TerminologyDatabase.MedicalDictionaryDatabase;
 import edu.brown.cs.group1.TerminologyDatabase.MedicalProcedureDatabase;
 import edu.brown.cs.group1.database.FormsDatabase;
+import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TagsDatabase;
 import edu.brown.cs.group1.synonyms.TerminologyAssociation;
 import edu.brown.cs.group1.template.Template;
@@ -23,6 +27,7 @@ public class Relevance {
   private Search search;
   private MedicalDictionaryDatabase mddb;
   private MedicalProcedureDatabase mpdb;
+  private PatientDatabase pdb;
   private TagsDatabase tdb;
   private FormsDatabase fdb;
   private TerminologyAssociation rootterm;
@@ -33,10 +38,19 @@ public class Relevance {
     mddb = new MedicalDictionaryDatabase("data/database/medicalDictionary.sqlite3");
     mpdb = new MedicalProcedureDatabase("data/database/medicalProcedures.sqlite3");
     tdb = new TagsDatabase("data/database/largeTags.sqlite3");
-    fdb = new FormsDatabase("data/database/largeForm.sqlite3");
+    fdb = new FormsDatabase("data/database/forms.sqlite3");
+    pdb = new PatientDatabase("data/database/members.sqlite3");
 
     rootterm = new TerminologyAssociation("root", null);
     assocs = rootterm.readTerminologyAssociations("data/medicalTerminology/medicalChecklistAssociations.txt");
+  }
+
+  public FormsDatabase getFormsDatabase() {
+    return fdb;
+  }
+
+  public PatientDatabase getPatientDatabase() {
+    return pdb;
   }
 
   public List<String> parseForMe(List<String> toparse) {
@@ -104,6 +118,61 @@ public class Relevance {
     //
     // return goodForms;
     return goodForms;
+  }
+
+  /**
+   * Sets the "true content" of a List of Templates for easy parsing
+   * @return
+   */
+  public List<Template> trueContentGenerator(List<Template> forms) {
+    List<Template> temp = forms;
+    for (int i = 0; i < temp.size(); i++) {
+      Template form = temp.get(i);
+      List<String> trueContent = new ArrayList<String>();
+      // System.out.println(r.parseForMe(form.getFields().getContent()));
+      trueContent.addAll(this.parseForMe(form.getFields().getContent()));
+      form.setTrueContent(trueContent);
+    }
+    return temp;
+  }
+
+  public List<Map.Entry<Template, AtomicDouble>>
+      getRankings(List<String> terms, List<String> tags, List<Template> forms) {
+    List<Template> goodForms = new ArrayList<Template>();
+    List<List<String>> docs = new ArrayList<List<String>>();
+
+    if (tags == null) {
+      for (Template t : forms) {
+        docs.add(t.getFields().getContent());
+      }
+      goodForms = forms;
+    } else {
+      for (Template t : forms) {
+        for (String s : tags) {
+          if (t.getTags().contains(s)) {
+            docs.add(t.getFields().getContent());
+            goodForms.add(t);
+            break;
+          }
+        }
+      }
+    }
+
+    try {
+      return search.mapRankTemplate(terms, tags, goodForms);
+    } catch (InterruptedException e) {
+      System.out.println("ERROR: Interrupted Exception!");
+    }
+
+    // List<List<String>> sorted = new ArrayList<List<String>>();
+    // try {
+    // sorted = search.threadedRankDocs(terms, docs);
+    // } catch (InterruptedException e) {
+    // System.out.println("ERROR: Interrupted!");
+    // }
+    //
+    // return goodForms;
+    return null;
   }
 
   public List<String> generateTerms(String s) {

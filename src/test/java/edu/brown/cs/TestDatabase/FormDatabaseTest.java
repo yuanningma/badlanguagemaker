@@ -58,7 +58,7 @@ public class FormDatabaseTest {
                 + arr[2]
                 + ";"
                 + "SecondaryProcedure;"
-                + arr[3]), arr[6]);
+                + arr[3]), arr[5]);
         formDatabase.saveForm(template, Integer.parseInt(arr[1]));
         break;
 

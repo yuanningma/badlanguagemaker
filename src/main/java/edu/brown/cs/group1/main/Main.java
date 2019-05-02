@@ -4,10 +4,29 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableMap;
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
+import spark.ExceptionHandler;
+import spark.ModelAndView;
+import spark.QueryParamsMap;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+import spark.Spark;
+import spark.TemplateViewRoute;
+import spark.template.freemarker.FreeMarkerEngine;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.util.concurrent.AtomicDouble;
+import com.google.gson.Gson;
+
+import edu.brown.cs.group1.database.FormsDatabase;
+import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TemplatesDatabase;
 import edu.brown.cs.group1.handler.CreateTemplateHandler;
 import edu.brown.cs.group1.handler.DDHandler;
@@ -21,16 +40,9 @@ import edu.brown.cs.group1.handler.PatientProfileHandler;
 import edu.brown.cs.group1.handler.SaveFormHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
 import edu.brown.cs.group1.handler.searchDDHandler;
+import edu.brown.cs.group1.search.Relevance;
+import edu.brown.cs.group1.template.Template;
 import freemarker.template.Configuration;
-import joptsimple.OptionParser;
-import joptsimple.OptionSet;
-import spark.ExceptionHandler;
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.Spark;
-import spark.TemplateViewRoute;
-import spark.template.freemarker.FreeMarkerEngine;
 
 public class Main {
   private static final int DEFAULT_PORT = 4567;
@@ -54,8 +66,10 @@ public class Main {
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
-    parser.accepts("port").withRequiredArg().ofType(Integer.class).defaultsTo(
-        DEFAULT_PORT);
+    parser.accepts("port")
+        .withRequiredArg()
+        .ofType(Integer.class)
+        .defaultsTo(DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
     if (options.has("gui")) {
@@ -104,14 +118,136 @@ public class Main {
 
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
-    // Spark
-    // .get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
+
+    Spark.get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
+
     Spark.post("/searchDD", new searchDDHandler());
-    // Spark.post("/relevance", new RelevanceTimelineHandler());
+    Spark.post("/relevance", new RelevanceTimelineHandler());
 
   }
 
   public static String currID = "0";
+
+  /**
+   * Patient Handler, essentially the handler for patient information / the
+   * patient timeline.
+   * @author juliannerudner
+   *
+   */
+  private static class PatientHandler implements TemplateViewRoute {
+    private FormsDatabase formsDb;
+    private PatientDatabase patientDb = new PatientDatabase("data/database/members.sqlite3");
+
+    @Override
+    public ModelAndView handle(Request arg0, Response arg1) throws Exception {
+      // TODO Auto-generated method stub
+      String id = arg0.params(":patientId");
+      currID = id;
+      String name = "";
+      try {
+        name = patientDb.getPatient(Integer.parseInt(id)).getName();
+      } catch (NumberFormatException e) {
+        System.out.println("ERROR: number format exception, patient profile handler.");
+        // e.printStackTrace();
+      } catch (SQLException e) {
+        // TODO Auto-generated catch block
+        System.out.println("ERROR: SQL exception, patient profile handler.");
+        // e.printStackTrace();
+      }
+
+      Map<String, Object> variables = ImmutableMap.of("title",
+          "pc+: My Dashboard",
+          "content",
+          "",
+          "id1",
+          id,
+          "name",
+          name);
+
+      return new ModelAndView(variables, "timeline.ftl");
+    }
+  }
+
+  /**
+   * 
+   * @author juliannerudner, yma37
+   *
+   */
+  public class RelevanceTimelineHandler implements Route {
+    private final Gson GSON = new Gson();
+    private Relevance r;
+
+    // private PatientDatabase patientDb = new
+    // PatientDatabase("data/database/members.sqlite3");
+    //
+    // private FormsDatabase formDb = new
+    // FormsDatabase("data/database/forms.sqlite3");
+
+    /**
+     * Constructor for searchDDHandler.
+     */
+    public RelevanceTimelineHandler() {
+      r = new Relevance();
+    }
+
+    @Override
+    public String handle(Request arg0, Response arg1) throws Exception {
+      // TODO Auto-generated method stub
+      QueryParamsMap qm = arg0.queryMap();
+      System.out.println(currID);
+      // List<Template> patientForms =
+      // formDb.getAllForms(Integer.parseInt(currID));
+
+      // getAllForms probably wrong?
+      List<Template> patientForms = r.getFormsDatabase()
+          .getAllForms(Integer.parseInt(currID));
+
+      for (int i = 0; i < patientForms.size(); i++) {
+        Template form = patientForms.get(i);
+
+        // form.setTrueContent(form.getFields().getContent());
+        List<String> trueContent = new ArrayList<String>();
+        // System.out.println(r.parseForMe(form.getFields().getContent()));
+        trueContent.addAll(r.parseForMe(form.getFields().getContent()));
+        form.setTrueContent(trueContent);
+        for (String s : form.getTrueContent()) {
+          System.out.println("IN TRUE CONTENT: " + s);
+        }
+      }
+
+      // String currSearch = "heart";
+      List<String> terms = r.generateTerms("carpal");
+
+      // System.out.println("BEGINNING DUMMY METHOD");
+      // System.out.println("ID: " + Integer.parseInt(currID));
+      // r.getFormsDatabase().dummyMethod(Integer.parseInt(currID));
+      // System.out.println("ENDED DUMMY METHOD");
+      // for (Template t : patientForms) {
+      // System.out.println("Template id: " + t.getTemplateId());
+      // System.out.println(t.getTags().size());
+      // System.out.println(t.getFields().getContent());
+      // }
+      List<Map.Entry<Template, AtomicDouble>> sorted = r.getRankings(terms,
+          null,
+          patientForms);
+      for (Map.Entry<Template, AtomicDouble> e : sorted) {
+        System.out.println("RANKING CURRENTLY: " + e.getKey()
+            .getFields()
+            .getContent()
+            .subList(0, 3)
+            + " , "
+            + e.getValue());
+      }
+      // System.out.println(patientForms);
+
+      Map<String, Object> vars = ImmutableMap.of("forms",
+          patientForms,
+          "id",
+          currID);
+
+      return GSON.toJson(vars);
+    }
+  }
 
   // /**
   // * Patient Handler, essentially the handler for patient information / the
@@ -156,19 +292,26 @@ public class Main {
   // }
   // }
   //
+  // /**
+  // * RelevanceTimelineHandler uses our relevance algorithm to filter in the
+  // * timeline
+  // * @author yma37
+  // *
+  // */
   // public class RelevanceTimelineHandler implements Route {
   // private final Gson GSON = new Gson();
-  // private PatientDatabase patientDb =
-  // new PatientDatabase("data/database/members.sqlite3");
-  //
-  // private FormsDatabase formDb =
-  // new FormsDatabase("data/database/forms.sqlite3");
+  // // private PatientDatabase patientDb = new
+  // // PatientDatabase("data/database/members.sqlite3");
+  // //
+  // // private FormsDatabase formDb = new
+  // // FormsDatabase("data/database/forms.sqlite3");
+  // private Relevance r;
   //
   // /**
   // * Constructor for searchDDHandler.
   // */
   // public RelevanceTimelineHandler() {
-  //
+  // r = new Relevance();
   // }
   //
   // @Override
@@ -176,9 +319,20 @@ public class Main {
   // // TODO Auto-generated method stub
   // QueryParamsMap qm = arg0.queryMap();
   // System.out.println(currID);
-  // List<Template> patientForms =
-  // formDb.getAllForms(Integer.parseInt(currID));
   //
+  // // getAllForms probably wrong?
+  // List<Template> patientForms =
+  // r.getFormsDatabase().getAllForms(Integer.parseInt(currID));
+  //
+  // // System.out.println("BEGINNING DUMMY METHOD");
+  // // System.out.println("ID: " + Integer.parseInt(currID));
+  // // r.getFormsDatabase().dummyMethod(Integer.parseInt(currID));
+  // // System.out.println("ENDED DUMMY METHOD");
+  // for (Template t : patientForms) {
+  // System.out.println("Template id: " + t.getTemplateId());
+  // System.out.println(t.getTags().size());
+  // System.out.println(t.getFields().getContent());
+  // }
   // // System.out.println(patientForms);
   //
   // Map<String, Object> vars =
@@ -196,8 +350,12 @@ public class Main {
   private static class FrontHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables =
-          ImmutableMap.of("title", "pc+ home", "message", "", "content", "");
+      Map<String, Object> variables = ImmutableMap.of("title",
+          "pc+ home",
+          "message",
+          "",
+          "content",
+          "");
       return new ModelAndView(variables, "main.ftl");
     }
   }
