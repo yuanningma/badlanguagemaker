@@ -38,7 +38,6 @@ public class CreateTemplateHandler implements Route {
 
   @Override
   public String handle(Request req, Response res) {
-    System.out.println("hereTEmp");
     ExactSimilarity checker = new ExactSimilarity(tempDbPath);
     QueryParamsMap qm = req.queryMap();
     String labelsString = qm.value("fields");
@@ -50,6 +49,7 @@ public class CreateTemplateHandler implements Route {
     List<Template> simil = checker.mostSimil(template, 0.5);
     if (simil.isEmpty()) {
       // Create template in database with labels from frontend.
+      System.out.println("hereTEmp");
       tempDb.saveTemplate(template);
       Map<String, Object> variables = ImmutableMap.of("message", "success!");
       return GSON.toJson(variables);

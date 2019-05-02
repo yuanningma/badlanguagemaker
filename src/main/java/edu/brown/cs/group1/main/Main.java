@@ -101,7 +101,8 @@ public class Main {
         freeMarker);
     Spark.post("/forms/save", new SaveFormHandler("formsdbpath"));
     Spark.get("/templates/new", new NewTemplateHandler(), freeMarker);
-    Spark.post("/templates/create", new CreateTemplateHandler("tempdbpath"));
+    Spark.post("/templates/create",
+        new CreateTemplateHandler("data/database/forms.sqlite3"));
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
     Spark

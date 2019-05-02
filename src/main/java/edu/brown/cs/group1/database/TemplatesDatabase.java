@@ -74,7 +74,7 @@ public class TemplatesDatabase extends Database {
         prep.close();
       } catch (SQLException sql) {
         System.out.println("SQLException saveTemplate");
-        // sql.printStackTrace();
+        sql.printStackTrace();
       }
     }
   }
@@ -87,8 +87,8 @@ public class TemplatesDatabase extends Database {
    *         exists.
    */
   public Template getTemplate(int templateId) {
-    try (PreparedStatement prep = dbConn.prepareStatement(
-        "SELECT * FROM template WHERE templateId = ?;");) {
+    try (PreparedStatement prep = dbConn
+        .prepareStatement("SELECT * FROM template WHERE templateId = ?;");) {
       prep.setInt(1, templateId);
       ResultSet rs = prep.executeQuery();
       String fields = "";
