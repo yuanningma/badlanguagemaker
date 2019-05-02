@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Date;
 
 import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
@@ -71,12 +72,12 @@ public class FormsDatabase extends Database {
             + "form_input TEXT,"
             + "tags TEXT,"
             + "form_name TEXT,"
-            + "database_input Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
+            + "database_input LONG);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
         List<String> formInfo = new ArrayList<>();
-        query = "INSERT INTO form VALUES (?,?,?,?,?,null);";
+        query = "INSERT INTO form VALUES (?,?,?,?,?,?);";
         prep = dbConn.prepareStatement(query);
         prep.setInt(1, newTempl.getTemplateId());
         prep.setInt(2, patientid);
@@ -93,6 +94,8 @@ public class FormsDatabase extends Database {
         prep.setString(3, formInfo.toString());
         prep.setString(4, tagList.toString());
         prep.setString(5, template.getTemplateName());
+        Date date = new Date();
+        prep.setLong(6, date.getTime());
         prep.addBatch();
         prep.executeBatch();
         prep.close();
