@@ -12,6 +12,7 @@ import edu.brown.cs.group1.field.TemplateFields;
  */
 public class Template {
   private int templateId;
+  private String name;
   private TemplateFields fields;
   private List<String> tags;
   private List<String> trueContent;
@@ -69,6 +70,14 @@ public class Template {
 
   public void setFields(TemplateFields fields) {
     this.fields = fields;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   // TODO: Method for extracting fields and associated values from existing

@@ -12,8 +12,8 @@ import spark.TemplateViewRoute;
 public class NewTemplateHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
-    // String id = req.params(":movieId");
-    Map<String, Object> variables = ImmutableMap.of("title", "pc+: Home");
+    Map<String, Object> variables =
+        ImmutableMap.of("title", "pc+: Home", "message", "");
     return new ModelAndView(variables, "newTemplate.ftl");
   }
 }

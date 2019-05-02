@@ -23,10 +23,10 @@ public class ExactSimilarity {
   /**
    * Constructor.
    * @param tempDb
-   *          Path to templates database.
+   *          Templates database.
    */
-  public ExactSimilarity(String tempDb) {
-    this.tempDb = new TemplatesDatabase(tempDb);
+  public ExactSimilarity(TemplatesDatabase tempDb) {
+    this.tempDb = tempDb;
   }
 
   /**

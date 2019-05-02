@@ -28,18 +28,17 @@ public class CreateTemplateHandler implements Route {
 
   /**
    * Constructor.
-   * @param tempDbPath
-   *          Path to forms database.
+   * @param tempDb
+   *          Templates database.
    */
-  public CreateTemplateHandler(String tempDbPath) {
+  public CreateTemplateHandler(String tempDbPath, TemplatesDatabase tempDb) {
     this.tempDbPath = tempDbPath;
-    this.tempDb = new TemplatesDatabase(tempDbPath);
+    this.tempDb = tempDb;
   }
 
   @Override
   public String handle(Request req, Response res) {
-    System.out.println("hereTEmp");
-    ExactSimilarity checker = new ExactSimilarity(tempDbPath);
+    ExactSimilarity checker = new ExactSimilarity(tempDb);
     QueryParamsMap qm = req.queryMap();
     String labelsString = qm.value("fields");
     TemplateFields labels = TemplateFields.valueOf(labelsString);
@@ -51,10 +50,10 @@ public class CreateTemplateHandler implements Route {
     if (simil.isEmpty()) {
       // Create template in database with labels from frontend.
       tempDb.saveTemplate(template);
-      Map<String, Object> variables = ImmutableMap.of("message", "success!");
+      Map<String, Object> variables = ImmutableMap.of("message", "Success!");
       return GSON.toJson(variables);
     } else {
-      Map<String, Object> variables = ImmutableMap.of("message", "error!");
+      Map<String, Object> variables = ImmutableMap.of("message", "Error!");
       return GSON.toJson(variables);
     }
   }
