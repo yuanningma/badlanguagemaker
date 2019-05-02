@@ -52,7 +52,7 @@ public class FormDatabaseTest {
 //                      TemplateFields.valueOf("Procedure;" + arr[2] + ";"), "One Procedure");
 //              formDatabase.saveForm(template, Integer.parseInt(arr[1]));
 //              break;
-      case 6:
+      default:
         template = new Template(Integer.parseInt(arr[0]),
             TemplateFields.valueOf("Procedure;"
                 + arr[2]
