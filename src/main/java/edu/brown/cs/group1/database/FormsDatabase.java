@@ -69,13 +69,14 @@ public class FormsDatabase extends Database {
         String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
             + "patientId INTEGER,"
             + "form_input TEXT,"
-            + "tags TEXT"
-            + "Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
+            + "tags TEXT,"
+            + "form_name TEXT,"
+            + "database_input Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
         List<String> formInfo = new ArrayList<>();
-        query = "INSERT INTO form VALUES (?,?,?,?);";
+        query = "INSERT INTO form VALUES (?,?,?,?,?,null);";
         prep = dbConn.prepareStatement(query);
         prep.setInt(1, newTempl.getTemplateId());
         prep.setInt(2, patientid);
@@ -91,14 +92,15 @@ public class FormsDatabase extends Database {
         }
         prep.setString(3, formInfo.toString());
         prep.setString(4, tagList.toString());
+        prep.setString(5, template.getTemplateName());
         prep.addBatch();
         prep.executeBatch();
         prep.close();
         newTempl.setTags(tagList);
 
       } catch (SQLException sql) {
-        System.out.println("SQL Exception FormsDatabase saveForm");
-        // sql.printStackTrace();
+        // System.out.println("SQL Exception FormsDatabase saveForm");
+        sql.printStackTrace();
       }
     }
     templateMap.put(patientid, newTempl);
@@ -117,7 +119,7 @@ public class FormsDatabase extends Database {
    */
   public List<Template> getAllForms() {
     List<Template> forms = new ArrayList<>();
-    try (PreparedStatement prep = dbConn.prepareStatement("SELECT formId, form_input FROM form;");) {
+    try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form;");) {
 
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
@@ -127,8 +129,7 @@ public class FormsDatabase extends Database {
         if (templateMap.containsKey(formId)) {
           forms.add(templateMap.get(formId));
         } else {
-          // String name = rs.getString(2);
-          String name = "boogerface";
+          String name = rs.getString(5);
           String fieldsString = rs.getString(3);
           TemplateFields fields = TemplateFields.valueOf(fieldsString);
           forms.add(new Template(formId, fields, name));
@@ -174,14 +175,20 @@ public class FormsDatabase extends Database {
         if (templateMap.containsKey(formID)) {
           forms.add(templateMap.get(formID));
         } else {
-          // String name = rs.getString(2);
-          String name = "boogerface";
-          String numthree = rs.getString(3);
-          // System.out.println("Third is: " + numthree);
-          // String formInput = rs.getString(3).substring(1,
-          // rs.getString(3).length() - 1);
-          String formInput = numthree.substring(1, numthree.length() - 1);
-          // System.out.println("formInput is: " + formInput);
+          // <<<<<<< HEAD
+          // // String name = rs.getString(2);
+          // String name = "boogerface";
+          // String numthree = rs.getString(3);
+          // // System.out.println("Third is: " + numthree);
+          // // String formInput = rs.getString(3).substring(1,
+          // // rs.getString(3).length() - 1);
+          // String formInput = numthree.substring(1, numthree.length() - 1);
+          // // System.out.println("formInput is: " + formInput);
+          // =======
+          String name = rs.getString(5);
+          String formInput = rs.getString(3).substring(1,
+              rs.getString(3).length());
+
           TemplateFields fields = TemplateFields.valueOf(formInput);
           forms.add(new Template(formID, fields, name));
           // System.out.println(formID);
@@ -217,8 +224,7 @@ public class FormsDatabase extends Database {
       String fields = new String();
       String name = new String();
       while (rs.next()) {
-        // System.out.println("Do we reach here?");
-        name = rs.getString(2);
+        name = rs.getString(5);
         fields = rs.getString(3);
         System.out.println("IN DB, FIELDS IS: " + fields);
       }
