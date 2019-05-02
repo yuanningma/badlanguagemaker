@@ -95,8 +95,8 @@ public class FormsDatabase extends Database {
         newTempl.setTags(tagList);
 
       } catch (SQLException sql) {
-        System.out.println("SQL Exception FormsDatabase saveForm");
-        // sql.printStackTrace();
+//        System.out.println("SQL Exception FormsDatabase saveForm");
+         sql.printStackTrace();
       }
     }
     templateMap.put(patientid, newTempl);
@@ -124,9 +124,10 @@ public class FormsDatabase extends Database {
         if (templateMap.containsKey(formId)) {
           forms.add(templateMap.get(formId));
         } else {
-          String fieldsString = rs.getString(2);
+          String name = rs.getString(2);
+          String fieldsString = rs.getString(3);
           TemplateFields fields = TemplateFields.valueOf(fieldsString);
-          forms.add(new Template(formId, fields));
+          forms.add(new Template(formId, fields, name));
         }
       }
       rs.close();
@@ -148,7 +149,7 @@ public class FormsDatabase extends Database {
   public List<Template> getAllForms(int patientId) {
     List<Template> forms = new ArrayList<>();
     try (PreparedStatement prep = dbConn.prepareStatement(
-        "SELECT formId,form_input FROM form WHERE patientId = ?;");) {
+        "SELECT * FROM form WHERE patientId = ?;");) {
       prep.setInt(1, patientId);
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
@@ -156,10 +157,11 @@ public class FormsDatabase extends Database {
         if (templateMap.containsKey(formID)) {
           forms.add(templateMap.get(formID));
         } else {
+          String name = rs.getString(2);
           String formInput =
-              rs.getString(2).substring(1, rs.getString(2).length());
+              rs.getString(3).substring(1, rs.getString(2).length());
           TemplateFields fields = TemplateFields.valueOf(formInput);
-          forms.add(new Template(formID, fields));
+          forms.add(new Template(formID, fields, name));
         }
       }
       rs.close();
@@ -180,18 +182,21 @@ public class FormsDatabase extends Database {
     if (templateMap.containsKey(formId)) {
       return templateMap.get(formId);
     }
-    Template form = new Template(-1, new TemplateFields(new ArrayList<>()));
+    Template form = new Template(-1,
+            new TemplateFields(new ArrayList<>()), new String());
     try (PreparedStatement prep =
-        dbConn.prepareStatement("SELECT form_input FROM form WHERE id = ?;");) {
+        dbConn.prepareStatement("SELECT * FROM form WHERE id = ?;");) {
 
       prep.setInt(1, formId);
       ResultSet rs = prep.executeQuery();
       String fields = new String();
+      String name = new String();
       while (rs.next()) {
-        fields = rs.getString(1);
+        name = rs.getString(2);
+        fields = rs.getString(3);
       }
       TemplateFields parsedFields = TemplateFields.valueOf(fields);
-      form = new Template(formId, parsedFields);
+      form = new Template(formId, parsedFields, name);
       rs.close();
       return form;
     } catch (SQLException e) {

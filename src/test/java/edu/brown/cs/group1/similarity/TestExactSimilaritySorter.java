@@ -18,8 +18,8 @@ public class TestExactSimilaritySorter {
         TemplateFields.valueOf("Name;Eric;Age;12;Weight;234;DOB;071296;");
     TemplateFields fields2 =
         TemplateFields.valueOf("Name;Eric;Age;12;Weight;234;Height;071296;");
-    Template form1 = new Template(1, fields1);
-    Template form2 = new Template(2, fields2);
+    Template form1 = new Template(1, fields1, "General");
+    Template form2 = new Template(2, fields2, "General");
     ExactSimilaritySorter sorter = new ExactSimilaritySorter(form1);
     List<Template> toSort = new ArrayList<>();
     toSort.add(form2);

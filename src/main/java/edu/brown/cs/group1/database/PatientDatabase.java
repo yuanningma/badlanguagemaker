@@ -56,11 +56,7 @@ public class PatientDatabase extends Database {
               + "first_name TEXT,"
               + "middle_name TEXT,"
               + "last_name TEXT,"
-              // + "insurance_name TEXT,"
-              // + "insurance_number INTEGER,"
               + "doctorID INTEGER,"
-              // + "dob TEXT,"
-              // + "emergency_contact TEXT,"
               + "PRIMARY KEY (patientId));";
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
@@ -71,11 +67,7 @@ public class PatientDatabase extends Database {
       prep.setString(2, patient.getFirstName());
       prep.setString(3, patient.getMiddleName());
       prep.setString(4, patient.getLastName());
-      // prep.setString(3, "insurance");
-      // prep.setString(4, "insurance_number");
       prep.setInt(5, patient.getDoctorId());
-      // prep.setDate(6, java.sql.Date.valueOf("2000-05-07"));
-      // prep.setString(SEVEN, "(917)-443-6682");
       prep.addBatch();
       prep.executeBatch();
       prep.close();

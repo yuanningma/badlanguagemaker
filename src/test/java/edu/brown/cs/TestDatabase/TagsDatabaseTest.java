@@ -20,12 +20,12 @@ public class TagsDatabaseTest {
 
     @Before
     public void setUp() {
-        tagsDatabase = new TagsDatabase("data/database/tags.sqlite3");
-        ta = new TerminologyAssociation(null, null);
-        filepath = "data/medicalTerminology/medicalChecklistAssociations.txt";
-        mdd = new MedicalDictionaryDatabase("data/database/medicalDictionary.sqlite3");
-        mpd = new MedicalProcedureDatabase(
-                "data/database/medicalProcedures.sqlite3");
+//        tagsDatabase = new TagsDatabase("data/database/tags.sqlite3");
+//        ta = new TerminologyAssociation(null, null);
+//        filepath = "data/medicalTerminology/medicalChecklistAssociations.txt";
+//        mdd = new MedicalDictionaryDatabase("data/database/medicalDictionary.sqlite3");
+//        mpd = new MedicalProcedureDatabase(
+//                "data/database/medicalProcedures.sqlite3");
     }
 
 //    @Test

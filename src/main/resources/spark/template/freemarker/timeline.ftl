@@ -70,8 +70,9 @@
            <label for="Medications">Medications</label>
    <br><br>
       <br><br>
-         <br><br>
+         <br><br>     
 <button id="searchTL" type="button" class="btn btn-primary">Search</button>
+
    <script src="/js/timeline.js"></script>
 </form>
 <br>

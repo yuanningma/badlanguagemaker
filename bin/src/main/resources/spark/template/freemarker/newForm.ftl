@@ -1,7 +1,8 @@
 <#assign content>
     <link rel="stylesheet" href="/css/newForm.css">
 <h1 class="text-center"> New Form</h1>
-	<h3 class="text-center">${message}</h3>
+<div style="display:none;" id="patientId">${patientId}</div>
+
 
 <ul id="linklist" style="list-style-type:none">
 <li><a href="/patients/:patientId/profile" class="previous">&#10216; View Profile</a><br></li>

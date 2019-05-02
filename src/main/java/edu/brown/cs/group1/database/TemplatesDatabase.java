@@ -58,15 +58,24 @@ public class TemplatesDatabase extends Database {
         PreparedStatement prep;
         String query =
             "CREATE TABLE IF NOT EXISTS template(" + "templateId INTEGER,"
+                + "template_name TEXT,"
                 + "template_field TEXT,"
                 + "PRIMARY KEY (templateId));";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         List<String> templateInfo = template.getFields().getLabels(false);
+<<<<<<< HEAD
         query = "INSERT INTO template (template_field) VALUES (?);";
         prep = dbConn.prepareStatement(query);
         // prep.setInt(1, template.getTemplateId());
         prep.setString(1, templateInfo.toString());
+=======
+        query = "INSERT INTO template VALUES (?,?,?);";
+        prep = dbConn.prepareStatement(query);
+        prep.setInt(1, template.getTemplateId());
+        prep.setString(2, template.getTemplateName());
+        prep.setString(3, templateInfo.toString());
+>>>>>>> 6b0fe4da8c1a085170e77f26646f62254d2c3bb5
         prep.addBatch();
         prep.executeBatch();
         prep.close();
@@ -86,15 +95,17 @@ public class TemplatesDatabase extends Database {
    */
   public Template getTemplate(int templateId) {
     try (PreparedStatement prep = dbConn.prepareStatement(
-        "SELECT template_field FROM template WHERE templateId = ?;");) {
+        "SELECT * FROM template WHERE templateId = ?;");) {
       prep.setInt(1, templateId);
       ResultSet rs = prep.executeQuery();
       String fields = "";
+      String name = new String();
       while (rs.next()) {
-        fields = rs.getString(1);
+        name = rs.getString(2);
+        fields = rs.getString(3);
       }
       TemplateFields parsedFields = TemplateFields.valueOf(fields);
-      Template template = new Template(templateId, parsedFields);
+      Template template = new Template(templateId, parsedFields, name);
       rs.close();
       return template;
     } catch (SQLException e) {
@@ -138,9 +149,10 @@ public class TemplatesDatabase extends Database {
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
         int formId = rs.getInt(1);
-        String fieldsString = rs.getString(2);
+        String name = rs.getString(2);
+        String fieldsString = rs.getString(3);
         TemplateFields fields = TemplateFields.valueOf(fieldsString);
-        templates.add(new Template(formId, fields));
+        templates.add(new Template(formId, fields, name));
       }
       rs.close();
     } catch (SQLException e) {
