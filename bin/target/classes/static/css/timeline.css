@@ -194,6 +194,11 @@ form p{
   left:15px;
 }
 
+.content a{
+  color: white;
+  font-size: 30px;
+}
+
 a:hover {
   background-color: #ddd;
   color: black;

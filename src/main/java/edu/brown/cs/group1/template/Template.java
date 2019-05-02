@@ -12,7 +12,6 @@ import edu.brown.cs.group1.field.TemplateFields;
  */
 public class Template {
   private int templateId;
-  private String name;
   private TemplateFields fields;
   private List<String> tags;
   private List<String> trueContent;
@@ -33,14 +32,14 @@ public class Template {
     this.trueContent = new ArrayList<String>();
   }
 
-//  /**
-//   * Constructor for saving to database.
-//   * @param fields
-//   *          Field names and optionally associated values if object is a form.
-//   */
-//  public Template(TemplateFields fields) {
-//    this.fields = fields;
-//  }
+  /**
+   * Constructor for saving to database.
+   * @param fields
+   *          Field names and optionally associated values if object is a form.
+   */
+  public Template(TemplateFields fields) {
+    this.fields = fields;
+  }
 
   public List<String> getTrueContent() {
     return this.trueContent;
@@ -74,21 +73,12 @@ public class Template {
     this.fields = fields;
   }
 
-<<<<<<< HEAD
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-=======
   public String getTemplateName() {
-     return this.templateName;
+    return this.templateName;
   }
 
   public void setTemplateName(String templateName) {
-       this.templateName = templateName;
->>>>>>> 6b0fe4da8c1a085170e77f26646f62254d2c3bb5
+    this.templateName = templateName;
   }
 
   // TODO: Method for extracting fields and associated values from existing

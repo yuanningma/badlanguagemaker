@@ -64,18 +64,11 @@ public class TemplatesDatabase extends Database {
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         List<String> templateInfo = template.getFields().getLabels(false);
-<<<<<<< HEAD
-        query = "INSERT INTO template (template_field) VALUES (?);";
-        prep = dbConn.prepareStatement(query);
-        // prep.setInt(1, template.getTemplateId());
-        prep.setString(1, templateInfo.toString());
-=======
         query = "INSERT INTO template VALUES (?,?,?);";
         prep = dbConn.prepareStatement(query);
         prep.setInt(1, template.getTemplateId());
         prep.setString(2, template.getTemplateName());
         prep.setString(3, templateInfo.toString());
->>>>>>> 6b0fe4da8c1a085170e77f26646f62254d2c3bb5
         prep.addBatch();
         prep.executeBatch();
         prep.close();
@@ -94,8 +87,8 @@ public class TemplatesDatabase extends Database {
    *         exists.
    */
   public Template getTemplate(int templateId) {
-    try (PreparedStatement prep = dbConn.prepareStatement(
-        "SELECT * FROM template WHERE templateId = ?;");) {
+    try (PreparedStatement prep = dbConn
+        .prepareStatement("SELECT * FROM template WHERE templateId = ?;");) {
       prep.setInt(1, templateId);
       ResultSet rs = prep.executeQuery();
       String fields = "";

@@ -1,6 +1,5 @@
 package edu.brown.cs.group1.similarity;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -10,11 +9,11 @@ import edu.brown.cs.group1.template.Template;
 
 public class TestExactSimilarity {
 
-  @Test
-  public void testConstructor() {
-    ExactSimilarity checker = new ExactSimilarity("not_a_db");
-    assertNotNull(checker);
-  }
+  // @Test
+  // public void testConstructor() {
+  // ExactSimilarity checker = new ExactSimilarity("not_a_db");
+  // assertNotNull(checker);
+  // }
 
   @Test
   public void testTwoTempsSimil() {
