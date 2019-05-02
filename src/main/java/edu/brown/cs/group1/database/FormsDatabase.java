@@ -26,6 +26,7 @@ public class FormsDatabase extends Database {
   private Connection dbConn;
   private TagsDatabase tb = new TagsDatabase("data/database/tags.sqlite3");
   private Map<Integer, Template> templateMap;
+  private int nextFormId = 101;
 
   /**
    * Constructor for Form Database.
@@ -59,6 +60,8 @@ public class FormsDatabase extends Database {
    *          the template to be saved.
    */
   public Template saveForm(Template template, Integer patientid) {
+    template.setTemplateId(nextFormId);
+    nextFormId++;
     Template newTempl = template;
     if (dbConn != null) {
       try {
@@ -167,7 +170,7 @@ public class FormsDatabase extends Database {
       rs.close();
     } catch (SQLException e) {
       System.out.println("SQL Exception FormsDatabase getAllForms(id)");
-      // e.printStackTrace();
+       e.printStackTrace();
     }
     return forms;
   }
@@ -203,6 +206,7 @@ public class FormsDatabase extends Database {
       System.out.println("SQL Exception FormsDatabase getForm(id)");
       // e.printStackTrace();
     }
+    System.out.println(form.getTemplateId());
     return form;
   }
 

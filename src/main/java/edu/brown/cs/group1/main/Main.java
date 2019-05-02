@@ -89,7 +89,7 @@ public class Main {
         new PastFormsHandler("na", "na"),
         freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
-        new FormHandler("na"),
+        new FormHandler("data/database/forms.sqlite3"),
         freeMarker);
     Spark.get("/patients/:patientId/profile",
         new PatientProfileHandler(),
@@ -97,7 +97,7 @@ public class Main {
     Spark.get("/patients/:patientId/forms/:templateId/new",
         new NewFormHandler(),
         freeMarker);
-    Spark.post("/forms/save", new SaveFormHandler("na"));
+    Spark.post("/forms/save", new SaveFormHandler());
     Spark.get("/templates/new", new NewTemplateHandler(), freeMarker);
 
     Spark.post("/templates/create", new CreateTemplateHandler(tempDbPath));

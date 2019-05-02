@@ -46,13 +46,15 @@ public class FormHandler implements TemplateViewRoute {
 
     int formId = Integer.parseInt(id);
     Template form = formsDb.getForm(formId);
+    System.out.println(form.getTemplateId());
+
     List<String> labelsAndFields = form.getFields().getContent();
     for (int i = 0; i < labelsAndFields.size(); i += 2) {
       fields.put(labelsAndFields.get(i), labelsAndFields.get(i + 1));
     }
-
+    System.out.println(labelsAndFields);
     Map<String, Object> variables =
-        ImmutableMap.of("title", "pc+ ", "fields", fields, "id", patId);
+        ImmutableMap.of("title", "pc+ ", "fields", fields, "id", patId, "nameToId", fields);
     return new ModelAndView(variables, "form.ftl");
   }
 }
