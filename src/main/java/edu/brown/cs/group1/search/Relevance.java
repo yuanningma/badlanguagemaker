@@ -8,6 +8,7 @@ import java.util.List;
 import edu.brown.cs.group1.TerminologyDatabase.MedicalDictionaryDatabase;
 import edu.brown.cs.group1.TerminologyDatabase.MedicalProcedureDatabase;
 import edu.brown.cs.group1.database.FormsDatabase;
+import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TagsDatabase;
 import edu.brown.cs.group1.synonyms.TerminologyAssociation;
 import edu.brown.cs.group1.template.Template;
@@ -23,6 +24,7 @@ public class Relevance {
   private Search search;
   private MedicalDictionaryDatabase mddb;
   private MedicalProcedureDatabase mpdb;
+  private PatientDatabase pdb;
   private TagsDatabase tdb;
   private FormsDatabase fdb;
   private TerminologyAssociation rootterm;
@@ -34,9 +36,18 @@ public class Relevance {
     mpdb = new MedicalProcedureDatabase("data/database/medicalProcedures.sqlite3");
     tdb = new TagsDatabase("data/database/largeTags.sqlite3");
     fdb = new FormsDatabase("data/database/largeForm.sqlite3");
+    pdb = new PatientDatabase("data/database/members.sqlite3");
 
     rootterm = new TerminologyAssociation("root", null);
     assocs = rootterm.readTerminologyAssociations("data/medicalTerminology/medicalChecklistAssociations.txt");
+  }
+
+  public FormsDatabase getFormsDatabase() {
+    return fdb;
+  }
+
+  public PatientDatabase getPatientDatabase() {
+    return pdb;
   }
 
   public List<String> parseForMe(List<String> toparse) {
@@ -104,6 +115,22 @@ public class Relevance {
     //
     // return goodForms;
     return goodForms;
+  }
+
+  /**
+   * Sets the "true content" of a List of Templates for easy parsing
+   * @return
+   */
+  public List<Template> trueContentGenerator(List<Template> forms) {
+    List<Template> temp = forms;
+    for (int i = 0; i < temp.size(); i++) {
+      Template form = temp.get(i);
+      List<String> trueContent = new ArrayList<String>();
+      // System.out.println(r.parseForMe(form.getFields().getContent()));
+      trueContent.addAll(this.parseForMe(form.getFields().getContent()));
+      form.setTrueContent(trueContent);
+    }
+    return temp;
   }
 
   public List<String> generateTerms(String s) {

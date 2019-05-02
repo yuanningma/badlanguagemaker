@@ -26,9 +26,14 @@ public class Search {
 
   private int totalSize;
   private Map<String, Double> frequencies;
+  private Map<List<String>, Double> listCache;
+
+  // private Map<Template, Double> templateCache;
 
   public Search() {
     frequencies = new HashMap<String, Double>();
+    listCache = new HashMap<List<String>, Double>();
+    // templateCache = new HashMap<Template, Double>();
   }
 
   public Search(List<List<String>> docs) {
@@ -47,6 +52,7 @@ public class Search {
 
     totalSize = docs.size();
     frequencies = new HashMap<String, Double>();
+    listCache = new HashMap<List<String>, Double>();
   }
 
   public double termFrequency(String term, List<String> doc) {
@@ -73,6 +79,9 @@ public class Search {
   }
 
   public double tfIdf(String term, List<String> doc) {
+    if (listCache.containsKey(doc)) {
+      return listCache.get(doc);
+    }
     double tf = termFrequency(term, doc);
     double idf;
 
@@ -82,7 +91,9 @@ public class Search {
       idf = Math.log(totalSize);
     }
 
-    return tf * idf;
+    double toret = tf * idf;
+    listCache.put(doc, toret);
+    return toret;
   }
 
   public double keywordsTfIdf(List<String> terms, List<String> doc) {

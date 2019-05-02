@@ -28,7 +28,7 @@ $(document).ready(() => {
           }else{
             side="'container right'";
           }
-
+          
       console.log(forms[i].fields);
 
           $('#last').before(
