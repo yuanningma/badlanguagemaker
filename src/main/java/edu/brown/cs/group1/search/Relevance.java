@@ -35,7 +35,7 @@ public class Relevance {
     mddb = new MedicalDictionaryDatabase("data/database/medicalDictionary.sqlite3");
     mpdb = new MedicalProcedureDatabase("data/database/medicalProcedures.sqlite3");
     tdb = new TagsDatabase("data/database/largeTags.sqlite3");
-    fdb = new FormsDatabase("data/database/largeForm.sqlite3");
+    fdb = new FormsDatabase("data/database/forms.sqlite3");
     pdb = new PatientDatabase("data/database/members.sqlite3");
 
     rootterm = new TerminologyAssociation("root", null);

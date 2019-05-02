@@ -94,8 +94,8 @@ public class FormsDatabase extends Database {
         newTempl.setTags(tagList);
 
       } catch (SQLException sql) {
-        // System.out.println("SQL Exception FormsDatabase saveForm");
-        sql.printStackTrace();
+        System.out.println("SQL Exception FormsDatabase saveForm");
+        // sql.printStackTrace();
       }
     }
     templateMap.put(patientid, newTempl);
@@ -118,11 +118,14 @@ public class FormsDatabase extends Database {
 
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
+
         int formId = rs.getInt(1);
+
         if (templateMap.containsKey(formId)) {
           forms.add(templateMap.get(formId));
         } else {
-          String name = rs.getString(2);
+          // String name = rs.getString(2);
+          String name = "boogerface";
           String fieldsString = rs.getString(3);
           TemplateFields fields = TemplateFields.valueOf(fieldsString);
           forms.add(new Template(formId, fields, name));
@@ -137,6 +140,16 @@ public class FormsDatabase extends Database {
     return forms;
   }
 
+  public void dummyMethod(int patientId) throws SQLException {
+    try (PreparedStatement prep = dbConn.prepareStatement("SELECT formId FROM form WHERE patientId = ?;");) {
+      prep.setInt(1, patientId);
+      ResultSet rs = prep.executeQuery();
+      while (rs.next()) {
+        System.out.println("DUMMY ID: " + rs.getInt(1));
+      }
+    }
+  }
+
   /**
    * Returns all completed forms for specified patient.
    * @param patientId
@@ -148,17 +161,28 @@ public class FormsDatabase extends Database {
     List<Template> forms = new ArrayList<>();
     try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form WHERE patientId = ?;");) {
       prep.setInt(1, patientId);
+      System.out.println("PATIENT ID IS: " + patientId);
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
+
         Integer formID = rs.getInt(1);
+
+        System.out.println("THIS PATIENT CONTAINS FORM: " + formID);
         if (templateMap.containsKey(formID)) {
           forms.add(templateMap.get(formID));
         } else {
-          String name = rs.getString(2);
-          String formInput = rs.getString(3).substring(1,
-              rs.getString(2).length());
+          // String name = rs.getString(2);
+          String name = "boogerface";
+          String numthree = rs.getString(3);
+          System.out.println("Third is: " + numthree);
+          // String formInput = rs.getString(3).substring(1,
+          // rs.getString(3).length() - 1);
+          String formInput = numthree.substring(1, numthree.length() - 1);
+          // System.out.println("formInput is: " + formInput);
           TemplateFields fields = TemplateFields.valueOf(formInput);
           forms.add(new Template(formID, fields, name));
+          // System.out.println(formID);
+          // System.out.println("CONTENTO: " + fields.getContent());
         }
       }
       rs.close();
@@ -177,22 +201,27 @@ public class FormsDatabase extends Database {
    */
   public Template getForm(int formId) {
     if (templateMap.containsKey(formId)) {
+      // System.out.println("We already have it in store!");
       return templateMap.get(formId);
     }
     Template form = new Template(-1,
         new TemplateFields(new ArrayList<>()),
         new String());
-    try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form WHERE id = ?;");) {
+    try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form WHERE formId = ?;");) {
 
       prep.setInt(1, formId);
       ResultSet rs = prep.executeQuery();
       String fields = new String();
       String name = new String();
       while (rs.next()) {
+        // System.out.println("Do we reach here?");
         name = rs.getString(2);
         fields = rs.getString(3);
+        System.out.println("IN DB, FIELDS IS: " + fields);
       }
-      TemplateFields parsedFields = TemplateFields.valueOf(fields);
+      TemplateFields parsedFields = TemplateFields.valueOf(fields.replaceAll("\\[",
+          "")
+          .replaceAll("\\]", ""));
       form = new Template(formId, parsedFields, name);
       rs.close();
       return form;

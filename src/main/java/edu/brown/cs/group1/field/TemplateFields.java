@@ -66,7 +66,9 @@ public class TemplateFields {
    */
   public static TemplateFields valueOf(String fieldsString) {
     List<String> fields = new ArrayList<>();
-    String[] fieldsArr = fieldsString.split(";");
+    // String[] fieldsArr = fieldsString.split(";");
+    String[] fieldsArr = fieldsString.split(",");
+
     for (String field : fieldsArr) {
       fields.add(field);
     }

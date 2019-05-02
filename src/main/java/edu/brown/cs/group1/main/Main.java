@@ -183,9 +183,20 @@ public class Main {
       // TODO Auto-generated method stub
       QueryParamsMap qm = arg0.queryMap();
       System.out.println(currID);
+
+      // getAllForms probably wrong?
       List<Template> patientForms = r.getFormsDatabase()
           .getAllForms(Integer.parseInt(currID));
 
+      // System.out.println("BEGINNING DUMMY METHOD");
+      // System.out.println("ID: " + Integer.parseInt(currID));
+      // r.getFormsDatabase().dummyMethod(Integer.parseInt(currID));
+      // System.out.println("ENDED DUMMY METHOD");
+      for (Template t : patientForms) {
+        System.out.println("Template id: " + t.getTemplateId());
+        System.out.println(t.getTags().size());
+        System.out.println(t.getFields().getContent());
+      }
       // System.out.println(patientForms);
 
       Map<String, Object> vars = ImmutableMap.of("forms",

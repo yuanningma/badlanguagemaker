@@ -3,15 +3,13 @@ $(document).ready(() => {
 
   $('#searchTL').on('click', (event)=> {
 
-
     const postParameters = {
       timeline: document.getElementById("myTimeline").value
     }
 
-
+    console.log("ohhithere");
     $.post("/relevance", postParameters, responseJSON => {
         // TODO: Parse the JSON response into a JavaScript object.
-
         const responseObject = JSON.parse(responseJSON);
         let forms=responseObject.forms;
         let id =responseObject.id;
@@ -28,8 +26,8 @@ $(document).ready(() => {
           }else{
             side="'container right'";
           }
-          
       console.log(forms[i].fields);
+      console.log(forms[i].templateId);
 
           $('#last').before(
             "<div class="+side+">"+
