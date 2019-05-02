@@ -22,7 +22,7 @@ import edu.brown.cs.group1.template.Template;
  */
 public class TemplatesDatabase extends Database {
   private Connection dbConn;
-
+  private int nextTempId = 11;
   /**
    * Constructor for Template Database.
    * @param path
@@ -53,6 +53,8 @@ public class TemplatesDatabase extends Database {
    *          the template to be saved.
    */
   public void saveTemplate(Template template) {
+      template.setTemplateId(nextTempId);
+      nextTempId++;
     if (dbConn != null) {
       try (
           PreparedStatement prep1 = dbConn.prepareStatement(
