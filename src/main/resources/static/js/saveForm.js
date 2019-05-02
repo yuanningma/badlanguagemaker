@@ -1,4 +1,5 @@
 $patientId = $("#patientId");
+$formName = $("#formName")
 
 $(document).ready(() => {
 
@@ -15,8 +16,9 @@ $(document).ready(() => {
             }
 
         });
+        console.log($formName.val());
         // formElts = formElts.substring(0, formElts.length-1);
-        const postParameters = {fields: formElts, patientId: $patientId.html()};
+        const postParameters = {fields: formElts, patientId: $patientId.html(), formName : $formName.val()};
 
         // const postParameters = {fields: "field"};
         $.post("/forms/save", postParameters, responseJSON => {

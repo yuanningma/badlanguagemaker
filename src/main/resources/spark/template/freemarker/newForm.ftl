@@ -10,22 +10,27 @@
 </ul>
 
 <form id="saveForm">
+
+
+    <center>
+        <input id="formName" type="text" class="form-control" aria-describedby="field1" placeholder="Enter form name">
+    </center>
 <#--<center>
 <input id="formName" type="text" class="form-control" aria-describedby="field1" placeholder="Enter form name">
 </center>-->
 
-  <div class="form-group">
-    <label for="field1">Field</label>
-    <input id="field1" type="text" class="form-control" aria-describedby="field1" placeholder="Enter field name">
-  </div>
+  <#--<div class="form-group">-->
+    <#--<label for="field1">Field</label>-->
+    <#--<input id="field1" type="text" class="form-control" aria-describedby="field1" placeholder="Enter field name">-->
+  <#--</div>-->
   
   <!-- Below list loop will create an input box for each label passed in from newFormHandler -->
-  <#--<#list labels as label>
+  <#list labels as label>
   	<div class="form-group">
   		<label for="${label}">${label}</label>
     	<input id="${label}" type="text" class="form-control" aria-describedby="${label}" placeholder="Enter field value">
     </div>
-  </#list>-->
+  </#list>
   
   <button id="saveButton" type="click" class="btn btn-primary">Save Form</button>
 </form>
