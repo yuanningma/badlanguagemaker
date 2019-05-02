@@ -66,13 +66,12 @@ public class FormsDatabase extends Database {
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query =
-            "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
-                + "patientId INTEGER,"
-                + "form_input TEXT,"
-                + "tags TEXT,"
-                + "form_name TEXT,"
-                + "database_input Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
+        String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
+            + "patientId INTEGER,"
+            + "form_input TEXT,"
+            + "tags TEXT,"
+            + "form_name TEXT,"
+            + "database_input Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
@@ -100,8 +99,8 @@ public class FormsDatabase extends Database {
         newTempl.setTags(tagList);
 
       } catch (SQLException sql) {
-        //System.out.println("SQL Exception FormsDatabase saveForm");
-         sql.printStackTrace();
+        // System.out.println("SQL Exception FormsDatabase saveForm");
+        sql.printStackTrace();
       }
     }
     templateMap.put(patientid, newTempl);
@@ -119,9 +118,8 @@ public class FormsDatabase extends Database {
    * @return List of completed forms. Empty list if no forms.
    */
   public List<Template> getAllForms() {
-      List<Template> forms = new ArrayList<>();
-    try (PreparedStatement prep =
-        dbConn.prepareStatement("SELECT * FROM form;");) {
+    List<Template> forms = new ArrayList<>();
+    try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form;");) {
 
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
@@ -167,19 +165,30 @@ public class FormsDatabase extends Database {
     List<Template> forms = new ArrayList<>();
     try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form WHERE patientId = ?;");) {
       prep.setInt(1, patientId);
-      System.out.println("PATIENT ID IS: " + patientId);
+      // System.out.println("PATIENT ID IS: " + patientId);
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
 
         Integer formID = rs.getInt(1);
 
-        System.out.println("THIS PATIENT CONTAINS FORM: " + formID);
+        // System.out.println("THIS PATIENT CONTAINS FORM: " + formID);
         if (templateMap.containsKey(formID)) {
           forms.add(templateMap.get(formID));
         } else {
+          // <<<<<<< HEAD
+          // // String name = rs.getString(2);
+          // String name = "boogerface";
+          // String numthree = rs.getString(3);
+          // // System.out.println("Third is: " + numthree);
+          // // String formInput = rs.getString(3).substring(1,
+          // // rs.getString(3).length() - 1);
+          // String formInput = numthree.substring(1, numthree.length() - 1);
+          // // System.out.println("formInput is: " + formInput);
+          // =======
           String name = rs.getString(5);
-          String formInput =
-              rs.getString(3).substring(1, rs.getString(2).length());
+          String formInput = rs.getString(3).substring(1,
+              rs.getString(3).length());
+
           TemplateFields fields = TemplateFields.valueOf(formInput);
           forms.add(new Template(formID, fields, name));
           // System.out.println(formID);
@@ -189,7 +198,7 @@ public class FormsDatabase extends Database {
       rs.close();
     } catch (SQLException e) {
       System.out.println("SQL Exception FormsDatabase getAllForms(id)");
-       e.printStackTrace();
+      e.printStackTrace();
     }
     return forms;
   }
