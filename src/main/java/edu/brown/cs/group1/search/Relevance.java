@@ -4,6 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+
+import com.google.common.util.concurrent.AtomicDouble;
 
 import edu.brown.cs.group1.TerminologyDatabase.MedicalDictionaryDatabase;
 import edu.brown.cs.group1.TerminologyDatabase.MedicalProcedureDatabase;
@@ -131,6 +134,45 @@ public class Relevance {
       form.setTrueContent(trueContent);
     }
     return temp;
+  }
+
+  public List<Map.Entry<Template, AtomicDouble>>
+      getRankings(List<String> terms, List<String> tags, List<Template> forms) {
+    List<Template> goodForms = new ArrayList<Template>();
+    List<List<String>> docs = new ArrayList<List<String>>();
+
+    if (tags == null) {
+      for (Template t : forms) {
+        docs.add(t.getFields().getContent());
+      }
+      goodForms = forms;
+    } else {
+      for (Template t : forms) {
+        for (String s : tags) {
+          if (t.getTags().contains(s)) {
+            docs.add(t.getFields().getContent());
+            goodForms.add(t);
+            break;
+          }
+        }
+      }
+    }
+
+    try {
+      return search.mapRankTemplate(terms, tags, goodForms);
+    } catch (InterruptedException e) {
+      System.out.println("ERROR: Interrupted Exception!");
+    }
+
+    // List<List<String>> sorted = new ArrayList<List<String>>();
+    // try {
+    // sorted = search.threadedRankDocs(terms, docs);
+    // } catch (InterruptedException e) {
+    // System.out.println("ERROR: Interrupted!");
+    // }
+    //
+    // return goodForms;
+    return null;
   }
 
   public List<String> generateTerms(String s) {

@@ -1,4 +1,25 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.group1.field.TemplateFieldsTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE! - in edu.brown.cs.group1.field.TemplateFieldsTest
+testToString(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: null
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at edu.brown.cs.group1.field.TemplateFieldsTest.testToString(TemplateFieldsTest.java:12)
+
+testFieldsAndLabelsValueOf(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: null
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at edu.brown.cs.group1.field.TemplateFieldsTest.testFieldsAndLabelsValueOf(TemplateFieldsTest.java:28)
+
+testFieldsValueOf(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: null
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at edu.brown.cs.group1.field.TemplateFieldsTest.testFieldsValueOf(TemplateFieldsTest.java:18)
+
