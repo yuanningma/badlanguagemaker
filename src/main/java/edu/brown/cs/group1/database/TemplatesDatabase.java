@@ -70,7 +70,6 @@ public class TemplatesDatabase extends Database {
         prep.addBatch();
         prep.executeBatch();
         prep.close();
-        dbConn.commit();
       } catch (SQLException sql) {
         System.out.println("SQLException saveTemplate");
         sql.printStackTrace();
