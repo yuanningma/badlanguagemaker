@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,7 @@ import spark.TemplateViewRoute;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.util.concurrent.AtomicDouble;
 import com.google.gson.Gson;
 
 import edu.brown.cs.group1.database.FormsDatabase;
@@ -188,14 +190,38 @@ public class Main {
       List<Template> patientForms = r.getFormsDatabase()
           .getAllForms(Integer.parseInt(currID));
 
+      for (int i = 0; i < patientForms.size(); i++) {
+        Template form = patientForms.get(i);
+
+        // form.setTrueContent(form.getFields().getContent());
+        List<String> trueContent = new ArrayList<String>();
+        // System.out.println(r.parseForMe(form.getFields().getContent()));
+        trueContent.addAll(r.parseForMe(form.getFields().getContent()));
+        form.setTrueContent(trueContent);
+
+      }
+      // String currSearch = "heart";
+      List<String> terms = r.generateTerms("carpal");
+
       // System.out.println("BEGINNING DUMMY METHOD");
       // System.out.println("ID: " + Integer.parseInt(currID));
       // r.getFormsDatabase().dummyMethod(Integer.parseInt(currID));
       // System.out.println("ENDED DUMMY METHOD");
-      for (Template t : patientForms) {
-        System.out.println("Template id: " + t.getTemplateId());
-        System.out.println(t.getTags().size());
-        System.out.println(t.getFields().getContent());
+      // for (Template t : patientForms) {
+      // System.out.println("Template id: " + t.getTemplateId());
+      // System.out.println(t.getTags().size());
+      // System.out.println(t.getFields().getContent());
+      // }
+      List<Map.Entry<Template, AtomicDouble>> sorted = r.getRankings(terms,
+          null,
+          patientForms);
+      for (Map.Entry<Template, AtomicDouble> e : sorted) {
+        System.out.println("RANKING CURRENTLY: " + e.getKey()
+            .getFields()
+            .getContent()
+            .subList(0, 3)
+            + " , "
+            + e.getValue());
       }
       // System.out.println(patientForms);
 
