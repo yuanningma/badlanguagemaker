@@ -164,20 +164,20 @@ public class FormsDatabase extends Database {
     List<Template> forms = new ArrayList<>();
     try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form WHERE patientId = ?;");) {
       prep.setInt(1, patientId);
-      System.out.println("PATIENT ID IS: " + patientId);
+      // System.out.println("PATIENT ID IS: " + patientId);
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
 
         Integer formID = rs.getInt(1);
 
-        System.out.println("THIS PATIENT CONTAINS FORM: " + formID);
+        // System.out.println("THIS PATIENT CONTAINS FORM: " + formID);
         if (templateMap.containsKey(formID)) {
           forms.add(templateMap.get(formID));
         } else {
           // String name = rs.getString(2);
           String name = "boogerface";
           String numthree = rs.getString(3);
-          System.out.println("Third is: " + numthree);
+          // System.out.println("Third is: " + numthree);
           // String formInput = rs.getString(3).substring(1,
           // rs.getString(3).length() - 1);
           String formInput = numthree.substring(1, numthree.length() - 1);
@@ -191,7 +191,7 @@ public class FormsDatabase extends Database {
       rs.close();
     } catch (SQLException e) {
       System.out.println("SQL Exception FormsDatabase getAllForms(id)");
-       e.printStackTrace();
+      e.printStackTrace();
     }
     return forms;
   }
