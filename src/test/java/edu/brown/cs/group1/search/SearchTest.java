@@ -51,6 +51,9 @@ public class SearchTest {
         + anteaterIdf
         + ", FISH: "
         + fishIdf);
+    assert (antIdf > anteaterIdf);
+    assert (antIdf > fishIdf);
+    assert (anteaterIdf > fishIdf);
   }
 
   @Test
@@ -67,6 +70,8 @@ public class SearchTest {
     List<List<String>> sortedDocs = new ArrayList<List<String>>();
     List<String> terms = new ArrayList<String>();
     terms.add("ants");
+    terms.add("ant");
+    terms.add("mammal");
     // terms.add("ant");
     sortedDocs = search.rankDocs(terms, docs);
     // System.out.println(sortedDocs.size());
@@ -74,9 +79,6 @@ public class SearchTest {
     // System.out.println(sortedDocs.get(1));
     assertTrue(sortedDocs.get(0).equals(antDoc));
     assertTrue(sortedDocs.get(1).equals(anteaterDoc));
-    terms.add("ant");
-    terms.add("mammal");
-    sortedDocs = search.rankDocs(terms, docs);
     // System.out.println(sortedDocs.get(0));
     // System.out.println(sortedDocs.get(1));
 

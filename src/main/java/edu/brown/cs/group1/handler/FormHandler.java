@@ -35,9 +35,11 @@ public class FormHandler implements TemplateViewRoute {
 
   @Override
   public ModelAndView handle(Request req, Response res) {
+
     String id = req.params(":formId");
     String patId = req.params(":patientId");
 
+    System.out.println("ID REQUESTED: " + id);
     // TODO: Get form fields from id. Make map of labels to fields.
     Map<String, String> fields = new LinkedHashMap<>();
     // fields.put("Name", "Eric");
@@ -49,12 +51,16 @@ public class FormHandler implements TemplateViewRoute {
     System.out.println(form.getTemplateId());
 
     List<String> labelsAndFields = form.getFields().getContent();
+    System.out.println(labelsAndFields.size());
+    System.out.println("LANDFIELDS IS: " + labelsAndFields.get(0));
     for (int i = 0; i < labelsAndFields.size(); i += 2) {
       fields.put(labelsAndFields.get(i), labelsAndFields.get(i + 1));
     }
+
     System.out.println(labelsAndFields);
-    Map<String, Object> variables =
-        ImmutableMap.of("title", "pc+ ", "fields", fields, "id", patId, "nameToId", fields);
+    Map<String, Object> variables = ImmutableMap
+        .of("title", "pc+ ", "fields", fields, "id", patId, "nameToId", fields);
+
     return new ModelAndView(variables, "form.ftl");
   }
 }
