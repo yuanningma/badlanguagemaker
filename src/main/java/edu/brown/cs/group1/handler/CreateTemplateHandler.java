@@ -44,7 +44,7 @@ public class CreateTemplateHandler implements Route {
     String labelsString = qm.value("fields");
     TemplateFields labels = TemplateFields.valueOf(labelsString);
     // Create template object.
-    Template template = new Template(-1, labels, new String());
+    Template template = new Template(labels);
     // Similarity check before saving to database.
     // TODO: Min value for mostSimil is hard-coded for now.
     List<Template> simil = checker.mostSimil(template, 0.5);
