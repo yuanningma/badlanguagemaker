@@ -1,6 +1,5 @@
 package edu.brown.cs.group1.handler;
 
-import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
@@ -8,12 +7,13 @@ import com.google.gson.Gson;
 
 import edu.brown.cs.group1.database.TemplatesDatabase;
 import edu.brown.cs.group1.field.TemplateFields;
-import edu.brown.cs.group1.similarity.ExactSimilarity;
 import edu.brown.cs.group1.template.Template;
 import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import edu.brown.cs.group1.similarity.ExactSimilarity;
+import java.util.List;
 
 /**
  * CreateFormHandler provides ability to process POST requests to
@@ -29,7 +29,7 @@ public class CreateTemplateHandler implements Route {
   /**
    * Constructor.
    * @param tempDbPath
-   *          Path to forms database.
+   *          Templates database.
    */
   public CreateTemplateHandler(String tempDbPath) {
     this.tempDbPath = tempDbPath;
@@ -38,24 +38,24 @@ public class CreateTemplateHandler implements Route {
 
   @Override
   public String handle(Request req, Response res) {
-    ExactSimilarity checker = new ExactSimilarity(tempDbPath);
+      ExactSimilarity checker = new ExactSimilarity(tempDb);
     QueryParamsMap qm = req.queryMap();
     String labelsString = qm.value("fields");
     TemplateFields labels = TemplateFields.valueOf(labelsString);
-    // Create template object.
-    Template template = new Template(labels);
+    Template template = new Template(-2, labels, "test");
     // Similarity check before saving to database.
     // TODO: Min value for mostSimil is hard-coded for now.
-    List<Template> simil = checker.mostSimil(template, 0.5);
-    if (simil.isEmpty()) {
-      // Create template in database with labels from frontend.
-      System.out.println("hereTEmp");
-      tempDb.saveTemplate(template);
-      Map<String, Object> variables = ImmutableMap.of("message", "success!");
-      return GSON.toJson(variables);
-    } else {
-      Map<String, Object> variables = ImmutableMap.of("message", "error!");
-      return GSON.toJson(variables);
-    }
+
+     List<Template> simil = checker.mostSimil(template, 0.5);
+
+     if (simil.isEmpty()) {
+     // Create template in database with labels from frontend.
+     tempDb.saveTemplate(template);
+     Map<String, Object> variables = ImmutableMap.of("message", "Success!");
+     return GSON.toJson(variables);
+     } else {
+     Map<String, Object> variables = ImmutableMap.of("message", "Error!");
+     return GSON.toJson(variables);
+     }
   }
 }

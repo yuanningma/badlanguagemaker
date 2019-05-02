@@ -45,18 +45,17 @@ public class PastFormsHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
     String patientIdString = req.params(":patientId");
     int patientId = Integer.parseInt(patientIdString);
-    String name = "";
-    // try {
-    // name = this.patientDb.getPatient(Integer.parseInt(patientId)).getName();
-    // } catch (NumberFormatException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // } catch (SQLException e) {
-    // // TODO Auto-generated catch block
-    // e.printStackTrace();
-    // }
     // List<Template> forms = formsDb.getAllForms(patientId);
-    // TODO: Pass forms to front-end.
+    // List<Integer> formIds = new ArrayList<>();
+    // for (Template form : forms) {
+    // formIds.add(form.getTemplateId());
+    // }
+    // List<Template> templates = tempDb.getAllTemplates();
+    // Map<String, Integer> nameToId = new HashMap<>();
+    // for (Template temp : templates) {
+    // nameToId.put(temp.getName(), temp.getTemplateId());
+    // }
+    // TODO: Pass form ids to front-end.
     // TODO: Pass map of template name to id
     Map<String, Object> variables =
         ImmutableMap.of("title", "pc+ home", "id", patientId);

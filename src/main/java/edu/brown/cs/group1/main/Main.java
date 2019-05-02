@@ -4,15 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.gson.Gson;
 
-import edu.brown.cs.group1.database.FormsDatabase;
-import edu.brown.cs.group1.database.PatientDatabase;
+import edu.brown.cs.group1.database.TemplatesDatabase;
 import edu.brown.cs.group1.handler.CreateTemplateHandler;
 import edu.brown.cs.group1.handler.DDHandler;
 import edu.brown.cs.group1.handler.FormHandler;
@@ -25,16 +21,13 @@ import edu.brown.cs.group1.handler.PatientProfileHandler;
 import edu.brown.cs.group1.handler.SaveFormHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
 import edu.brown.cs.group1.handler.searchDDHandler;
-import edu.brown.cs.group1.template.Template;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import spark.ExceptionHandler;
 import spark.ModelAndView;
-import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
-import spark.Route;
 import spark.Spark;
 import spark.TemplateViewRoute;
 import spark.template.freemarker.FreeMarkerEngine;
@@ -47,6 +40,11 @@ public class Main {
   }
 
   private String[] args;
+  private String tempDbPath = "data/database/templates.sqlite3";
+  // private String formsDbPath = "data/database/forms.sqlite3";
+
+  // private FormsDatabase formsDb = new FormsDatabase(formsDbPath);
+  private TemplatesDatabase tempDb = new TemplatesDatabase(tempDbPath);
 
   private Main(String[] args) {
     this.args = args;
@@ -88,10 +86,10 @@ public class Main {
     Spark.get("/home", new LoginHandler(), freeMarker);
     Spark.get("/Dashboard/:doctorId", new DDHandler(), freeMarker);
     Spark.get("/patients/:patientId/forms",
-        new PastFormsHandler("data/database/forms.sqlite3", "patientdbpath"),
+        new PastFormsHandler("na", "na"),
         freeMarker);
     Spark.get("/patients/:patientId/forms/:formId",
-        new FormHandler("data/database/forms.sqlite3"),
+        new FormHandler("na"),
         freeMarker);
     Spark.get("/patients/:patientId/profile",
         new PatientProfileHandler(),
@@ -99,95 +97,96 @@ public class Main {
     Spark.get("/patients/:patientId/forms/:templateId/new",
         new NewFormHandler(),
         freeMarker);
-    Spark.post("/forms/save", new SaveFormHandler("formsdbpath"));
+    Spark.post("/forms/save", new SaveFormHandler("na"));
     Spark.get("/templates/new", new NewTemplateHandler(), freeMarker);
-    Spark.post("/templates/create",
-        new CreateTemplateHandler("data/database/forms.sqlite3"));
+
+    Spark.post("/templates/create", new CreateTemplateHandler(tempDbPath));
+
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
-    Spark
-        .get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
+    // Spark
+    // .get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
     Spark.post("/searchDD", new searchDDHandler());
-    Spark.post("/relevance", new RelevanceTimelineHandler());
+    // Spark.post("/relevance", new RelevanceTimelineHandler());
 
   }
 
   public static String currID = "0";
 
-  /**
-   * Patient Handler, essentially the handler for patient information / the
-   * patient timeline.
-   * @author juliannerudner
-   *
-   */
-  private static class PatientHandler implements TemplateViewRoute {
-    private FormsDatabase formsDb;
-    private PatientDatabase patientDb =
-        new PatientDatabase("data/database/members.sqlite3");
-
-    @Override
-    public ModelAndView handle(Request arg0, Response arg1) throws Exception {
-      // TODO Auto-generated method stub
-      String id = arg0.params(":patientId");
-      currID = id;
-      String name = "";
-      try {
-        name = patientDb.getPatient(Integer.parseInt(id)).getName();
-      } catch (NumberFormatException e) {
-        System.out.println(
-            "ERROR: number format exception, patient profile handler.");
-        // e.printStackTrace();
-      } catch (SQLException e) {
-        // TODO Auto-generated catch block
-        System.out.println("ERROR: SQL exception, patient profile handler.");
-        // e.printStackTrace();
-      }
-
-      Map<String,
-          Object> variables = ImmutableMap.of("title",
-              "pc+: My Dashboard",
-              "content",
-              "",
-              "id1",
-              id,
-              "name",
-              name);
-
-      return new ModelAndView(variables, "timeline.ftl");
-    }
-  }
-
-  public class RelevanceTimelineHandler implements Route {
-    private final Gson GSON = new Gson();
-    private PatientDatabase patientDb =
-        new PatientDatabase("data/database/members.sqlite3");
-
-    private FormsDatabase formDb =
-        new FormsDatabase("data/database/forms.sqlite3");
-
-    /**
-     * Constructor for searchDDHandler.
-     */
-    public RelevanceTimelineHandler() {
-
-    }
-
-    @Override
-    public String handle(Request arg0, Response arg1) throws Exception {
-      // TODO Auto-generated method stub
-      QueryParamsMap qm = arg0.queryMap();
-      System.out.println(currID);
-      List<Template> patientForms =
-          formDb.getAllForms(Integer.parseInt(currID));
-
-      // System.out.println(patientForms);
-
-      Map<String, Object> vars =
-          ImmutableMap.of("forms", patientForms, "id", currID);
-
-      return GSON.toJson(vars);
-    }
-  }
+  // /**
+  // * Patient Handler, essentially the handler for patient information / the
+  // * patient timeline.
+  // * @author juliannerudner
+  // *
+  // */
+  // private static class PatientHandler implements TemplateViewRoute {
+  // private FormsDatabase formsDb;
+  // private PatientDatabase patientDb =
+  // new PatientDatabase("data/database/members.sqlite3");
+  //
+  // @Override
+  // public ModelAndView handle(Request arg0, Response arg1) throws Exception {
+  // // TODO Auto-generated method stub
+  // String id = arg0.params(":patientId");
+  // currID = id;
+  // String name = "";
+  // try {
+  // name = patientDb.getPatient(Integer.parseInt(id)).getName();
+  // } catch (NumberFormatException e) {
+  // System.out.println(
+  // "ERROR: number format exception, patient profile handler.");
+  // // e.printStackTrace();
+  // } catch (SQLException e) {
+  // // TODO Auto-generated catch block
+  // System.out.println("ERROR: SQL exception, patient profile handler.");
+  // // e.printStackTrace();
+  // }
+  //
+  // Map<String,
+  // Object> variables = ImmutableMap.of("title",
+  // "pc+: My Dashboard",
+  // "content",
+  // "",
+  // "id1",
+  // id,
+  // "name",
+  // name);
+  //
+  // return new ModelAndView(variables, "timeline.ftl");
+  // }
+  // }
+  //
+  // public class RelevanceTimelineHandler implements Route {
+  // private final Gson GSON = new Gson();
+  // private PatientDatabase patientDb =
+  // new PatientDatabase("data/database/members.sqlite3");
+  //
+  // private FormsDatabase formDb =
+  // new FormsDatabase("data/database/forms.sqlite3");
+  //
+  // /**
+  // * Constructor for searchDDHandler.
+  // */
+  // public RelevanceTimelineHandler() {
+  //
+  // }
+  //
+  // @Override
+  // public String handle(Request arg0, Response arg1) throws Exception {
+  // // TODO Auto-generated method stub
+  // QueryParamsMap qm = arg0.queryMap();
+  // System.out.println(currID);
+  // List<Template> patientForms =
+  // formDb.getAllForms(Integer.parseInt(currID));
+  //
+  // // System.out.println(patientForms);
+  //
+  // Map<String, Object> vars =
+  // ImmutableMap.of("forms", patientForms, "id", currID);
+  //
+  // return GSON.toJson(vars);
+  // }
+  // }
 
   /**
    * Handle requests to the front page.

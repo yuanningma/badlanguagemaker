@@ -16,9 +16,12 @@
 			    New Form from Template
 			  </button>
 			  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			  	<!--<#list nameToId?keys as name>-->
+			  	<!--href="/patients/${id}/forms/${nameToId[name]}/new" ${name}-->
 			    <a class="dropdown-item" href="/patients/1/forms/1/new">Action</a>
 			    <a class="dropdown-item" href="#">Another action</a>
 			    <a class="dropdown-item" href="#">Something else here</a>
+			    <!--</#list>-->
 			  </div>
 			</div>
     	<button onclick="window.location.href='/templates/new'" class="btn btn-primary">Create Template</button>

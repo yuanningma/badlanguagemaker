@@ -74,11 +74,11 @@ public class Template {
   }
 
   public String getTemplateName() {
-     return this.templateName;
+    return this.templateName;
   }
 
   public void setTemplateName(String templateName) {
-       this.templateName = templateName;
+    this.templateName = templateName;
   }
 
   // TODO: Method for extracting fields and associated values from existing

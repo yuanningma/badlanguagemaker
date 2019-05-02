@@ -14,6 +14,7 @@ $(document).ready(() => {
 
         const responseObject = JSON.parse(responseJSON);
         let forms=responseObject.forms;
+        let id =responseObject.id;
 
         var i;
         var side;
@@ -28,13 +29,12 @@ $(document).ready(() => {
             side="'container right'";
           }
 
-      console.log(forms[i]);
+      console.log(forms[i].fields);
 
           $('#last').before(
             "<div class="+side+">"+
       "<div class="+"content"+">"+
-        "<h2>2011</h2>"+
-        "<p>graduated</p>"+
+        "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"</a>"+
         "</div></div>"
             )
             }

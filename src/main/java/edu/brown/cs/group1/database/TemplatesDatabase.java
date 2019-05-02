@@ -22,7 +22,7 @@ import edu.brown.cs.group1.template.Template;
  */
 public class TemplatesDatabase extends Database {
   private Connection dbConn;
-
+  private int nextTempId = 11;
   /**
    * Constructor for Template Database.
    * @param path
@@ -53,19 +53,19 @@ public class TemplatesDatabase extends Database {
    *          the template to be saved.
    */
   public void saveTemplate(Template template) {
+      template.setTemplateId(nextTempId);
+      nextTempId++;
     if (dbConn != null) {
-      try {
-        PreparedStatement prep;
-        String query =
-            "CREATE TABLE IF NOT EXISTS template(" + "templateId INTEGER,"
-                + "template_name TEXT,"
-                + "template_field TEXT,"
-                + "PRIMARY KEY (templateId));";
-        prep = dbConn.prepareStatement(query);
-        prep.executeUpdate();
+      try (
+          PreparedStatement prep1 = dbConn.prepareStatement(
+              "CREATE TABLE IF NOT EXISTS template(" + "templateId INTEGER,"
+                  + "template_name TEXT,"
+                  + "template_field TEXT,"
+                  + "PRIMARY KEY (templateId));");
+          PreparedStatement prep = dbConn
+              .prepareStatement("INSERT INTO template VALUES (?,?,?);");) {
+        prep1.executeUpdate();
         List<String> templateInfo = template.getFields().getLabels(false);
-        query = "INSERT INTO template VALUES (?,?,?);";
-        prep = dbConn.prepareStatement(query);
         prep.setInt(1, template.getTemplateId());
         prep.setString(2, template.getTemplateName());
         prep.setString(3, templateInfo.toString());
