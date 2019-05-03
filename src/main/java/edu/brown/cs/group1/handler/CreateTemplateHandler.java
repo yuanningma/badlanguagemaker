@@ -42,7 +42,7 @@ public class CreateTemplateHandler implements Route {
     QueryParamsMap qm = req.queryMap();
     String labelsString = qm.value("fields");
     TemplateFields labels = TemplateFields.valueOf(labelsString);
-    Template template = new Template(-2, labels, "test");
+    Template template = new Template(-1, labels, "test");
     // Similarity check before saving to database.
     // Min value for mostSimil is hard-coded for now.
 
@@ -50,11 +50,17 @@ public class CreateTemplateHandler implements Route {
 
     if (simil.isEmpty()) {
       // Create template in database with labels from frontend.
-      tempDb.saveTemplate(template);
-      Map<String, Object> variables = ImmutableMap.of("message", "Success!");
-      return GSON.toJson(variables);
+      if (tempDb.saveTemplateBoolean(template)) {
+        Map<String, Object> variables = ImmutableMap.of("message", "Success!");
+        return GSON.toJson(variables);
+      } else {
+        Map<String, Object> variables =
+            ImmutableMap.of("message", "Failed to create template!");
+        return GSON.toJson(variables);
+      }
     } else {
-      Map<String, Object> variables = ImmutableMap.of("message", "Error!");
+      Map<String, Object> variables =
+          ImmutableMap.of("message", "Similar template already exists!");
       return GSON.toJson(variables);
     }
   }

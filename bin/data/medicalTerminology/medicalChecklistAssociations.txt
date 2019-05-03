@@ -1,0 +1,6 @@
+[cardiovascular, cardi cardio cordi aort aorto]
+[respiratory, pneumon pulmon pulmoni pulmo pharyng pharyngo laryng laryngo rhin rhino nas]
+[neurology, encephal encephalo cerebr neur neuro nerv]
+[renal, nephr nephro ren urethr urethro urethra ur uro urino]
+[gastrointestinal, hepat hepato hepatic jecor cholecyst cholecysto fel enter entero]
+[psychiatric, psych ment]

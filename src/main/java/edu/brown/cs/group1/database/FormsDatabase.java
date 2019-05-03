@@ -116,7 +116,14 @@ public class FormsDatabase extends Database {
     return newTempl;
   }
 
-  // For alerts
+  /**
+   * Returns true if form inputs are successfully saved into the FormsDatabase.
+   * @param template
+   *          Template.
+   * @param patientid
+   *          Patient id.
+   * @return Whether form was saved successfully.
+   */
   public boolean saveFormBoolean(Template template, Integer patientid) {
     template.setTemplateId(nextFormId);
     nextFormId++;
@@ -158,7 +165,7 @@ public class FormsDatabase extends Database {
         prep.executeBatch();
         prep.close();
         newTempl.setTags(tagList);
-
+        return true;
       } catch (SQLException sql) {
         // System.out.println("SQL Exception FormsDatabase saveForm");
         sql.printStackTrace();
@@ -166,7 +173,7 @@ public class FormsDatabase extends Database {
       }
     }
     templateMap.put(patientid, newTempl);
-    return true;
+    return false;
   }
 
   /**

@@ -43,47 +43,89 @@ public class Template {
     this.fields = fields;
   }
 
+  /**
+   * Get all the form's content.
+   * @return Form's content.
+   */
   public List<String> getTrueContent() {
     return this.trueContent;
   }
 
+  /**
+   * Set all of form's content.
+   * @param c
+   *          List of strings representing form's content.
+   */
   public void setTrueContent(List<String> c) {
     this.trueContent = c;
   }
 
+  /**
+   * Get form's tags.
+   * @return List of tags.
+   */
   public List<String> getTags() {
     return this.tags;
   }
 
+  /**
+   * Set form's tags.
+   * @param t
+   *          Tags.
+   */
   public void setTags(List<String> t) {
     this.tags = t;
   }
 
+  /**
+   * Get template id.
+   * @return Template's id.
+   */
   public int getTemplateId() {
     return templateId;
   }
 
+  /**
+   * Set template id.
+   * @param templateId
+   *          id.
+   */
   public void setTemplateId(int templateId) {
     this.templateId = templateId;
   }
 
+  /**
+   * Get the fields of template as a TemplateFields object.
+   * @return TemplateFields object representing fields.
+   */
   public TemplateFields getFields() {
     return fields;
   }
 
+  /**
+   * Set fields of template as a TemplateFields object.
+   * @param fields
+   *          TemplateFields object.
+   */
   public void setFields(TemplateFields fields) {
     this.fields = fields;
   }
 
+  /**
+   * Template name set by user.
+   * @return Template name.
+   */
   public String getTemplateName() {
     return this.templateName;
   }
 
+  /**
+   * Set template name given by user.
+   * @param templateName
+   *          Template name.
+   */
   public void setTemplateName(String templateName) {
     this.templateName = templateName;
   }
-
-  // TODO: Method for extracting fields and associated values from existing
-  // form.
 
 }
