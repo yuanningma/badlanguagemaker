@@ -114,12 +114,6 @@ public class FormsDatabase extends Database {
     return newTempl;
   }
 
-  // [NOTE] The below methods assume (for now) that only one forms table exists
-  // in the database. I'm thinking that when we
-  // implement multiple form tables one part of the form id must be parsed to
-  // determine which table to query from. This should be easy to implement by
-  // extending the below methods.
-
   /**
    * Returns all completed forms from database.
    * @return List of completed forms. Empty list if no forms.
@@ -139,6 +133,8 @@ public class FormsDatabase extends Database {
         } else {
           String name = rs.getString(5);
           String fieldsString = rs.getString(3);
+          fieldsString =
+              fieldsString.replaceAll("\\[", "").replaceAll("\\]", "");
           TemplateFields fields = TemplateFields.valueOf(fieldsString);
           forms.add(new Template(formId, fields, name));
         }
@@ -197,7 +193,7 @@ public class FormsDatabase extends Database {
           // =======
           String name = rs.getString(5);
           String formInput =
-              rs.getString(3).substring(1, rs.getString(3).length());
+              rs.getString(3).replaceAll("\\[", "").replaceAll("\\]", "");
 
           TemplateFields fields = TemplateFields.valueOf(formInput);
           forms.add(new Template(formID, fields, name));
@@ -236,10 +232,11 @@ public class FormsDatabase extends Database {
       while (rs.next()) {
         name = rs.getString(5);
         fields = rs.getString(3);
-        System.out.println("IN DB, FIELDS IS: " + fields);
+        // System.out.println("IN DB, FIELDS IS: " + fields);
       }
-      TemplateFields parsedFields = TemplateFields
-          .valueOf(fields.replaceAll("\\[", "").replaceAll("\\]", ""));
+
+      fields = fields.replaceAll("\\[", "").replaceAll("\\]", "");
+      TemplateFields parsedFields = TemplateFields.valueOf(fields);
       form = new Template(formId, parsedFields, name);
       rs.close();
       return form;
@@ -247,7 +244,7 @@ public class FormsDatabase extends Database {
       System.out.println("SQL Exception FormsDatabase getForm(id)");
       // e.printStackTrace();
     }
-    System.out.println(form.getTemplateId());
+    // System.out.println(form.getTemplateId());
     return form;
   }
 

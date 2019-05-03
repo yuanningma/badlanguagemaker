@@ -1,11 +1,24 @@
 $(document).ready(() => {
     const $myTimeline = $("#myTimeline");
     
+    
   $('#searchTL').on('click', (event)=> {
 	  
-	  
+//	  let arr = [document.getElementById("Cardiovascular"), document.getElementById("Respiratory")];
     const postParameters = {
-      timeline: document.getElementById("myTimeline").value
+      timeline: document.getElementById("myTimeline").value,
+      search: document.getElementById("searchTimeline").value,
+      cardio: document.getElementById("Cardiovascular").checked,
+      respiro: document.getElementById("Respiratory").checked,
+      neuro: document.getElementById("Neurology").checked,
+      endo: document.getElementById("Endocrine").checked,
+      reno: document.getElementById("Renal").checked,
+      hepato: document.getElementById("Hepato").checked,
+      psycho: document.getElementById("Psychiatric").checked,
+      ortho: document.getElementById("Orthopedic").checked,
+      repro: document.getElementById("Reproductive").checked
+//      array: arr
+      
     }
     $myTimeline.children("div").not(':last').remove();
     console.log("ohhithere");
@@ -15,6 +28,7 @@ $(document).ready(() => {
         const responseObject = JSON.parse(responseJSON);
         let forms=responseObject.forms;
         let id =responseObject.id;
+        let vals = responseObject.vals;
 
         var i;
         var side;
@@ -34,7 +48,7 @@ $(document).ready(() => {
           $('#last').before(
             "<div class="+side+">"+
       "<div class="+"content"+">"+
-        "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"</a>"+
+        "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+" " +vals[i]+"</a>"+
         "</div></div>"
             )
             }
