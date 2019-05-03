@@ -3,7 +3,9 @@ let count = 1;
 $(document).ready(() => {
     $("#newField").on('click', (event) => {
         count++;
-        $("#last").before("<div class=\"form-group\"><label for=\"field" + count + "\" >Field</label><input id=\"field" + count + "\" type=\"text\" class=\"form-control\" aria-describedby=\"field" + count + "\"  placeholder=\"Enter field name\"></div>");
+        $("#last").before("<div class=\"form-group\"><label for=\"field" + count
+        + "\" >Field</label><input id=\"field" + count + "\" type=\"text\" class=\"form-control\" aria-describedby=\"field"
+        + count + "\"  placeholder=\"Enter field name\"></div>");
     });
 
     $("#newForm").on('click', (event) => {

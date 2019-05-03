@@ -26,15 +26,20 @@
 			    <#--<a class="dropdown-item" href="#">Something else here</a>-->
 			    </#list>
 			  </div>
+			  <button onclick="window.location.href='/templates/new'" class="btn btn-primary">Create Template</button>
 			</div>
-    	<button onclick="window.location.href='/templates/new'" class="btn btn-primary">Create Template</button>
+	
+    	
     </center>
 </div>
-
+<br>
+<br>
+<br>
 <div>
 <ul id="linklist" style="list-style-type:none">
 <li><a href="/patients/${id}/profile" class="previous">&#10216; View Profile</a></li>
 </ul>
 </div>
+
 </#assign>
 <#include "main.ftl">
