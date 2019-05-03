@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Date;
 
 import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
@@ -59,20 +59,76 @@ public class FormsDatabase extends Database {
    * Saves form inputs into the FormsDatabase.
    * @param template
    *          the template to be saved.
+   * @param patientid
+   *          the patient id.
+   * @return the template being saved.
    */
-  public Template saveForm(Template template, Integer patientid) {
+  public Template saveForm(Template template, Integer patientid, String time) {
     template.setTemplateId(nextFormId);
     nextFormId++;
     Template newTempl = template;
     if (dbConn != null) {
       try {
         PreparedStatement prep;
-        String query = "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
-            + "patientId INTEGER,"
-            + "form_input TEXT,"
-            + "tags TEXT,"
-            + "form_name TEXT,"
-            + "database_input LONG);";
+        String query =
+            "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
+                + "patientId INTEGER,"
+                + "form_input TEXT,"
+                + "tags TEXT,"
+                + "form_name TEXT,"
+                + "database_input TEXT);";
+        prep = dbConn.prepareStatement(query);
+        prep.executeUpdate();
+        // HashSet<String> columns = getColumnsInfo();
+        List<String> formInfo = new ArrayList<>();
+        query = "INSERT INTO form VALUES (?,?,?,?,?,?);";
+        prep = dbConn.prepareStatement(query);
+        prep.setInt(1, newTempl.getTemplateId());
+        prep.setInt(2, patientid);
+        formInfo.addAll(template.getFields().getContent());
+        List<String> tagList = new ArrayList<>();
+        // TODO: Tag list for a Template!!!
+        for (String formInput : formInfo) {
+
+          String tag = tb.getTag(formInput);
+          if (tag != null) {
+            tagList.add(tag);
+          }
+        }
+        prep.setString(3, formInfo.toString());
+        prep.setString(4, tagList.toString());
+        prep.setString(5, template.getTemplateName());
+        Date date = new Date();
+        prep.setString(6, time);
+        prep.addBatch();
+        prep.executeBatch();
+        prep.close();
+        newTempl.setTags(tagList);
+
+      } catch (SQLException sql) {
+        // System.out.println("SQL Exception FormsDatabase saveForm");
+        sql.printStackTrace();
+      }
+    }
+    templateMap.put(patientid, newTempl);
+    return newTempl;
+  }
+
+  // For alerts
+  public boolean saveFormBoolean(Template template, Integer patientid) {
+    template.setTemplateId(nextFormId);
+    nextFormId++;
+    Template newTempl = template;
+    if (dbConn != null) {
+      try {
+        PreparedStatement prep;
+        String query =
+            "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
+                + "patientId INTEGER,"
+                + "form_input TEXT,"
+                + "tags TEXT,"
+                + "form_name TEXT,"
+                + "database_input LONG);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
@@ -104,17 +160,12 @@ public class FormsDatabase extends Database {
       } catch (SQLException sql) {
         // System.out.println("SQL Exception FormsDatabase saveForm");
         sql.printStackTrace();
+        return false;
       }
     }
     templateMap.put(patientid, newTempl);
-    return newTempl;
+    return true;
   }
-
-  // [NOTE] The below methods assume (for now) that only one forms table exists
-  // in the database. I'm thinking that when we
-  // implement multiple form tables one part of the form id must be parsed to
-  // determine which table to query from. This should be easy to implement by
-  // extending the below methods.
 
   /**
    * Returns all completed forms from database.
@@ -122,7 +173,8 @@ public class FormsDatabase extends Database {
    */
   public List<Template> getAllForms() {
     List<Template> forms = new ArrayList<>();
-    try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form;");) {
+    try (PreparedStatement prep =
+        dbConn.prepareStatement("SELECT * FROM form;");) {
 
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
@@ -134,6 +186,8 @@ public class FormsDatabase extends Database {
         } else {
           String name = rs.getString(5);
           String fieldsString = rs.getString(3);
+          fieldsString =
+              fieldsString.replaceAll("\\[", "").replaceAll("\\]", "");
           TemplateFields fields = TemplateFields.valueOf(fieldsString);
           forms.add(new Template(formId, fields, name));
         }
@@ -148,7 +202,8 @@ public class FormsDatabase extends Database {
   }
 
   public void dummyMethod(int patientId) throws SQLException {
-    try (PreparedStatement prep = dbConn.prepareStatement("SELECT formId FROM form WHERE patientId = ?;");) {
+    try (PreparedStatement prep = dbConn
+        .prepareStatement("SELECT formId FROM form WHERE patientId = ?;");) {
       prep.setInt(1, patientId);
       ResultSet rs = prep.executeQuery();
       while (rs.next()) {
@@ -166,7 +221,8 @@ public class FormsDatabase extends Database {
    */
   public List<Template> getAllForms(int patientId) {
     List<Template> forms = new ArrayList<>();
-    try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form WHERE patientId = ?;");) {
+    try (PreparedStatement prep =
+        dbConn.prepareStatement("SELECT * FROM form WHERE patientId = ?;");) {
       prep.setInt(1, patientId);
       // System.out.println("PATIENT ID IS: " + patientId);
       ResultSet rs = prep.executeQuery();
@@ -189,8 +245,8 @@ public class FormsDatabase extends Database {
           // // System.out.println("formInput is: " + formInput);
           // =======
           String name = rs.getString(5);
-          String formInput = rs.getString(3).substring(1,
-              rs.getString(3).length());
+          String formInput =
+              rs.getString(3).replaceAll("\\[", "").replaceAll("\\]", "");
 
           TemplateFields fields = TemplateFields.valueOf(formInput);
           forms.add(new Template(formID, fields, name));
@@ -217,10 +273,10 @@ public class FormsDatabase extends Database {
       // System.out.println("We already have it in store!");
       return templateMap.get(formId);
     }
-    Template form = new Template(-1,
-        new TemplateFields(new ArrayList<>()),
-        new String());
-    try (PreparedStatement prep = dbConn.prepareStatement("SELECT * FROM form WHERE formId = ?;");) {
+    Template form =
+        new Template(-1, new TemplateFields(new ArrayList<>()), new String());
+    try (PreparedStatement prep =
+        dbConn.prepareStatement("SELECT * FROM form WHERE formId = ?;");) {
 
       prep.setInt(1, formId);
       ResultSet rs = prep.executeQuery();
@@ -229,11 +285,11 @@ public class FormsDatabase extends Database {
       while (rs.next()) {
         name = rs.getString(5);
         fields = rs.getString(3);
-        System.out.println("IN DB, FIELDS IS: " + fields);
+        // System.out.println("IN DB, FIELDS IS: " + fields);
       }
-      TemplateFields parsedFields = TemplateFields.valueOf(fields.replaceAll("\\[",
-          "")
-          .replaceAll("\\]", ""));
+
+      fields = fields.replaceAll("\\[", "").replaceAll("\\]", "");
+      TemplateFields parsedFields = TemplateFields.valueOf(fields);
       form = new Template(formId, parsedFields, name);
       rs.close();
       return form;
@@ -241,7 +297,7 @@ public class FormsDatabase extends Database {
       System.out.println("SQL Exception FormsDatabase getForm(id)");
       // e.printStackTrace();
     }
-    System.out.println(form.getTemplateId());
+    // System.out.println(form.getTemplateId());
     return form;
   }
 
@@ -255,11 +311,13 @@ public class FormsDatabase extends Database {
   public void updateForm(int formId, Template newFormInput) {
     try {
       PreparedStatement prep;
-      prep = dbConn.prepareStatement("UPDATE form SET form_input = ? WHERE formId = ?;");
+      prep = dbConn
+          .prepareStatement("UPDATE form SET form_input = ? WHERE formId = ?;");
       prep.setString(1, newFormInput.toString());
       prep.setInt(2, formId);
       prep.executeQuery();
-      prep = dbConn.prepareStatement("UPDATE form SET tags = ? WHERE formId = ?;");
+      prep =
+          dbConn.prepareStatement("UPDATE form SET tags = ? WHERE formId = ?;");
       List<String> formContent = newFormInput.getFields().getContent();
       // LIST OF TAGS
       List<String> tagList = new ArrayList<>();

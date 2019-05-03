@@ -2,7 +2,101 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a01bfe0f-9cca-456a-ae70-2b0ab575f728" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/.mvn-classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/database/forms.sqlite3-journal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn-classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/bin/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/data/database/.nfs000000001ad3fc19000003a3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/data/database/forms.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/bin/data/database/forms.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/database/FormsDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/database/FormsDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/database/TagsDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/database/TagsDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/FormHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/FormHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/PastFormsHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$ExceptionPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$ExceptionPrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$FrontHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/main/Main$FrontHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/search/Relevance.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/search/Relevance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/search/Search.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/search/Search.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/staff/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/staff/Doctor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/template/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/edu/brown/cs/group1/template/Template.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/pastForms.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/pastForms.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/timeline.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/spark/template/freemarker/timeline.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/static/css/timeline.css" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/static/css/timeline.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/static/js/timeline.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/static/js/timeline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/test/java/edu/brown/cs/group1/field/TemplateFieldsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/test/java/edu/brown/cs/group1/field/TemplateFieldsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/DD.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/PatientProfile.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/chart.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/form.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/login.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/main.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/newForm.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/pastForms.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/timeline.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/spark/template/freemarker/xray.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/DD.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/PatientProfile.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/forms.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/html5bp.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/pastforms.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/timeline.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/css/xray.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/js/graph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/js/jquery-3.1.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/js/xray.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/classes/static/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestDatabase.PatientDatabaseTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.field.TemplateFieldsTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.patient.PatientTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.search.SearchTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.similarity.TestExactSimilarity.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/TEST-edu.brown.cs.group1.similarity.TestExactSimilaritySorter.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestDatabase.PatientDatabaseTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.field.TemplateFieldsTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.patient.PatientTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.search.SearchTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.similarity.TestExactSimilarity.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/surefire-reports/edu.brown.cs.group1.similarity.TestExactSimilaritySorter.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/term-project-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/target/test-classes/edu/brown/cs/group1/search/testy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/database/forms.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/data/database/forms.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TagsDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TagsDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/FormHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/NewFormHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/SaveFormHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/search/Relevance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/search/Relevance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/staff/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/staff/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/newTemplate.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/createForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/createTemplate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/createTemplate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/saveForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/saveForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/field/TemplateFieldsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/field/TemplateFieldsTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +126,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+            <state relative-caret-position="-2561">
+              <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,10 +139,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="31" selection-start-line="31" selection-start-column="2" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="15">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,8 +153,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+            <state relative-caret-position="-839">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,11 +171,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
+            <state relative-caret-position="182">
+              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,8 +191,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="21" column="12" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="12" />
+            <state relative-caret-position="62">
+              <caret line="16" column="39" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/StaffDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-715">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,8 +227,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13935">
-              <caret line="932" column="10" selection-start-line="932" selection-start-column="10" selection-end-line="932" selection-end-column="10" />
+            <state relative-caret-position="13980">
+              <caret line="1070" column="10" selection-start-line="1070" selection-start-column="10" selection-end-line="1070" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -177,7 +301,6 @@
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/tag/TestTags.java" />
         <option value="$PROJECT_DIR$/data/medicalTerminology/medicalChecklistAssociations.txt" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/staff/Doctor.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/synonyms/TerminologyAssociation.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestTermiologyDatabase/revelence.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TerminologyAssociation/TerminologyAssociationTest.java" />
@@ -192,11 +315,12 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/template/Template.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilaritySorter.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/CreateTemplateHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/TemplatesDatabase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" />
+        <option value="$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java" />
       </list>
     </option>
   </component>
@@ -211,7 +335,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,6 +398,15 @@
               <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
               <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="group1" type="462c0819:PsiDirectoryNode" />
+              <item name="patient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="term-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="term-project--emontas-jrudner-wchoi11-yma37" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -315,12 +447,13 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556835560638" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556915508845" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
@@ -464,6 +597,7 @@
       <workItem from="1556758882145" duration="299000" />
       <workItem from="1556833130764" duration="2387000" />
       <workItem from="1556841888971" duration="267000" />
+      <workItem from="1556910963408" duration="4164000" />
     </task>
     <servers />
   </component>
@@ -500,7 +634,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133019000" />
+    <option name="totallyTimeSpent" value="137183000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,8 +647,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="716" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25767368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26171243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -532,7 +667,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4995074" weight="0.32876712" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" visible="true" weight="0.3846154" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.8166397" visible="true" weight="0.3846154" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.18336026" side_tool="true" weight="0.39452055" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32739726" />
       <window_info anchor="bottom" id="Thumbnails" order="14" />
@@ -555,9 +690,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/staff/Doctor.java</url>
-          <line>201</line>
+          <line>202</line>
           <properties />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -650,16 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/StaffDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/forms.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -667,13 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -768,16 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/handler/DDHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -854,16 +968,6 @@
     <entry file="file://$PROJECT_DIR$/data/database/forms.sqlite3">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="74" column="34" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -874,10 +978,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java">
+    <entry file="file://$PROJECT_DIR$/data/medicalTerminology/MOCK_DATA (1).csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        <state relative-caret-position="13980">
+          <caret line="1070" column="10" selection-start-line="1070" selection-start-column="10" selection-end-line="1070" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/StaffDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-715">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2561">
+          <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -888,30 +1035,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/PatientDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/medicalTerminology/MOCK_DATA (1).csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="-839">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13935">
-          <caret line="932" column="10" selection-start-line="932" selection-start-column="10" selection-end-line="932" selection-end-column="10" />
+        <state relative-caret-position="62">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

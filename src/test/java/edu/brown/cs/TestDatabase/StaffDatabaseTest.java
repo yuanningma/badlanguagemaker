@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.brown.cs.group1.staff.Admin;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,15 +28,48 @@ public class StaffDatabaseTest {
     Map<Integer, Boolean> permission = new HashMap<>();
     permission.put(1, true);
     permission.put(2, false);
-    member1 = new Doctor(1, "Harry", false, true, true);
+    member1 = new Admin(1, "Scott Bi Napoli", true, false, true);
     // permission.put(3, true);
     // member2 = new Admin(2, permission, true, false, true);
     // permission.put(4, false);
     // member3 = new Doctor(3, permission, true, false, true);
   }
 
-//  @Test
-//  public void testsaveNewStaff() {
+  @Test
+  public void testsaveNewStaff() {
+      try{
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(2, "Thom Barnet", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Admin(3, "Beitris Mullins", true, false, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(4, "Guthrie McCloughlin", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(5, "Glenda Raecroft", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(6, "Gates Hepher", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(7, "Felice Kenward", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(8, "Klara Payle", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(9, "Gale Bilton", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(10, "Diana-marie Jantzen", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(11, "Rofolphe Manning", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(12, "Ester Mottley", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(13, "Alair Bonafant", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+          member1 = new Doctor(14, "Athena Hinners", false, true, true);
+          staffDatabase.saveNewStaff(member1);
+      } catch(SQLException sql) {
+          sql.printStackTrace();
+      }
+
+  }
 //    try {
 //      // Staff queryResult = staffDatabase.getStaffMember(1);
 //      TextFileLoader tf = new TextFileLoader("data/database/staff_mock.csv");

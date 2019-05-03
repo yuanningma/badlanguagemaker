@@ -228,8 +228,8 @@ public class PatientDatabase extends Database {
    * @param name
    *          a name associated with a patients
    * @return a list of strings args filled with patient information.
-   * @throws throws
-   *           an SQLExpection when a error is thrown.
+   * @throws SQLException
+   *           SQLExpection when a error is thrown.
    */
   public List<String[]> getPatientNameMatch(String name) throws SQLException {
 

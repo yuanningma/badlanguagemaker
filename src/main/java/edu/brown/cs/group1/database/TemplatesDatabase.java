@@ -23,6 +23,7 @@ import edu.brown.cs.group1.template.Template;
 public class TemplatesDatabase extends Database {
   private Connection dbConn;
   private int nextTempId = 11;
+
   /**
    * Constructor for Template Database.
    * @param path
@@ -53,8 +54,8 @@ public class TemplatesDatabase extends Database {
    *          the template to be saved.
    */
   public void saveTemplate(Template template) {
-      template.setTemplateId(nextTempId);
-      nextTempId++;
+    template.setTemplateId(nextTempId);
+    nextTempId++;
     if (dbConn != null) {
       try (
           PreparedStatement prep1 = dbConn.prepareStatement(
@@ -97,6 +98,7 @@ public class TemplatesDatabase extends Database {
         name = rs.getString(2);
         fields = rs.getString(3);
       }
+      fields = fields.replaceAll("\\[", "").replaceAll("\\]", "");
       TemplateFields parsedFields = TemplateFields.valueOf(fields);
       Template template = new Template(templateId, parsedFields, name);
       rs.close();
@@ -144,6 +146,7 @@ public class TemplatesDatabase extends Database {
         int formId = rs.getInt(1);
         String name = rs.getString(2);
         String fieldsString = rs.getString(3);
+        fieldsString = fieldsString.replaceAll("\\[", "").replaceAll("\\]", "");
         TemplateFields fields = TemplateFields.valueOf(fieldsString);
         templates.add(new Template(formId, fields, name));
       }
