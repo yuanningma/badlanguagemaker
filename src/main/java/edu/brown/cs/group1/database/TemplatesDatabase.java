@@ -9,8 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.brown.cs.group1.field.TemplateFields;
-import edu.brown.cs.group1.template.Template;
+import src.main.java.edu.brown.cs.group1.database.Database;
+import src.main.java.edu.brown.cs.group1.field.TemplateFields;
+import src.main.java.edu.brown.cs.group1.template.Template;
 
 /**
  * Public class that concerns the PatientDatabase. This class extends the
@@ -80,7 +81,13 @@ public class TemplatesDatabase extends Database {
     }
   }
 
-  // For alerts
+  /**
+   * Returns true if template fields are successfully saved into the
+   * TemplatesDatabase.
+   * @param template
+   *          Template to be saved.
+   * @return Whether template is successfully saved.
+   */
   public boolean saveTemplateBoolean(Template template) {
     template.setTemplateId(nextTempId);
     nextTempId++;

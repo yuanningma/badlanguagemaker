@@ -114,7 +114,14 @@ public class FormsDatabase extends Database {
     return newTempl;
   }
 
-  // For alerts
+  /**
+   * Returns true if form inputs are successfully saved into the FormsDatabase.
+   * @param template
+   *          Template.
+   * @param patientid
+   *          Patient id.
+   * @return Whether form was saved successfully.
+   */
   public boolean saveFormBoolean(Template template, Integer patientid) {
     template.setTemplateId(nextFormId);
     nextFormId++;
