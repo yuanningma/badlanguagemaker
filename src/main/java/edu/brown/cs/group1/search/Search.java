@@ -58,7 +58,7 @@ public class Search {
   }
 
   /**
-   * Sets initial parameters;
+   * Sets initial parameters.
    * @param docs
    *          A list of "documents".
    */
@@ -139,6 +139,14 @@ public class Search {
     return toret;
   }
 
+  /**
+   * Key words TF-IDF.
+   * @param terms
+   *          A list of terms.
+   * @param doc
+   *          A document.
+   * @return The sum of the tf-idfs for all of the terms.
+   */
   public double keywordsTfIdf(List<String> terms, List<String> doc) {
     double sum = 0;
     for (String s : terms) {
@@ -148,6 +156,18 @@ public class Search {
     return sum;
   }
 
+  /**
+   * Map Rank Template.
+   * @param terms
+   *          A list of terms.
+   * @param tags
+   *          A list of tags.
+   * @param templates
+   *          A list of templates
+   * @return A sorted map of templates
+   * @throws InterruptedException
+   *           an interrupted exception.
+   */
   public List<Map.Entry<Template, AtomicDouble>> mapRankTemplate(
       List<String> terms,
       List<String> tags,
@@ -261,6 +281,14 @@ public class Search {
     return entries;
   }
 
+  /**
+   * Rank Docs.
+   * @param terms
+   *          A list of terms.
+   * @param docs
+   *          A list of documents.
+   * @return A ranked list of documents.
+   */
   public List<List<String>> rankDocs(List<String> terms,
       List<List<String>> docs) {
     this.totalSize = docs.size();
@@ -289,6 +317,14 @@ public class Search {
     return toret;
   }
 
+  /**
+   * Rank Templates.
+   * @param terms
+   *          A list of terms.
+   * @param templates
+   *          A list of templates.
+   * @return A ranked list of templates.
+   */
   public List<Template> rankTemplates(List<String> terms,
       List<Template> templates) {
     this.totalSize = templates.size();
@@ -320,6 +356,15 @@ public class Search {
     return toret;
   }
 
+  /**
+   * Threaded Rank Templates.
+   * @param terms
+   *          A list of terms.
+   * @param templates
+   *          A list of templates.
+   * @return A ranked list of templates.
+   * @throws InterruptedException
+   */
   public List<Template> threadedRankTemplates(List<String> terms,
       List<Template> templates) throws InterruptedException {
 
@@ -352,7 +397,6 @@ public class Search {
 
       @Override
       public void run() {
-        // TODO Auto-generated method stub
         while (!queue.isEmpty()) {
           System.out.println("Not empty");
           task(queue.poll());

@@ -51,6 +51,11 @@ import spark.template.freemarker.FreeMarkerEngine;
 public final class Main {
   private static final int DEFAULT_PORT = 4567;
 
+  /**
+   * Runs program.
+   * @param args
+   *          Command for how program is to be run.
+   */
   public static void main(String[] args) {
     new Main(args).run();
   }

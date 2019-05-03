@@ -33,6 +33,9 @@ public class Relevance {
   private TerminologyAssociation rootterm;
   private List<TerminologyAssociation> assocs;
 
+  /**
+   * Relevance Constructor.
+   */
   public Relevance() {
     search = new Search();
     mddb = new MedicalDictionaryDatabase(
@@ -48,14 +51,28 @@ public class Relevance {
         "data/medicalTerminology/medicalChecklistAssociations.txt");
   }
 
+  /**
+   * Getter for forms database.
+   * @return A forms Database.
+   */
   public FormsDatabase getFormsDatabase() {
     return fdb;
   }
 
+  /**
+   * Getter for a patient database.
+   * @return A patient database.
+   */
   public PatientDatabase getPatientDatabase() {
     return pdb;
   }
 
+  /**
+   * Parser for search input.
+   * @param toparse
+   *          search.
+   * @return A list of possible terms after parsing.
+   */
   public List<String> parseForMe(List<String> toparse) {
     List<String> toret = new ArrayList<String>();
     for (String s : toparse) {
@@ -65,6 +82,16 @@ public class Relevance {
     return toret;
   }
 
+  /**
+   * Ranking without the use of threads.
+   * @param terms
+   *          a list of terms.
+   * @param tags
+   *          a list of tags.
+   * @param forms
+   *          a list of forms.
+   * @return a ranked list of forms.
+   */
   public List<Template> unthreadedRank(List<String> terms,
       List<String> tags,
       List<Template> forms) {
@@ -73,7 +100,7 @@ public class Relevance {
   }
 
   /*
-   * TODO: What do we want here?
+   * What do we want here?
    * 
    * We want a method that ranks all given forms, with or without tags, for a
    * given set of search terms
@@ -84,7 +111,7 @@ public class Relevance {
   public List<Template> rankFormsWithTag(List<String> terms,
       List<String> tags,
       List<Template> forms) {
-    // TODO: GO THROUGH ALL FORMS AND CHECK FOR THE TAGS
+    // GO THROUGH ALL FORMS AND CHECK FOR THE TAGS
     List<Template> goodForms = new ArrayList<Template>();
     List<List<String>> docs = new ArrayList<List<String>>();
 
@@ -123,7 +150,7 @@ public class Relevance {
   }
 
   /**
-   * Sets the "true content" of a List of Templates for easy parsing
+   * Sets the "true content" of a List of Templates for easy parsing.
    * @param forms
    *          a list of forms.
    * @return a list of templates.
