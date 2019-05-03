@@ -194,6 +194,11 @@ form p{
   left:15px;
 }
 
+#searchTL{
+  position: relative;
+  left: 15px;
+}
+
 .content a{
   color: white;
   font-size: 20px;

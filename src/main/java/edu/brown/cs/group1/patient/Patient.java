@@ -17,8 +17,7 @@ public class Patient {
   private String lastName;
   private int doctorId;
   private Map<Integer, Template> completedForms;
-  private boolean isHosptialized;
-  // TODO: Change to isHospitalized?
+  // private boolean isHospitalized;
 
   /**
    * Constructor.
@@ -62,46 +61,95 @@ public class Patient {
     this.patientId = patientId;
   }
 
+  /**
+   * Gets patient's first name.
+   * @return patient's first name.
+   */
   public String getFirstName() {
     return firstName;
   }
 
+  /**
+   * Sets patient's first name.
+   * @param firstName
+   *          patient's first name.
+   */
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
+  /**
+   * Gets patient's middle name.
+   * @return patient's middle name.
+   */
   public String getMiddleName() {
     return middleName;
   }
 
+  /**
+   * Sets patient's middle name.
+   * @param middleName
+   *          patient's middle name.
+   */
   public void setMiddleName(String middleName) {
     this.middleName = middleName;
   }
 
+  /**
+   * Gets patient's last name.
+   * @return patient's last name.
+   */
   public String getLastName() {
     return lastName;
   }
 
+  /**
+   * Sets patient's last name.
+   * @param lastName
+   *          patient's last name.
+   */
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
+  /**
+   * Gets a doctor's ID.
+   * @return the ID.
+   */
   public int getDoctorId() {
     return doctorId;
   }
 
+  /**
+   * Sets a doctor's ID.
+   * @param doctorId
+   *          the doctor's id.
+   */
   public void setDoctorId(int doctorId) {
     this.doctorId = doctorId;
   }
 
+  /**
+   * Gets patient's full name.
+   * @return patient's full name.
+   */
   public String getName() {
     return firstName + " " + middleName + " " + lastName;
   }
 
+  /**
+   * Gets patient's filled out forms.
+   * @return A map of completed forms.
+   */
   public Map<Integer, Template> getCompletedForms() {
     return completedForms;
   }
 
+  /**
+   * Sets patient's completed forms.
+   * @param completedForms
+   *          The patient's forms.
+   */
   public void setCompletedForms(Map<Integer, Template> completedForms) {
     this.completedForms = completedForms;
   }

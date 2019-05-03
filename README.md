@@ -1,7 +1,6 @@
 # Term Project
 
 ## Issues
-* Parser (Manually take away brackets,alert if comma in field name)
 * Color coding
 * Centering elements/structuring pages
 * Routing
@@ -10,7 +9,6 @@
 * Prep for presentation 
 * Google authentication
 * Create real sample patients
-* Alert for saving forms/templates
 * Deployment
 
 ## Group Members 

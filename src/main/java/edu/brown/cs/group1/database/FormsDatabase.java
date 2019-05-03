@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.text.SimpleDateFormat;
 
 import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
@@ -63,7 +64,7 @@ public class FormsDatabase extends Database {
    *          the patient id.
    * @return the template being saved.
    */
-  public Template saveForm(Template template, Integer patientid, String time) {
+  public Template saveForm(Template template, Integer patientid) {
     template.setTemplateId(nextFormId);
     nextFormId++;
     Template newTempl = template;
@@ -98,8 +99,9 @@ public class FormsDatabase extends Database {
         prep.setString(3, formInfo.toString());
         prep.setString(4, tagList.toString());
         prep.setString(5, template.getTemplateName());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
-        prep.setString(6, time);
+        prep.setString(6, formatter.format(date));
         prep.addBatch();
         prep.executeBatch();
         prep.close();

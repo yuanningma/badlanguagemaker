@@ -4,7 +4,7 @@
   padding: 8px 16px;
   position: relative;
   top:90px;
-    left:15%;
+    left:42%;
 }
 
 a:hover {
@@ -34,7 +34,8 @@ p{
   position: relative;
   color: SteelBlue;
   top: 50px;
-    left:15%;
+  left: 44%;
+    text-align: left;
 }
 
 .button {

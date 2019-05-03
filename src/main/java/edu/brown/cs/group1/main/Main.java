@@ -9,18 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import joptsimple.OptionParser;
-import joptsimple.OptionSet;
-import spark.ExceptionHandler;
-import spark.ModelAndView;
-import spark.QueryParamsMap;
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import spark.Spark;
-import spark.TemplateViewRoute;
-import spark.template.freemarker.FreeMarkerEngine;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.util.concurrent.AtomicDouble;
 import com.google.gson.Gson;
@@ -38,15 +26,36 @@ import edu.brown.cs.group1.handler.NewTemplateHandler;
 import edu.brown.cs.group1.handler.PastFormsHandler;
 import edu.brown.cs.group1.handler.PatientProfileHandler;
 import edu.brown.cs.group1.handler.SaveFormHandler;
+import edu.brown.cs.group1.handler.SearchDdHandler;
 import edu.brown.cs.group1.handler.XRayHandler;
-import edu.brown.cs.group1.handler.searchDDHandler;
 import edu.brown.cs.group1.search.Relevance;
 import edu.brown.cs.group1.template.Template;
 import freemarker.template.Configuration;
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
+import spark.ExceptionHandler;
+import spark.ModelAndView;
+import spark.QueryParamsMap;
+import spark.Request;
+import spark.Response;
+import spark.Route;
+import spark.Spark;
+import spark.TemplateViewRoute;
+import spark.template.freemarker.FreeMarkerEngine;
 
-public class Main {
+/**
+ * Main Class.
+ * @author juliannerudner
+ *
+ */
+public final class Main {
   private static final int DEFAULT_PORT = 4567;
 
+  /**
+   * Runs program.
+   * @param args
+   *          Command for how program is to be run.
+   */
   public static void main(String[] args) {
     new Main(args).run();
   }
@@ -62,14 +71,15 @@ public class Main {
     this.args = args;
   }
 
+  /**
+   * Run method.
+   */
   private void run() {
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
-    parser.accepts("port")
-        .withRequiredArg()
-        .ofType(Integer.class)
-        .defaultsTo(DEFAULT_PORT);
+    parser.accepts("port").withRequiredArg().ofType(Integer.class).defaultsTo(
+        DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
     if (options.has("gui")) {
@@ -119,14 +129,15 @@ public class Main {
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
 
-    Spark.get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
+    Spark
+        .get("/patients/:patientId/timeline", new PatientHandler(), freeMarker);
 
-    Spark.post("/searchDD", new searchDDHandler());
+    Spark.post("/searchDD", new SearchDdHandler());
     Spark.post("/relevance", new RelevanceTimelineHandler());
 
   }
 
-  public static String currID = "0";
+  private static String currID = "0";
 
   /**
    * Patient Handler, essentially the handler for patient information / the
@@ -136,7 +147,8 @@ public class Main {
    */
   private static class PatientHandler implements TemplateViewRoute {
     private FormsDatabase formsDb;
-    private PatientDatabase patientDb = new PatientDatabase("data/database/members.sqlite3");
+    private PatientDatabase patientDb =
+        new PatientDatabase("data/database/members.sqlite3");
 
     @Override
     public ModelAndView handle(Request arg0, Response arg1) throws Exception {
@@ -147,7 +159,8 @@ public class Main {
       try {
         name = patientDb.getPatient(Integer.parseInt(id)).getName();
       } catch (NumberFormatException e) {
-        System.out.println("ERROR: number format exception, patient profile handler.");
+        System.out.println(
+            "ERROR: number format exception, patient profile handler.");
         // e.printStackTrace();
       } catch (SQLException e) {
         // TODO Auto-generated catch block
@@ -155,14 +168,15 @@ public class Main {
         // e.printStackTrace();
       }
 
-      Map<String, Object> variables = ImmutableMap.of("title",
-          "pc+: My Dashboard",
-          "content",
-          "",
-          "id1",
-          id,
-          "name",
-          name);
+      Map<String,
+          Object> variables = ImmutableMap.of("title",
+              "pc+: My Dashboard",
+              "content",
+              "",
+              "id1",
+              id,
+              "name",
+              name);
 
       return new ModelAndView(variables, "timeline.ftl");
     }
@@ -174,7 +188,7 @@ public class Main {
    *
    */
   public class RelevanceTimelineHandler implements Route {
-    private final Gson GSON = new Gson();
+    private final Gson gson = new Gson();
     private Relevance r;
 
     // private PatientDatabase patientDb = new
@@ -246,8 +260,8 @@ public class Main {
       // formDb.getAllForms(Integer.parseInt(currID));
 
       // getAllForms probably wrong?
-      List<Template> patientForms = r.getFormsDatabase()
-          .getAllForms(Integer.parseInt(currID));
+      List<Template> patientForms =
+          r.getFormsDatabase().getAllForms(Integer.parseInt(currID));
 
       for (int i = 0; i < patientForms.size(); i++) {
         Template form = patientForms.get(i);
@@ -277,17 +291,14 @@ public class Main {
       for (String term : terms) {
         System.out.println("CURRENT TERMS: " + term);
       }
-      List<Map.Entry<Template, AtomicDouble>> sorted = r.getRankings(terms,
-          null,
-          patientForms);
+      List<Map.Entry<Template, AtomicDouble>> sorted =
+          r.getRankings(terms, null, patientForms);
 
       List<Template> sortedForms = new ArrayList<Template>();
       List<Double> tfidfs = new ArrayList<Double>();
       for (Map.Entry<Template, AtomicDouble> e : sorted) {
-        System.out.println("RANKING CURRENTLY: " + e.getKey()
-            .getFields()
-            .getContent()
-            .subList(0, 3)
+        System.out.println("RANKING CURRENTLY: "
+            + e.getKey().getFields().getContent().subList(0, 3)
             + " , "
             + e.getValue());
         sortedForms.add(e.getKey());
@@ -299,14 +310,10 @@ public class Main {
       // patientForms,
       // "id",
       // currID);
-      Map<String, Object> vars = ImmutableMap.of("forms",
-          sortedForms,
-          "id",
-          currID,
-          "vals",
-          tfidfs);
+      Map<String, Object> vars =
+          ImmutableMap.of("forms", sortedForms, "id", currID, "vals", tfidfs);
 
-      return GSON.toJson(vars);
+      return gson.toJson(vars);
     }
   }
 
@@ -411,12 +418,8 @@ public class Main {
   private static class FrontHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of("title",
-          "pc+ home",
-          "message",
-          "",
-          "content",
-          "");
+      Map<String, Object> variables =
+          ImmutableMap.of("title", "pc+ home", "message", "", "content", "");
       return new ModelAndView(variables, "main.ftl");
     }
   }
