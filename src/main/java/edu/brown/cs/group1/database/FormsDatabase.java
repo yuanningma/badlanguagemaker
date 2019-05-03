@@ -156,7 +156,7 @@ public class FormsDatabase extends Database {
         prep.executeBatch();
         prep.close();
         newTempl.setTags(tagList);
-
+        return true;
       } catch (SQLException sql) {
         // System.out.println("SQL Exception FormsDatabase saveForm");
         sql.printStackTrace();
@@ -164,7 +164,7 @@ public class FormsDatabase extends Database {
       }
     }
     templateMap.put(patientid, newTempl);
-    return true;
+    return false;
   }
 
   /**

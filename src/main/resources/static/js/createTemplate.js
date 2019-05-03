@@ -10,21 +10,37 @@ $(document).ready(() => {
 
     $("#newForm").on('click', (event) => {
 
-        let labels = "";
-        for (let i=1; i<count+1; i++) {
-            labels += $("#field" + i).val();
-            labels += ";";
+        let commas = checkForCommas();
+
+        if (commas) {
+            alert("No commas allowed in field name");
+        } else {
+            let labels = "";
+            for (let i=1; i<count+1; i++) {
+                labels += $("#field" + i).val();
+                labels += ";";
+            }
+
+            const postParameters = {fields: labels};
+            // const postParameters = {fields: "field"};
+
+
+
+    		$.post("/templates/create", postParameters, responseJSON => {
+                // Show message that template was successfully created
+                // console.log("posted");
+                const responseObject = JSON.parse(responseJSON);
+                alert(responseObject.message);
+            });
         }
-
-        const postParameters = {fields: labels};
-        // const postParameters = {fields: "field"};
-
-
-
-		$.post("/templates/create", postParameters, responseJSON => {
-            // Show message that template was successfully created
-            // console.log("posted");
-            const responseObject = JSON.parse(responseJSON);
-        });
     });
+
+    function checkForCommas() {
+        for (let i=1; i<count+1; i++) {
+            if ($("#field" + i).val().includes(",")) {
+                return true;
+            }
+        }
+        return false;
+    }
 });

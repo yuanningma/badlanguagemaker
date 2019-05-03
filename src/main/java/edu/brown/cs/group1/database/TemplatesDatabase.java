@@ -22,7 +22,7 @@ import edu.brown.cs.group1.template.Template;
  */
 public class TemplatesDatabase extends Database {
   private Connection dbConn;
-  private int nextTempId = 11;
+  private int nextTempId = 15;
 
   /**
    * Constructor for Template Database.
@@ -78,6 +78,37 @@ public class TemplatesDatabase extends Database {
         sql.printStackTrace();
       }
     }
+  }
+
+  // For alerts
+  public boolean saveTemplateBoolean(Template template) {
+    template.setTemplateId(nextTempId);
+    nextTempId++;
+    if (dbConn != null) {
+      try (
+          PreparedStatement prep1 = dbConn.prepareStatement(
+              "CREATE TABLE IF NOT EXISTS template(" + "templateId INTEGER,"
+                  + "template_name TEXT,"
+                  + "template_field TEXT,"
+                  + "PRIMARY KEY (templateId));");
+          PreparedStatement prep = dbConn
+              .prepareStatement("INSERT INTO template VALUES (?,?,?);");) {
+        prep1.executeUpdate();
+        List<String> templateInfo = template.getFields().getLabels(false);
+        prep.setInt(1, template.getTemplateId());
+        prep.setString(2, template.getTemplateName());
+        prep.setString(3, templateInfo.toString());
+        prep.addBatch();
+        prep.executeBatch();
+        prep.close();
+        return true;
+      } catch (SQLException sql) {
+        System.out.println("SQLException saveTemplate");
+        sql.printStackTrace();
+        return false;
+      }
+    }
+    return false;
   }
 
   /**
