@@ -5,17 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.TemplateViewRoute;
-
 import com.google.common.collect.ImmutableMap;
 
 import edu.brown.cs.group1.database.FormsDatabase;
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TemplatesDatabase;
 import edu.brown.cs.group1.template.Template;
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+import spark.TemplateViewRoute;
 
 /**
  * PastFormsHandler provides access to all the completed forms for a given
@@ -71,18 +70,18 @@ public class PastFormsHandler implements TemplateViewRoute {
     for (Template temp : templates) {
       nameToId.put(temp.getTemplateName(), temp.getTemplateId());
     }
-    // TODO: Pass form ids to front-end.
-    // TODO: Pass map of template name to id
-    Map<String, Object> variables = ImmutableMap.of("title",
-        "pc+ home",
-        "id",
-        patientId,
-        "nameToId",
-        nameToId,
-        "formIds",
-        formIds,
-        "formMap",
-        formMap);
+
+    Map<String,
+        Object> variables = ImmutableMap.of("title",
+            "pc+ home",
+            "id",
+            patientId,
+            "nameToId",
+            nameToId,
+            "formIds",
+            formIds,
+            "formMap",
+            formMap);
 
     return new ModelAndView(variables, "pastForms.ftl");
   }

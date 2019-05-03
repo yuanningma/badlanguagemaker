@@ -40,7 +40,6 @@ public class FormHandler implements TemplateViewRoute {
     String patId = req.params(":patientId");
 
     // System.out.println("ID REQUESTED: " + id);
-    // TODO: Get form fields from id. Make map of labels to fields.
     Map<String, String> fields = new LinkedHashMap<>();
     // fields.put("Name", "Eric");
     // fields.put("Age", "1234");

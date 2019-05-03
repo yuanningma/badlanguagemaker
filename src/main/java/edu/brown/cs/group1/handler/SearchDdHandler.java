@@ -17,7 +17,7 @@ import spark.Route;
  * @author juliannerudner
  *
  */
-public class searchDDHandler implements Route {
+public class SearchDdHandler implements Route {
   private static final Gson GSON = new Gson();
   private PatientDatabase patientDb =
       new PatientDatabase("data/database/members.sqlite3");
@@ -25,7 +25,7 @@ public class searchDDHandler implements Route {
   /**
    * Constructor for searchDDHandler.
    */
-  public searchDDHandler() {
+  public SearchDdHandler() {
 
   }
 

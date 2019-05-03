@@ -12,9 +12,17 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
+/**
+ * New Form Handler.
+ * @author juliannerudner
+ *
+ */
 public class NewFormHandler implements TemplateViewRoute {
   private TemplatesDatabase tempsDb;
 
+  /**
+   * Constructor for a NewFormHandler.
+   */
   public NewFormHandler() {
     tempsDb = new TemplatesDatabase("data/database/templates.sqlite3");
   }
@@ -28,7 +36,7 @@ public class NewFormHandler implements TemplateViewRoute {
     int patientId = Integer.parseInt(patId);
     Template temp = tempsDb.getTemplate(templateId);
     List<String> labels = temp.getFields().getLabels(false);
-    // TODO: Pass in labels to variables.
+
     Map<String,
         Object> variables = ImmutableMap.of("title",
             "pc+: Home",
