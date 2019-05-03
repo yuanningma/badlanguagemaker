@@ -296,13 +296,12 @@ public final class Main {
 
       List<Template> sortedForms = new ArrayList<Template>();
       List<Double> tfidfs = new ArrayList<Double>();
+
       for (Map.Entry<Template, AtomicDouble> e : sorted) {
-        System.out.println("RANKING CURRENTLY: "
-            + e.getKey().getFields().getContent().subList(0, 3)
-            + " , "
-            + e.getValue());
+
         sortedForms.add(e.getKey());
         tfidfs.add(e.getValue().doubleValue());
+
       }
       // System.out.println(patientForms);
 
