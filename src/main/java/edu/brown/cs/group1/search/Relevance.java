@@ -35,14 +35,17 @@ public class Relevance {
 
   public Relevance() {
     search = new Search();
-    mddb = new MedicalDictionaryDatabase("data/database/medicalDictionary.sqlite3");
-    mpdb = new MedicalProcedureDatabase("data/database/medicalProcedures.sqlite3");
+    mddb = new MedicalDictionaryDatabase(
+        "data/database/medicalDictionary.sqlite3");
+    mpdb =
+        new MedicalProcedureDatabase("data/database/medicalProcedures.sqlite3");
     tdb = new TagsDatabase("data/database/largeTags.sqlite3");
     fdb = new FormsDatabase("data/database/forms.sqlite3");
     pdb = new PatientDatabase("data/database/members.sqlite3");
 
     rootterm = new TerminologyAssociation("root", null);
-    assocs = rootterm.readTerminologyAssociations("data/medicalTerminology/medicalChecklistAssociations.txt");
+    assocs = rootterm.readTerminologyAssociations(
+        "data/medicalTerminology/medicalChecklistAssociations.txt");
   }
 
   public FormsDatabase getFormsDatabase() {
@@ -56,9 +59,8 @@ public class Relevance {
   public List<String> parseForMe(List<String> toparse) {
     List<String> toret = new ArrayList<String>();
     for (String s : toparse) {
-      toret.addAll(Arrays.asList(s.replaceAll("[^A-Za-z0-9]", " ")
-          .trim()
-          .split(" ")));
+      toret.addAll(
+          Arrays.asList(s.replaceAll("[^A-Za-z0-9]", " ").trim().split(" ")));
     }
     return toret;
   }
@@ -122,7 +124,9 @@ public class Relevance {
 
   /**
    * Sets the "true content" of a List of Templates for easy parsing
-   * @return
+   * @param forms
+   *          a list of forms.
+   * @return a list of templates.
    */
   public List<Template> trueContentGenerator(List<Template> forms) {
     List<Template> temp = forms;

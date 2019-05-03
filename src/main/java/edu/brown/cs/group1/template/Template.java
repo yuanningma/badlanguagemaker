@@ -23,6 +23,8 @@ public class Template {
    *          Form id.
    * @param fields
    *          Field names and optionally associated values if object is a form.
+   * @param templateName
+   *          name of template.
    */
   public Template(int templateId, TemplateFields fields, String templateName) {
     this.templateId = templateId;

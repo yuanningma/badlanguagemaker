@@ -23,7 +23,7 @@ public class Doctor extends Staff {
   }
 
   public Doctor(int i,
-  // Map<Integer, Boolean> p,
+      // Map<Integer, Boolean> p,
       String n,
       boolean a,
       boolean d,
@@ -61,7 +61,8 @@ public class Doctor extends Staff {
     try {
       patientdb.update(field, value, p);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update patient information in database");
+      System.out
+          .println("ERROR: Failed to update patient information in database");
     }
   }
 
@@ -72,19 +73,19 @@ public class Doctor extends Staff {
    */
   public void removePatient(Patient p) {
     // TODO: Remove method
-    if(isDoctor)   {
-    patientList.remove(p);
-    try {
+    if (isDoctor) {
+      patientList.remove(p);
+      try {
         patientdb.deletePatient(p.getPatientId());
-    } catch (SQLException sql) {
+      } catch (SQLException sql) {
         sql.printStackTrace();
-    }
+      }
     }
   }
 
   /**
    * Returns a list of patients associated with this doctor.
-   * @return List<Patient> corresponding to the patients.
+   * @return a list of the corresponding patients.
    */
   public List<Patient> getPatients() {
     List<String[]> patients = new ArrayList<String[]>();
@@ -95,11 +96,8 @@ public class Doctor extends Staff {
       System.out.println("ERROR: Failed to retrieve patients from database");
     }
     for (String[] patient : patients) {
-      Patient p = new Patient(Integer.parseInt(patient[3]),
-          patient[0],
-          patient[1],
-          patient[2],
-          staffId);
+      Patient p = new Patient(Integer
+          .parseInt(patient[3]), patient[0], patient[1], patient[2], staffId);
       toret.add(p);
     }
     return toret;
@@ -108,8 +106,9 @@ public class Doctor extends Staff {
 
   @Override
   public String getName() {
-      return name;
+    return name;
   }
+
   @Override
   public int getStaffId() {
     return staffId;
@@ -146,7 +145,8 @@ public class Doctor extends Staff {
     try {
       staffdb.update("is_Admin", Boolean.toString(a), this);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update admin privileges in database");
+      System.out
+          .println("ERROR: Failed to update admin privileges in database");
     }
   }
 
@@ -161,7 +161,8 @@ public class Doctor extends Staff {
     try {
       staffdb.update("is_Doctor", Boolean.toString(d), this);
     } catch (SQLException e) {
-      System.out.println("ERROR: Failed to update doctor privileges in database");
+      System.out
+          .println("ERROR: Failed to update doctor privileges in database");
     }
   }
 

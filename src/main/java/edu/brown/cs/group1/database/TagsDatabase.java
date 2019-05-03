@@ -94,14 +94,15 @@ public class TagsDatabase extends Database {
    *          New tag.
    * @param keyword
    *          New keyword.
+   * @throws SQLException
+   *           a SQL exception.
    */
   public void registerNewTag(String tag, String keyword) throws SQLException {
     if (!containsKey(keyword)) {
       PreparedStatement prep;
-      String query = "CREATE TABLE IF NOT EXISTS tags("
-                + "Tags TEXT,"
-                + "Keyword TEXT,"
-                + "PRIMARY KEY (keyword));";
+      String query = "CREATE TABLE IF NOT EXISTS tags(" + "Tags TEXT,"
+          + "Keyword TEXT,"
+          + "PRIMARY KEY (keyword));";
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
       query = "INSERT INTO tags VALUES (?, ?);";
@@ -114,15 +115,14 @@ public class TagsDatabase extends Database {
     }
   }
 
-    /**
-     * Get the respective tag of a keyword.
-     * @param keyword
-     *              a keyword to be inputted.
-     * @return
-     *        a tsg associated with a key word.
-     * @throws SQLException
-     *          thrown when an SQLExpection is thrown.
-     */
+  /**
+   * Get the respective tag of a keyword.
+   * @param keyword
+   *          a keyword to be inputted.
+   * @return a tsg associated with a key word.
+   * @throws SQLException
+   *           thrown when an SQLExpection is thrown.
+   */
   public String getTag(String keyword) throws SQLException {
     if (containsKey(keyword)) {
       PreparedStatement prep;
@@ -132,23 +132,22 @@ public class TagsDatabase extends Database {
       ResultSet rs = prep.executeQuery();
       String tag = new String();
       while (rs.next()) {
-          tag = rs.getString(1);
+        tag = rs.getString(1);
       }
       return tag;
     }
-    //TODO: MAY WANT TO PUT IN A CASE FOR SEARCH BAR
+    // TODO: MAY WANT TO PUT IN A CASE FOR SEARCH BAR
     return null;
   }
 
-    /**
-     * Retrieves words with an associated tag.
-     * @param tag
-     *          a tag to get associated words with.
-     * @return
-     *          a list of strings
-     * @throws SQLException
-     *              thrown when a SQLExpection is thrown.
-     */
+  /**
+   * Retrieves words with an associated tag.
+   * @param tag
+   *          a tag to get associated words with.
+   * @return a list of strings
+   * @throws SQLException
+   *           thrown when a SQLExpection is thrown.
+   */
   public List<String> getWords(String tag) throws SQLException {
     if (dbConn != null) {
       PreparedStatement prep;
