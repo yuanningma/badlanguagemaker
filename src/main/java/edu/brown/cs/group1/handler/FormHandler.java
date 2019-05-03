@@ -4,14 +4,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.ImmutableMap;
-
-import edu.brown.cs.group1.database.FormsDatabase;
-import edu.brown.cs.group1.template.Template;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
+
+import com.google.common.collect.ImmutableMap;
+
+import edu.brown.cs.group1.database.FormsDatabase;
+import edu.brown.cs.group1.template.Template;
 
 /**
  * Form handler provides ability to view a specific form for a patient.
@@ -48,18 +49,24 @@ public class FormHandler implements TemplateViewRoute {
 
     int formId = Integer.parseInt(id);
     Template form = formsDb.getForm(formId);
-    System.out.println(form.getTemplateId());
+    // System.out.println(form.getTemplateId());
 
     List<String> labelsAndFields = form.getFields().getContent();
-    System.out.println(labelsAndFields.size());
-    System.out.println("LANDFIELDS IS: " + labelsAndFields.get(0));
+    // System.out.println(labelsAndFields.size());
+    // System.out.println("LANDFIELDS IS: " + labelsAndFields.get(0));
     for (int i = 0; i < labelsAndFields.size(); i += 2) {
       fields.put(labelsAndFields.get(i), labelsAndFields.get(i + 1));
     }
 
     System.out.println(labelsAndFields);
-    Map<String, Object> variables = ImmutableMap
-        .of("title", "pc+ ", "fields", fields, "id", patId, "nameToId", fields);
+    Map<String, Object> variables = ImmutableMap.of("title",
+        "pc+ ",
+        "fields",
+        fields,
+        "id",
+        patId,
+        "nameToId",
+        fields);
 
     return new ModelAndView(variables, "form.ftl");
   }

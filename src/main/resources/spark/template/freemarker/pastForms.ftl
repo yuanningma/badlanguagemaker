@@ -3,8 +3,8 @@
 <h1 class="text-center"> Patient Records </h1>
 
 <div id="forms" class="list-group w-50 mx-auto">
-    <#list formIds as formId>
-        <a href="/patients/${id}/forms/${formId}" class="list-group-item list-group-item-action">Form 1</a>
+    <#list formMap ?keys as formId>
+    <a href="/patients/${id}/forms/${formId}" class="list-group-item list-group-item-action">${formMap[formId]}</a>
     </#list>
   <#--<a href="/patients/1/forms/1" class="list-group-item list-group-item-action">Form 1</a>-->
   <#--<a href="/patients/1/forms/2" class="list-group-item list-group-item-action">Form 2</a>-->

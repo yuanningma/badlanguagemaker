@@ -80,18 +80,18 @@ public class Search {
   }
 
   public double tfIdf(String term, List<String> doc) {
-    if (listCache.containsKey(doc)) {
-      return listCache.get(doc);
-    }
+    // if (listCache.containsKey(doc)) {
+    // return listCache.get(doc);
+    // }
     double tf = termFrequency(term, doc);
-    System.out.println("tf is " + tf);
+    System.out.println("term is " + term + " tf is " + tf);
     double idf;
 
     if (frequencies.containsKey(term)) {
       idf = frequencies.get(term);
     } else {
       System.out.println(totalSize);
-      idf = Math.log(totalSize);
+      idf = Math.log(totalSize + 1);
       System.out.println("idf is " + idf);
     }
 
@@ -127,6 +127,7 @@ public class Search {
       private final BlockingQueue<String> queue;
       List<AtomicDouble> results;
       List<Template> temps;
+      List<List<String>> docs;
 
       Worker(BlockingQueue<String> q,
           List<AtomicDouble> r,
@@ -134,6 +135,10 @@ public class Search {
         queue = q;
         results = r;
         temps = templates;
+        // docs = new ArrayList<List<String>>();
+        // for (int i = 0; i < temps.size(); i++) {
+        // docs.add(temps.get(i).getTrueContent());
+        // }
         // docs = documents;
       }
 
@@ -152,6 +157,7 @@ public class Search {
           // System.out.println("yes hello it's me " + (String) x);
           // System.out.println("x is " + (String) x);
           double sum = tfIdf((String) x, temps.get(i).getTrueContent());
+          // double sum = newtfidf((String) x, docs);
           System.out.println("I AM TASKED WITH " + sum);
           results.get(i).addAndGet(sum);
         }

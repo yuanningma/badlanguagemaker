@@ -1,21 +1,21 @@
 package edu.brown.cs.group1.handler;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
+import spark.TemplateViewRoute;
 
 import com.google.common.collect.ImmutableMap;
 
 import edu.brown.cs.group1.database.FormsDatabase;
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TemplatesDatabase;
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.TemplateViewRoute;
 import edu.brown.cs.group1.template.Template;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 
 /**
  * PastFormsHandler provides access to all the completed forms for a given
@@ -29,6 +29,7 @@ public class PastFormsHandler implements TemplateViewRoute {
   private FormsDatabase formsDb;
   private PatientDatabase patientDb;
   private TemplatesDatabase tempDb;
+
   /**
    * Dummy constructor. Will remove once dbPath can be passed in.
    */
@@ -52,20 +53,36 @@ public class PastFormsHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
     String patientIdString = req.params(":patientId");
     int patientId = Integer.parseInt(patientIdString);
-     List<Template> forms = formsDb.getAllForms(patientId);
-     List<Integer> formIds = new ArrayList<>();
-     for (Template form : forms) {
-     formIds.add(form.getTemplateId());
-     }
-     List<Template> templates = tempDb.getAllTemplates();
-     Map<String, Integer> nameToId = new HashMap<>();
-     for (Template temp : templates) {
-     nameToId.put(temp.getTemplateName(), temp.getTemplateId());
-     }
+    List<Template> forms = formsDb.getAllForms(patientId);
+    List<Integer> formIds = new ArrayList<>();
+    List<String> complFormNames = new ArrayList<>();
+    Map<String, String> formMap = new HashMap<>();
+    for (Template form : forms) {
+      formIds.add(form.getTemplateId());
+      complFormNames.add(form.getTemplateName());
+      formMap.put(Integer.toString(form.getTemplateId()),
+          form.getTemplateName());
+      System.out.println("Template ID: " + form.getTemplateId()
+          + " , Template Name: "
+          + form.getTemplateName());
+    }
+    List<Template> templates = tempDb.getAllTemplates();
+    Map<String, Integer> nameToId = new HashMap<>();
+    for (Template temp : templates) {
+      nameToId.put(temp.getTemplateName(), temp.getTemplateId());
+    }
     // TODO: Pass form ids to front-end.
     // TODO: Pass map of template name to id
-    Map<String, Object> variables =
-        ImmutableMap.of("title", "pc+ home", "id", patientId, "nameToId", nameToId ,"formIds" ,formIds);
+    Map<String, Object> variables = ImmutableMap.of("title",
+        "pc+ home",
+        "id",
+        patientId,
+        "nameToId",
+        nameToId,
+        "formIds",
+        formIds,
+        "formMap",
+        formMap);
 
     return new ModelAndView(variables, "pastForms.ftl");
   }

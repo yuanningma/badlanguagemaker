@@ -195,6 +195,53 @@ public class Main {
       // TODO Auto-generated method stub
       QueryParamsMap qm = arg0.queryMap();
       System.out.println(currID);
+
+      // System.out.println("VALUES: " + qm.values());
+
+      String searchTerm = qm.value("search");
+      System.out.println("SEARCHED: " + searchTerm);
+      List<String> terms = r.generateTerms(searchTerm);
+      if (qm.value("cardio").equals("true")) {
+        System.out.println(r.generateTerms("cardio"));
+        terms.addAll(r.generateTerms("cardio"));
+        terms.addAll(r.generateTerms("cardiovascular"));
+      }
+      if (qm.value("respiro").equals("true")) {
+        terms.addAll(r.generateTerms("respiratory"));
+        terms.addAll(r.generateTerms("lung"));
+      }
+      if (qm.value("neuro").equals("true")) {
+        terms.addAll(r.generateTerms("neuro"));
+      }
+      if (Boolean.getBoolean(qm.value("endo"))) {
+        terms.addAll(r.generateTerms("endo"));
+      }
+      if (qm.value("reno").equals("true")) {
+        terms.addAll(r.generateTerms("reno"));
+        terms.addAll(r.generateTerms("rena"));
+        terms.addAll(r.generateTerms("renal"));
+      }
+      if (qm.value("hepato").equals("true")) {
+        terms.addAll(r.generateTerms("hepato"));
+        terms.addAll(r.generateTerms("GI"));
+        terms.addAll(r.generateTerms("gastro"));
+        terms.addAll(r.generateTerms("intestinal"));
+        terms.addAll(r.generateTerms("gastrointestinal"));
+      }
+      if (qm.value("psycho").equals("true")) {
+        terms.addAll(r.generateTerms("psych"));
+        terms.addAll(r.generateTerms("psycho"));
+        terms.addAll(r.generateTerms("psychological"));
+      }
+      if (qm.value("ortho").equals("true")) {
+        terms.addAll(r.generateTerms("ortho"));
+
+      }
+      if (qm.value("repro").equals("true")) {
+        terms.addAll(r.generateTerms("reproductive"));
+
+      }
+      // System.out.println("HEPA TEST: " + qm.value("hepa"));
       // List<Template> patientForms =
       // formDb.getAllForms(Integer.parseInt(currID));
 
@@ -210,13 +257,12 @@ public class Main {
         // System.out.println(r.parseForMe(form.getFields().getContent()));
         trueContent.addAll(r.parseForMe(form.getFields().getContent()));
         form.setTrueContent(trueContent);
-        for (String s : form.getTrueContent()) {
-          System.out.println("IN TRUE CONTENT: " + s);
-        }
+        // for (String s : form.getTrueContent()) {
+        // System.out.println("IN TRUE CONTENT: " + s);
+        // }
       }
 
       // String currSearch = "heart";
-      List<String> terms = r.generateTerms("carpal");
 
       // System.out.println("BEGINNING DUMMY METHOD");
       // System.out.println("ID: " + Integer.parseInt(currID));
@@ -227,9 +273,16 @@ public class Main {
       // System.out.println(t.getTags().size());
       // System.out.println(t.getFields().getContent());
       // }
+
+      for (String term : terms) {
+        System.out.println("CURRENT TERMS: " + term);
+      }
       List<Map.Entry<Template, AtomicDouble>> sorted = r.getRankings(terms,
           null,
           patientForms);
+
+      List<Template> sortedForms = new ArrayList<Template>();
+      List<Double> tfidfs = new ArrayList<Double>();
       for (Map.Entry<Template, AtomicDouble> e : sorted) {
         System.out.println("RANKING CURRENTLY: " + e.getKey()
             .getFields()
@@ -237,13 +290,21 @@ public class Main {
             .subList(0, 3)
             + " , "
             + e.getValue());
+        sortedForms.add(e.getKey());
+        tfidfs.add(e.getValue().doubleValue());
       }
       // System.out.println(patientForms);
 
+      // Map<String, Object> vars = ImmutableMap.of("forms",
+      // patientForms,
+      // "id",
+      // currID);
       Map<String, Object> vars = ImmutableMap.of("forms",
-          patientForms,
+          sortedForms,
           "id",
-          currID);
+          currID,
+          "vals",
+          tfidfs);
 
       return GSON.toJson(vars);
     }

@@ -18,34 +18,34 @@
 
 <form id="checklist">
 <p> Filter by</p>
-   <input id="searchTimeline" type="text" placeholder="Search">
+   <input id="searchTimeline" name="searcher" type="text" placeholder="Search">
    <br><br>
    <p>Condition Type:</p>
-   <input type="checkbox" name="Cardiovascular" value="Cardiovascular">
+   <input type="checkbox" name="Cardiovascular" id="Cardiovascular" value="Cardiovascular">
            <label for="Cardiovascular">Cardiovascular</label>
    <br>
-  <input type="checkbox" name="Respiratory" value="Respiratory">
+  <input type="checkbox" name="Respiratory" id="Respiratory" value="Respiratory">
            <label for="Respiratory">Respiratory</label>
    <br>
-     <input type="checkbox" name="Neurology" value="Neurology">
+     <input type="checkbox" name="Neurology" id="Neurology" value="Neurology">
            <label for="Neurology">Neurology</label>
    <br>
-     <input type="checkbox" name="Endocrine" value="Endocrine">
+     <input type="checkbox" name="Endocrine" id="Endocrine" value="Endocrine">
            <label for="Endocrine">Endocrine</label>
    <br>
-   <input type="checkbox" name="Renal" value="Renal">
+   <input type="checkbox" name="Renal" id="Renal" value="Renal">
            <label for="Renal">Renal</label>
    <br>
-   <input type="checkbox" name="Hepato / GI" value="Hepato / GI">
+   <input type="checkbox" name="Hepato / GI" id="Hepato" value="Hepato / GI">
            <label for="Hepato / GI">Hepato / GI</label>
            <br>
-   <input type="checkbox" name="Pyschiatric" value="Pyschiatric">
+   <input type="checkbox" name="Pyschiatric" id="Psychiatric" value="Pyschiatric">
            <label for="Pyschiatric">Pyschiatric</label>
    <br>
-    <input type="checkbox" name="Orthopedic" value="Orthopedic">
+    <input type="checkbox" name="Orthopedic" id="Orthopedic" value="Orthopedic">
            <label for="Orthopedic">Orthopedic</label>
    <br>
-     <input type="checkbox" name="Reproductive" value="Reproductive">
+     <input type="checkbox" name="Reproductive" id="Reproductive" value="Reproductive">
            <label for="Reproductive">Reproductive</label>
    <br>
    <br><br>
