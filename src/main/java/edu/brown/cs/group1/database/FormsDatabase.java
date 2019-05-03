@@ -114,6 +114,59 @@ public class FormsDatabase extends Database {
     return newTempl;
   }
 
+  // For alerts
+  public boolean saveFormBoolean(Template template, Integer patientid) {
+    template.setTemplateId(nextFormId);
+    nextFormId++;
+    Template newTempl = template;
+    if (dbConn != null) {
+      try {
+        PreparedStatement prep;
+        String query =
+            "CREATE TABLE IF NOT EXISTS form(" + "formId INTEGER PRIMARY KEY,"
+                + "patientId INTEGER,"
+                + "form_input TEXT,"
+                + "tags TEXT,"
+                + "form_name TEXT,"
+                + "database_input LONG);";
+        prep = dbConn.prepareStatement(query);
+        prep.executeUpdate();
+        // HashSet<String> columns = getColumnsInfo();
+        List<String> formInfo = new ArrayList<>();
+        query = "INSERT INTO form VALUES (?,?,?,?,?,?);";
+        prep = dbConn.prepareStatement(query);
+        prep.setInt(1, newTempl.getTemplateId());
+        prep.setInt(2, patientid);
+        formInfo.addAll(template.getFields().getContent());
+        List<String> tagList = new ArrayList<>();
+        // TODO: Tag list for a Template!!!
+        for (String formInput : formInfo) {
+
+          String tag = tb.getTag(formInput);
+          if (tag != null) {
+            tagList.add(tag);
+          }
+        }
+        prep.setString(3, formInfo.toString());
+        prep.setString(4, tagList.toString());
+        prep.setString(5, template.getTemplateName());
+        Date date = new Date();
+        prep.setLong(6, date.getTime());
+        prep.addBatch();
+        prep.executeBatch();
+        prep.close();
+        newTempl.setTags(tagList);
+
+      } catch (SQLException sql) {
+        // System.out.println("SQL Exception FormsDatabase saveForm");
+        sql.printStackTrace();
+        return false;
+      }
+    }
+    templateMap.put(patientid, newTempl);
+    return true;
+  }
+
   /**
    * Returns all completed forms from database.
    * @return List of completed forms. Empty list if no forms.

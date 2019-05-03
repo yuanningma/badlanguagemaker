@@ -22,6 +22,7 @@ $(document).ready(() => {
 		$.post("/templates/create", postParameters, responseJSON => {
             // Show message that template was successfully created
             // console.log("posted");
+            const responseObject = JSON.parse(responseJSON);
         });
     });
 });

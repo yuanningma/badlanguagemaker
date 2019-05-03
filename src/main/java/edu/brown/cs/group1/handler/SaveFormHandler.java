@@ -41,8 +41,15 @@ public class SaveFormHandler implements Route {
     int patientId = Integer.parseInt(patientIdString);
     // Create form in database with labels and values from frontend.
     TemplateFields tf = TemplateFields.valueOf(labelsAndValuesString);
-    formsDb.saveForm(new Template(-1, tf, formName), patientId);
-    Map<String, Object> variables = ImmutableMap.of("message", "success!");
-    return GSON.toJson(variables);
+    if (formsDb.saveFormBoolean(new Template(-1, tf, formName), patientId)) {
+      Map<String, Object> variables = ImmutableMap.of("message", "Success!");
+      return GSON.toJson(variables);
+    } else {
+      Map<String, Object> variables =
+          ImmutableMap.of("message", "Failed to Save!");
+      return GSON.toJson(variables);
+    }
+    // Map<String, Object> variables = ImmutableMap.of("message", "Success!");
+    // return GSON.toJson(variables);
   }
 }

@@ -1,9 +1,7 @@
 <#assign content>
     <link rel="stylesheet" href="/css/newForm.css">
 <h1 class="text-center"> New Template </h1>
-<div class="alert alert-info" role="alert">
-  ${message}
-</div>
+<div id="message"></div>
 
 <ul id="linklist" style="list-style-type:none">
 <li><a href="/patients/:patientId/profile" class="previous">&#10216; View Profile</a><br></li>
