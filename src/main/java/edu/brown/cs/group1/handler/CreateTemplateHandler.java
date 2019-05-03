@@ -44,7 +44,7 @@ public class CreateTemplateHandler implements Route {
     TemplateFields labels = TemplateFields.valueOf(labelsString);
     Template template = new Template(-1, labels, "test");
     // Similarity check before saving to database.
-    // TODO: Min value for mostSimil is hard-coded for now.
+    // Min value for mostSimil is hard-coded for now.
 
     List<Template> simil = checker.mostSimil(template, 0.5);
 

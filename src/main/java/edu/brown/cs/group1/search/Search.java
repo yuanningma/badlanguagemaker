@@ -30,31 +30,53 @@ public class Search {
 
   // private Map<Template, Double> templateCache;
 
+  /**
+   * Constructor for Search.
+   */
   public Search() {
     frequencies = new HashMap<String, Double>();
     listCache = new HashMap<List<String>, Double>();
     // templateCache = new HashMap<Template, Double>();
   }
 
+  /**
+   * Constructor for Search.
+   * @param docs
+   *          A list of "documents"
+   */
   public Search(List<List<String>> docs) {
     this.init(docs);
   }
 
+  /**
+   * Sets totalSize.
+   * @param i
+   *          The size totalSize is being set to.
+   */
   public void setSize(int i) {
     totalSize = i;
   }
 
+  /**
+   * Sets initial parameters.
+   * @param docs
+   *          A list of "documents".
+   */
   public void init(List<List<String>> docs) {
-    // TODO: Create a Synonyms or Vocabulary class that contains
-    // all of the words in all of the documents, then calculate
-    // idf for each term in the vocabulary, then put them all in
-    // our map (AKA caching)
 
     totalSize = docs.size();
     frequencies = new HashMap<String, Double>();
     listCache = new HashMap<List<String>, Double>();
   }
 
+  /**
+   * Term Frequency.
+   * @param term
+   *          Word being searched for.
+   * @param doc
+   *          Document being searched.
+   * @return The frequency with which the word appears in the doc.
+   */
   public double termFrequency(String term, List<String> doc) {
     double freq = 0;
 
@@ -68,6 +90,15 @@ public class Search {
     return freq;
   }
 
+  /**
+   * Inverse Document Frequency.
+   * @param term
+   *          Word being searched for.
+   * @param docs
+   *          A list of documents being searched.
+   * @return The inverse of the frequency with which the word appears in the
+   *         docs.
+   */
   public double inverseDocumentFrequency(String term, List<List<String>> docs) {
     double numDocs = 0;
     for (List<String> doc : docs) {
@@ -79,6 +110,14 @@ public class Search {
     return Math.log(totalSize / (numDocs + 1));
   }
 
+  /**
+   * TF-IDF.
+   * @param term
+   *          Word being searched for.
+   * @param doc
+   *          Document being searched.
+   * @return The TF-IDF score of a document.
+   */
   public double tfIdf(String term, List<String> doc) {
     // if (listCache.containsKey(doc)) {
     // return listCache.get(doc);
@@ -100,6 +139,14 @@ public class Search {
     return toret;
   }
 
+  /**
+   * Key words TF-IDF.
+   * @param terms
+   *          A list of terms.
+   * @param doc
+   *          A document.
+   * @return The sum of the tf-idfs for all of the terms.
+   */
   public double keywordsTfIdf(List<String> terms, List<String> doc) {
     double sum = 0;
     for (String s : terms) {
@@ -109,10 +156,22 @@ public class Search {
     return sum;
   }
 
-  public List<Map.Entry<Template, AtomicDouble>>
-      mapRankTemplate(List<String> terms,
-          List<String> tags,
-          List<Template> templates) throws InterruptedException {
+  /**
+   * Map Rank Template.
+   * @param terms
+   *          A list of terms.
+   * @param tags
+   *          A list of tags.
+   * @param templates
+   *          A list of templates
+   * @return A sorted map of templates
+   * @throws InterruptedException
+   *           an interrupted exception.
+   */
+  public List<Map.Entry<Template, AtomicDouble>> mapRankTemplate(
+      List<String> terms,
+      List<String> tags,
+      List<Template> templates) throws InterruptedException {
     this.totalSize = templates.size();
     int numDocs = templates.size();
     List<AtomicDouble> sizeList = new ArrayList<AtomicDouble>();
@@ -196,13 +255,14 @@ public class Search {
     for (int i = 0; i < numDocs; i++) {
       docMap.put(templates.get(i), sizeList.get(i));
     }
-    List<Map.Entry<Template, AtomicDouble>> entries = new ArrayList<Map.Entry<Template, AtomicDouble>>(docMap.entrySet());
+    List<Map.Entry<Template, AtomicDouble>> entries =
+        new ArrayList<Map.Entry<Template, AtomicDouble>>(docMap.entrySet());
     Collections.sort(entries,
         new Comparator<Map.Entry<Template, AtomicDouble>>() {
           public int compare(Map.Entry<Template, AtomicDouble> a,
               Map.Entry<Template, AtomicDouble> b) {
-            return Double.compare(b.getValue().doubleValue(), a.getValue()
-                .doubleValue());
+            return Double.compare(b.getValue().doubleValue(),
+                a.getValue().doubleValue());
           }
         });
     // List<List<String>> toret = new ArrayList<>();
@@ -221,8 +281,16 @@ public class Search {
     return entries;
   }
 
-  public List<List<String>>
-      rankDocs(List<String> terms, List<List<String>> docs) {
+  /**
+   * Rank Docs.
+   * @param terms
+   *          A list of terms.
+   * @param docs
+   *          A list of documents.
+   * @return A ranked list of documents.
+   */
+  public List<List<String>> rankDocs(List<String> terms,
+      List<List<String>> docs) {
     this.totalSize = docs.size();
     Map<List<String>, Double> docMap = new HashMap<List<String>, Double>();
     for (List<String> doc : docs) {
@@ -231,7 +299,8 @@ public class Search {
       docMap.put(doc, ti);
     }
 
-    List<Map.Entry<List<String>, Double>> entries = new ArrayList<Map.Entry<List<String>, Double>>(docMap.entrySet());
+    List<Map.Entry<List<String>, Double>> entries =
+        new ArrayList<Map.Entry<List<String>, Double>>(docMap.entrySet());
     Collections.sort(entries,
         new Comparator<Map.Entry<List<String>, Double>>() {
           public int compare(Map.Entry<List<String>, Double> a,
@@ -241,14 +310,21 @@ public class Search {
         });
     List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<List<String>, Double> e : entries) {
-      System.out.println("KEY: " + e.getKey().get(0)
-          + " VALUE: "
-          + e.getValue());
+      System.out
+          .println("KEY: " + e.getKey().get(0) + " VALUE: " + e.getValue());
       toret.add(e.getKey());
     }
     return toret;
   }
 
+  /**
+   * Rank Templates.
+   * @param terms
+   *          A list of terms.
+   * @param templates
+   *          A list of templates.
+   * @return A ranked list of templates.
+   */
   public List<Template> rankTemplates(List<String> terms,
       List<Template> templates) {
     this.totalSize = templates.size();
@@ -259,7 +335,8 @@ public class Search {
       docMap.put(template, ti);
     }
 
-    List<Map.Entry<Template, Double>> entries = new ArrayList<Map.Entry<Template, Double>>(docMap.entrySet());
+    List<Map.Entry<Template, Double>> entries =
+        new ArrayList<Map.Entry<Template, Double>>(docMap.entrySet());
     Collections.sort(entries, new Comparator<Map.Entry<Template, Double>>() {
       public int compare(Map.Entry<Template, Double> a,
           Map.Entry<Template, Double> b) {
@@ -279,6 +356,15 @@ public class Search {
     return toret;
   }
 
+  /**
+   * Threaded Rank Templates.
+   * @param terms
+   *          A list of terms.
+   * @param templates
+   *          A list of templates.
+   * @return A ranked list of templates.
+   * @throws InterruptedException
+   */
   public List<Template> threadedRankTemplates(List<String> terms,
       List<Template> templates) throws InterruptedException {
 
@@ -311,7 +397,6 @@ public class Search {
 
       @Override
       public void run() {
-        // TODO Auto-generated method stub
         while (!queue.isEmpty()) {
           System.out.println("Not empty");
           task(queue.poll());
@@ -360,13 +445,14 @@ public class Search {
     for (int i = 0; i < numDocs; i++) {
       docMap.put(templates.get(i), sizeList.get(i));
     }
-    List<Map.Entry<Template, AtomicDouble>> entries = new ArrayList<Map.Entry<Template, AtomicDouble>>(docMap.entrySet());
+    List<Map.Entry<Template, AtomicDouble>> entries =
+        new ArrayList<Map.Entry<Template, AtomicDouble>>(docMap.entrySet());
     Collections.sort(entries,
         new Comparator<Map.Entry<Template, AtomicDouble>>() {
           public int compare(Map.Entry<Template, AtomicDouble> a,
               Map.Entry<Template, AtomicDouble> b) {
-            return Double.compare(b.getValue().doubleValue(), a.getValue()
-                .doubleValue());
+            return Double.compare(b.getValue().doubleValue(),
+                a.getValue().doubleValue());
           }
         });
     // List<List<String>> toret = new ArrayList<>();
@@ -442,29 +528,29 @@ public class Search {
     threadPool.shutdownNow();
 
     for (int i = 0; i < numDocs; i++) {
-      System.out.println("DOC: " + docs.get(i).get(0)
-          + " IN LIST: "
-          + sizeList.get(i));
+      System.out.println(
+          "DOC: " + docs.get(i).get(0) + " IN LIST: " + sizeList.get(i));
     }
-    Map<List<String>, AtomicDouble> docMap = new HashMap<List<String>, AtomicDouble>();
+    Map<List<String>, AtomicDouble> docMap =
+        new HashMap<List<String>, AtomicDouble>();
     for (int i = 0; i < numDocs; i++) {
       docMap.put(docs.get(i), sizeList.get(i));
     }
-    List<Map.Entry<List<String>, AtomicDouble>> entries = new ArrayList<Map.Entry<List<String>, AtomicDouble>>(docMap.entrySet());
+    List<Map.Entry<List<String>, AtomicDouble>> entries =
+        new ArrayList<Map.Entry<List<String>, AtomicDouble>>(docMap.entrySet());
     Collections.sort(entries,
         new Comparator<Map.Entry<List<String>, AtomicDouble>>() {
           public int compare(Map.Entry<List<String>, AtomicDouble> a,
               Map.Entry<List<String>, AtomicDouble> b) {
-            return Double.compare(b.getValue().doubleValue(), a.getValue()
-                .doubleValue());
+            return Double.compare(b.getValue().doubleValue(),
+                a.getValue().doubleValue());
           }
         });
     List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<List<String>, AtomicDouble> e : entries) {
       if (e.getValue().doubleValue() != 0.0) {
-        System.out.println("KEY: " + e.getKey().get(0)
-            + " VALUE: "
-            + e.getValue());
+        System.out
+            .println("KEY: " + e.getKey().get(0) + " VALUE: " + e.getValue());
       }
 
       toret.add(e.getKey());

@@ -24,7 +24,7 @@ the page is written in -->
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-<input type="text" id="searchPage" placeholder="Search Page">
+<!--<input type="text" id="searchPage" placeholder="Search Page">-->
   <a class="text-black" href="/home">Login / Logout</a>
 <!-- <a class="text-black" href="/patients/1/forms">forms</a>-->
   <a class="text-black" href="/Dashboard/1">My Dashboard</a>

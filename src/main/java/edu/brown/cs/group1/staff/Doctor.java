@@ -8,10 +8,20 @@ import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.StaffDatabase;
 import edu.brown.cs.group1.patient.Patient;
 
+/**
+ * Doctor class.
+ * @author juliannerudner
+ *
+ */
 public class Doctor extends Staff {
 
   private List<Patient> patientList;
 
+  /**
+   * Dpctpr Constructor.
+   * @param i
+   *          Doctor ID.
+   */
   public Doctor(int i) {
     staffId = i;
     // permissions = new HashMap<Integer, Boolean>();
@@ -22,6 +32,19 @@ public class Doctor extends Staff {
     patientList = new ArrayList<Patient>();
   }
 
+  /**
+   * Doctor Constructor.
+   * @param i
+   *          ID.
+   * @param n
+   *          Name.
+   * @param a
+   *          isAdmin.
+   * @param d
+   *          isDoctor.
+   * @param w
+   *          isWorking.
+   */
   public Doctor(int i,
       // Map<Integer, Boolean> p,
       String n,
@@ -37,26 +60,49 @@ public class Doctor extends Staff {
     patientList = new ArrayList<Patient>();
   }
 
+  /**
+   * Setter for staff db.
+   * @param b
+   *          db being set to.
+   */
   public void setStaffDb(StaffDatabase b) {
     staffdb = b;
   }
 
+  /**
+   * Setter for patient db.
+   * @param b
+   *          db being set to.
+   */
   public void setPatientDb(PatientDatabase b) {
     patientdb = b;
   }
 
+  /**
+   * Add Patient method.
+   * @param p
+   *          Patient being added.
+   */
   public void addPatient(Patient p) {
     if (isDoctor) {
       patientList.add(p);
       try {
         patientdb.savePatients(p);
       } catch (SQLException e) {
-        // TODO Auto-generated catch block
         System.out.println("ERROR: Failed to save patient to database");
       }
     }
   }
 
+  /**
+   * Update Patient
+   * @param field
+   *          Field being updated.
+   * @param value
+   *          Value being updated to.
+   * @param p
+   *          Patient being updated.
+   */
   public void updatePatient(String field, String value, Patient p) {
     try {
       patientdb.update(field, value, p);
@@ -72,7 +118,6 @@ public class Doctor extends Staff {
    *          Patient to remove
    */
   public void removePatient(Patient p) {
-    // TODO: Remove method
     if (isDoctor) {
       patientList.remove(p);
       try {
@@ -195,7 +240,6 @@ public class Doctor extends Staff {
 
   @Override
   public List<Staff> getStaff() {
-    // TODO: Get staff method for SQL maybe? Only if we need it
     return staffList;
   }
 
@@ -216,7 +260,6 @@ public class Doctor extends Staff {
 
   @Override
   public void setName(String name1) {
-    // TODO Auto-generated method stub
     name = name1;
     try {
       staffdb.update("name", name1, this);
