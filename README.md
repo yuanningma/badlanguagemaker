@@ -3,7 +3,6 @@
 ## Issues
 * Color coding
 * Centering elements/structuring pages
-* Routing
 * Testing
 * Checkstyle
 * Prep for presentation 
