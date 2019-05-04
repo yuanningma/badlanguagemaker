@@ -46,7 +46,7 @@ public class CreateTemplateHandler implements Route {
     // Similarity check before saving to database.
     // Min value for mostSimil is hard-coded for now.
 
-    List<Template> simil = checker.mostSimil(template, 0.5);
+    List<Template> simil = checker.mostSimil(template, 0.49);
 
     if (simil.isEmpty()) {
       // Create template in database with labels from frontend.
