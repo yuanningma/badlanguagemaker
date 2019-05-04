@@ -28,7 +28,7 @@ public class FormsDatabase extends Database {
   private Connection dbConn;
   private TagsDatabase tb = new TagsDatabase("data/database/tags.sqlite3");
   private Map<Integer, Template> templateMap;
-  private int nextFormId = 0;
+  private int nextFormId = 100;
 
   /**
    * Constructor for Form Database.
@@ -42,7 +42,7 @@ public class FormsDatabase extends Database {
       String url = "jdbc:sqlite:" + path;
       dbConn = DriverManager.getConnection(url);
       Statement stat = dbConn.createStatement();
-      nextFormId = getCount();
+      nextFormId = getCount() + nextFormId;
       stat.executeUpdate("PRAGMA foreign_keys = ON;");
       stat.close();
 

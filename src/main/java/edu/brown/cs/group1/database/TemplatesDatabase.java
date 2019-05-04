@@ -22,7 +22,7 @@ import edu.brown.cs.group1.template.Template;
  */
 public class TemplatesDatabase extends Database {
   private Connection dbConn;
-  private int nextTempId = 0;
+  private int nextTempId = 10;
 
   /**
    * Constructor for Template Database.
@@ -37,7 +37,7 @@ public class TemplatesDatabase extends Database {
       Statement stat = dbConn.createStatement();
       stat.executeUpdate("PRAGMA foreign_keys = ON;");
       stat.close();
-      nextTempId = getCount();
+      nextTempId = getCount() + nextTempId;
 
     } catch (ClassNotFoundException exp) {
       System.out.println("ERROR: ClassNotFoundExeption TemplatesDatabase.java");
@@ -55,8 +55,10 @@ public class TemplatesDatabase extends Database {
    *          the template to be saved.
    */
   public void saveTemplate(Template template) {
+
     template.setTemplateId(nextTempId);
     nextTempId++;
+    System.out.println(nextTempId);
     if (dbConn != null) {
       try (
           PreparedStatement prep1 = dbConn.prepareStatement(
