@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a01bfe0f-9cca-456a-ae70-2b0ab575f728" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="384" column="17" selection-start-line="384" selection-start-column="17" selection-end-line="384" selection-end-column="17" />
+            <state relative-caret-position="6000">
+              <caret line="400" column="53" selection-start-line="400" selection-start-column="53" selection-end-line="400" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="29" column="73" lean-forward="true" selection-start-line="29" selection-start-column="73" selection-end-line="29" selection-end-column="73" />
+              <caret line="29" column="73" selection-start-line="29" selection-start-column="73" selection-end-line="29" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -416,7 +415,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556984085950" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556984094069" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
@@ -561,7 +560,7 @@
       <workItem from="1556833130764" duration="2387000" />
       <workItem from="1556841888971" duration="267000" />
       <workItem from="1556910963408" duration="9998000" />
-      <workItem from="1556982637033" duration="960000" />
+      <workItem from="1556982637033" duration="1898000" />
     </task>
     <servers />
   </component>
@@ -598,7 +597,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143977000" />
+    <option name="totallyTimeSpent" value="144915000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -611,7 +610,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="716" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2657512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -637,7 +635,7 @@
       <window_info anchor="bottom" id="Thumbnails" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.05033557" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.050080776" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Maven" order="5" />
@@ -1019,7 +1017,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="29" column="73" lean-forward="true" selection-start-line="29" selection-start-column="73" selection-end-line="29" selection-end-column="73" />
+          <caret line="29" column="73" selection-start-line="29" selection-start-column="73" selection-end-line="29" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1038,8 +1036,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/group1/database/FormsDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="384" column="17" selection-start-line="384" selection-start-column="17" selection-end-line="384" selection-end-column="17" />
+        <state relative-caret-position="6000">
+          <caret line="400" column="53" selection-start-line="400" selection-start-column="53" selection-end-line="400" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
