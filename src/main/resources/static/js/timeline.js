@@ -46,20 +46,37 @@ $(document).ready(() => {
       console.log(forms[i].templateId);
       let rel = vals[i];
       let colly = "content";
+      let todispl = false;
       if (rel > 70) {
           colly="redcontent";
+          todispl = true;
       } else if (rel > 30) {
           colly="yellowcontent";
-      } else {
+          todispl = true;
+      } else if (rel >= 0){
           colly="greencontent";
+          todispl = true;
       }
       let ray = forms[i].timeForFront;
-
+      console.log("VALS I IS: " + vals[i]);
+      if (todispl) {
           $('#last').before(
             "<div class="+side+">"+
       "<div class="+colly+">"+
         "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"<br>"+vals[i]+"%<br>"+ray+"<br></a>"+"</div></div>"
             )
+      } else {
+          $('#last').before(
+            "<div class="+side+">"+
+      "<div class="+colly+">"+
+        "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"<br>"+ray+"<br></a>"+"</div></div>"
+            )
+      }
+    //       $('#last').before(
+    //         "<div class="+side+">"+
+    //   "<div class="+colly+">"+
+    //     "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"<br>"+vals[i]+"%<br>"+ray+"<br></a>"+"</div></div>"
+    //         )
             }
 
 //        $myTimeline.empty();
