@@ -26,7 +26,7 @@
 			    <#--<a class="dropdown-item" href="#">Something else here</a>-->
 			    </#list>
 			  </div>
-			  <#--<button onclick="window.location.href='/templates/new'" class="btn btn-primary">Create Template</button>-->
+			  <button onclick="window.location.href='/templates/new'" class="btn btn-primary">Create Template</button>
 			</div>
 	
     	
