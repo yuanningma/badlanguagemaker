@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.group1.search.RelevanceTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.55 sec
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.46 sec
+>>>>>>> 2ff2514de710d64b1e11d8a7a64dd57d47bfcbd5

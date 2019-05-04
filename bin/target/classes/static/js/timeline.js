@@ -18,8 +18,11 @@ $(document).ready(() => {
       ortho: document.getElementById("Orthopedic").checked,
       repro: document.getElementById("Reproductive").checked,
 //      array: arr
+<<<<<<< HEAD
       startDate: document.getElementById("date1").value,
       endDate: document.getElementById("date2").value
+=======
+>>>>>>> 2ff2514de710d64b1e11d8a7a64dd57d47bfcbd5
 
     }
     $myTimeline.children("div").not(':last').remove();
@@ -48,6 +51,7 @@ $(document).ready(() => {
       console.log(forms[i].templateId);
       let rel = vals[i];
       let colly = "content";
+<<<<<<< HEAD
       let todispl = false;
       if (rel > 70) {
           colly="redcontent";
@@ -72,6 +76,21 @@ $(document).ready(() => {
             "<div class="+side+">"+
       "<div class="+colly+">"+
         "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"<br>"+ray+"<br></a>"+"</div></div>"
+=======
+      if (rel > 70) {
+          colly="redcontent";
+      } else if (rel > 30) {
+          colly="yellowcontent";
+      } else {
+          colly="greencontent";
+      }
+      let ray = forms[i].timeForFront;
+
+          $('#last').before(
+            "<div class="+side+">"+
+      "<div class="+colly+">"+
+        "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"<br>"+vals[i]+"%<br>"+ray+"<br></a>"+"</div></div>"
+>>>>>>> 2ff2514de710d64b1e11d8a7a64dd57d47bfcbd5
             )
       }
     //       $('#last').before(
