@@ -374,6 +374,12 @@ public final class Main {
           new Comparator<Map.Entry<Template, Double>>() {
             public int compare(Entry<Template, Double> arg0,
                 Entry<Template, Double> arg1) {
+              if (arg0.getKey().getDate() == null) {
+                return 0;
+              }
+              if (arg1.getKey().getDate() == null) {
+                return -1;
+              }
               return ((arg1.getKey()
                   .getDate()
                   .compareTo(arg0.getKey().getDate())));
