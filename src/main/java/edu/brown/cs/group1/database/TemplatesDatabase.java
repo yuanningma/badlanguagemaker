@@ -22,7 +22,7 @@ import edu.brown.cs.group1.template.Template;
  */
 public class TemplatesDatabase extends Database {
   private Connection dbConn;
-  private int nextTempId = 15;
+  private int nextTempId = 0;
 
   /**
    * Constructor for Template Database.
@@ -37,6 +37,7 @@ public class TemplatesDatabase extends Database {
       Statement stat = dbConn.createStatement();
       stat.executeUpdate("PRAGMA foreign_keys = ON;");
       stat.close();
+      nextTempId = getCount();
 
     } catch (ClassNotFoundException exp) {
       System.out.println("ERROR: ClassNotFoundExeption TemplatesDatabase.java");
@@ -194,4 +195,28 @@ public class TemplatesDatabase extends Database {
     }
     return templates;
   }
+
+    /**
+     * This method retrieved the count of forms currently in the database.
+     * @return
+     *          a integer representing the number of forms in the database.
+     * @throws SQLException
+     *          thrown when the a SQL Exception is thrown.
+     */
+    public Integer getCount() throws SQLException {
+      Integer count = 0;
+        if (dbConn != null) {
+            PreparedStatement prep;
+            String query = "SELECT COUNT(templateId) FROM template;";
+            prep = dbConn.prepareStatement(query);
+            ResultSet rs = prep.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+            rs.close();
+            prep.close();
+        }
+        return count;
+    }
 }

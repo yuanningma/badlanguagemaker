@@ -42,6 +42,7 @@ public class FormsDatabase extends Database {
       String url = "jdbc:sqlite:" + path;
       dbConn = DriverManager.getConnection(url);
       Statement stat = dbConn.createStatement();
+      nextFormId = getCount();
       stat.executeUpdate("PRAGMA foreign_keys = ON;");
       stat.close();
 
@@ -380,5 +381,29 @@ public class FormsDatabase extends Database {
       System.out.println("SQL Exception FormsDatabase updateForm");
       // e.printStackTrace();
     }
+  }
+
+    /**
+     * This method retrieved the count of forms currently in the database.
+     * @return
+     *          a integer representing the number of forms in the database.
+     * @throws SQLException
+     *          thrown when the a SQL Exception is thrown.
+     */
+  public Integer getCount() throws SQLException {
+    Integer count = 0;
+    if (dbConn != null) {
+      PreparedStatement prep;
+      String query = "SELECT COUNT(formId) FROM form;";
+      prep = dbConn.prepareStatement(query);
+      ResultSet rs = prep.executeQuery();
+
+      while (rs.next()) {
+        count = rs.getInt(1);
+      }
+      rs.close();
+      prep.close();
+    }
+    return count;
   }
 }

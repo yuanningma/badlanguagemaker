@@ -37,37 +37,37 @@ public class StaffDatabaseTest {
 
   @Test
   public void testsaveNewStaff() {
-      try{
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(2, "Thom Barnet", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Admin(3, "Beitris Mullins", true, false, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(4, "Guthrie McCloughlin", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(5, "Glenda Raecroft", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(6, "Gates Hepher", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(7, "Felice Kenward", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(8, "Klara Payle", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(9, "Gale Bilton", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(10, "Diana-marie Jantzen", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(11, "Rofolphe Manning", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(12, "Ester Mottley", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(13, "Alair Bonafant", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-          member1 = new Doctor(14, "Athena Hinners", false, true, true);
-          staffDatabase.saveNewStaff(member1);
-      } catch(SQLException sql) {
-          sql.printStackTrace();
-      }
+//      try{
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(2, "Thom Barnet", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Admin(3, "Beitris Mullins", true, false, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(4, "Guthrie McCloughlin", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(5, "Glenda Raecroft", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(6, "Gates Hepher", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(7, "Felice Kenward", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(8, "Klara Payle", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(9, "Gale Bilton", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(10, "Diana-marie Jantzen", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(11, "Rofolphe Manning", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(12, "Ester Mottley", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(13, "Alair Bonafant", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//          member1 = new Doctor(14, "Athena Hinners", false, true, true);
+//          staffDatabase.saveNewStaff(member1);
+//      } catch(SQLException sql) {
+//          sql.printStackTrace();
+//      }
 
   }
 //    try {
