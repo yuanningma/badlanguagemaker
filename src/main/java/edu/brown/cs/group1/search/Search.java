@@ -82,7 +82,7 @@ public class Search {
 
     for (int i = 0; i < doc.size(); i++) {
       System.out.println("TERM: " + term + ", DOC WORD: " + doc.get(i));
-      if (term.equals(doc.get(i))) {
+      if (term.toLowerCase().equals(doc.get(i).toLowerCase())) {
         freq += 1;
       }
     }

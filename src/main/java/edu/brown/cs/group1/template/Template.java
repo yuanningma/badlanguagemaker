@@ -1,6 +1,9 @@
 package edu.brown.cs.group1.template;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import edu.brown.cs.group1.field.TemplateFields;
@@ -16,6 +19,9 @@ public class Template {
   private List<String> tags;
   private List<String> trueContent;
   private String templateName;
+  private long time;
+  private String timeForFront;
+  private Date date;
 
   /**
    * Constructor.
@@ -32,6 +38,9 @@ public class Template {
     this.templateName = templateName;
     this.tags = new ArrayList<String>();
     this.trueContent = new ArrayList<String>();
+    this.time = 0;
+    this.timeForFront = null;
+    this.date = null;
   }
 
   /**
@@ -41,6 +50,55 @@ public class Template {
    */
   public Template(TemplateFields fields) {
     this.fields = fields;
+  }
+
+  /**
+   * Getter for the time of this form.
+   * @return Time of the form.
+   */
+  public long getTime() {
+    return this.time;
+  }
+
+  /**
+   * Getter for String representation of time.
+   * @return Time of the form.
+   */
+  public String getTimeForFront() {
+    return this.timeForFront;
+  }
+
+  /**
+   * Setter for String time.
+   * @param s
+   *          String time.
+   */
+  public void setTimeForFront(String s) {
+    this.timeForFront = s;
+    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    try {
+      this.date = sdf.parse(s);
+      System.out.println("PARSED: THIS DATE IS: " + this.date);
+    } catch (ParseException e) {
+      System.out.println("ERROR: Parsing failed on date!");
+    }
+  }
+
+  /**
+   * Getter for date.
+   * @return date.
+   */
+  public Date getDate() {
+    return this.date;
+  }
+
+  /**
+   * Setter for time.
+   * @param t
+   *          Time/date of this form.
+   */
+  public void setTime(long t) {
+    this.time = t;
   }
 
   /**
