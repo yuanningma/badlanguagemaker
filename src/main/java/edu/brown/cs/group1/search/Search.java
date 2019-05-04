@@ -179,14 +179,12 @@ public class Search {
       sizeList.add(new AtomicDouble());
     }
 
-    List<Template> toret = new ArrayList<Template>();
     sizeList = Collections.synchronizedList(sizeList);
 
     class Worker implements Runnable {
       private final BlockingQueue<String> queue;
       List<AtomicDouble> results;
       List<Template> temps;
-      List<List<String>> docs;
 
       Worker(BlockingQueue<String> q,
           List<AtomicDouble> r,
@@ -194,11 +192,6 @@ public class Search {
         queue = q;
         results = r;
         temps = templates;
-        // docs = new ArrayList<List<String>>();
-        // for (int i = 0; i < temps.size(); i++) {
-        // docs.add(temps.get(i).getTrueContent());
-        // }
-        // docs = documents;
       }
 
       @Override
@@ -217,7 +210,7 @@ public class Search {
           // System.out.println("x is " + (String) x);
           double sum = tfIdf((String) x, temps.get(i).getTrueContent());
           // double sum = newtfidf((String) x, docs);
-          System.out.println("I AM TASKED WITH " + sum);
+          // System.out.println("I AM TASKED WITH " + sum);
           results.get(i).addAndGet(sum);
         }
       }
@@ -243,14 +236,6 @@ public class Search {
 
     threadPool.shutdownNow();
 
-    // for (int i = 0; i < numDocs; i++) {
-    // System.out.println("DOC: " + templates.get(i)
-    // .getFields()
-    // .getContent()
-    // .get(0)
-    // + " IN LIST: "
-    // + sizeList.get(i));
-    // }
     Map<Template, AtomicDouble> docMap = new HashMap<Template, AtomicDouble>();
     for (int i = 0; i < numDocs; i++) {
       docMap.put(templates.get(i), sizeList.get(i));
@@ -265,19 +250,11 @@ public class Search {
                 a.getValue().doubleValue());
           }
         });
-    // List<List<String>> toret = new ArrayList<>();
+
+    // System.out.println("IN SEARCH");
     // for (Map.Entry<Template, AtomicDouble> e : entries) {
-    // if (e.getValue().doubleValue() != 0.0) {
-    // System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
-    // + " VALUE: "
-    // + e.getValue());
+    // System.out.println(e.getValue().doubleValue());
     // }
-    // toret.add(e.getKey());
-    // }
-    System.out.println("IN SEARCH");
-    for (Map.Entry<Template, AtomicDouble> e : entries) {
-      System.out.println(e.getValue().doubleValue());
-    }
     return entries;
   }
 

@@ -5,9 +5,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -212,22 +216,50 @@ public final class Main {
 
     // TODO: separate long and string version of date
     @Override
-    public String handle(Request arg0, Response arg1) throws Exception {
+    public String handle(Request arg0, Response arg1) {
       // TODO Auto-generated method stub
       QueryParamsMap qm = arg0.queryMap();
       System.out.println(currID);
 
       // System.out.println("VALUES: " + qm.values());
 
+      String startDate = qm.value("startDate").trim();
+      String endDate = qm.value("endDate").trim();
+      boolean usingDates = false;
+      if (!startDate.equals("") && !endDate.equals("")) {
+        usingDates = true;
+      }
+      Date sD = null;
+      Date eD = null;
+      if (usingDates) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+          sD = sdf.parse(startDate);
+          eD = sdf.parse(endDate);
+          Calendar c = Calendar.getInstance();
+          c.setTime(eD);
+          c.add(Calendar.DAY_OF_MONTH, 1);
+          eD = sdf.parse(sdf.format(c.getTime()));
+          if (sD.compareTo(eD) > 0) {
+            System.out.println(
+                "ERROR: Please make sure the start date comes before the end!");
+            usingDates = false;
+          }
+          System.out.println("SD IS: " + sD + " ED IS: " + eD);
+        } catch (ParseException e1) {
+          System.out.println("ERROR: Failed to parse date!");
+          usingDates = false;
+        }
+      }
+
       String searchTerm = qm.value("search");
 
       searchTerm = searchTerm.replaceAll("[^A-za-z ]", "").trim();
-      System.out.println("SEARCHTERM IS: x" + searchTerm + "x");
+      // System.out.println("SEARCHTERM IS: x" + searchTerm + "x");
       String[] words = searchTerm.split("\\s+");
 
       System.out.println("SEARCHED: " + searchTerm);
       boolean isEmptyQuery = searchTerm.equals("");
-      // List<String> terms = r.generateTerms(searchTerm);
       List<String> terms = new ArrayList<String>();
       System.out.println("WORDS IS: " + words);
       for (String s : words) {
@@ -281,20 +313,35 @@ public final class Main {
         terms.addAll(r.generateTerms("reproductive"));
         isEmptyQuery = false;
       }
-      System.out.println("TERMS IS: " + terms);
-      // System.out.println("HEPA TEST: " + qm.value("hepa"));
-      // List<Template> patientForms =
-      // formDb.getAllForms(Integer.parseInt(currID));
-
-      // getAllForms probably wrong?
+      // System.out.println("TERMS IS: " + terms);
       List<Template> patientForms =
           r.getFormsDatabase().getAllForms(Integer.parseInt(currID));
 
       for (int i = 0; i < patientForms.size(); i++) {
         Template form = patientForms.get(i);
-        List<String> trueContent = new ArrayList<String>();
-        trueContent.addAll(r.parseForMe(form.getFields().getContent()));
-        form.setTrueContent(trueContent);
+        if (usingDates) {
+          try {
+            if (form.getDate().compareTo(sD) >= 0
+                && form.getDate().compareTo(eD) <= 0) {
+              List<String> trueContent = new ArrayList<String>();
+              trueContent.addAll(r.parseForMe(form.getFields().getContent()));
+              form.setTrueContent(trueContent);
+            } else {
+              System.out.println("REMOVING " + patientForms.get(i).getDate());
+              patientForms.remove(i);
+            }
+          } catch (NullPointerException e) {
+            System.out.println("ERROR: Dates entered in incorrectly!");
+            usingDates = false;
+            continue;
+          }
+
+        } else {
+          List<String> trueContent = new ArrayList<String>();
+          trueContent.addAll(r.parseForMe(form.getFields().getContent()));
+          form.setTrueContent(trueContent);
+        }
+
       }
 
       List<Map.Entry<Template, AtomicDouble>> sorted =
@@ -310,7 +357,6 @@ public final class Main {
         sortedForms.add(e.getKey());
         System.out.println(terms.size());
         if (!isEmptyQuery) {
-          System.out.println("Yes, we searched for something");
           tfidfs.add((100) * e.getValue().doubleValue() / maxRanking);
 
           dateSort.put(e.getKey(),
@@ -343,16 +389,6 @@ public final class Main {
         dateSortedTemps.add(entry.getKey());
         newTfIdfs.add(entry.getValue());
       }
-      // System.out.println(patientForms);
-
-      // Map<String, Object> vars = ImmutableMap.of("forms",
-      // patientForms,
-      // "id",
-      // currID);
-
-      // Map<String, Object> vars =
-      // ImmutableMap.of("forms", sortedForms, "id", currID, "vals", tfidfs);
-
       Map<String, Object> vars = ImmutableMap
           .of("forms", dateSortedTemps, "id", currID, "vals", newTfIdfs);
 

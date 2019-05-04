@@ -16,8 +16,10 @@ $(document).ready(() => {
       hepato: document.getElementById("Hepato").checked,
       psycho: document.getElementById("Psychiatric").checked,
       ortho: document.getElementById("Orthopedic").checked,
-      repro: document.getElementById("Reproductive").checked
+      repro: document.getElementById("Reproductive").checked,
 //      array: arr
+      startDate: document.getElementById("date1").value,
+      endDate: document.getElementById("date2").value
 
     }
     $myTimeline.children("div").not(':last').remove();
