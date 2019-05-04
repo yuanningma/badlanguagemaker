@@ -381,4 +381,8 @@ public class FormsDatabase extends Database {
       // e.printStackTrace();
     }
   }
+
+  public Integer getCount() throws SQLException {
+    String q=
+  }
 }
