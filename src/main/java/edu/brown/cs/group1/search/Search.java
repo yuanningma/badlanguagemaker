@@ -81,7 +81,7 @@ public class Search {
     double freq = 0;
 
     for (int i = 0; i < doc.size(); i++) {
-      System.out.println("TERM: " + term + ", DOC WORD: " + doc.get(i));
+      // System.out.println("TERM: " + term + ", DOC WORD: " + doc.get(i));
       if (term.toLowerCase().equals(doc.get(i).toLowerCase())) {
         freq += 1;
       }
@@ -106,7 +106,6 @@ public class Search {
         numDocs += 1;
       }
     }
-
     return Math.log(totalSize / (numDocs + 1));
   }
 
@@ -119,9 +118,6 @@ public class Search {
    * @return The TF-IDF score of a document.
    */
   public double tfIdf(String term, List<String> doc) {
-    // if (listCache.containsKey(doc)) {
-    // return listCache.get(doc);
-    // }
     double tf = termFrequency(term, doc);
     System.out.println("term is " + term + " tf is " + tf);
     double idf;
@@ -205,16 +201,10 @@ public class Search {
 
       void task(Object x) {
         for (int i = 0; i < temps.size(); i++) {
-          // System.out.println("STRING IS: " + (String) x);
-          // System.out.println("yes hello it's me " + (String) x);
-          // System.out.println("x is " + (String) x);
           double sum = tfIdf((String) x, temps.get(i).getTrueContent());
-          // double sum = newtfidf((String) x, docs);
-          // System.out.println("I AM TASKED WITH " + sum);
           results.get(i).addAndGet(sum);
         }
       }
-
     }
 
     int nThreads = 4;
@@ -250,11 +240,6 @@ public class Search {
                 a.getValue().doubleValue());
           }
         });
-
-    // System.out.println("IN SEARCH");
-    // for (Map.Entry<Template, AtomicDouble> e : entries) {
-    // System.out.println(e.getValue().doubleValue());
-    // }
     return entries;
   }
 
@@ -344,10 +329,6 @@ public class Search {
    */
   public List<Template> threadedRankTemplates(List<String> terms,
       List<Template> templates) throws InterruptedException {
-
-    // for (String s : terms) {
-    // System.out.println("TERM: " + s);
-    // }
     this.totalSize = templates.size();
     int numDocs = templates.size();
     List<AtomicDouble> sizeList = new ArrayList<AtomicDouble>();
