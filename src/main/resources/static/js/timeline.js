@@ -1,9 +1,9 @@
 $(document).ready(() => {
     const $myTimeline = $("#myTimeline");
-    
-    
+
+
   $('#searchTL').on('click', (event)=> {
-	  
+
 //	  let arr = [document.getElementById("Cardiovascular"), document.getElementById("Respiratory")];
     const postParameters = {
       timeline: document.getElementById("myTimeline").value,
@@ -18,12 +18,12 @@ $(document).ready(() => {
       ortho: document.getElementById("Orthopedic").checked,
       repro: document.getElementById("Reproductive").checked
 //      array: arr
-      
+
     }
     $myTimeline.children("div").not(':last').remove();
     console.log("ohhithere");
     $.post("/relevance", postParameters, responseJSON => {
-    	
+
         // TODO: Parse the JSON response into a JavaScript object.
         const responseObject = JSON.parse(responseJSON);
         let forms=responseObject.forms;
@@ -33,7 +33,7 @@ $(document).ready(() => {
         var i;
         var side;
 
-        
+
 
         for (let i = 0, len = forms.length; i < len; i++) {
 
@@ -47,11 +47,11 @@ $(document).ready(() => {
       let rel = vals[i];
       let colly = "content";
       if (rel > 70) {
-          colly="greencontent";
+          colly="redcontent";
       } else if (rel > 30) {
           colly="yellowcontent";
       } else {
-          colly="redcontent";
+          colly="greencontent";
       }
       let ray = forms[i].timeForFront;
 
