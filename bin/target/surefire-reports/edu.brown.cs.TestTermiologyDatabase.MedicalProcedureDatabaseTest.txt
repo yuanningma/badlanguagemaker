@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
-=======
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
->>>>>>> 2ff2514de710d64b1e11d8a7a64dd57d47bfcbd5
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec

@@ -61,15 +61,17 @@ public class PastFormsHandler implements TemplateViewRoute {
       complFormNames.add(form.getTemplateName());
       formMap.put(Integer.toString(form.getTemplateId()),
           form.getTemplateName());
-      System.out.println("Template ID: " + form.getTemplateId()
-          + " , Template Name: "
-          + form.getTemplateName());
+      // System.out.println("Template ID: " + form.getTemplateId()
+      // + " , Template Name: "
+      // + form.getTemplateName());
     }
     List<Template> templates = tempDb.getAllTemplates();
     Map<String, Integer> nameToId = new HashMap<>();
     for (Template temp : templates) {
+      // System.out.println(temp.getTemplateName());
       nameToId.put(temp.getTemplateName(), temp.getTemplateId());
     }
+    // System.out.println("SIZE IS: " + nameToId.size());
 
     Map<String,
         Object> variables = ImmutableMap.of("title",
