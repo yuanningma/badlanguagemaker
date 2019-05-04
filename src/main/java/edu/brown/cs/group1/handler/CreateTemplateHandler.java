@@ -41,8 +41,11 @@ public class CreateTemplateHandler implements Route {
     ExactSimilarity checker = new ExactSimilarity(tempDb);
     QueryParamsMap qm = req.queryMap();
     String labelsString = qm.value("fields");
+    String formName = qm.value("name");
+    System.out.println(formName);
+    System.out.println(labelsString);
     TemplateFields labels = TemplateFields.valueOf(labelsString);
-    Template template = new Template(-1, labels, "test");
+    Template template = new Template(-1, labels, formName);
     // Similarity check before saving to database.
     // Min value for mostSimil is hard-coded for now.
 

@@ -6,9 +6,9 @@
 
 
 <form>
-<center>
-<input id="formName" type="text" class="form-control" aria-describedby="field1" placeholder="Enter form name">
-  </center>
+    <center>
+<input type="text" id="formName" name = "formName"  class="form-control" aria-describedby="field1" placeholder="Enter form name">
+    </center>
   <div class="form-group">
     <label id="label1" for="field1">Field</label>
     <input id="field1" type="text" class="form-control" aria-describedby="field1" placeholder="Enter field name">
