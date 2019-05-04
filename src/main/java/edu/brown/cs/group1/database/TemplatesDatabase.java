@@ -196,27 +196,26 @@ public class TemplatesDatabase extends Database {
     return templates;
   }
 
-    /**
-     * This method retrieved the count of forms currently in the database.
-     * @return
-     *          a integer representing the number of forms in the database.
-     * @throws SQLException
-     *          thrown when the a SQL Exception is thrown.
-     */
-    public Integer getCount() throws SQLException {
-      Integer count = 0;
-        if (dbConn != null) {
-            PreparedStatement prep;
-            String query = "SELECT COUNT(templateId) FROM template;";
-            prep = dbConn.prepareStatement(query);
-            ResultSet rs = prep.executeQuery();
+  /**
+   * This method retrieved the count of forms currently in the database.
+   * @return a integer representing the number of forms in the database.
+   * @throws SQLException
+   *           thrown when the a SQL Exception is thrown.
+   */
+  public Integer getCount() throws SQLException {
+    Integer count = 0;
+    if (dbConn != null) {
+      PreparedStatement prep;
+      String query = "SELECT COUNT(templateId) FROM template;";
+      prep = dbConn.prepareStatement(query);
+      ResultSet rs = prep.executeQuery();
 
-            while (rs.next()) {
-                count = rs.getInt(1);
-            }
-            rs.close();
-            prep.close();
-        }
-        return count;
+      while (rs.next()) {
+        count = rs.getInt(1);
+      }
+      rs.close();
+      prep.close();
     }
+    return count;
+  }
 }
