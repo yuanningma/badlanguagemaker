@@ -44,12 +44,21 @@ $(document).ready(() => {
           }
       console.log(forms[i].fields);
       console.log(forms[i].templateId);
+      let rel = vals[i];
+      let colly = "content";
+      if (rel > 70) {
+          colly="greencontent";
+      } else if (rel > 30) {
+          colly="yellowcontent";
+      } else {
+          colly="redcontent";
+      }
+      let ray = forms[i].timeForFront;
 
           $('#last').before(
             "<div class="+side+">"+
-      "<div class="+"content"+">"+
-        "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+" " +vals[i]+"</a>"+
-        "</div></div>"
+      "<div class="+colly+">"+
+        "<a href='/patients/"+id+"/forms/"+forms[i].templateId+"''>"+forms[i].templateName+"<br>"+vals[i]+"%<br>"+ray+"<br></a>"+"</div></div>"
             )
             }
 

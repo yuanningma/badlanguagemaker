@@ -6,12 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.text.SimpleDateFormat;
 
 import edu.brown.cs.group1.field.TemplateFields;
 import edu.brown.cs.group1.template.Template;
@@ -99,7 +99,8 @@ public class FormsDatabase extends Database {
         prep.setString(3, formInfo.toString());
         prep.setString(4, tagList.toString());
         prep.setString(5, template.getTemplateName());
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat formatter =
+            new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         prep.setString(6, formatter.format(date));
         prep.addBatch();
@@ -165,6 +166,7 @@ public class FormsDatabase extends Database {
         prep.executeBatch();
         prep.close();
         newTempl.setTags(tagList);
+        newTempl.setTime(date.getTime());
         return true;
       } catch (SQLException sql) {
         // System.out.println("SQL Exception FormsDatabase saveForm");
@@ -254,11 +256,18 @@ public class FormsDatabase extends Database {
           // // System.out.println("formInput is: " + formInput);
           // =======
           String name = rs.getString(5);
+          Long date = rs.getLong(6);
+          // String dates = rs.getString(6);
+          // System.out.println("DATE IS: " + date);
+          // System.out.println("STRING DATE IS: " + dates);
           String formInput =
               rs.getString(3).replaceAll("\\[", "").replaceAll("\\]", "");
 
           TemplateFields fields = TemplateFields.valueOf(formInput);
-          forms.add(new Template(formID, fields, name));
+          Template newForm = new Template(formID, fields, name);
+          newForm.setTime(date);
+          newForm.setTimeForFront(rs.getString(6));
+          forms.add(newForm);
           // System.out.println(formID);
           // System.out.println("CONTENTO: " + fields.getContent());
         }

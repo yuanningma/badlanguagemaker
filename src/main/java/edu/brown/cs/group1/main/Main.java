@@ -6,8 +6,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.util.concurrent.AtomicDouble;
@@ -78,8 +82,10 @@ public final class Main {
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
-    parser.accepts("port").withRequiredArg().ofType(Integer.class).defaultsTo(
-        DEFAULT_PORT);
+    parser.accepts("port")
+        .withRequiredArg()
+        .ofType(Integer.class)
+        .defaultsTo(DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
     if (options.has("gui")) {
@@ -204,6 +210,7 @@ public final class Main {
       r = new Relevance();
     }
 
+    // TODO: separate long and string version of date
     @Override
     public String handle(Request arg0, Response arg1) throws Exception {
       // TODO Auto-generated method stub
@@ -213,8 +220,14 @@ public final class Main {
       // System.out.println("VALUES: " + qm.values());
 
       String searchTerm = qm.value("search");
+      String[] words = searchTerm.replaceAll("[^A-za-z ]", "").split("\\s+");
+
       System.out.println("SEARCHED: " + searchTerm);
-      List<String> terms = r.generateTerms(searchTerm);
+      // List<String> terms = r.generateTerms(searchTerm);
+      List<String> terms = new ArrayList<String>();
+      for (String s : words) {
+        terms.addAll(r.generateTerms(s));
+      }
       if (qm.value("cardio").equals("true")) {
         System.out.println(r.generateTerms("cardio"));
         terms.addAll(r.generateTerms("cardio"));
@@ -291,17 +304,55 @@ public final class Main {
       for (String term : terms) {
         System.out.println("CURRENT TERMS: " + term);
       }
+
       List<Map.Entry<Template, AtomicDouble>> sorted =
           r.getRankings(terms, null, patientForms);
 
+      Double maxRanking = sorted.get(0).getValue().doubleValue();
       List<Template> sortedForms = new ArrayList<Template>();
+
       List<Double> tfidfs = new ArrayList<Double>();
+      List<Map.Entry<Template, AtomicDouble>> newSorted = sorted;
 
+      Map<Template, Double> dateSort = new HashMap<Template, Double>();
       for (Map.Entry<Template, AtomicDouble> e : sorted) {
-
         sortedForms.add(e.getKey());
-        tfidfs.add(e.getValue().doubleValue());
+        tfidfs.add((100) * e.getValue().doubleValue() / maxRanking);
 
+        dateSort.put(e.getKey(),
+            (100) * e.getValue().doubleValue() / maxRanking);
+        System.out.println(e.getKey().getTime());
+      }
+
+      List<Map.Entry<Template, Double>> dateEntries =
+          new ArrayList<Map.Entry<Template, Double>>(dateSort.entrySet());
+      // List<Template> dateSorted = sortedForms;
+      // Collections.sort(dateEntries,
+      // new Comparator<Map.Entry<Template, Double>>() {
+      // public int compare(Entry<Template, Double> arg0,
+      // Entry<Template, Double> arg1) {
+      // return (Long.compare(arg1.getKey().getTime(),
+      // arg0.getKey().getTime()));
+      // }
+      // });
+      Collections.sort(dateEntries,
+          new Comparator<Map.Entry<Template, Double>>() {
+            public int compare(Entry<Template, Double> arg0,
+                Entry<Template, Double> arg1) {
+              return ((arg0.getKey()
+                  .getDate()
+                  .compareTo(arg1.getKey().getDate())));
+            }
+          });
+
+      for (Entry<Template, Double> i : dateEntries) {
+        System.out.println(i.getKey().getTimeForFront());
+      }
+      List<Template> dateSortedTemps = new ArrayList<Template>();
+      List<Double> newTfIdfs = new ArrayList<Double>();
+      for (Entry<Template, Double> entry : dateEntries) {
+        dateSortedTemps.add(entry.getKey());
+        newTfIdfs.add(entry.getValue());
       }
       // System.out.println(patientForms);
 
@@ -309,8 +360,12 @@ public final class Main {
       // patientForms,
       // "id",
       // currID);
-      Map<String, Object> vars =
-          ImmutableMap.of("forms", sortedForms, "id", currID, "vals", tfidfs);
+
+      // Map<String, Object> vars =
+      // ImmutableMap.of("forms", sortedForms, "id", currID, "vals", tfidfs);
+
+      Map<String, Object> vars = ImmutableMap
+          .of("forms", dateSortedTemps, "id", currID, "vals", newTfIdfs);
 
       return gson.toJson(vars);
     }
