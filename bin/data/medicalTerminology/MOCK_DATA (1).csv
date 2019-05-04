@@ -1,0 +1,101 @@
+id,patientId,procedure,secondary_procedure,app_name,form_name
+1,1,Insertion of non-drug-eluting peripheral (non-coronary) vessel stent(s),Endovascular replacement of aortic valve,Keylex,Geographic tongue
+2,2,"Implantation or replacement of cochlear prosthetic device, multiple channel",Other and unspecified repair of endocardial cushion defect,Zontrax,Sprain of pelvis
+3,3,Open chest transmyocardial revascularization,"Other incision of bone without division, carpals and metacarpals",Tresom,Neuroend cell hyprpl inf
+4,4,"Endarterectomy, intracranial vessels","Radical neck dissection, bilateral",Cookley,Adv eff gamma globulin
+5,5,Biopsy of heart,Suture of laceration of uterus,Quo Lux,Pneumonia strptococcus a
+6,6,Unilateral injection into breast for augmentation,Complete parathyroidectomy,Ronstring,FB left during procedure
+7,7,Transplantation of spermatic cord,Mechanical vitrectomy by anterior approach,It,Prim thrombocytopen NOS
+8,8,Destruction of chorioretinal lesion by photocoagulation of unspecified type,Biopsy of spinal cord or spinal meninges,Fix San,Injury abdominal aorta
+9,9,"Microscopic examination of specimen from trachea, bronchus, pleura, lung, and other thoracic specimen, and of sputum, cell block and Papanicolaou smear",Transplantation of spleen,Trippledex,Spirochetal infect NEC
+10,10,"Arthroscopy, hip",Suture of laceration of testis,Fixflex,Poisoning-enzymes NEC
+11,11,"Control of hemorrhage, not otherwise specified",Complete laryngectomy,Overhold,Hemorr choroid detachmnt
+12,12,Open biopsy of prostate,Assisting exercise,Veribet,Gastrostomy comp NOS
+13,13,Electrosurgical epilation of eyelid,Electrocardiogram,Sub-Ex,Sbac mno leu wo ach rmsn
+14,14,Pyloromyotomy,Injection of other hormone,Opela,Fx bimalleolar-closed
+15,15,Other cystogram,Incision of cervix,Vagram,Labyrinth fistula comb
+16,16,Arteriography of cerebral arteries,Manual examination of breast,Stringtough,Muscle/ligament dis NEC
+17,17,Division of penile adhesions,Insertion of laminaria,Tampflex,Inflammation of jaw
+18,18,Insertion or replacement of interspinous process device(s),"Implantation of cardiac resynchronization defibrillator, total system [CRT-D]",Span,Varic vein leg preg-unsp
+19,19,Removal of ventricular shunt,Open biopsy of bladder,Redhold,Mal neo fallopian tube
+20,20,Insertion of testicular prosthesis,Reduction of hemorrhoids,Trippledex,Bovine stomatitis
+21,21,Contrast epididymogram,Extracapsular extraction of lens by linear extraction technique,Zamit,Edema in preg-antepartum
+22,22,Other cranial nerve decompression,"Resection of vessel with replacement, abdominal veins",Duobam,Cracked tooth
+23,23,Other anastomosis of cranial or peripheral nerve,Osteopathic manipulative treatment using indirect forces,Span,Capsular cataract
+24,24,"Microscopic examination of specimen from nervous system and of spinal fluid, parasitology",Recession of one extraocular muscle,It,Genetc sus mal neo brest
+25,25,"Other excision of vessels, lower limb veins",Laparoscopic left hemicolectomy,Vagram,90% + bdy brn/3d deg NOS
+26,26,Insertion or replacement of (cement) spacer,Other excision of salivary gland lesion,Konklux,Adjust neuropacemaker
+27,27,Endocervical biopsy,Injection of therapeutic substance into joint or ligament,Fintone,Perfor root canal space
+28,28,Excision or destruction of lesion or tissue of tongue,Other operations on sclera,Solarbreeze,Pseudomonas enteritis
+29,29,Repair of oval and round windows,Phlebography of other Intra-Abdominal veins using contrast material,Alphazap,Merkel cell ca-low limb
+30,30,Other cystogram,Keratomileusis,Domainer,"Fx mult phalan, hand-cl"
+31,31,"Resection of vessel with anastomosis, abdominal arteries",Full-mouth x-ray of teeth,Gembucket,Gouty nephropathy NEC
+32,32,Transfusion of packed cells,Open biopsy of seminal vesicles,Flowdesk,Observ following rape
+33,33,Other excision of bronchus,Culdoscopy,Asoka,Exostosis of orbit
+34,34,Arteriography of pulmonary arteries,Mediastinal tracheostomy,Ronstring,Urethral diverticulum
+35,35,Flexible sigmoidoscopy,Other repair of kidney,Daltfresh,Ca in situ trachea
+36,36,Tattooing of cornea,Excision of lesion of muscle of hand,Overhold,Trans hyperten-delivered
+37,37,Manual testing of muscle function,Destruction of chorioretinal lesion by photocoagulation of unspecified type,Alphazap,Opn cerebell lac-concuss
+38,38,"Removal of implanted devices from bone, unspecified site",Fetal blood sampling and biopsy,Sub-Ex,Bone infec NOS-unsp site
+39,39,Disarticulation of elbow,Suture of laceration of trachea,Tampflex,Mult gest 2+ monoamn NEC
+40,40,Other salpingo-oophoroplasty,Continuous invasive mechanical ventilation for 96 consecutive hours or more,Flexidy,Helminth arthrit-mult
+41,41,Vaginal biopsy,Excision of cystic duct remnant,Biodex,Fetal distrs dur lab/del
+42,42,"Sialoadenectomy, not otherwise specified","Other reconstruction of eyelid, partial-thickness",Keylex,Spon abort uncompl-inc
+43,43,Removal of other therapeutic device from head and neck,"Other operations on spermatic card, epididymis, and vas deferens",Overhold,Hx-analgesic allergy
+44,44,Other operations on ovary,Simple suture of common bile duct,Fix San,Medical misadventure NOS
+45,45,Isolation,"Microscopic examination of specimen from female genital tract, cell block and Papanicolaou smear",Stronghold,1st deg burn forearm
+46,46,Open biopsy of spleen,Psychodrama,Ventosanzap,Prim TB pleuris-histo dx
+47,47,Small-to-small intestinal anastomosis,Other operations on female genital organs,Tempsoft,Pap smear (ASC-H)
+48,48,Endoscopic excision or destruction of lesion of biliary ducts or sphincter of Oddi,Application of neck support,Hatity,Regional enteritis NOS
+49,49,Repair of symblepharon with free graft,Incision of bronchus,Zathin,Aftrcare path fx vertebr
+50,50,Reduction of intussusception of alimentary tract,"Repair of diaphragmatic hernia with thoracic approach, not otherwise specified",Tin,Fx metacarpal NOS-open
+51,51,Prosthetic dental implant,Skeletal x-ray of shoulder and upper arm,Bamity,Werdnig-hoffmann disease
+52,52,"Other excision of joint, other specified sites","Arthroscopy, other specified sites",Domainer,War inj:seabase art shel
+53,53,"Revision of hip replacement, both acetabular and femoral components",Removal of (cement) spacer,Fintone,Mal neo bones ankle/foot
+54,54,Closure of fistula of duodenum,Endoscopic dilation of ampulla and biliary duct,Tres-Zap,Petit mal status
+55,55,"Insertion of spinal disc prosthesis, thoracic",Removal of tracheostomy tube,Trippledex,Vit A night blindness
+56,56,"Implantation or replacement of carotid sinus stimulation device, total system",Respiratory medication administered by nebulizer,Alpha,Puerp comp NOS-del w p/p
+57,57,"Limb shortening procedures, unspecified site",Open reduction of maxillary fracture,Alpha,Talipes varus
+58,58,Tenotomy of hand,Closed [percutaneous] [needle] biopsy of thyroid gland,Prodder,Inj head/neck vessel NOS
+59,59,Other incision of thyroid field,Open and other replacement of unspecified heart valve,Fintone,Trigeminal neuralgia
+60,60,Insertion of percutaneous external heart assist device,Excision of prolapsed iris,Viva,Infectn d/t acanthamoeba
+61,61,Other operations on ovary,Vaccination against measles,Regrant,Med disloc elbow-closed
+62,62,"Other operations on skull, brain, and cerebral meninges","Removal of implanted devices from bone, carpals and metacarpals",Alpha,Perforation of bile duct
+63,63,Renal autotransplantation,Closure of laceration of lung,Stronghold,Gastroptosis
+64,64,Initial insertion of dual-chamber device,Excision or destruction of lesion of cul-de-sac,Stronghold,33-34 comp wks gestation
+65,65,Repair of corneal laceration or wound with conjunctival flap,Destruction of cranial and peripheral nerves,Voyatouch,Synov/tend/bursa dis NEC
+66,66,"Removal of lesion of anterior segment of eye, not otherwise specified",Contrast myelogram,Tresom,Combined immunity defic
+67,67,Other mammography,Removal of skeletal muscle stimulator,Quo Lux,Varicella complicat NOS
+68,68,Toe reattachment,Salpingo-salpingostomy,Tin,Acute prostatitis
+69,69,Goniotomy without goniopuncture,"Microscopic examination of specimen from nervous system and of spinal fluid, culture",Voltsillam,Opn cerebel lac-coma NOS
+70,70,Closure of external fistula of trachea,"Microscopic examination of blood, cell block and Papanicolaou smear",Sonsing,Heat exhaust-anhydrotic
+71,71,Extraction of fat for graft or banking,Other psychiatric drug therapy,Y-Solowarm,Pyrophosph cryst-l/leg
+72,72,"Repair of diaphragmatic hernia, abdominal approach, not otherwise specified",Other graft of esophagus,Zoolab,Rec bil fem hern w obstr
+73,73,Excision of muscle or fascia of hand for graft,Removal of remaining fallopian tube,Tin,Swimming
+74,74,Other diagnostic procedures on tonsils and adenoids,Insertion or replacement of pedicle-based dynamic stabilization device(s),Home Ing,Arthropod-borne dis NOS
+75,75,Augmentation rhinoplasty,Retrograde pyelogram,Redhold,Constant exophthalmos
+76,76,Intracarotid amobarbital test,"Microscopic examination of specimen from bladder, urethra, prostate, seminal vesicle, perivesical tissue, and of urine and semen, cell block and Papanicolaou smear",Daltfresh,Acc pois-agrcult NEC/NOS
+77,77,Laparoscopic lysis of perirenal or periureteral adhesions,"Application of external fixator device, monoplanar system",Latlux,Fall striking object NEC
+78,78,"Other and open repair of diaphragmatic hernia, with thoracic approach",Other operations on facial bones and joints,Solarbreeze,Mat anti-inf aff NB/fet
+79,79,Other operations on cul-de-sac,"Amputation, not otherwise specified",Tin,Genital herpes NOS
+80,80,Fusion or refusion of 9 or more vertebrae,"Division of joint capsule, ligament, or cartilage, knee",Hatity,Ac peptic ulcer NOS-obst
+81,81,Autologous bone marrow transplant without purging,"Ligation and stripping of varicose veins, other vessels of head and neck",Bamity,Mgkrycyt leuk in relapse
+82,82,"Insertion or replacement of single array neurostimulator pulse generator, not specified as rechargeable",Infusion of drotrecogin alfa (activated),Namfix,Nephrotic syndrome NOS
+83,83,"Extracorporeal shockwave lithotripsy [ESWL] of the kidney, ureter and/or bladder",Annuloplasty,Bigtax,Prev matern surg aff NB
+84,84,Other nonoperative neurologic function tests,Thyroid scan and radioisotope function studies,Sonsing,Ac peptic ulcer w hemorr
+85,85,Excision of lesion of thyroid,Injection of therapeutic substance into bursa of hand,Konklab,Second malig neo adrenal
+86,86,Replacement of gastrostomy tube,Other surgical extraction of tooth,Zaam-Dox,Oth off-road mv-mcyc psg
+87,87,"Internal fixation of bone without fracture reduction, patella",Other nonoperative replacements,Sonsing,Opn skul/oth fx-coma NOS
+88,88,"Diagnostic procedures on bone, not elsewhere classified, unspecified site",Other incision of conjunctiva,Biodex,Bsl cel skn face NEC/NOS
+89,89,Puncture of nasal sinus for aspiration or lavage,Removal of abdominal wall sutures,Fix San,Fall on level NEC/NOS
+90,90,Other repair of shoulder,Other manipulation of temporomandibular joint,Flexidy,Residual hemorrhoid tags
+91,91,Intranasal antrotomy,Diagnostic amniocentesis,Namfix,Mixed lymphosarc pelvic
+92,92,Excision of lesion of tendon sheath of hand,Radical excision of other lymph nodes,Latlux,Suppr lactation-deliver
+93,93,Transapical replacement of pulmonary valve,Phlebography of the portal venous system using contrast material,Flowdesk,Prim thrombocytopen NOS
+94,94,Endoscopic excision or destruction of lesion or tissue of urethra,Repair of the anulus fibrosus with graft or prosthesis,Sonair,Ac dilation of stomach
+95,95,"Excision of bone for graft, scapula, clavicle, and thorax [ribs and sternum]",Endoscopic removal of stone(s) from biliary tract,Redhold,Diaphragm injury-closed
+96,96,"Debridement of open fracture site, femur","Open reduction of fracture with internal fixation, femur",Hatity,TB lung w cavity-cult dx
+97,97,Refusion of atlas-axis spine,Forced extension of limb,Cookley,Abdmnal pain unspcf site
+98,98,Vaginal douche,Placement of intracerebral catheter(s) via burr hole(s),Namfix,Drug depend NEC-episodic
+99,99,Other obstetric operations,Gingivoplasty,Namfix,Ac miliary tb-oth test
+100,100,Laparoscopic ablation of renal lesion or tissue,Size reduction plastic operation,Transcof,Infant diabet mother syn

@@ -24,13 +24,14 @@ the page is written in -->
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-<input type="text" id="searchPage" placeholder="Search Page">
+<!--<input type="text" id="searchPage" placeholder="Search Page">-->
   <a class="text-black" href="/home">Login / Logout</a>
 <!-- <a class="text-black" href="/patients/1/forms">forms</a>-->
   <a class="text-black" href="/Dashboard/1">My Dashboard</a>
  <!--<a class="text-black" href="/imaging">xray</a>-->
   <!--<a class="text-black" href="/timeline">timeline</a>-->
     <!--<a class="text-black" href="/patients/1/profile">Profile</a>-->
+    <a class="text-black" href="/templates/new">Create Template</a>
 </div>
 
 <span style="font-size:30px;cursor:pointer; color:Grey; z-index:2;" onclick="openNav()">&#9776;</span>

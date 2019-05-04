@@ -105,6 +105,38 @@ color: white;
   background-color: #FF9F55;
 }
 
+.greencontent {
+  padding: 20px 30px;
+  background-color: PaleTurquoise;
+  position: relative;
+  border-radius: 6px;
+}
+.greencontent:hover{
+  background-color: #FF9F55;
+}
+
+.yellowcontent {
+  padding: 20px 30px;
+  background-color: #E5FE01;
+  position: relative;
+  border-radius: 6px;
+}
+
+.yellowcontent:hover{
+  background-color: #FF9F55;
+}
+
+.redcontent {
+  padding: 20px 30px;
+  background-color: tomato;
+  position: relative;
+  border-radius: 6px;
+}
+
+.redcontent:hover{
+  background-color: #FF9F55;
+}
+
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
 /* Place the timelime to the left */
@@ -200,10 +232,13 @@ form p{
 }
 
 .content a{
+
   color: white;
   font-size: 20px;
 }
-
+a{
+  color: DarkBlue;
+}
 a:hover {
   background-color: #ddd;
   color: black;

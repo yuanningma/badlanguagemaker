@@ -3,12 +3,6 @@
 <h1 class="text-center"> New Form</h1>
 <div style="display:none;" id="patientId">${patientId}</div>
 
-
-<ul id="linklist" style="list-style-type:none">
-<li><a href="/patients/${patientId}/profile" class="previous">&#10216; View Profile</a><br></li>
-<li><a href="/patients/${patientId}/forms" class="previous">&#10216; Patient Records</a></li>
-</ul>
-
 <form id="saveForm">
 
 
@@ -31,9 +25,17 @@
     	<input id="${label}" type="text" class="form-control" aria-describedby="${label}" placeholder="Enter field value">
     </div>
   </#list>
-  
+  <center>
   <button id="saveButton" type="click" class="btn btn-primary">Save Form</button>
+  </center>
 </form>
+<br>
+<br>
+<br>
+<ul id="linklist" style="list-style-type:none">
+<li><a href="/patients/${patientId}/profile" class="previous">&#10216; View Profile</a><br></li>
+<li><a href="/patients/${patientId}/forms" class="previous">&#10216; Patient Records</a></li>
+</ul>
 
 <script src="/js/saveForm.js"></script>
 </#assign>
