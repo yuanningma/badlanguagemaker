@@ -383,13 +383,12 @@ public class FormsDatabase extends Database {
     }
   }
 
-    /**
-     * This method retrieved the count of forms currently in the database.
-     * @return
-     *          a integer representing the number of forms in the database.
-     * @throws SQLException
-     *          thrown when the a SQL Exception is thrown.
-     */
+  /**
+   * This method retrieved the count of forms currently in the database.
+   * @return a integer representing the number of forms in the database.
+   * @throws SQLException
+   *           thrown when the a SQL Exception is thrown.
+   */
   public Integer getCount() throws SQLException {
     Integer count = 0;
     if (dbConn != null) {

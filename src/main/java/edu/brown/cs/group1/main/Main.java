@@ -220,11 +220,16 @@ public final class Main {
       // System.out.println("VALUES: " + qm.values());
 
       String searchTerm = qm.value("search");
-      String[] words = searchTerm.replaceAll("[^A-za-z ]", "").split("\\s+");
+
+      searchTerm = searchTerm.replaceAll("[^A-za-z ]", "").trim();
+      System.out.println("SEARCHTERM IS: x" + searchTerm + "x");
+      String[] words = searchTerm.split("\\s+");
 
       System.out.println("SEARCHED: " + searchTerm);
+      boolean isEmptyQuery = searchTerm.equals("");
       // List<String> terms = r.generateTerms(searchTerm);
       List<String> terms = new ArrayList<String>();
+      System.out.println("WORDS IS: " + words);
       for (String s : words) {
         terms.addAll(r.generateTerms(s));
       }
@@ -232,21 +237,27 @@ public final class Main {
         System.out.println(r.generateTerms("cardio"));
         terms.addAll(r.generateTerms("cardio"));
         terms.addAll(r.generateTerms("cardiovascular"));
+        isEmptyQuery = false;
       }
       if (qm.value("respiro").equals("true")) {
         terms.addAll(r.generateTerms("respiratory"));
         terms.addAll(r.generateTerms("lung"));
+        isEmptyQuery = false;
       }
       if (qm.value("neuro").equals("true")) {
         terms.addAll(r.generateTerms("neuro"));
+        isEmptyQuery = false;
       }
       if (Boolean.getBoolean(qm.value("endo"))) {
         terms.addAll(r.generateTerms("endo"));
+        isEmptyQuery = false;
       }
       if (qm.value("reno").equals("true")) {
         terms.addAll(r.generateTerms("reno"));
         terms.addAll(r.generateTerms("rena"));
         terms.addAll(r.generateTerms("renal"));
+        terms.addAll(r.generateTerms("kidney"));
+        isEmptyQuery = false;
       }
       if (qm.value("hepato").equals("true")) {
         terms.addAll(r.generateTerms("hepato"));
@@ -254,20 +265,23 @@ public final class Main {
         terms.addAll(r.generateTerms("gastro"));
         terms.addAll(r.generateTerms("intestinal"));
         terms.addAll(r.generateTerms("gastrointestinal"));
+        isEmptyQuery = false;
       }
       if (qm.value("psycho").equals("true")) {
         terms.addAll(r.generateTerms("psych"));
         terms.addAll(r.generateTerms("psycho"));
         terms.addAll(r.generateTerms("psychological"));
+        isEmptyQuery = false;
       }
       if (qm.value("ortho").equals("true")) {
         terms.addAll(r.generateTerms("ortho"));
-
+        isEmptyQuery = false;
       }
       if (qm.value("repro").equals("true")) {
         terms.addAll(r.generateTerms("reproductive"));
-
+        isEmptyQuery = false;
       }
+      System.out.println("TERMS IS: " + terms);
       // System.out.println("HEPA TEST: " + qm.value("hepa"));
       // List<Template> patientForms =
       // formDb.getAllForms(Integer.parseInt(currID));
@@ -278,31 +292,9 @@ public final class Main {
 
       for (int i = 0; i < patientForms.size(); i++) {
         Template form = patientForms.get(i);
-
-        // form.setTrueContent(form.getFields().getContent());
         List<String> trueContent = new ArrayList<String>();
-        // System.out.println(r.parseForMe(form.getFields().getContent()));
         trueContent.addAll(r.parseForMe(form.getFields().getContent()));
         form.setTrueContent(trueContent);
-        // for (String s : form.getTrueContent()) {
-        // System.out.println("IN TRUE CONTENT: " + s);
-        // }
-      }
-
-      // String currSearch = "heart";
-
-      // System.out.println("BEGINNING DUMMY METHOD");
-      // System.out.println("ID: " + Integer.parseInt(currID));
-      // r.getFormsDatabase().dummyMethod(Integer.parseInt(currID));
-      // System.out.println("ENDED DUMMY METHOD");
-      // for (Template t : patientForms) {
-      // System.out.println("Template id: " + t.getTemplateId());
-      // System.out.println(t.getTags().size());
-      // System.out.println(t.getFields().getContent());
-      // }
-
-      for (String term : terms) {
-        System.out.println("CURRENT TERMS: " + term);
       }
 
       List<Map.Entry<Template, AtomicDouble>> sorted =
@@ -312,36 +304,33 @@ public final class Main {
       List<Template> sortedForms = new ArrayList<Template>();
 
       List<Double> tfidfs = new ArrayList<Double>();
-      List<Map.Entry<Template, AtomicDouble>> newSorted = sorted;
 
       Map<Template, Double> dateSort = new HashMap<Template, Double>();
       for (Map.Entry<Template, AtomicDouble> e : sorted) {
         sortedForms.add(e.getKey());
-        tfidfs.add((100) * e.getValue().doubleValue() / maxRanking);
+        System.out.println(terms.size());
+        if (!isEmptyQuery) {
+          System.out.println("Yes, we searched for something");
+          tfidfs.add((100) * e.getValue().doubleValue() / maxRanking);
 
-        dateSort.put(e.getKey(),
-            (100) * e.getValue().doubleValue() / maxRanking);
-        System.out.println(e.getKey().getTime());
+          dateSort.put(e.getKey(),
+              (100) * e.getValue().doubleValue() / maxRanking);
+        } else {
+          tfidfs.add(-1.0);
+          dateSort.put(e.getKey(), -1.0);
+        }
+
       }
 
       List<Map.Entry<Template, Double>> dateEntries =
           new ArrayList<Map.Entry<Template, Double>>(dateSort.entrySet());
-      // List<Template> dateSorted = sortedForms;
-      // Collections.sort(dateEntries,
-      // new Comparator<Map.Entry<Template, Double>>() {
-      // public int compare(Entry<Template, Double> arg0,
-      // Entry<Template, Double> arg1) {
-      // return (Long.compare(arg1.getKey().getTime(),
-      // arg0.getKey().getTime()));
-      // }
-      // });
       Collections.sort(dateEntries,
           new Comparator<Map.Entry<Template, Double>>() {
             public int compare(Entry<Template, Double> arg0,
                 Entry<Template, Double> arg1) {
-              return ((arg0.getKey()
+              return ((arg1.getKey()
                   .getDate()
-                  .compareTo(arg1.getKey().getDate())));
+                  .compareTo(arg0.getKey().getDate())));
             }
           });
 

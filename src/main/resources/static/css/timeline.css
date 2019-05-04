@@ -107,7 +107,7 @@ color: white;
 
 .greencontent {
   padding: 20px 30px;
-  background-color: #78F36F;
+  background-color: PaleTurquoise;
   position: relative;
   border-radius: 6px;
 }
@@ -128,7 +128,7 @@ color: white;
 
 .redcontent {
   padding: 20px 30px;
-  background-color: #A8361A;
+  background-color: tomato;
   position: relative;
   border-radius: 6px;
 }
@@ -232,10 +232,13 @@ form p{
 }
 
 .content a{
+
   color: white;
   font-size: 20px;
 }
-
+a{
+  color: DarkBlue;
+}
 a:hover {
   background-color: #ddd;
   color: black;
