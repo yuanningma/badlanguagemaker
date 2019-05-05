@@ -19,7 +19,7 @@ public class Template {
   private List<String> tags;
   private List<String> trueContent;
   private String templateName;
-  private long time;
+  private String time;
   private String timeForFront;
   private Date date;
 
@@ -38,7 +38,7 @@ public class Template {
     this.templateName = templateName;
     this.tags = new ArrayList<String>();
     this.trueContent = new ArrayList<String>();
-    this.time = 0;
+    this.time = new String();
     this.timeForFront = null;
     this.date = null;
   }
@@ -56,7 +56,7 @@ public class Template {
    * Getter for the time of this form.
    * @return Time of the form.
    */
-  public long getTime() {
+  public String getTime() {
     return this.time;
   }
 
@@ -97,7 +97,7 @@ public class Template {
    * @param t
    *          Time/date of this form.
    */
-  public void setTime(long t) {
+  public void setTime(String t) {
     this.time = t;
   }
 
