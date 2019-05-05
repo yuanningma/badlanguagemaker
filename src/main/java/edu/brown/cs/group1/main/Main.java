@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import edu.brown.cs.group1.database.FormsDatabase;
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TemplatesDatabase;
+import edu.brown.cs.group1.handler.CheckTemplateHandler;
 import edu.brown.cs.group1.handler.CreateTemplateHandler;
 import edu.brown.cs.group1.handler.DDHandler;
 import edu.brown.cs.group1.handler.FormHandler;
@@ -86,10 +87,8 @@ public final class Main {
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
-    parser.accepts("port")
-        .withRequiredArg()
-        .ofType(Integer.class)
-        .defaultsTo(DEFAULT_PORT);
+    parser.accepts("port").withRequiredArg().ofType(Integer.class).defaultsTo(
+        DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
     if (options.has("gui")) {
@@ -135,6 +134,7 @@ public final class Main {
     Spark.get("/templates/new", new NewTemplateHandler(), freeMarker);
 
     Spark.post("/templates/create", new CreateTemplateHandler(tempDbPath));
+    Spark.post("/templates/check", new CheckTemplateHandler(tempDbPath));
 
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
@@ -380,9 +380,8 @@ public final class Main {
               if (arg1.getKey().getDate() == null) {
                 return -1;
               }
-              return ((arg1.getKey()
-                  .getDate()
-                  .compareTo(arg0.getKey().getDate())));
+              return ((arg1.getKey().getDate().compareTo(
+                  arg0.getKey().getDate())));
             }
           });
 

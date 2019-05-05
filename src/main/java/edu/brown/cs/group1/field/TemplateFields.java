@@ -29,7 +29,7 @@ public class TemplateFields {
   public String toString() {
     StringBuilder result = new StringBuilder();
     for (String field : fields) {
-      result.append(field).append(";");
+      result.append(field).append(",");
     }
     return result.toString();
   }
