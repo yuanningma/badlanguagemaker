@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import edu.brown.cs.group1.databaseAuthentication.PasswordUtlitities;
 import edu.brown.cs.group1.staff.Staff;
 
 /**
@@ -16,6 +17,8 @@ import edu.brown.cs.group1.staff.Staff;
 public class LoginDatabase extends Database {
   private String path;
   private Connection dbConn;
+  private PasswordUtlitities passwordUtlitities;
+  private static final int SALT_LENGTH = 30;
 
   /**
    * Constructor for the database.
@@ -23,6 +26,7 @@ public class LoginDatabase extends Database {
    *          a path to the database.
    */
   public LoginDatabase(String path) {
+    passwordUtlitities = new PasswordUtlitities();
     try {
       Class.forName("org.sqlite.JDBC");
       String url = "jdbc:sqlite:" + path;
@@ -45,29 +49,33 @@ public class LoginDatabase extends Database {
    *          the new staff member to be inserted
    * @param username
    *          the username of the staff member account.
-   * @param password
+   * @param input
    *          the password of the staff member account.
    * @throws SQLException
    *           thrown when a SQLException is thrown
    */
-  public void saveUser(Staff staffMember, String username, String password)
+  public void saveUser(Staff staffMember, String username, String input)
       throws SQLException {
     if (dbConn != null) {
       PreparedStatement prep;
       String query =
           "CREATE TABLE IF NOT EXISTS access_codes(" + "staffId INTEGER,"
-              + "username TEXT"
-              + "password TEXT"
+              + "username TEXT,"
+              + "encoded_password TEXT,"
+              + "salt TEXT,"
               + "PRIMARY KEY (username));";
 
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
 
-      query = "INSERT INTO staff VALUES (?,?,?);";
+      query = "INSERT INTO staff VALUES (?,?,?,?);";
       prep = dbConn.prepareStatement(query);
       prep.setInt(1, staffMember.getStaffId());
       prep.setString(2, username);
+      String salt = passwordUtlitities.getSalt(SALT_LENGTH);
+      String password = passwordUtlitities.generateSecurePassword(input, salt);
       prep.setString(3, password);
+      prep.setString(4, salt);
       prep.addBatch();
       prep.executeBatch();
 
@@ -92,10 +100,10 @@ public class LoginDatabase extends Database {
       String query = new String();
       switch (field) {
       case "username":
-        query = "UPDATE staff SET username = ? WHERE staffId = ?";
+        query = "UPDATE access_codes SET username = ? WHERE staffId = ?";
         break;
       case "password":
-        query = "UPDATE staff SET password = ? WHERE staffId = ?";
+        query = "UPDATE access_codes SET password = ? WHERE staffId = ?";
         break;
       default:
         query = null;
@@ -123,7 +131,7 @@ public class LoginDatabase extends Database {
    */
   public String getPassword(String username) throws SQLException {
     if (dbConn != null) {
-      String query = "SELECT password FROM staff WHERE (username = ?);";
+      String query = "SELECT encoded_password FROM access_codes WHERE (username = ?);";
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
 
@@ -140,5 +148,22 @@ public class LoginDatabase extends Database {
       return password;
     }
     return null;
+  }
+
+  public String getSalt(String username) throws SQLException {
+      String toReturn = new String();
+      if (dbConn != null) {
+          String query = "SELECT salt FROM access_codes WHERE (username = ?)";
+          PreparedStatement prep;
+          prep = dbConn.prepareStatement(query);
+          prep.setString(1, username);
+          ResultSet rs = prep.executeQuery();
+          while (rs.next()) {
+              toReturn = rs.getString(1);
+          }
+          rs.close();
+          prep.close();
+      }
+      return toReturn;
   }
 }
