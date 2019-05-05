@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="4" failures="0" name="edu.brown.cs.group1.search.SearchTest" time="0.017" errors="0" skipped="0">
+=======
+<testsuite tests="4" failures="0" name="edu.brown.cs.group1.search.SearchTest" time="0.025" errors="0" skipped="0">
+>>>>>>> 44e9786bbd8fd1bad30b1185370d315492b09f55
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/jre/lib"/>
@@ -64,8 +68,15 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testIdf" time="0.002"/>
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testThreading" time="0.013"/>
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testRanking" time="0.002"/>
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testConstructor" time="0"/>
+=======
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testIdf" time="0"/>
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testThreading" time="0.023"/>
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testRanking" time="0.001"/>
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testConstructor" time="0.001"/>
+>>>>>>> 44e9786bbd8fd1bad30b1185370d315492b09f55
 </testsuite>

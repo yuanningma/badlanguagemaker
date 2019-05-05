@@ -102,8 +102,8 @@ public class FormsDatabase extends Database {
         prep.setString(5, template.getTemplateName());
         SimpleDateFormat formatter =
             new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        prep.setString(6, formatter.format(date));
+        String date = formatter.format(new Date());
+        prep.setString(6, date);
         prep.addBatch();
         prep.executeBatch();
         prep.close();
@@ -139,7 +139,7 @@ public class FormsDatabase extends Database {
                 + "form_input TEXT,"
                 + "tags TEXT,"
                 + "form_name TEXT,"
-                + "database_input LONG);";
+                + "database_input TEXT);";
         prep = dbConn.prepareStatement(query);
         prep.executeUpdate();
         // HashSet<String> columns = getColumnsInfo();
@@ -162,12 +162,15 @@ public class FormsDatabase extends Database {
         prep.setString(4, tagList.toString());
         prep.setString(5, template.getTemplateName());
         Date date = new Date();
-        prep.setLong(6, date.getTime());
+       SimpleDateFormat formatter =
+                  new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String time = formatter.format(new Date());
+        prep.setString(6, time);
         prep.addBatch();
         prep.executeBatch();
         prep.close();
         newTempl.setTags(tagList);
-        newTempl.setTime(date.getTime());
+        newTempl.setTime(time);
         return true;
       } catch (SQLException sql) {
         // System.out.println("SQL Exception FormsDatabase saveForm");
@@ -257,7 +260,7 @@ public class FormsDatabase extends Database {
           // // System.out.println("formInput is: " + formInput);
           // =======
           String name = rs.getString(5);
-          Long date = rs.getLong(6);
+          String date = rs.getString(6);
           // String dates = rs.getString(6);
           // System.out.println("DATE IS: " + date);
           // System.out.println("STRING DATE IS: " + dates);
