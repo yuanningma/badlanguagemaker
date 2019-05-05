@@ -357,10 +357,12 @@ public final class Main {
         sortedForms.add(e.getKey());
         System.out.println(terms.size());
         if (!isEmptyQuery) {
-          tfidfs.add((100) * e.getValue().doubleValue() / maxRanking);
+          System.out.println("TRUE TFIDF: " + e.getValue().doubleValue());
+          tfidfs
+              .add(Math.floor((100) * e.getValue().doubleValue() / maxRanking));
 
           dateSort.put(e.getKey(),
-              (100) * e.getValue().doubleValue() / maxRanking);
+              Math.floor((100) * e.getValue().doubleValue() / maxRanking));
         } else {
           tfidfs.add(-1.0);
           dateSort.put(e.getKey(), -1.0);

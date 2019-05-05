@@ -84,7 +84,8 @@ public class Search {
       }
     }
 
-    return freq;
+    // return freq;
+    return Math.log(1 + freq);
   }
 
   /**
@@ -116,7 +117,7 @@ public class Search {
    */
   public double tfIdf(String term, List<String> doc) {
     double tf = termFrequency(term, doc);
-    System.out.println("term is " + term + " tf is " + tf);
+    // System.out.println("term is " + term + " tf is " + tf);
     double idf;
 
     if (frequencies.containsKey(term)) {
@@ -127,6 +128,22 @@ public class Search {
       System.out.println("idf is " + idf);
     }
 
+    double toret = tf * idf;
+    listCache.put(doc, toret);
+    return toret;
+  }
+
+  public double tfIdf(String term, List<String> doc, List<List<String>> docs) {
+    double tf = termFrequency(term, doc);
+
+    double idf = inverseDocumentFrequency(term, docs);
+    // System.out.println("term is " + term
+    // + " tf is "
+    // + tf
+    // + " idf is "
+    // + idf
+    // + " tfidf is "
+    // + tf * idf);
     double toret = tf * idf;
     listCache.put(doc, toret);
     return toret;
@@ -178,6 +195,7 @@ public class Search {
       private final BlockingQueue<String> queue;
       List<AtomicDouble> results;
       List<Template> temps;
+      List<List<String>> docs;
 
       Worker(BlockingQueue<String> q,
           List<AtomicDouble> r,
@@ -185,6 +203,10 @@ public class Search {
         queue = q;
         results = r;
         temps = templates;
+        docs = new ArrayList<List<String>>();
+        for (Template t : temps) {
+          docs.add(t.getTrueContent());
+        }
       }
 
       @Override
@@ -198,7 +220,8 @@ public class Search {
 
       void task(Object x) {
         for (int i = 0; i < temps.size(); i++) {
-          double sum = tfIdf((String) x, temps.get(i).getTrueContent());
+          // double sum = tfIdf((String) x, temps.get(i).getTrueContent());
+          double sum = tfIdf((String) x, temps.get(i).getTrueContent(), docs);
           results.get(i).addAndGet(sum);
         }
       }
