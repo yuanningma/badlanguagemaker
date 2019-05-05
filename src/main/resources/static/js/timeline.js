@@ -122,11 +122,17 @@ const postParameters = {
       let rel = vals[i];
       let colly = "content";
       let todispl = false;
-      if (rel > 70) {
+      if (rel > 80) {
           colly="redcontent";
           todispl = true;
-      } else if (rel > 30) {
+      } else if (rel >= 60) {
+          colly="orangecontent";
+          todispl = true;
+      } else if (rel >= 40) {
           colly="yellowcontent";
+          todispl = true;
+      } else if (rel >= 20) {
+          colly="grellowcontent";
           todispl = true;
       } else if (rel >= 0){
           colly="greencontent";

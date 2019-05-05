@@ -115,6 +115,17 @@ color: white;
   background-color: #FF9F55;
 }
 
+.grellowcontent {
+  padding: 20px 30px;
+  background-color: YellowGreen;
+  position: relative;
+  border-radius: 6px;
+}
+
+.grellowcontent:hover{
+  background-color: #FF9F55;
+}
+
 .yellowcontent {
   padding: 20px 30px;
   background-color: #E5FE01;
@@ -123,6 +134,17 @@ color: white;
 }
 
 .yellowcontent:hover{
+  background-color: #FF9F55;
+}
+
+.orangecontent {
+  padding: 20px 30px;
+  background-color: Coral;
+  position: relative;
+  border-radius: 6px;
+}
+
+.orangecontent:hover{
   background-color: #FF9F55;
 }
 

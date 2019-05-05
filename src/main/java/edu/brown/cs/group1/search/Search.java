@@ -137,13 +137,18 @@ public class Search {
     double tf = termFrequency(term, doc);
 
     double idf = inverseDocumentFrequency(term, docs);
-    // System.out.println("term is " + term
-    // + " tf is "
-    // + tf
-    // + " idf is "
-    // + idf
-    // + " tfidf is "
-    // + tf * idf);
+    if (tf * idf > 0.0) {
+      System.out.println("doc is: " + doc.subList(0, doc.size() / 2)
+          + " term is "
+          + term
+          + " tf is "
+          + tf
+          + " idf is "
+          + idf
+          + " tfidf is "
+          + tf * idf);
+    }
+
     double toret = tf * idf;
     listCache.put(doc, toret);
     return toret;
