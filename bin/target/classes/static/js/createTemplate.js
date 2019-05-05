@@ -8,6 +8,7 @@ $(document).ready(() => {
         + count + "\"  placeholder=\"Enter field name\"></div>");
     });
 
+
     $("#newForm").on('click', (event) => {
 
         let commas = checkForCommas();
@@ -21,7 +22,9 @@ $(document).ready(() => {
                 labels += ";";
             }
 
-            const postParameters = {fields: labels};
+            const postParameters = {
+                name:document.getElementById("formName").value,
+                fields: labels};
             // const postParameters = {fields: "field"};
 
 
