@@ -17,7 +17,8 @@ import spark.TemplateViewRoute;
 public class LoginHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
-    Map<String, Object> variables = ImmutableMap.of("title", "pc+: User Login");
+    Map<String, Object> variables =
+        ImmutableMap.of("title", "pc+: User Login", "message", "Enter login!");
     return new ModelAndView(variables, "login.ftl");
   }
 }
