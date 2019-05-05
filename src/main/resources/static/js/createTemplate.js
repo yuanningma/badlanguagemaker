@@ -12,9 +12,12 @@ $(document).ready(() => {
     $("#newForm").on('click', (event) => {
 
         let commas = checkForCommas();
+        let blanks = checkForBlanks();
 
         if (commas) {
             alert("No commas allowed in field name");
+        } else if (blanks) {
+            alert("No blank fields allowed");
         } else {
             let labels = "";
             for (let i=1; i<count+1; i++) {
@@ -41,6 +44,15 @@ $(document).ready(() => {
     function checkForCommas() {
         for (let i=1; i<count+1; i++) {
             if ($("#field" + i).val().includes(",")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function checkForBlanks() {
+        for (let i=1; i<count+1; i++) {
+            if ($("#field" + i).val() === "") {
                 return true;
             }
         }

@@ -6,9 +6,12 @@ $(document).ready(() => {
     $("#saveButton").on('click', (event) => {
 
         let commas = checkForCommas();
+        let blanks = checkForBlanks();
 
         if (commas) {
             alert("No commas allowed in field value");
+        } else if (blanks) {
+            alert("No blank fields allowed");
         } else {
             let formElts = "";
 
@@ -37,12 +40,26 @@ $(document).ready(() => {
     });
 
     function checkForCommas() {
+        let commas = false;
         $( "#saveForm :input" ).each(function(){
-            if ($(this).val().includes(',')) {
-                return true;
+            if ($(this).val().includes(",")) {
+                commas = true;
+                return commas;
             }
 
         });
-        return false;
+        return commas;
+    }
+
+    function checkForBlanks() {
+        let blanks = false;
+        $( "#saveForm :input" ).each(function(){
+            if ($(this).val() === "") {
+                blanks = true;
+                return blanks;
+            }
+
+        });
+        return blanks;
     }
 });
