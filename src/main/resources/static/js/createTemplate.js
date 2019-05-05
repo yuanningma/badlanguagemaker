@@ -19,7 +19,7 @@ $(document).ready(() => {
             let labels = "";
             for (let i=1; i<count+1; i++) {
                 labels += $("#field" + i).val();
-                labels += ";";
+                labels += ",";
             }
 
             const postParameters = {

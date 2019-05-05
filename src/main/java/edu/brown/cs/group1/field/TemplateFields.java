@@ -71,9 +71,9 @@ public class TemplateFields {
     List<String> fields = new ArrayList<>();
     // String[] fieldsArr = fieldsString.split(";");
     String[] fieldsArr = fieldsString.split(",");
-    if (fieldsArr.length == 1) {
-      fieldsArr = fieldsString.split(";");
-    }
+    // if (fieldsArr.length == 1) {
+    // fieldsArr = fieldsString.split(";");
+    // }
 
     for (String field : fieldsArr) {
       fields.add(field);
