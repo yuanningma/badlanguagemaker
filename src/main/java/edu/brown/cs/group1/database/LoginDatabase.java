@@ -83,6 +83,23 @@ public class LoginDatabase extends Database {
     }
   }
 
+  public Integer getStaff(String username) throws SQLException {
+    String query = "SELECT staffId FROM access_codes WHERE (username = ?);";
+    PreparedStatement prep;
+    prep = dbConn.prepareStatement(query);
+
+    prep.setString(1, username);
+
+    ResultSet rs = prep.executeQuery();
+    Integer id = 0;
+    while (rs.next()) {
+      id = rs.getInt(1);
+    }
+    rs.close();
+    prep.close();
+    return id;
+  }
+
   /**
    * Updates a specific field with a specific value in the staff database.
    * @param field
@@ -131,7 +148,8 @@ public class LoginDatabase extends Database {
    */
   public String getPassword(String username) throws SQLException {
     if (dbConn != null) {
-      String query = "SELECT encoded_password FROM access_codes WHERE (username = ?);";
+      String query =
+          "SELECT encoded_password FROM access_codes WHERE (username = ?);";
       PreparedStatement prep;
       prep = dbConn.prepareStatement(query);
 
@@ -151,19 +169,19 @@ public class LoginDatabase extends Database {
   }
 
   public String getSalt(String username) throws SQLException {
-      String toReturn = new String();
-      if (dbConn != null) {
-          String query = "SELECT salt FROM access_codes WHERE (username = ?)";
-          PreparedStatement prep;
-          prep = dbConn.prepareStatement(query);
-          prep.setString(1, username);
-          ResultSet rs = prep.executeQuery();
-          while (rs.next()) {
-              toReturn = rs.getString(1);
-          }
-          rs.close();
-          prep.close();
+    String toReturn = new String();
+    if (dbConn != null) {
+      String query = "SELECT salt FROM access_codes WHERE (username = ?)";
+      PreparedStatement prep;
+      prep = dbConn.prepareStatement(query);
+      prep.setString(1, username);
+      ResultSet rs = prep.executeQuery();
+      while (rs.next()) {
+        toReturn = rs.getString(1);
       }
-      return toReturn;
+      rs.close();
+      prep.close();
+    }
+    return toReturn;
   }
 }

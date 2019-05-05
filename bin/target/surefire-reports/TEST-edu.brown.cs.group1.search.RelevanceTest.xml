@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="1" failures="0" name="edu.brown.cs.group1.search.RelevanceTest" time="1.039" errors="0" skipped="0">
+=======
+<<<<<<< HEAD
+<testsuite tests="1" failures="0" name="edu.brown.cs.group1.search.RelevanceTest" time="0.341" errors="0" skipped="0">
+=======
+<testsuite tests="1" failures="0" name="edu.brown.cs.group1.search.RelevanceTest" time="0.567" errors="0" skipped="0">
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib"/>
@@ -61,5 +69,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="edu.brown.cs.group1.search.RelevanceTest" name="testGenerateTerms" time="1.039"/>
+=======
+<<<<<<< HEAD
+  <testcase classname="edu.brown.cs.group1.search.RelevanceTest" name="testGenerateTerms" time="0.341"/>
+=======
+  <testcase classname="edu.brown.cs.group1.search.RelevanceTest" name="testGenerateTerms" time="0.567"/>
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
 </testsuite>

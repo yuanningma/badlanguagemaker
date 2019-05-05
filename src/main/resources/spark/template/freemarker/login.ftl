@@ -17,10 +17,16 @@ style="position:relative; z-index: -50;"  width="300" height="300">
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" name = "password" placeholder="Password" size = "35">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+   
+   
+   
+   
+    <button id="login" type="button" class="btn btn-primary" onclick="window.location.href = '${path}';">Submit</button>
+    <!--<button type="submit" class="btn btn-primary">Submit</button>-->
 </div>
     </center>
     ${message}
+
 </form>
 </#assign>
 <#include "main.ftl">

@@ -1,8 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.group1.field.TemplateFieldsTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec <<< FAILURE!
 testFieldsAndLabelsValueOf(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+=======
+<<<<<<< HEAD
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+=======
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec <<< FAILURE!
+testFieldsAndLabelsValueOf(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -38,3 +46,4 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec

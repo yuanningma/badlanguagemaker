@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="2" failures="0" name="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" time="0.085" errors="0" skipped="0">
+=======
+<<<<<<< HEAD
+<testsuite tests="2" failures="0" name="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" time="0.01" errors="0" skipped="0">
+=======
+<testsuite tests="2" failures="0" name="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" time="0.015" errors="0" skipped="0">
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib"/>
@@ -61,6 +69,15 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" name="testQuery" time="0.067"/>
   <testcase classname="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" name="testRetrieveEntries" time="0.018"/>
+=======
+  <testcase classname="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" name="testQuery" time="0.009"/>
+<<<<<<< HEAD
+  <testcase classname="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" name="testRetrieveEntries" time="0.001"/>
+=======
+  <testcase classname="edu.brown.cs.TestTermiologyDatabase.MedicalProcedureDatabaseTest" name="testRetrieveEntries" time="0.006"/>
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
 </testsuite>

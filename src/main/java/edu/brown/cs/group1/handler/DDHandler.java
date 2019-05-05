@@ -51,7 +51,9 @@ public class DDHandler implements TemplateViewRoute {
             "content",
             "",
             "patientsFN",
-            patients1);
+            patients1,
+            "message",
+            "");
 
     return new ModelAndView(variables, "DD.ftl");
   }

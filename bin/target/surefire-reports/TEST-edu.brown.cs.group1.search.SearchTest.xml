@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="4" failures="0" name="edu.brown.cs.group1.search.SearchTest" time="0.088" errors="0" skipped="0">
+=======
+<<<<<<< HEAD
+<testsuite tests="4" failures="0" name="edu.brown.cs.group1.search.SearchTest" time="0.021" errors="0" skipped="0">
+=======
+<testsuite tests="4" failures="0" name="edu.brown.cs.group1.search.SearchTest" time="0.026" errors="0" skipped="0">
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/jre/lib"/>
@@ -61,8 +69,20 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testIdf" time="0.001"/>
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testThreading" time="0.054"/>
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testRanking" time="0.033"/>
+=======
+<<<<<<< HEAD
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testIdf" time="0.002"/>
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testThreading" time="0.016"/>
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testRanking" time="0.003"/>
+=======
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testIdf" time="0"/>
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testThreading" time="0.024"/>
+  <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testRanking" time="0.002"/>
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
   <testcase classname="edu.brown.cs.group1.search.SearchTest" name="testConstructor" time="0"/>
 </testsuite>
