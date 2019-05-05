@@ -28,15 +28,12 @@ public class Search {
   private Map<String, Double> frequencies;
   private Map<List<String>, Double> listCache;
 
-  // private Map<Template, Double> templateCache;
-
   /**
    * Constructor for Search.
    */
   public Search() {
     frequencies = new HashMap<String, Double>();
     listCache = new HashMap<List<String>, Double>();
-    // templateCache = new HashMap<Template, Double>();
   }
 
   /**
@@ -272,8 +269,8 @@ public class Search {
         });
     List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<List<String>, Double> e : entries) {
-      System.out
-          .println("KEY: " + e.getKey().get(0) + " VALUE: " + e.getValue());
+      // System.out
+      // .println("KEY: " + e.getKey().get(0) + " VALUE: " + e.getValue());
       toret.add(e.getKey());
     }
     return toret;
@@ -308,9 +305,9 @@ public class Search {
     List<Template> toret = new ArrayList<>();
     for (Map.Entry<Template, Double> e : entries) {
       if (e.getValue() != 0.0) {
-        System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
-            + " VALUE: "
-            + e.getValue());
+        // System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
+        // + " VALUE: "
+        // + e.getValue());
       }
 
       toret.add(e.getKey());
@@ -364,7 +361,7 @@ public class Search {
       void task(Object x) {
         for (int i = 0; i < temps.size(); i++) {
           // System.out.println("STRING IS: " + (String) x);
-          System.out.println("yes hello it's me " + (String) x);
+          // System.out.println("yes hello it's me " + (String) x);
           double sum = tfIdf((String) x, temps.get(i).getTrueContent());
           results.get(i).addAndGet(sum);
         }
@@ -391,14 +388,6 @@ public class Search {
 
     threadPool.shutdownNow();
 
-    // for (int i = 0; i < numDocs; i++) {
-    // System.out.println("DOC: " + templates.get(i)
-    // .getFields()
-    // .getContent()
-    // .get(0)
-    // + " IN LIST: "
-    // + sizeList.get(i));
-    // }
     Map<Template, AtomicDouble> docMap = new HashMap<Template, AtomicDouble>();
     for (int i = 0; i < numDocs; i++) {
       docMap.put(templates.get(i), sizeList.get(i));
@@ -416,9 +405,9 @@ public class Search {
     // List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<Template, AtomicDouble> e : entries) {
       if (e.getValue().doubleValue() != 0.0) {
-        System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
-            + " VALUE: "
-            + e.getValue());
+        // System.out.println("KEY: " + e.getKey().getTrueContent().get(0)
+        // + " VALUE: "
+        // + e.getValue());
       }
       toret.add(e.getKey());
     }
@@ -485,10 +474,10 @@ public class Search {
 
     threadPool.shutdownNow();
 
-    for (int i = 0; i < numDocs; i++) {
-      System.out.println(
-          "DOC: " + docs.get(i).get(0) + " IN LIST: " + sizeList.get(i));
-    }
+    // for (int i = 0; i < numDocs; i++) {
+    // System.out.println(
+    // "DOC: " + docs.get(i).get(0) + " IN LIST: " + sizeList.get(i));
+    // }
     Map<List<String>, AtomicDouble> docMap =
         new HashMap<List<String>, AtomicDouble>();
     for (int i = 0; i < numDocs; i++) {
@@ -506,17 +495,14 @@ public class Search {
         });
     List<List<String>> toret = new ArrayList<>();
     for (Map.Entry<List<String>, AtomicDouble> e : entries) {
-      if (e.getValue().doubleValue() != 0.0) {
-        System.out
-            .println("KEY: " + e.getKey().get(0) + " VALUE: " + e.getValue());
-      }
+      // if (e.getValue().doubleValue() != 0.0) {
+      // System.out
+      // .println("KEY: " + e.getKey().get(0) + " VALUE: " + e.getValue());
+      // }
 
       toret.add(e.getKey());
     }
     return toret;
-    // return docs;
   }
 
-  // TODO: Write a method that ranks search on Templates! Just use their
-  // toString thing
 }

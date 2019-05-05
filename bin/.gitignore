@@ -1,5 +1,20 @@
 /target/
-<<<<<<< HEAD
-=======
+/.DS_Store
+/.checkstyle
+/.gitignore
+/.idea/
+/.mvn-classpath
+/.project
+/.settings/
+/README.md
+/VisualVM_142.dmg
+/config/
+/cs32-test
+/data/
+/formsdbpath
+/na
+/not_a_db
+/patientdbpath
+/pom.xml
+/run
 /src/
->>>>>>> 2ff2514de710d64b1e11d8a7a64dd57d47bfcbd5

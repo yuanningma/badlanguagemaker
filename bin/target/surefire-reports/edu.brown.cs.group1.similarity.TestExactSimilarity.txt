@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.group1.similarity.TestExactSimilarity
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
->>>>>>> 2ff2514de710d64b1e11d8a7a64dd57d47bfcbd5
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec

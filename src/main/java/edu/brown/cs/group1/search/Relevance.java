@@ -138,14 +138,6 @@ public class Relevance {
       System.out.println("ERROR: Interrupted Exception!");
     }
 
-    // List<List<String>> sorted = new ArrayList<List<String>>();
-    // try {
-    // sorted = search.threadedRankDocs(terms, docs);
-    // } catch (InterruptedException e) {
-    // System.out.println("ERROR: Interrupted!");
-    // }
-    //
-    // return goodForms;
     return goodForms;
   }
 
@@ -195,14 +187,6 @@ public class Relevance {
       System.out.println("ERROR: Interrupted Exception!");
     }
 
-    // List<List<String>> sorted = new ArrayList<List<String>>();
-    // try {
-    // sorted = search.threadedRankDocs(terms, docs);
-    // } catch (InterruptedException e) {
-    // System.out.println("ERROR: Interrupted!");
-    // }
-    //
-    // return goodForms;
     return null;
   }
 
@@ -224,29 +208,15 @@ public class Relevance {
                 terms.add(tmp);
               }
             }
-            // terms.addAll(tdb.getWords(tag));
           }
 
         }
-        // try {
-        // terms.addAll(mddb.query(a));
-        // terms.addAll(mpdb.query(a));
-        // } catch (SQLException e) {
-        // System.out.println("ERROR: SQL error");
-        // }
+
       }
     } catch (SQLException e) {
       System.out.println("ERROR: SQL Exception");
     }
-    // for (String term : terms) {
-    // System.out.println("TERM: " + term);
-    // }
-    // for (String a : terms) {
-    // System.out.println(a);
-    // }
-    // System.out.println("SIZE IS: " + terms.size());
     return terms;
   }
-  // public List<String> generateSynonyms
 
 }

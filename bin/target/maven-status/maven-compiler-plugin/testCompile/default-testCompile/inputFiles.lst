@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\users\hotmi\tester\src\test\java\edu\brown\cs\TestDatabase\TagsDatabaseTest.java
 C:\users\hotmi\tester\src\test\java\edu\brown\cs\TestDatabase\TemplateDatabaseTest.java
 C:\users\hotmi\tester\src\test\java\edu\brown\cs\group1\similarity\TestExactSimilarity.java
@@ -15,21 +14,3 @@ C:\users\hotmi\tester\src\test\java\edu\brown\cs\group1\tag\TestTags.java
 C:\users\hotmi\tester\src\test\java\edu\brown\cs\TerminologyAssociation\TerminologyAssociationTest.java
 C:\users\hotmi\tester\src\test\java\edu\brown\cs\TestDatabase\PatientDatabaseTest.java
 C:\users\hotmi\tester\src\test\java\edu\brown\cs\group1\patient\PatientTest.java
-=======
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestDatabase/PatientDatabaseTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/group1/search/RelevanceTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/group1/tag/TestTags.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/group1/search/SearchTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestDatabase/TagsDatabaseTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestDatabase/FormDatabaseTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestDatabase/StaffDatabaseTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/group1/patient/PatientTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/group1/field/TemplateFieldsTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestTermiologyDatabase/MedicalProcedureDatabaseTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestDatabase/TemplateDatabaseTest.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilarity.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/group1/similarity/TestExactSimilaritySorter.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TestTermiologyDatabase/revelence.java
-/Users/juliannerudner/Desktop/cs32/term-project--emontas-jrudner-wchoi11-yma37/src/test/java/edu/brown/cs/TerminologyAssociation/TerminologyAssociationTest.java
->>>>>>> 2ff2514de710d64b1e11d8a7a64dd57d47bfcbd5
