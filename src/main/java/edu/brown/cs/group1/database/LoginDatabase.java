@@ -45,7 +45,7 @@ public class LoginDatabase extends Database {
 
   /**
    * Method that saves new user to the database.
-   * @param staffMember
+   * @param id
    *          the new staff member to be inserted
    * @param username
    *          the username of the staff member account.
@@ -54,7 +54,7 @@ public class LoginDatabase extends Database {
    * @throws SQLException
    *           thrown when a SQLException is thrown
    */
-  public void saveUser(Staff staffMember, String username, String input)
+  public void saveUser(Integer id, String username, String input)
       throws SQLException {
     if (dbConn != null) {
       PreparedStatement prep;
@@ -68,9 +68,9 @@ public class LoginDatabase extends Database {
       prep = dbConn.prepareStatement(query);
       prep.executeUpdate();
 
-      query = "INSERT INTO staff VALUES (?,?,?,?);";
+      query = "INSERT INTO access_codes VALUES (?,?,?,?);";
       prep = dbConn.prepareStatement(query);
-      prep.setInt(1, staffMember.getStaffId());
+      prep.setInt(1, id);
       prep.setString(2, username);
       String salt = passwordUtlitities.getSalt(SALT_LENGTH);
       String password = passwordUtlitities.generateSecurePassword(input, salt);

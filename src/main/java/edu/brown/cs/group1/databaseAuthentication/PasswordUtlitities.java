@@ -47,7 +47,7 @@ public class PasswordUtlitities {
         Arrays.fill(password, Character.MIN_VALUE);
         try {
             SecretKeyFactory skf = SecretKeyFactory
-                    .getInstance("PBKDFWithHmacSHA1");
+                    .getInstance("PBKDF2WithHmacSHA1");
             return skf.generateSecret(spec).getEncoded();
         } catch (NoSuchAlgorithmException exp) {
             exp.printStackTrace();
