@@ -54,10 +54,12 @@ $(document).ready(() => {
     function checkForBlanks() {
         let blanks = false;
         $( "#saveForm :input" ).each(function(){
+        if (!($(this).attr('id') === "saveButton")) {
             if ($(this).val() === "") {
                 blanks = true;
                 return blanks;
             }
+        }
 
         });
         return blanks;

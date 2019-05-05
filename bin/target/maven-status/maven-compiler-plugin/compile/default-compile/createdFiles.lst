@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 edu/brown/cs/group1/handler/TagGenerationHandler.class
 edu/brown/cs/group1/main/Main$1.class
 edu/brown/cs/group1/search/Search$2.class
@@ -51,3 +52,6 @@ edu/brown/cs/group1/main/Main$PatientHandler.class
 edu/brown/cs/group1/search/Relevance.class
 edu/brown/cs/group1/TerminologyDatabase/TerminologyDatabase.class
 edu/brown/cs/group1/TerminologyDatabase/MedicalProcedureDatabase.class
+=======
+edu/brown/cs/group1/main/Main$1.class
+>>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2

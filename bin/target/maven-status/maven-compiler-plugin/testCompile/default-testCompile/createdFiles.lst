@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 edu/brown/cs/group1/similarity/TestExactSimilaritySorter.class
 edu/brown/cs/TestTermiologyDatabase/revelence.class
 edu/brown/cs/group1/search/SearchTest.class
@@ -15,3 +16,5 @@ edu/brown/cs/TestDatabase/TemplateDatabaseTest.class
 edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest$1.class
 edu/brown/cs/TerminologyAssociation/TerminologyAssociationTest.class
 edu/brown/cs/TestDatabase/FormDatabaseTest.class
+=======
+>>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2

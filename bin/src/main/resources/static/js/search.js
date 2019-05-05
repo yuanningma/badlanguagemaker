@@ -18,7 +18,11 @@ $(document).ready(() => {
 
 
     $myTable.find("tr:gt(0)").remove();
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2
     var i;
     for (let i = 0, len = patients.length; i < len; i++) {
       $myTable.append(
