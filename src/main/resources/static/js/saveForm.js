@@ -55,6 +55,8 @@ $(document).ready(() => {
         let blanks = false;
         $( "#saveForm :input" ).each(function(){
             if ($(this).val() === "") {
+                console.log("here");
+                console.log($(this).val().length);
                 blanks = true;
                 return blanks;
             }
