@@ -33,15 +33,21 @@ public class LoginSubmitHandler implements TemplateViewRoute {
     Integer docId = 0;
 
     docId = login.getStaff(username);
-    System.out.println(docId);
+
+    // System.out.println(username);
 
     Boolean pass = false;
     try {
-      if (login.getPassword(username) != null) {
-        System.out.println("1");
-        pass = passwordUtlitities.verifyUserPassword(password,
-            login.getPassword(username),
-            login.getSalt(username));
+      if (username != null && password != null) {
+        if (login.getPassword(username) == null) {
+          System.out.println("1");
+          pass = passwordUtlitities.verifyUserPassword(password,
+              login.getPassword(username),
+              login.getSalt(username));
+        } else {
+
+        }
+
       }
     } catch (SQLException sql) {
       sql.printStackTrace();
@@ -51,7 +57,6 @@ public class LoginSubmitHandler implements TemplateViewRoute {
         .of("title", "pc+: User Login", "message", "", "path", path);
 
     if (pass) {
-      System.out.println("2");
 
       List<String[]> patients1 = new ArrayList<String[]>();
       List<String> names = new ArrayList<String>();
@@ -72,7 +77,7 @@ public class LoginSubmitHandler implements TemplateViewRoute {
       variables = ImmutableMap.of("title",
           "Patient Dashboard",
           "message",
-          "Login Success",
+          "",
           "patientsFN",
           patients1,
           "content",
