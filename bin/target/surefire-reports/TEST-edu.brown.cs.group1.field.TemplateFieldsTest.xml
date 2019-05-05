@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<<<<<<< HEAD
 <testsuite tests="3" failures="0" name="edu.brown.cs.group1.field.TemplateFieldsTest" time="0" errors="0" skipped="0">
-=======
-<testsuite tests="3" failures="0" name="edu.brown.cs.group1.field.TemplateFieldsTest" time="0.003" errors="0" skipped="0">
->>>>>>> 44e9786bbd8fd1bad30b1185370d315492b09f55
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/jre/lib"/>

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<<<<<<< HEAD
-<testsuite tests="1" failures="0" name="edu.brown.cs.TestDatabase.TemplateDatabaseTest" time="0.001" errors="0" skipped="0">
-=======
-<testsuite tests="1" failures="0" name="edu.brown.cs.TestDatabase.TemplateDatabaseTest" time="0.005" errors="0" skipped="0">
->>>>>>> 44e9786bbd8fd1bad30b1185370d315492b09f55
+<testsuite tests="1" failures="0" name="edu.brown.cs.TestDatabase.TemplateDatabaseTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/jre/lib"/>
@@ -68,9 +64,5 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-<<<<<<< HEAD
-  <testcase classname="edu.brown.cs.TestDatabase.TemplateDatabaseTest" name="TestSaveTemplate" time="0.001"/>
-=======
-  <testcase classname="edu.brown.cs.TestDatabase.TemplateDatabaseTest" name="TestSaveTemplate" time="0.005"/>
->>>>>>> 44e9786bbd8fd1bad30b1185370d315492b09f55
+  <testcase classname="edu.brown.cs.TestDatabase.TemplateDatabaseTest" name="TestSaveTemplate" time="0"/>
 </testsuite>

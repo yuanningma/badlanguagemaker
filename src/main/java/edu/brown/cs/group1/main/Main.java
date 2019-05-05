@@ -28,7 +28,7 @@ import edu.brown.cs.group1.handler.CreateTemplateHandler;
 import edu.brown.cs.group1.handler.DDHandler;
 import edu.brown.cs.group1.handler.FormHandler;
 import edu.brown.cs.group1.handler.GraphHandler;
-import edu.brown.cs.group1.handler.LoginHandler;
+import edu.brown.cs.group1.handler.LoginSubmitHandler;
 import edu.brown.cs.group1.handler.NewFormHandler;
 import edu.brown.cs.group1.handler.NewTemplateHandler;
 import edu.brown.cs.group1.handler.PastFormsHandler;
@@ -86,10 +86,8 @@ public final class Main {
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
-    parser.accepts("port")
-        .withRequiredArg()
-        .ofType(Integer.class)
-        .defaultsTo(DEFAULT_PORT);
+    parser.accepts("port").withRequiredArg().ofType(Integer.class).defaultsTo(
+        DEFAULT_PORT);
     OptionSet options = parser.parse(args);
 
     if (options.has("gui")) {
@@ -114,10 +112,9 @@ public final class Main {
     Spark.port(port);
     Spark.externalStaticFileLocation("src/main/resources/static");
     Spark.exception(Exception.class, new ExceptionPrinter());
-
     FreeMarkerEngine freeMarker = createEngine();
-    Spark.get("/login", new LoginHandler(), freeMarker);
-    Spark.get("/home", new LoginHandler(), freeMarker);
+    Spark.post("/login", new LoginSubmitHandler(), freeMarker);
+    Spark.get("/home", new LoginSubmitHandler(), freeMarker);
     Spark.get("/Dashboard/:doctorId", new DDHandler(), freeMarker);
     Spark.get("/patients/:patientId/forms",
         new PastFormsHandler("na", "na"),
@@ -380,9 +377,8 @@ public final class Main {
               if (arg1.getKey().getDate() == null) {
                 return -1;
               }
-              return ((arg1.getKey()
-                  .getDate()
-                  .compareTo(arg0.getKey().getDate())));
+              return ((arg1.getKey().getDate().compareTo(
+                  arg0.getKey().getDate())));
             }
           });
 

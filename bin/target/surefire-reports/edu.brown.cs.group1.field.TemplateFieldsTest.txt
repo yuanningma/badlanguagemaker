@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.group1.field.TemplateFieldsTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
 Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
-=======
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec
->>>>>>> 44e9786bbd8fd1bad30b1185370d315492b09f55
