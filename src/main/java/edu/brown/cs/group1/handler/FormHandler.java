@@ -52,6 +52,8 @@ public class FormHandler implements TemplateViewRoute {
     List<String> labelsAndFields = form.getFields().getContent();
     // System.out.println(labelsAndFields.size());
     // System.out.println("LANDFIELDS IS: " + labelsAndFields.get(0));
+    System.out.println(labelsAndFields.size());
+    System.out.println("LABANDFIELD: x" + labelsAndFields + "x");
     for (int i = 0; i < labelsAndFields.size(); i += 2) {
       fields.put(labelsAndFields.get(i), labelsAndFields.get(i + 1));
     }

@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import edu.brown.cs.group1.database.FormsDatabase;
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TemplatesDatabase;
+import edu.brown.cs.group1.handler.CheckTemplateHandler;
 import edu.brown.cs.group1.handler.CreateTemplateHandler;
 import edu.brown.cs.group1.handler.DDHandler;
 import edu.brown.cs.group1.handler.FormHandler;
@@ -132,6 +133,7 @@ public final class Main {
     Spark.get("/templates/new", new NewTemplateHandler(), freeMarker);
 
     Spark.post("/templates/create", new CreateTemplateHandler(tempDbPath));
+    Spark.post("/templates/check", new CheckTemplateHandler(tempDbPath));
 
     Spark.get("/imaging", new XRayHandler(), freeMarker);
     Spark.get("/data", new GraphHandler(), freeMarker);
@@ -315,17 +317,25 @@ public final class Main {
           r.getFormsDatabase().getAllForms(Integer.parseInt(currID));
 
       for (int i = 0; i < patientForms.size(); i++) {
+        System.out.println(i);
+        System.out.println(patientForms.get(i).getDate());
+      }
+      List<Template> goodForms = new ArrayList<Template>();
+      for (int i = 0; i < patientForms.size(); i++) {
         Template form = patientForms.get(i);
         if (usingDates) {
           try {
             if (form.getDate().compareTo(sD) >= 0
                 && form.getDate().compareTo(eD) <= 0) {
+              System.out.println(
+                  "START: " + sD + " END: " + eD + " FORM: " + form.getDate());
               List<String> trueContent = new ArrayList<String>();
               trueContent.addAll(r.parseForMe(form.getFields().getContent()));
               form.setTrueContent(trueContent);
+              goodForms.add(form);
             } else {
               System.out.println("REMOVING " + patientForms.get(i).getDate());
-              patientForms.remove(i);
+              // patientForms.remove(i);
             }
           } catch (NullPointerException e) {
             System.out.println("ERROR: Dates entered in incorrectly!");
@@ -337,12 +347,15 @@ public final class Main {
           List<String> trueContent = new ArrayList<String>();
           trueContent.addAll(r.parseForMe(form.getFields().getContent()));
           form.setTrueContent(trueContent);
+          goodForms.add(form);
         }
 
       }
 
+      // List<Map.Entry<Template, AtomicDouble>> sorted =
+      // r.getRankings(terms, null, patientForms);
       List<Map.Entry<Template, AtomicDouble>> sorted =
-          r.getRankings(terms, null, patientForms);
+          r.getRankings(terms, null, goodForms);
 
       Double maxRanking = sorted.get(0).getValue().doubleValue();
       List<Template> sortedForms = new ArrayList<Template>();
@@ -354,10 +367,12 @@ public final class Main {
         sortedForms.add(e.getKey());
         System.out.println(terms.size());
         if (!isEmptyQuery) {
-          tfidfs.add((100) * e.getValue().doubleValue() / maxRanking);
+          System.out.println("TRUE TFIDF: " + e.getValue().doubleValue());
+          tfidfs
+              .add(Math.floor((100) * e.getValue().doubleValue() / maxRanking));
 
           dateSort.put(e.getKey(),
-              (100) * e.getValue().doubleValue() / maxRanking);
+              Math.floor((100) * e.getValue().doubleValue() / maxRanking));
         } else {
           tfidfs.add(-1.0);
           dateSort.put(e.getKey(), -1.0);
@@ -397,99 +412,6 @@ public final class Main {
       return gson.toJson(vars);
     }
   }
-
-  // /**
-  // * Patient Handler, essentially the handler for patient information / the
-  // * patient timeline.
-  // * @author juliannerudner
-  // *
-  // */
-  // private static class PatientHandler implements TemplateViewRoute {
-  // private FormsDatabase formsDb;
-  // private PatientDatabase patientDb =
-  // new PatientDatabase("data/database/members.sqlite3");
-  //
-  // @Override
-  // public ModelAndView handle(Request arg0, Response arg1) throws Exception {
-  // // TODO Auto-generated method stub
-  // String id = arg0.params(":patientId");
-  // currID = id;
-  // String name = "";
-  // try {
-  // name = patientDb.getPatient(Integer.parseInt(id)).getName();
-  // } catch (NumberFormatException e) {
-  // System.out.println(
-  // "ERROR: number format exception, patient profile handler.");
-  // // e.printStackTrace();
-  // } catch (SQLException e) {
-  // // TODO Auto-generated catch block
-  // System.out.println("ERROR: SQL exception, patient profile handler.");
-  // // e.printStackTrace();
-  // }
-  //
-  // Map<String,
-  // Object> variables = ImmutableMap.of("title",
-  // "pc+: My Dashboard",
-  // "content",
-  // "",
-  // "id1",
-  // id,
-  // "name",
-  // name);
-  //
-  // return new ModelAndView(variables, "timeline.ftl");
-  // }
-  // }
-  //
-  // /**
-  // * RelevanceTimelineHandler uses our relevance algorithm to filter in the
-  // * timeline
-  // * @author yma37
-  // *
-  // */
-  // public class RelevanceTimelineHandler implements Route {
-  // private final Gson GSON = new Gson();
-  // // private PatientDatabase patientDb = new
-  // // PatientDatabase("data/database/members.sqlite3");
-  // //
-  // // private FormsDatabase formDb = new
-  // // FormsDatabase("data/database/forms.sqlite3");
-  // private Relevance r;
-  //
-  // /**
-  // * Constructor for searchDDHandler.
-  // */
-  // public RelevanceTimelineHandler() {
-  // r = new Relevance();
-  // }
-  //
-  // @Override
-  // public String handle(Request arg0, Response arg1) throws Exception {
-  // // TODO Auto-generated method stub
-  // QueryParamsMap qm = arg0.queryMap();
-  // System.out.println(currID);
-  //
-  // // getAllForms probably wrong?
-  // List<Template> patientForms =
-  // r.getFormsDatabase().getAllForms(Integer.parseInt(currID));
-  //
-  // // System.out.println("BEGINNING DUMMY METHOD");
-  // // System.out.println("ID: " + Integer.parseInt(currID));
-  // // r.getFormsDatabase().dummyMethod(Integer.parseInt(currID));
-  // // System.out.println("ENDED DUMMY METHOD");
-  // for (Template t : patientForms) {
-  // System.out.println("Template id: " + t.getTemplateId());
-  // System.out.println(t.getTags().size());
-  // System.out.println(t.getFields().getContent());
-  // }
-  // // System.out.println(patientForms);
-  //
-  // Map<String, Object> vars =
-  // ImmutableMap.of("forms", patientForms, "id", currID);
-  //
-  // return GSON.toJson(vars);
-  // }
-  // }
 
   /**
    * Handle requests to the front page.

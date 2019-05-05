@@ -15,10 +15,16 @@
   </div>
 
   <div id="last"></div>
+  </form>
+  
+<div class="text-center">
+	<div class="btn-group-vertical">
+	  <button id="saveForm" type="button" class="btn btn-primary left:0">Create Form</button>
+	  <button id="createField" type="button" class="btn btn-primary">New Field</button>
+	  <button id="delField" type="button" class="btn btn-primary">Delete Field</button>
+	</div>
+</div>
 
-  <button id="newField" type="button" class="btn btn-primary">New Field</button>
-  <button id="newForm" type="button" class="btn btn-primary">Create Form</button>
-</form>
 
 <#--<ul id="linklist" style="list-style-type:none">
 <li><a href="/patients/${patId}/profile" class="previous">&#10216; View Profile</a><br></li>

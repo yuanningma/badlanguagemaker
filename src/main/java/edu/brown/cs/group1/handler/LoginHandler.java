@@ -20,6 +20,7 @@ import spark.TemplateViewRoute;
 public class LoginHandler implements TemplateViewRoute {
   @Override
   public ModelAndView handle(Request req, Response res) {
+<<<<<<< HEAD
     QueryParamsMap qm = req.queryMap();
     String username = qm.value("username");
     String password = qm.value("password");
@@ -38,6 +39,10 @@ public class LoginHandler implements TemplateViewRoute {
     System.out.println(path);
     Map<String, Object> variables = ImmutableMap
         .of("title", "pc+: User Login", "message", "", "path", path);
+=======
+    Map<String, Object> variables =
+        ImmutableMap.of("title", "pc+: User Login", "message", "Enter login!");
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
     return new ModelAndView(variables, "login.ftl");
   }
 }

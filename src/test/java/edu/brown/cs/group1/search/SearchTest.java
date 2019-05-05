@@ -22,7 +22,7 @@ public class SearchTest {
     Search search = new Search(docs);
     assertNotNull(search);
 
-    assertTrue(search.termFrequency("first", doc1) == 2.0);
+    assertTrue(search.termFrequency("first", doc1) == Math.log(3));
 
   }
 
