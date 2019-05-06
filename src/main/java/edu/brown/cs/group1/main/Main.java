@@ -24,7 +24,21 @@ import com.google.gson.Gson;
 import edu.brown.cs.group1.database.FormsDatabase;
 import edu.brown.cs.group1.database.PatientDatabase;
 import edu.brown.cs.group1.database.TemplatesDatabase;
-import edu.brown.cs.group1.handler.*;
+import edu.brown.cs.group1.handler.CheckTemplateHandler;
+import edu.brown.cs.group1.handler.CreateTemplateHandler;
+import edu.brown.cs.group1.handler.DDHandler;
+import edu.brown.cs.group1.handler.FormHandler;
+import edu.brown.cs.group1.handler.GraphHandler;
+import edu.brown.cs.group1.handler.LoginHandler;
+import edu.brown.cs.group1.handler.LoginSubmitHandler;
+import edu.brown.cs.group1.handler.NewFormHandler;
+import edu.brown.cs.group1.handler.NewTemplateHandler;
+import edu.brown.cs.group1.handler.PastFormsHandler;
+import edu.brown.cs.group1.handler.PatientProfileHandler;
+import edu.brown.cs.group1.handler.SaveFormHandler;
+import edu.brown.cs.group1.handler.SearchDdHandler;
+import edu.brown.cs.group1.handler.ValidateHandler;
+import edu.brown.cs.group1.handler.XRayHandler;
 import edu.brown.cs.group1.search.Relevance;
 import edu.brown.cs.group1.template.Template;
 import freemarker.template.Configuration;
@@ -394,7 +408,12 @@ public final class Main {
       List<Double> newTfIdfs = new ArrayList<Double>();
       for (Entry<Template, Double> entry : dateEntries) {
         dateSortedTemps.add(entry.getKey());
-        newTfIdfs.add(entry.getValue());
+        if (entry.getValue().equals(Double.NaN)) {
+          newTfIdfs.add(0.0);
+        } else {
+          newTfIdfs.add(entry.getValue());
+        }
+
       }
       Map<String, Object> vars = ImmutableMap
           .of("forms", dateSortedTemps, "id", currID, "vals", newTfIdfs);

@@ -13,6 +13,7 @@ $(document).ready(() => {
         } else if (blanks) {
             alert("No blank fields allowed");
         } else {
+            console.log("we made it!");
             let formElts = "";
 
             $( "#saveForm :input" ).each(function(){
@@ -56,14 +57,6 @@ $(document).ready(() => {
         $( "#saveForm :input" ).each(function(){
         if (!($(this).attr('id') === "saveButton")) {
             if ($(this).val() === "") {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-                console.log("here");
-                console.log($(this).val());
->>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2
->>>>>>> 02c73570142fab65f40119e58682ef270708675e
                 blanks = true;
                 return blanks;
             }

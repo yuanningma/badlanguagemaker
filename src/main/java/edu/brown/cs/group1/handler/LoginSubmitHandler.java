@@ -66,26 +66,22 @@ public class LoginSubmitHandler implements TemplateViewRoute {
       }
 
       path = "http://0.0.0.0:4567/Dashboard/" + docId;
-    variables = ImmutableMap.of("title",
+      variables = ImmutableMap.of("title",
           "Patient Dashboard",
           "message",
-          "Login Success",
+          "",
           "patientsFN",
           patients1,
           "content",
           "",
           "path",
           path);
-    return new ModelAndView(variables, "DD.ftl");
+      return new ModelAndView(variables, "DD.ftl");
     } else {
-        path = "http://0.0.0.0:4567/login";
-         Map<String, Object> variable = ImmutableMap.of("title",
-                "pc+: User Login",
-                "message",
-                "Login Failed: Invalid username or password.",
-                "path",
-                path);
-        return new ModelAndView(variable, "login.ftl");
+      path = "http://0.0.0.0:4567/login";
+      Map<String, Object> variable = ImmutableMap
+          .of("title", "pc+: User Login", "message", "", "path", path);
+      return new ModelAndView(variable, "login.ftl");
     }
   }
 }

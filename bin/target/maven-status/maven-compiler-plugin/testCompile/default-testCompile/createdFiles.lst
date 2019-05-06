@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-edu\brown\cs\TestDatabase\StaffDatabaseTest.class
-edu\brown\cs\TestTermiologyDatabase\MedicalProcedureDatabaseTest.class
-edu\brown\cs\TestTermiologyDatabase\MedicalDictornaryDatabaseTest.class
-edu\brown\cs\group1\search\RelevanceTest.class
-edu\brown\cs\group1\tag\TestTags.class
-edu\brown\cs\group1\patient\PatientTest.class
-edu\brown\cs\group1\search\SearchTest.class
-edu\brown\cs\TestDatabase\LoginDatabaseTest.class
-edu\brown\cs\TerminologyAssociation\TerminologyAssociationTest.class
-edu\brown\cs\TestDatabase\TemplateDatabaseTest.class
-edu\brown\cs\TestDatabase\TagsDatabaseTest.class
-edu\brown\cs\TestTermiologyDatabase\MedicalDictornaryDatabaseTest$1.class
-edu\brown\cs\group1\similarity\TestExactSimilarity.class
-edu\brown\cs\group1\field\TemplateFieldsTest.class
-edu\brown\cs\group1\similarity\TestExactSimilaritySorter.class
-edu\brown\cs\TestDatabase\PatientDatabaseTest.class
-edu\brown\cs\TestTermiologyDatabase\revelence.class
-edu\brown\cs\TestDatabase\FormDatabaseTest.class
-=======
-<<<<<<< HEAD
 edu/brown/cs/group1/similarity/TestExactSimilaritySorter.class
 edu/brown/cs/TestTermiologyDatabase/revelence.class
 edu/brown/cs/group1/search/SearchTest.class
@@ -31,11 +10,9 @@ edu/brown/cs/TestDatabase/TagsDatabaseTest.class
 edu/brown/cs/group1/similarity/TestExactSimilarity.class
 edu/brown/cs/group1/tag/TestTags.class
 edu/brown/cs/TestDatabase/StaffDatabaseTest.class
+edu/brown/cs/TestDatabase/LoginDatabaseTest.class
 edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest.class
 edu/brown/cs/TestDatabase/TemplateDatabaseTest.class
 edu/brown/cs/TestTermiologyDatabase/MedicalDictornaryDatabaseTest$1.class
 edu/brown/cs/TerminologyAssociation/TerminologyAssociationTest.class
 edu/brown/cs/TestDatabase/FormDatabaseTest.class
-=======
->>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2
->>>>>>> 02c73570142fab65f40119e58682ef270708675e

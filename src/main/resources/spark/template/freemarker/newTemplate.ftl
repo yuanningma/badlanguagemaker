@@ -18,7 +18,7 @@
   </form>
   
 <div class="text-center">
-	<div class="btn-group-vertical">
+	<div class="btn-group-horizontal">
 	  <button id="saveForm" type="button" class="btn btn-primary left:0">Create Form</button>
 	  <button id="createField" type="button" class="btn btn-primary">New Field</button>
 	  <button id="delField" type="button" class="btn btn-primary">Delete Field</button>
