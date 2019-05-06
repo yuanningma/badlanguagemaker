@@ -1,8 +1,24 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.group1.field.TemplateFieldsTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec <<< FAILURE!
 testFieldsAndLabelsValueOf(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0.007 sec  <<< FAILURE!
+=======
+<<<<<<< HEAD
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+=======
+<<<<<<< HEAD
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec <<< FAILURE!
+testFieldsAndLabelsValueOf(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+=======
+<<<<<<< HEAD
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+=======
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec <<< FAILURE!
+testFieldsAndLabelsValueOf(edu.brown.cs.group1.field.TemplateFieldsTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+>>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
+>>>>>>> 02c73570142fab65f40119e58682ef270708675e
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -38,3 +54,8 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
+<<<<<<< HEAD
+=======
+>>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
+>>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2
+>>>>>>> 02c73570142fab65f40119e58682ef270708675e
