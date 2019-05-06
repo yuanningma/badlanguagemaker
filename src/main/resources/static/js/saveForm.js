@@ -13,6 +13,7 @@ $(document).ready(() => {
         } else if (blanks) {
             alert("No blank fields allowed");
         } else {
+            console.log("we made it!");
             let formElts = "";
 
             $( "#saveForm :input" ).each(function(){
