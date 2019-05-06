@@ -23,7 +23,7 @@ public class LoginSubmitHandler implements TemplateViewRoute {
   @SuppressWarnings("static-access")
   @Override
   public ModelAndView handle(Request req, Response res) throws SQLException {
-    // TODO CREATE A DATABASE OF LOGIN
+    Map<String, Object> variables;
     LoginDatabase login = new LoginDatabase("data/database/login.sqlite3");
     PasswordUtlitities passwordUtlitities = new PasswordUtlitities();
     QueryParamsMap qm = req.queryMap();
@@ -33,31 +33,28 @@ public class LoginSubmitHandler implements TemplateViewRoute {
     Integer docId = 0;
 
     docId = login.getStaff(username);
-    System.out.println(docId);
+
+    // System.out.println(username);
 
     Boolean pass = false;
     try {
-      if (login.getPassword(username) != null) {
-        System.out.println("1");
-        pass = passwordUtlitities.verifyUserPassword(password,
-            login.getPassword(username),
-            login.getSalt(username));
+      if (username != "" && password != "") {
+        if (login.getPassword(username) != null) {
+          pass = passwordUtlitities.verifyUserPassword(password,
+              login.getPassword(username),
+              login.getSalt(username));
+        }
       }
     } catch (SQLException sql) {
       sql.printStackTrace();
     }
-
-    Map<String, Object> variables = ImmutableMap
-        .of("title", "pc+: User Login", "message", "", "path", path);
-
     if (pass) {
-      System.out.println("2");
-
       List<String[]> patients1 = new ArrayList<String[]>();
       List<String> names = new ArrayList<String>();
 
       try {
         patients1.addAll(patientDb.getAllPatients(docId));
+        System.out.println(patients1.size());
 
         patients1.forEach(P -> names.add(P[0] + " " + P[1] + " " + P[2]));
 
@@ -69,7 +66,7 @@ public class LoginSubmitHandler implements TemplateViewRoute {
       }
 
       path = "http://0.0.0.0:4567/Dashboard/" + docId;
-      variables = ImmutableMap.of("title",
+    variables = ImmutableMap.of("title",
           "Patient Dashboard",
           "message",
           "Login Success",
@@ -79,22 +76,16 @@ public class LoginSubmitHandler implements TemplateViewRoute {
           "",
           "path",
           path);
-
+    return new ModelAndView(variables, "DD.ftl");
+    } else {
+        path = "http://0.0.0.0:4567/login";
+         Map<String, Object> variable = ImmutableMap.of("title",
+                "pc+: User Login",
+                "message",
+                "Login Failed: Invalid username or password.",
+                "path",
+                path);
+        return new ModelAndView(variable, "login.ftl");
     }
-    return new ModelAndView(variables, "login.ftl");
-
-    // } else {
-    // path = "http://0.0.0.0:4567/home";
-    // System.out.println("2A");
-    // Map<String,
-    // Object> variables = ImmutableMap.of("title",
-    // "pc+: User Login",
-    // "message",
-    // "Login Failed: Invalid username or password.",
-    // "path",
-    // path);
-    // return new ModelAndView(variables, "login.ftl");
-    // }
-
   }
 }

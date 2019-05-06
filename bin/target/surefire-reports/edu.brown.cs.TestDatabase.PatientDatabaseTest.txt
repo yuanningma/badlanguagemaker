@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: edu.brown.cs.TestDatabase.PatientDatabaseTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+=======
+<<<<<<< HEAD
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+=======
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+>>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2
+>>>>>>> 02c73570142fab65f40119e58682ef270708675e

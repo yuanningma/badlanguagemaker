@@ -2,6 +2,12 @@
 Test set: edu.brown.cs.TestTermiologyDatabase.MedicalDictornaryDatabaseTest
 -------------------------------------------------------------------------------
 <<<<<<< HEAD
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec
+=======
+<<<<<<< HEAD
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+=======
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.242 sec
 =======
 <<<<<<< HEAD
@@ -10,3 +16,5 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec
 >>>>>>> b01b2352769f21aa45e360a323cffdd9aa6e22ec
 >>>>>>> e14050f752e30b46f97c82d60631f647da7599e9
+>>>>>>> 8c80bc4710675195311fd07d9a5a3b70f94a3bd2
+>>>>>>> 02c73570142fab65f40119e58682ef270708675e

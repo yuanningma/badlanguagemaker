@@ -21,15 +21,15 @@ public class PatientDatabaseTest {
   public void testSavePatient() {
 //      try {
 //          patientDatabase.savePatients(patient1);
-//          patient1 = new Patient(2, "Issie", "Giddy", "Haselgrove", 2);
+//          patient1 = new Patient(1, "Issie", "Giddy", "Haselgrove", 2);
 //          patientDatabase.savePatients(patient1);
-//          patient1 = new Patient(3, "Mercedes", "Blackeden", "Whitter", 2);
+//          patient1 = new Patient(1, "Mercedes", "Blackeden", "Whitter", 2);
 //          patientDatabase.savePatients(patient1);
-//          patient1 = new Patient(4, "Gunar", "Richel", "Goldsbrough", 4);
+//          patient1 = new Patient(1, "Gunar", "Richel", "Goldsbrough", 4);
 //          patientDatabase.savePatients(patient1);
-//          patient1 = new Patient(5, "Benedict", "Reimer", "Staver", 4);
+//          patient1 = new Patient(1, "Benedict", "Reimer", "Staver", 4);
 //          patientDatabase.savePatients(patient1);
-//          patient1 = new Patient(6, "Cecilla", "Klezmki", "Champney", 5);
+//          patient1 = new Patient(1, "Cecilla", "Klezmki", "Champney", 5);
 //          patientDatabase.savePatients(patient1);
 ////
 //      }catch(SQLException sql) {

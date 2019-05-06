@@ -65,7 +65,7 @@ public class FormsDatabase extends Database {
    *          the patient id.
    * @return the template being saved.
    */
-  public Template saveForm(Template template, Integer patientid) {
+  public Template saveForm(Template template, Integer patientid, String time) {
     template.setTemplateId(nextFormId);
     nextFormId++;
     Template newTempl = template;
@@ -103,7 +103,7 @@ public class FormsDatabase extends Database {
         SimpleDateFormat formatter =
             new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String date = formatter.format(new Date());
-        prep.setString(6, date);
+        prep.setString(6, time);
         prep.addBatch();
         prep.executeBatch();
         prep.close();
